@@ -1,8 +1,8 @@
 function ToC() {
 	return (
-		<div className='rs-sticky rs-top-20 rs-min-w-[14rem] rs-h-[calc(100vh-5rem)] xl:rs-flex-none xl:rs-overflow-y-auto xl:rs-py-8'>
+		<div className='sticky top-20 h-[calc(100vh-5rem)] min-w-[14rem] xl:flex-none xl:overflow-y-auto xl:py-8'>
 			<nav>
-				<h2 className='rs-text-sm rs-font-medium rs-text-slate-900'>
+				<h2 className='text-sm font-semibold text-slate-900 dark:text-slate-50'>
 					On this page
 				</h2>
 			</nav>

@@ -7,21 +7,21 @@ function Sidebar() {
 	const config = useContext(RescribeContext)
 
 	return (
-		<div className='rs-relative'>
-			<div className='rs-sticky rs-top-20 rs-min-w-[20rem] rs-h-[calc(100vh-5rem)] rs-overflow-y-auto rs-overflow-x-hidden rs-py-8 rs-pr-4 rs-pl-1 rs-border-r rs-border-gray-200 rs-space-y-4'>
+		<div className='relative'>
+			<div className='sticky top-20 h-[calc(100vh-5rem)] min-w-[20rem] space-y-4 overflow-y-auto overflow-x-hidden border-r border-gray-200 py-8 pr-4 pl-1 dark:border-gray-800'>
 				{config.sidebar?.search ? (
 					<input
-						className='rs-w-72 rs-h-12 rs-px-4 rs-py-1 rs-rounded-md rs-bg-neutral-300 rs-text-gray-500 rs-text-sm'
+						className='h-12 w-72 rounded-md bg-neutral-100 px-4 py-1 text-sm text-gray-500 dark:bg-neutral-900 dark:text-gray-300'
 						placeholder='Search...'
 					/>
 				) : null}
 				{config.sidebar?.links && (
-					<ul className='rs-flex rs-flex-col rs-space-y-4'>
+					<ul className='flex flex-col space-y-4'>
 						{config.sidebar?.links?.map(
 							(link: SidebarLink, index: number) => {
 								return (
 									<li
-										className='rs-flex rs-items-center lg:rs-text-md lg:rs-leading-6 rs-font-semibold rs-transition-all rs-duration-300 hover:rs-text-gray-900 rs-text-gray-700'
+										className='lg:text-md flex items-center font-semibold text-gray-700 transition-all duration-300 hover:text-gray-900 lg:leading-6'
 										key={index}
 									>
 										{link?.external ? (

@@ -2,9 +2,9 @@ import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
 
 function Footer() {
 	return (
-		<div className='rs-w-screen rs-h-20 rs-sticky rs-top-0 rs-z-50 rs-flex rs-flex-wrap rs-items-center rs-justify-center rs-px-4 sm:rs-px-6 lg:rs-px-8 rs-py-4 rs-border-t rs-border-gray-200'>
-			<div className='rs-w-[88rem] rs-flex rs-items-center rs-justify-between'>
-				<div className='rs-flex rs-items-center rs-gap-2'>
+		<div className='sticky top-0 z-50 flex h-20 w-screen flex-wrap items-center justify-center border-t border-gray-200 bg-white px-4 py-4 dark:border-gray-700 dark:bg-[#040303] sm:px-6 lg:px-8'>
+			<div className='flex w-[88rem] items-center justify-between'>
+				<div className='flex items-center gap-2 text-gray-900 dark:text-gray-400'>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
 						width='24'
@@ -30,7 +30,7 @@ function Footer() {
 					<p>
 						Built by{' '}
 						<a
-							className='rs-underline'
+							className='underline'
 							href='https://i4o.dev'
 							target='_blank'
 							rel='noreferrer noopener'
@@ -40,14 +40,14 @@ function Footer() {
 						.
 					</p>
 				</div>
-				<div className='rs-flex rs-items-center rs-justify-end rs-gap-4'>
+				<div className='flex items-center justify-end gap-4'>
 					<a
 						aria-label='Github Repo'
 						href='https://github.com/i4o-oss/rescribe'
 						target='_blank'
 						rel='noreferrer noopener'
 					>
-						<GitHubLogoIcon className='rs-w-6 rs-h-6' />
+						<GitHubLogoIcon className='h-6 w-6 text-black dark:text-gray-100' />
 					</a>
 					<a
 						aria-label='Twitter Profile'
@@ -55,7 +55,7 @@ function Footer() {
 						target='_blank'
 						rel='noreferrer noopener'
 					>
-						<TwitterLogoIcon className='rs-w-6 rs-h-6' />
+						<TwitterLogoIcon className='h-6 w-6 text-black dark:text-gray-100' />
 					</a>
 				</div>
 			</div>

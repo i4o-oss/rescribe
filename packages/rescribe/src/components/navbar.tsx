@@ -20,21 +20,21 @@ function Navbar() {
 	// ]
 
 	return (
-		<header className='rs-w-screen rs-h-20 rs-flex rs-flex-wrap rs-items-center rs-justify-between rs-px-4 sm:rs-px-6 lg:rs-px-8 rs-py-4 rs-border rs-border-gray-200'>
-			<div className='rs-relative rs-flex rs-flex-grow rs-basis-0 rs-items-center'>
+		<header className='flex h-20 w-screen flex-wrap items-center justify-between bg-white px-4 py-4 shadow-sm shadow-gray-200 dark:bg-[#040303] dark:shadow-gray-700 sm:px-6 lg:px-8'>
+			<div className='relative flex flex-grow basis-0 items-center'>
 				<Link aria-label='Home page' to='/'>
 					{typeof config.logo === 'string' ? (
-						<img className='rs-flex rs-h-8' src={config.logo} />
+						<img className='flex h-8' src={config.logo} />
 					) : (
 						config.logo
 					)}
 				</Link>
 			</div>
-			<div className='rs-flex rs-flex-grow rs-items-center rs-justify-end rs-gap-2'>
+			<div className='flex flex-grow items-center justify-end gap-2'>
 				{/* <Nav items={navItems} /> */}
 				{config.navbar?.search && (
 					<input
-						className='rs-w-80 rs-h-12 rs-px-4 rs-py-1 rs-rounded-md rs-text-sm'
+						className='h-12 w-80 rounded-md bg-neutral-100 px-4 py-1 text-sm dark:bg-neutral-900 dark:text-gray-300'
 						placeholder='Search...'
 					/>
 				)}
@@ -44,7 +44,7 @@ function Navbar() {
 					target='_blank'
 					rel='noreferrer noopener'
 				>
-					<GitHubLogoIcon className='rs-w-6 rs-h-6' />
+					<GitHubLogoIcon className='h-6 w-6 text-black dark:text-gray-100' />
 				</a>
 				{config.theme?.darkModeToggle}
 			</div>

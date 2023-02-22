@@ -8,9 +8,9 @@ interface ContainerProps {
 
 function Container(props: ContainerProps) {
 	return (
-		<div className='rs-relative rs-mx-auto rs-flex rs-w-full rs-min-h-[90rem] rs-max-w-[88rem] rs-justify-center sm:rs-px-2 lg:rs-px-8 xl:rs-px-12'>
+		<div className='relative mx-auto flex w-full min-h-[90rem] max-w-[88rem] justify-center sm:px-2 lg:px-8 xl:px-12'>
 			<Sidebar />
-			<div className='rs-flex-auto rs-max-w-2xl rs-px-4 rs-py-16 lg:rs-max-w-none lg:rs-pr-0 lg:rs-pl-0 xl:rs-px-16 rs-prose dark:rs-prose-invert'>
+			<div className='flex-auto max-w-2xl px-4 py-16 lg:max-w-none lg:pr-0 lg:pl-0 xl:px-16 prose dark:prose-invert'>
 				{props.children}
 			</div>
 			<ToC />
