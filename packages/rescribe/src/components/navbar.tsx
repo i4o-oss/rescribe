@@ -2,7 +2,7 @@ import { Link } from '@remix-run/react'
 import { IconButton, Switch } from '@i4o-oss/catalystui'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import { useContext } from 'react'
-import { RescribeContext } from '../utils/constants'
+import { RescribeContext } from '../constants'
 
 function Navbar() {
 	const config = useContext(RescribeContext)
