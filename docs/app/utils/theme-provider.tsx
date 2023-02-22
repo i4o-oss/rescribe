@@ -13,7 +13,7 @@ type ThemeContextType = [Theme | null, Dispatch<SetStateAction<Theme | null>>]
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
-const prefersDarkMQ = '(prefers-color-scheme: dark)'
+const prefersDarkMQ = '(prefecolor-scheme: dark)'
 const getPreferredTheme = () =>
 	window.matchMedia(prefersDarkMQ).matches ? Theme.DARK : Theme.LIGHT
 

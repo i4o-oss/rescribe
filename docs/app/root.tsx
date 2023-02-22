@@ -1,4 +1,10 @@
-import type { LinksFunction, MetaFunction } from '@remix-run/node'
+import type {
+	LinksFunction,
+	LoaderArgs,
+	MetaFunction,
+	SerializeFrom,
+} from '@remix-run/node'
+import { json } from '@remix-run/node'
 import {
 	Links,
 	LiveReload,
@@ -6,11 +12,14 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useLoaderData,
 } from '@remix-run/react'
 import { RescribeProvider } from 'rescribe'
 import config from '~/rescribe.config'
 import stylesheet from '~/main.css'
 import rescribeStylesheet from 'rescribe/main.css'
+import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'
+import { getThemeSession } from '~/utils/theme.server'
 
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: stylesheet },
@@ -23,15 +32,30 @@ export const meta: MetaFunction = () => ({
 	viewport: 'width=device-width,initial-scale=1',
 })
 
+export type LoaderData = SerializeFrom<typeof loader>
+
+export async function loader({ request }: LoaderArgs) {
+	const themeSession = await getThemeSession(request)
+	return json({
+		theme: themeSession.getTheme(),
+	})
+}
+
 function App() {
+	const data = useLoaderData<LoaderData>()
+	const [theme] = useTheme()
+
 	return (
-		<html lang='en'>
+		<html lang='en' className={`h-screen w-screen ${theme ?? ''}`}>
 			<head>
 				<Meta />
 				<Links />
+				<ThemeHead ssrTheme={Boolean(data.theme)} />
 			</head>
-			<body>
-				<Outlet />
+			<body className='h-full w-full bg-white dark:bg-[#040303]'>
+				<RescribeProvider config={config}>
+					<Outlet />
+				</RescribeProvider>
 				<ScrollRestoration />
 				<Scripts />
 				<LiveReload />
@@ -41,9 +65,10 @@ function App() {
 }
 
 export default function AppWithProviders() {
+	const data = useLoaderData<LoaderData>()
 	return (
-		<RescribeProvider config={config}>
+		<ThemeProvider specifiedTheme={data.theme}>
 			<App />
-		</RescribeProvider>
+		</ThemeProvider>
 	)
 }
