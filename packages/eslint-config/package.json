@@ -1,19 +1,20 @@
 {
-	"name": "@rescribe/eslint-config",
-	"version": "0.0.0",
-	"main": "index.js",
-	"license": "MIT",
-	"dependencies": {
-		"@remix-run/eslint-config": "^1.11.1",
-		"eslint": "^7.23.0",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-react": "7.31.8",
-		"eslint-config-turbo": "latest"
-	},
-	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.47.1",
-		"@typescript-eslint/parser": "^5.47.1",
-		"typescript": "^4.7.4"
-	},
-	"private": true
+    "name": "@rescribe/eslint-config",
+    "version": "0.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "@remix-run/eslint-config": "^1.11.1",
+        "eslint": "^8.34.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-react": "7.31.8",
+        "eslint-config-turbo": "latest"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.47.1",
+        "@typescript-eslint/parser": "^5.47.1",
+        "react": "^18.2.0",
+        "typescript": "^4.7.4"
+    },
+    "private": true
 }
