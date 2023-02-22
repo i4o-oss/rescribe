@@ -17,6 +17,7 @@ importers:
   docs:
     specifiers:
       '@i4o-oss/catalystui': 0.6.1
+      '@radix-ui/react-icons': ^1.1.1
       '@remix-run/dev': ^1.13.0
       '@remix-run/node': ^1.13.0
       '@remix-run/react': ^1.13.0
@@ -33,6 +34,7 @@ importers:
       typescript: ^4.8.4
     dependencies:
       '@i4o-oss/catalystui': 0.6.1_zula6vjvt3wdocc4mwcxqa6nzi
+      '@radix-ui/react-icons': 1.2.0_react@18.2.0
       '@remix-run/node': 1.13.0
       '@remix-run/react': 1.13.0_biqbaboplfbrettd7655fr4n2y
       '@remix-run/serve': 1.13.0
@@ -435,6 +437,18 @@ packages:
     dev: true
 
   /@babel/plugin-bugfix-v8-spread-parametein-optional-chaining/7.20.7_@babel+core@7.21.0:
+    resolution: {integrity: sha512-sbr9+wNE5aXMBBFBICk01tt7sBf2Oc9ikRFEcem/ZORup9IMUdNhW7/wVLEbbtlWOsEubJet46mHAL2C8+2jKQ==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.13.0
+    dependencies:
+      '@babel/core': 7.21.0
+      '@babel/helper-plugin-utils': 7.20.2
+      '@babel/helper-skip-transparent-expression-wrappers': 7.20.0
+      '@babel/plugin-proposal-optional-chaining': 7.21.0_@babel+core@7.21.0
+    dev: true
+
+  /@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining/7.20.7_@babel+core@7.21.0:
     resolution: {integrity: sha512-sbr9+wNE5aXMBBFBICk01tt7sBf2Oc9ikRFEcem/ZORup9IMUdNhW7/wVLEbbtlWOsEubJet46mHAL2C8+2jKQ==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
@@ -1221,6 +1235,7 @@ packages:
       '@babel/helper-validator-option': 7.21.0
       '@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression': 7.18.6_@babel+core@7.21.0
       '@babel/plugin-bugfix-v8-spread-parametein-optional-chaining': 7.20.7_@babel+core@7.21.0
+      '@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining': 7.20.7_@babel+core@7.21.0
       '@babel/plugin-proposal-async-generator-functions': 7.20.7_@babel+core@7.21.0
       '@babel/plugin-proposal-class-properties': 7.18.6_@babel+core@7.21.0
       '@babel/plugin-proposal-class-static-block': 7.21.0_@babel+core@7.21.0
@@ -2256,7 +2271,6 @@ packages:
       react: ^16.x || ^17.x || ^18.x
     dependencies:
       react: 18.2.0
-    dev: true
 
   /@radix-ui/react-id/1.0.0_react@18.2.0:
     resolution: {integrity: sha512-Q6iAB/U7Tq3NTolBBQbHTgclPmGWE3OlktGGqrClPozSw4vkQ1DfQAOtzgRPecKsMdJINE05iaoDUG8tRzCBjw==}
