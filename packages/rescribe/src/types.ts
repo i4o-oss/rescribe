@@ -5,9 +5,10 @@ interface NavbarConfig {
 }
 
 export interface SidebarLink {
-	label: string | ReactNode
-	href: string
 	external?: true
+	href: string
+	icon?: ReactNode
+	label: string | ReactNode
 }
 
 interface SidebarConfig {

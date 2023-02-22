@@ -1,10 +1,11 @@
 import { useContext } from 'react'
-import { Link } from '@remix-run/react'
+import { Link, useLocation } from '@remix-run/react'
 import { RescribeContext } from '../constants'
 import { SidebarLink } from '../types'
 
 function Sidebar() {
 	const config = useContext(RescribeContext)
+	const location = useLocation()
 
 	return (
 		<div className='relative'>
@@ -20,21 +21,46 @@ function Sidebar() {
 						{config.sidebar?.links?.map(
 							(link: SidebarLink, index: number) => {
 								return (
-									<li
-										className='lg:text-md flex items-center font-semibold text-gray-700 transition-all duration-300 hover:text-gray-900 lg:leading-6'
-										key={index}
-									>
+									<li key={index}>
 										{link?.external ? (
 											<a
+												className='group flex items-center gap-4 text-gray-400 transition-all duration-300 dark:text-gray-600'
 												href={link.href}
 												target='_blank'
 												rel='noreferrer noopener'
 											>
-												{link.label}
+												<div className='group-hover:bg-brand-500 group-hover:dark:bg-brand-500 rounded-md p-1 ring-1 ring-zinc-400/25 group-hover:text-white dark:ring-zinc-700/40 group-hover:dark:text-white'>
+													{link.icon}
+												</div>
+												<span className='text-sm font-semibold'>
+													{link.label}
+												</span>
 											</a>
 										) : (
-											<Link to={link.href}>
-												{link.label}
+											<Link
+												className='group flex items-center gap-4 text-gray-400 transition-all duration-300 dark:text-gray-600'
+												to={link.href}
+											>
+												<div
+													className={`group-hover:bg-brand-500 group-hover:dark:bg-brand-500 rounded-md p-1 ring-1 ring-zinc-400/25 group-hover:text-white dark:ring-zinc-700/40 group-hover:dark:text-white ${
+														link.href ===
+														location.pathname
+															? 'bg-brand-500 text-white'
+															: ''
+													}`}
+												>
+													{link.icon}
+												</div>
+												<span
+													className={`text-sm font-semibold ${
+														link.href ===
+														location.pathname
+															? 'text-brand-500'
+															: ''
+													}`}
+												>
+													{link.label}
+												</span>
 											</Link>
 										)}
 									</li>

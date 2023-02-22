@@ -30,7 +30,7 @@ function Navbar() {
 					)}
 				</Link>
 			</div>
-			<div className='flex flex-grow items-center justify-end gap-2'>
+			<div className='flex flex-grow items-center justify-end gap-4'>
 				{/* <Nav items={navItems} /> */}
 				{config.navbar?.search && (
 					<input
