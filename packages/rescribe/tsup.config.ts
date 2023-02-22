@@ -60,7 +60,7 @@ export default defineConfig([
 		target: 'es2020',
 	},
 	{
-		entry: ['src/core/types.ts'],
+		entry: ['src/types.ts'],
 		name: 'rescribe-types',
 		dts: {
 			only: true,
