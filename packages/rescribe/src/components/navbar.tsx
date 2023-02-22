@@ -20,7 +20,7 @@ function Navbar() {
 	// ]
 
 	return (
-		<header className='rs-w-screen rs-h-20 rs-sticky rs-top-0 rs-z-50 rs-flex rs-flex-wrap rs-items-center rs-justify-between rs-px-4 sm:rs-px-6 lg:rs-px-8 rs-py-4 rs-shadow-sm rs-shadow-gray-200 dark:rs-shadow-gray-700 rs-bg-white dark:rs-bg-[#040303]'>
+		<header className='rs-w-screen rs-h-20 rs-flex rs-flex-wrap rs-items-center rs-justify-between rs-px-4 sm:rs-px-6 lg:rs-px-8 rs-py-4 rs-border rs-border-gray-200'>
 			<div className='rs-relative rs-flex rs-flex-grow rs-basis-0 rs-items-center'>
 				<Link aria-label='Home page' to='/'>
 					{typeof config.logo === 'string' ? (
@@ -34,7 +34,7 @@ function Navbar() {
 				{/* <Nav items={navItems} /> */}
 				{config.navbar?.search && (
 					<input
-						className='rs-w-80 rs-h-12 rs-px-4 rs-py-1 rs-rounded-md rs-bg-neutral-100 dark:rs-bg-neutral-900 dark:rs-text-gray-300 rs-text-sm'
+						className='rs-w-80 rs-h-12 rs-px-4 rs-py-1 rs-rounded-md rs-text-sm'
 						placeholder='Search...'
 					/>
 				)}
@@ -44,7 +44,7 @@ function Navbar() {
 					target='_blank'
 					rel='noreferrer noopener'
 				>
-					<GitHubLogoIcon className='rs-w-6 rs-h-6 rs-text-black dark:rs-text-gray-100' />
+					<GitHubLogoIcon className='rs-w-6 rs-h-6' />
 				</a>
 				{config.theme?.darkModeToggle}
 			</div>

@@ -8,10 +8,10 @@ function Sidebar() {
 
 	return (
 		<div className='rs-relative'>
-			<div className='rs-sticky rs-top-20 rs-min-w-[20rem] rs-h-[calc(100vh-5rem)] rs-overflow-y-auto rs-overflow-x-hidden rs-py-8 rs-pr-4 rs-pl-1 rs-border-r rs-border-gray-200 dark:rs-border-gray-800 rs-space-y-4'>
+			<div className='rs-sticky rs-top-20 rs-min-w-[20rem] rs-h-[calc(100vh-5rem)] rs-overflow-y-auto rs-overflow-x-hidden rs-py-8 rs-pr-4 rs-pl-1 rs-border-r rs-border-gray-200 rs-space-y-4'>
 				{config.sidebar?.search ? (
 					<input
-						className='rs-w-72 rs-h-12 rs-px-4 rs-py-1 rs-rounded-md rs-bg-neutral-100 dark:rs-bg-neutral-900 dark:rs-text-gray-300 rs-text-sm'
+						className='rs-w-72 rs-h-12 rs-px-4 rs-py-1 rs-rounded-md rs-bg-neutral-300 rs-text-gray-500 rs-text-sm'
 						placeholder='Search...'
 					/>
 				) : null}
