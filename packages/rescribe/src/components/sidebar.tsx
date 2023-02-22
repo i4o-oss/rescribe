@@ -9,7 +9,7 @@ function Sidebar() {
 
 	return (
 		<div className='relative'>
-			<div className='sticky top-20 h-[calc(100vh-5rem)] min-w-[20rem] space-y-4 overflow-y-auto overflow-x-hidden border-r border-gray-200 py-8 pr-4 pl-1 dark:border-gray-800'>
+			<div className='sticky top-20 flex h-[calc(100vh-5rem)] min-w-[20rem] flex-col gap-8 overflow-y-auto overflow-x-hidden border-r border-gray-200 py-8 pr-4 pl-1 dark:border-gray-800'>
 				{config.sidebar?.search ? (
 					<input
 						className='h-12 w-full rounded-md bg-neutral-100 px-4 py-1 text-sm text-gray-500 dark:bg-neutral-900 dark:text-gray-300'
@@ -17,7 +17,7 @@ function Sidebar() {
 					/>
 				) : null}
 				{config.sidebar?.links && (
-					<ul className='flex flex-col space-y-4'>
+					<ul className='flex flex-col gap-4'>
 						{config.sidebar?.links?.map(
 							(link: SidebarLink, index: number) => {
 								return (

@@ -1,7 +1,11 @@
 import type { RescribeConfig } from 'rescribe'
 import { Switch } from '@i4o-oss/catalystui'
 import { Theme, useTheme } from '~/utils/theme-provider'
-import { FileTextIcon, GitHubLogoIcon } from '@radix-ui/react-icons'
+import {
+	DashboardIcon,
+	FileTextIcon,
+	GitHubLogoIcon,
+} from '@radix-ui/react-icons'
 
 function DarkModeToggle() {
 	const [theme, setTheme] = useTheme()
@@ -29,6 +33,11 @@ const config: RescribeConfig = {
 				href: '/docs',
 				icon: <FileTextIcon className='h-4 w-4' />,
 				label: 'Documentation',
+			},
+			{
+				href: '/docs/components',
+				icon: <DashboardIcon className='h-4 w-4' />,
+				label: 'Components',
 			},
 			{
 				external: true,
