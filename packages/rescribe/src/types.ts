@@ -19,6 +19,9 @@ export interface RescribeConfig {
 	logo: string | ReactNode
 	navbar?: NavbarConfig
 	sidebar?: SidebarConfig
+	theme?: {
+		darkModeToggle?: ReactNode
+	}
 }
 
 export interface RescribeProviderProps {

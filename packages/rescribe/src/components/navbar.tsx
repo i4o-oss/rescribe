@@ -1,5 +1,4 @@
 import { Link } from '@remix-run/react'
-import { IconButton, Switch } from '@i4o-oss/catalystui'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import { useContext } from 'react'
 import { RescribeContext } from '../constants'
@@ -45,24 +44,9 @@ function Navbar() {
 					target='_blank'
 					rel='noreferrer noopener'
 				>
-					<IconButton
-						bg='!rs-bg-transparent hover:!rs-bg-transparent'
-						padding='rs-p-2'
-						icon={
-							<GitHubLogoIcon className='rs-w-6 rs-h-6 rs-text-black dark:rs-text-gray-100' />
-						}
-					/>
+					<GitHubLogoIcon className='rs-w-6 rs-h-6 rs-text-black dark:rs-text-gray-100' />
 				</a>
-				{/* <IconButton */}
-				{/* 	bg='!rs-bg-transparent hover:!rs-bg-transparent' */}
-				{/* 	className='rs-border rs-border-gray-300' */}
-				{/* 	padding='rs-p-2' */}
-				{/* 	icon={ */}
-				{/* 		<SunIcon className='rs-w-4 rs-h-4 rs-text-gray-700 dark:rs-text-gray-100' /> */}
-				{/* 	} */}
-				{/* 	onClick={toggleTheme} */}
-				{/* /> */}
-				<Switch name='theme-toggle-switch' />
+				{config.theme?.darkModeToggle}
 			</div>
 		</header>
 	)
