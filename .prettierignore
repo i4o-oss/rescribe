@@ -1,0 +1,7 @@
+node_modules/
+
+docs/api
+docs/.cache
+docs/public/build
+packages/rescribe/dist
+pnpm-lock.yaml

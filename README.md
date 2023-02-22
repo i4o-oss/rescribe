@@ -1,73 +1,34 @@
-# Turborepo starter
+<p align="center">
+  <a href="https://github.com/i4o-oss/rescribe">
+    <img style="width: 50%;" src="https://raw.githubusercontent.com/i4o-oss/rescribe/main/docs/public/rescribe_logo.png?raw=true" alt="Rescribe Logo">
+  </a>
 
-This is an official pnpm starter turborepo.
+  <h3 align="center">Rescribe</h2>
 
-## What's inside?
+  <p align="center">
+    Components and utilities for quickly building documentation and blog sites with Remix.
+    <!-- <br /> -->
+    <!-- <a href="https://rescribe.i4o.dev/docs"><strong>Learn more »</strong></a> -->
+    <!-- <br /> -->
+    <!-- <br /> -->
+    <!-- <a href="https://rescribe.i4o.dev">Website</a> -->
+    <!-- · -->
+    <!-- <a href="https://github.com/i4o-oss/rescribe/issues">Issues</a> -->
+    <!-- · -->
+    <!-- <a href="https://github.com/orgs/i4o-oss/projects/3">Roadmap</a> -->
+  </p>
+</p>
 
-This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes the following packages/apps:
+## Roadmap
 
-### Apps and Packages
+-   [ ] Light/dark mode toggle
+-   [ ] Syntax Highlighting
+-   [ ] i18n Support
+-   [ ] LateX Support
+-   [ ] Search
+-   [ ] Zero-config full-text search (coming soon)
+-   [ ] Versioning
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+## License
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-pnpm dlx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
-
-```
-pnpm dlx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+[MIT](https://choosealicense.com/licenses/mit/)
