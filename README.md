@@ -21,8 +21,9 @@
 
 ## Roadmap
 
--   [ ] Light/dark mode toggle
+-   [x] Light/dark mode toggle
 -   [ ] Syntax Highlighting
+-   [ ] Components - Accordion, Bleed, Card, Card Group, Callouts, Tabs,
 -   [ ] i18n Support
 -   [ ] LateX Support
 -   [ ] Search
