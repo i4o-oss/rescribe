@@ -21,7 +21,7 @@ function DarkModeToggle() {
 }
 
 const config: RescribeConfig = {
-	logo: '',
+	logo: 'https://raw.githubusercontent.com/i4o-oss/rescribe/main/docs/public/rescribe_logo.png',
 	sidebar: {
 		links: [],
 		search: true,

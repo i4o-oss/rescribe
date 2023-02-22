@@ -11,7 +11,7 @@ function Sidebar() {
 			<div className='sticky top-20 h-[calc(100vh-5rem)] min-w-[20rem] space-y-4 overflow-y-auto overflow-x-hidden border-r border-gray-200 py-8 pr-4 pl-1 dark:border-gray-800'>
 				{config.sidebar?.search ? (
 					<input
-						className='h-12 w-72 rounded-md bg-neutral-100 px-4 py-1 text-sm text-gray-500 dark:bg-neutral-900 dark:text-gray-300'
+						className='h-12 w-full rounded-md bg-neutral-100 px-4 py-1 text-sm text-gray-500 dark:bg-neutral-900 dark:text-gray-300'
 						placeholder='Search...'
 					/>
 				) : null}

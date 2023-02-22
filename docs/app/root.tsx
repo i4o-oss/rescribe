@@ -28,8 +28,22 @@ export const links: LinksFunction = () => [
 
 export const meta: MetaFunction = () => ({
 	charset: 'utf-8',
-	title: 'New Remix App',
 	viewport: 'width=device-width,initial-scale=1',
+	'msapplication-TileColor': '#2b5797',
+	'og:site': 'https://rescribe.i4o.dev',
+	'og:url': 'https://rescribe.i4o.dev',
+	'og:title': 'Rescribe — Simple, open-source site generator for Remix.',
+	'og:description': '',
+	'og:image': '',
+	'theme-color': '#ffffff',
+	title: 'Rescribe — Simple, open-source site generator for Remix.',
+	'twitter:card': 'summary_large_image',
+	'twitter:site': '@i4o_dev',
+	'twitter:url': 'https://rescribe.i4o.dev/',
+	'twitter:creator': '@i4o_dev',
+	'twitter:title': 'Rescribe',
+	'twitter:description': '',
+	'twitter:image': '',
 })
 
 export type LoaderData = SerializeFrom<typeof loader>
