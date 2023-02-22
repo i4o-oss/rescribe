@@ -1,0 +1,58 @@
+{
+    "name": "rescribe",
+    "version": "0.0.0",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "style": "./dist/main.css",
+    "exports": {
+        ".": "./dist/index.js",
+        "./main.css": "./dist/main.css"
+    },
+    "scripts": {
+        "dev": "concurrently \"npm run dev:css\" \"pnpm dev:lib\"",
+        "dev:css": "tailwindcss -w -i ./styles/main.css -o ./dist/main.css",
+        "dev:lib": "tsup --watch",
+        "build": "concurrently \"npm run build:css\" \"pnpm build:lib\"",
+        "build:css": "tailwindcss -m -i ./styles/main.css -o ./dist/main.css",
+        "build:lib": "tsup"
+    },
+    "devDependencies": {
+        "@i4o-oss/catalystui": "0.6.1",
+        "@mdx-js/mdx": "^2.2.1",
+        "@mdx-js/react": "^2.2.1",
+        "@radix-ui/react-icons": "^1.1.1",
+        "@remix-run/node": "^1.11.1",
+        "@remix-run/react": "^1.11.1",
+        "@rescribe/eslint-config": "workspace:*",
+        "@rescribe/tsconfig": "workspace:*",
+        "@tailwindcss/typography": "^0.5.9",
+        "@types/graceful-fs": "^4.1.6",
+        "@types/react": "^18.0.27",
+        "@types/react-dom": "^18.0.10",
+        "autoprefixer": "^10.4.13",
+        "concurrently": "^7.6.0",
+        "graceful-fs": "^4.2.10",
+        "gray-matter": "^4.0.3",
+        "p-limit": "^4.0.0",
+        "postcss": "^8.4.21",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "slash": "^5.0.0",
+        "tailwindcss": "^3.2.4",
+        "tsup": "^6.5.0",
+        "typescript": "^4.9.3"
+    },
+    "peerDependencies": {
+        "@remix-run/node": "^1.11.1",
+        "@remix-run/react": "^1.11.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

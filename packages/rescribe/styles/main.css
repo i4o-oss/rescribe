@@ -1,0 +1,5 @@
+@import '../node_modules/@i4o-oss/catalystui/dist/main.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
