@@ -8,9 +8,13 @@ import {
 	ScrollRestoration,
 } from '@remix-run/react'
 import stylesheet from '~/main.css'
+import rescribeStylesheet from 'rescribe/main.css'
+import { RescribeProvider } from 'rescribe'
+import config from '~/rescribe.config'
 
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: stylesheet },
+	{ rel: 'stylesheet', href: rescribeStylesheet },
 ]
 
 export const meta: MetaFunction = () => ({
@@ -27,7 +31,9 @@ export default function App() {
 				<Links />
 			</head>
 			<body className='h-screen w-screen'>
-				<Outlet />
+				<RescribeProvider config={config}>
+					<Outlet />
+				</RescribeProvider>
 				<ScrollRestoration />
 				<Scripts />
 				<LiveReload />

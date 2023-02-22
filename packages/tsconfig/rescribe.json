@@ -11,6 +11,11 @@
         "module": "ESNext",
         "target": "es6",
         "esModuleInterop": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "paths": {
+            "~/*": [
+                "../rescribe/src/"
+            ]
+        }
     }
 }
