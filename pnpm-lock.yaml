@@ -5,33 +5,33 @@ importers:
   .:
     specifiers:
       '@rescribe/eslint-config': workspace:*
-      prettier: ^2.8.3
-      prettier-plugin-tailwindcss: ^0.2.2
-      turbo: ^1.7.0
+      prettier: ^2.8.4
+      prettier-plugin-tailwindcss: ^0.2.3
+      turbo: ^1.8.2
     devDependencies:
       '@rescribe/eslint-config': link:packages/eslint-config
       prettier: 2.8.4
       prettier-plugin-tailwindcss: 0.2.3_prettier@2.8.4
-      turbo: 1.8.1
+      turbo: 1.8.2
 
   docs:
     specifiers:
       '@i4o-oss/catalystui': 0.6.1
-      '@radix-ui/react-icons': ^1.1.1
+      '@radix-ui/react-icons': ^1.2.0
       '@remix-run/dev': ^1.13.0
       '@remix-run/node': ^1.13.0
       '@remix-run/react': ^1.13.0
       '@remix-run/serve': ^1.13.0
       '@rescribe/eslint-config': workspace:*
-      '@types/react': ^18.0.25
-      '@types/react-dom': ^18.0.8
-      eslint: ^8.27.0
-      isbot: ^3.6.5
+      '@types/react': ^18.0.28
+      '@types/react-dom': ^18.0.11
+      eslint: ^8.34.0
+      isbot: ^3.6.6
       react: ^18.2.0
       react-dom: ^18.2.0
       rescribe: workspace:*
-      tailwindcss: ^3.2.4
-      typescript: ^4.8.4
+      tailwindcss: ^3.2.7
+      typescript: ^4.9.5
     dependencies:
       '@i4o-oss/catalystui': 0.6.1_zula6vjvt3wdocc4mwcxqa6nzi
       '@radix-ui/react-icons': 1.2.0_react@18.2.0
@@ -53,15 +53,15 @@ importers:
 
   packages/eslint-config:
     specifiers:
-      '@remix-run/eslint-config': ^1.11.1
-      '@typescript-eslint/eslint-plugin': ^5.47.1
-      '@typescript-eslint/parser': ^5.47.1
+      '@remix-run/eslint-config': ^1.13.0
+      '@typescript-eslint/eslint-plugin': ^5.53.0
+      '@typescript-eslint/parser': ^5.53.0
       eslint: ^8.34.0
-      eslint-config-prettier: ^8.3.0
+      eslint-config-prettier: ^8.6.0
       eslint-config-turbo: latest
       eslint-plugin-react: 7.31.8
       react: ^18.2.0
-      typescript: ^4.7.4
+      typescript: ^4.9.5
     dependencies:
       '@remix-run/eslint-config': 1.13.0_km5ddj7uwb23cqeymeyvzjsfb4
       eslint: 8.34.0
@@ -77,17 +77,17 @@ importers:
   packages/rescribe:
     specifiers:
       '@i4o-oss/catalystui': 0.6.1
-      '@mdx-js/mdx': ^2.2.1
-      '@mdx-js/react': ^2.2.1
-      '@radix-ui/react-icons': ^1.1.1
-      '@remix-run/node': ^1.11.1
-      '@remix-run/react': ^1.11.1
+      '@mdx-js/mdx': ^2.3.0
+      '@mdx-js/react': ^2.3.0
+      '@radix-ui/react-icons': ^1.2.0
+      '@remix-run/node': ^1.13.0
+      '@remix-run/react': ^1.13.0
       '@rescribe/eslint-config': workspace:*
       '@rescribe/tsconfig': workspace:*
       '@tailwindcss/typography': ^0.5.9
       '@types/graceful-fs': ^4.1.6
-      '@types/react': ^18.0.27
-      '@types/react-dom': ^18.0.10
+      '@types/react': ^18.0.28
+      '@types/react-dom': ^18.0.11
       autoprefixer: ^10.4.13
       concurrently: ^7.6.0
       graceful-fs: ^4.2.10
@@ -97,9 +97,9 @@ importers:
       react: ^18.2.0
       react-dom: ^18.2.0
       slash: ^5.0.0
-      tailwindcss: ^3.2.4
-      tsup: ^6.5.0
-      typescript: ^4.9.3
+      tailwindcss: ^3.2.7
+      tsup: ^6.6.3
+      typescript: ^4.9.5
     devDependencies:
       '@i4o-oss/catalystui': 0.6.1_zula6vjvt3wdocc4mwcxqa6nzi
       '@mdx-js/mdx': 2.3.0
@@ -3659,7 +3659,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001457
-      electron-to-chromium: 1.4.305
+      electron-to-chromium: 1.4.307
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
 
@@ -4228,8 +4228,8 @@ packages:
   /ee-first/1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  /electron-to-chromium/1.4.305:
-    resolution: {integrity: sha512-WETy6tG0CT5gm1O+xCbyapWNsCcmIvrn4NHViIGYo2AT8FV2qUCXdaB+WqYxSv/vS5mFqhBYnfZAAkVArjBmUg==}
+  /electron-to-chromium/1.4.307:
+    resolution: {integrity: sha512-n54V0t4LyHM2oQiAOmD3qC2peB+orUktXORSnWxqtv3uEMSoUcsq+hoMpU08VEJCNbfgBtzy169P0TcrLuq53A==}
 
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -8419,65 +8419,65 @@ packages:
       tslib: 1.14.1
       typescript: 4.9.5
 
-  /turbo-darwin-64/1.8.1:
-    resolution: {integrity: sha512-H7pxGF/vsYG7kbY+vB8h+3r8VXn2L6hhYQi0XWA+EjZ1e2zu7+TzEMRWFYmvJPx8TRo5cV5txtg0I22/Y7bxUA==}
+  /turbo-darwin-64/1.8.2:
+    resolution: {integrity: sha512-j77U0uOeppENexFsIvvzExADSqMBEeCHnm+6LSNQfaajHSrbUVSTsuD6ZMYHamT6bslc+ZZm21jdecWkwZFBbw==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64/1.8.1:
-    resolution: {integrity: sha512-zMcvplVGluR6v4oJXW7S1/R9QFsHdDkXMhPq8PIdvT3HwTb69ms0MNv7aKiQ0ZFy5D/eKCTyBRUFZvjorZmBqA==}
+  /turbo-darwin-arm64/1.8.2:
+    resolution: {integrity: sha512-1NoAvjlwt2wycsAFJouauy9epn9DptSMy6BoGqxJVc4jiibsLepp9qYc4f1/ln0zjd3FR1IvhGOiBfdpqMN7hg==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64/1.8.1:
-    resolution: {integrity: sha512-eJNx8iWDn5Lt8d0221RFd6lBjViLiPCVWNFF5JtqOohgRYplvepY3y/THa1GivMxY4px6zjTiy2oPE/VscVP4w==}
+  /turbo-linux-64/1.8.2:
+    resolution: {integrity: sha512-TcT3CRYnBYA46kLGGbGC2jDyCEAvMgVpUdpIZGTmod48EKpZaEfVgTkpa4GJde8W68yRFogPZjPVL3yJHFpXSA==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64/1.8.1:
-    resolution: {integrity: sha512-hFZkm8tq9kLE8tdbOzD6EbNzftdzMR4JEuuoKC6AbTzx1ZsWRvXJ/BGTeSH9/dYYm/wfuIEUiOP7HeXWiZRx7g==}
+  /turbo-linux-arm64/1.8.2:
+    resolution: {integrity: sha512-Mb9+KBy4YJzPMZ6WGoMzMVZ6EtueCSvOvgmNpVFgkwbtabfBuaBOvN+irtg4RRSWvJQTDTziLABieocEEXZImQ==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64/1.8.1:
-    resolution: {integrity: sha512-o3oDg0lTYZl5KZD3Mi753On2vQT51unIiungoUmHDCeDH5JXfWPFu+6p+GAoIyRwQkZPvaEzMLuUtRgklKcBJw==}
+  /turbo-windows-64/1.8.2:
+    resolution: {integrity: sha512-/+R5ikRrw2w2w38JtNPubGLIQHgUC70m783DI9aPgaM5c8P5D/Y0k6HgjuC/uXgiaz2h3R7p7YWlr+2/E0bqyA==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64/1.8.1:
-    resolution: {integrity: sha512-NDYr2Mra21KOdl18BhMRoH2jQmlu+oqkpqRd+cGB8+c5P0B6LDVCM83cfcXQ+PNqX9S3Y1eZDRENZJx9I03sSw==}
+  /turbo-windows-arm64/1.8.2:
+    resolution: {integrity: sha512-s07viz5nXSx4kyiksuPM4FGLRkoaGMaw0BpwFjdRQsl1p+WclUN1IPdokVPKOmFpu5pNCVYlG/raP/mXAEzDCg==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo/1.8.1:
-    resolution: {integrity: sha512-g8RltmG5zd0nYbKpkBQwnTSXTWUiup9+yileQ1TETNzpjxI3TL5k7kt2WkgUHEqR947IPUV+ckIduZHVITJmIQ==}
+  /turbo/1.8.2:
+    resolution: {integrity: sha512-G/uJx6bZK5RwTWHsRN/MP0MvXFznmCaL3MQXdSf+OG/q0o8GE7+yivyyWEplWI1Asc8AEN909A/wlIkoz2FKTg==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-darwin-64: 1.8.1
-      turbo-darwin-arm64: 1.8.1
-      turbo-linux-64: 1.8.1
-      turbo-linux-arm64: 1.8.1
-      turbo-windows-64: 1.8.1
-      turbo-windows-arm64: 1.8.1
+      turbo-darwin-64: 1.8.2
+      turbo-darwin-arm64: 1.8.2
+      turbo-linux-64: 1.8.2
+      turbo-linux-arm64: 1.8.2
+      turbo-windows-64: 1.8.2
+      turbo-windows-arm64: 1.8.2
     dev: true
 
   /type-check/0.3.2:

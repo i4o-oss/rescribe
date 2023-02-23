@@ -14,9 +14,9 @@
     },
     "devDependencies": {
         "@rescribe/eslint-config": "workspace:*",
-        "prettier": "^2.8.3",
-        "prettier-plugin-tailwindcss": "^0.2.2",
-        "turbo": "^1.7.0"
+        "prettier": "^2.8.4",
+        "prettier-plugin-tailwindcss": "^0.2.3",
+        "turbo": "^1.8.2"
     },
     "engines": {
         "node": ">=14.0.0"
