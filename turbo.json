@@ -24,6 +24,9 @@
         },
         "dev": {
             "cache": false
+        },
+        "start": {
+            "outputs": []
         }
     }
 }
