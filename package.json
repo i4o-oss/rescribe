@@ -9,7 +9,6 @@
     "scripts": {
         "build": "turbo run build",
         "dev": "turbo run dev --parallel",
-        "start": "turbo run start --scope=@rescribe/docs",
         "lint": "turbo run lint",
         "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\""
     },
@@ -20,7 +19,7 @@
         "turbo": "^1.8.2"
     },
     "engines": {
-        "node": ">=16.0.0"
+        "node": ">=14.0.0"
     },
     "packageManager": "pnpm@7.26.0"
 }
