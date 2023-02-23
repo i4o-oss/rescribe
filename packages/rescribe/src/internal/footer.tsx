@@ -2,8 +2,8 @@ import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
 
 function Footer() {
 	return (
-		<div className='sticky top-0 z-50 flex h-20 w-screen flex-wrap items-center justify-center border-t border-gray-200 bg-white px-4 py-4 dark:border-gray-700 dark:bg-[#040303] sm:px-6 lg:px-8'>
-			<div className='flex w-[88rem] items-center justify-between'>
+		<div className='sticky top-0 z-50 flex h-20 w-screen flex-wrap items-center justify-center border-t border-gray-200 bg-white py-4 dark:border-gray-700 dark:bg-[#040303]'>
+			<div className='flex w-[88rem] items-center justify-between sm:px-2 lg:px-8 xl:px-12'>
 				<div className='flex items-center gap-2 text-gray-900 dark:text-gray-400'>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'

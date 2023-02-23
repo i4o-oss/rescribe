@@ -1,4 +1,4 @@
-import { Layout } from '../components'
+import { Layout } from '../internal'
 import { RescribeContext } from '../constants'
 import type { RescribeProviderProps } from '../types'
 

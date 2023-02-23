@@ -20,7 +20,7 @@ function Navbar() {
 	// ]
 
 	return (
-		<header className='flex h-20 w-screen flex-wrap items-center justify-between bg-white px-4 py-4 shadow-sm shadow-gray-200 dark:bg-[#040303] dark:shadow-gray-700 sm:px-6 lg:px-8'>
+		<header className='sticky top-0 z-50 flex h-20 w-screen flex-wrap items-center justify-between bg-white px-4 py-4 shadow-sm shadow-gray-200 dark:bg-[#040303] dark:shadow-gray-700 sm:px-6 lg:px-8'>
 			<div className='relative flex flex-grow basis-0 items-center'>
 				<Link aria-label='Home page' to='/'>
 					{typeof config.logo === 'string' ? (
