@@ -29,3 +29,22 @@ export interface RescribeProviderProps {
 	children: ReactNode
 	config: RescribeConfig
 }
+
+export interface RescribeDataProviderProps {
+	children: ReactNode
+	data: any
+}
+
+export interface MdxFile {
+	base: string
+	path: string
+	route: string
+	data?: unknown
+}
+
+export interface Folder {
+	base: string
+	path: string
+	route: string
+	children?: Array<MdxFile>
+}
