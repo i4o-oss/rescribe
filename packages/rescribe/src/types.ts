@@ -13,6 +13,7 @@ export interface SidebarLink {
 
 interface SidebarConfig {
 	links?: SidebarLink[]
+	navigation: Record<string, unknown>
 	search?: boolean
 }
 

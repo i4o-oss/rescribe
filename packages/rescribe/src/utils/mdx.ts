@@ -28,6 +28,8 @@ async function getMdxHeadings(request: Request) {
 		data: { headings },
 	} = vfile
 
+	// TODO: Fix this type later
+	// @ts-ignore
 	const tocHeadings = headings.filter((heading) => heading.depth > 1)
 
 	return tocHeadings

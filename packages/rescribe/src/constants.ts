@@ -12,6 +12,7 @@ export const DEFAULT_CONFIG: RescribeConfig = {
 	},
 	sidebar: {
 		links: [],
+		navigation: {},
 		search: true,
 	},
 }
