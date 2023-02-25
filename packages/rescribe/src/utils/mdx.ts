@@ -91,7 +91,9 @@ async function getMdxHeadings(request: Request) {
 		data: { headings },
 	} = vfile
 
-	return headings
+	const tocHeadings = headings.filter((heading) => heading.depth > 1)
+
+	return tocHeadings
 }
 
 function parseFileName(fp: string) {
