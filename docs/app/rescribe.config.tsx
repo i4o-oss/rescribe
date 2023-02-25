@@ -46,6 +46,27 @@ const config: RescribeConfig = {
 				label: 'Github',
 			},
 		],
+		navigation: {
+			docs: [
+				{
+					group: 'Overview',
+					pages: {
+						index: 'Introduction',
+						'getting-started': 'Getting Started',
+						test: 'Test',
+					},
+				},
+				{
+					group: 'Configuration',
+					pages: {
+						logo: 'Logo',
+						sidebar: 'Sidebar',
+						search: 'Search',
+						theme: 'Theme',
+					},
+				},
+			],
+		},
 		search: true,
 	},
 	theme: {
