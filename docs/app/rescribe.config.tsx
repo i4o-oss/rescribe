@@ -35,7 +35,7 @@ const config: RescribeConfig = {
 				label: 'Documentation',
 			},
 			{
-				href: '/docs/components',
+				href: '/components',
 				icon: <DashboardIcon className='h-4 w-4' />,
 				label: 'Components',
 			},
