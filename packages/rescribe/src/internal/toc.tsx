@@ -24,7 +24,8 @@ export default function ToC() {
 										5: 'ml-12',
 										6: 'ml-16',
 									}[depth as Exclude<typeof depth, 1>],
-									'flex flex-col gap-2 text-sm'
+									'flex flex-col gap-2 text-sm',
+									'text-slate-900 dark:text-slate-50'
 								)}
 								key={properties.id}
 							>

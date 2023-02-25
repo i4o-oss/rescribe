@@ -84,7 +84,8 @@ async function readCurrentMdx(pathname: string): Promise<VFile> {
 	return vfile
 }
 
-async function getMdxHeadings(pathname: string) {
+async function getMdxHeadings(request: Request) {
+	const { pathname } = new URL(request.url)
 	const vfile = await readCurrentMdx(pathname)
 	const {
 		data: { headings },
