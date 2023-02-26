@@ -9,11 +9,10 @@ function Sidebar() {
 	const [, root] = location.pathname.split('/')
 	// TODO: Fix this type later
 	const navigationOptions = sidebar?.navigation[root] as Array<any>
-	console.log(navigationOptions)
 
 	return (
 		<div className='relative'>
-			<div className='sticky top-20 flex h-[calc(100vh-10rem)] min-w-[20rem] flex-col gap-8 overflow-y-auto overflow-x-hidden py-8 pr-4 pl-1'>
+			<div className='sticky top-20 flex h-[calc(100vh-10rem)] min-w-[16rem] flex-col gap-8 overflow-y-auto overflow-x-hidden py-8 pr-4 pl-1'>
 				{sidebar?.search ? (
 					<input
 						className='h-12 w-full rounded-md bg-neutral-100 px-4 py-1 text-sm text-gray-500 dark:bg-neutral-900 dark:text-gray-300'
@@ -36,7 +35,7 @@ function Sidebar() {
 												<div className='group-hover:bg-brand-500 group-hover:dark:bg-brand-500 rounded-md p-1 ring-1 ring-zinc-400/25 transition-all duration-300 group-hover:text-white dark:ring-zinc-700/40 group-hover:dark:text-white '>
 													{link.icon}
 												</div>
-												<span className='font-semibold'>
+												<span className='text-sm font-semibold'>
 													{link.label}
 												</span>
 											</a>
@@ -56,7 +55,7 @@ function Sidebar() {
 													{link.icon}
 												</div>
 												<span
-													className={`font-semibold ${
+													className={`text-sm font-semibold ${
 														link.href ===
 														location.pathname
 															? 'text-brand-500'
@@ -77,14 +76,14 @@ function Sidebar() {
 					{navigationOptions?.map(
 						(option: Record<string, unknown>, index: number) => (
 							<li className='flex flex-col' key={index}>
-								<h5 className='mb-4 font-semibold text-slate-700 dark:text-slate-200'>
+								<h5 className='mb-4 text-sm font-semibold text-gray-700 dark:text-gray-200'>
 									{option.group as string}
 								</h5>
-								<ul className='ml-2 flex flex-col gap-4'>
+								<ul className='flex flex-col gap-4 border-l border-gray-100 dark:border-gray-800'>
 									{Object.keys(option.pages).map(
 										(page: string, j: number) => (
 											<span
-												className='text-slate-700 dark:text-slate-200'
+												className='-ml-[1px] border-l border-gray-100 pl-4 text-sm text-gray-700 transition-colors duration-300 hover:border-gray-600 dark:border-slate-800 dark:text-gray-200 hover:dark:border-gray-400'
 												key={j}
 											>
 												{option.pages[page]}
