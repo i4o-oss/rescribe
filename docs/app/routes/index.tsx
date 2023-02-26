@@ -106,7 +106,7 @@ export default function Home() {
 										<pre className='flex h-12 w-96 items-center justify-between space-x-2 rounded-lg border border-slate-100 bg-white !pl-4 !pr-2 dark:border-slate-700 dark:bg-[#040303]'>
 											<code className='flex w-full items-center justify-between font-mono text-sm font-semibold text-slate-900 dark:text-slate-50'>
 												npm install @i4o/rescribe
-												<CopyToClipboard text='npm add @i4o-oss/catalystui' />
+												<CopyToClipboard text='npm add @i4o/rescribe' />
 											</code>
 										</pre>
 									</div>
@@ -151,7 +151,7 @@ export default function Home() {
 							</h2>
 							<p className='mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-tight'>
 								Everything you need to build excellent
-								documentation experiences
+								documentations
 							</p>
 							{/* <p className='mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300'> */}
 							{/* 	Quis tellus eget adipiscing convallis sit sit */}
@@ -170,7 +170,7 @@ export default function Home() {
 										<dt className='text-base font-semibold leading-7 text-gray-900 dark:text-gray-100'>
 											<div className='bg-brand-500 absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg'>
 												<feature.icon
-													className='h-6 w-6 text-white'
+													className='h-5 w-5 text-white'
 													aria-hidden='true'
 												/>
 											</div>
