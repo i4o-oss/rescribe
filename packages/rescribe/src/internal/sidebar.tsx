@@ -81,14 +81,29 @@ function Sidebar() {
 								</h5>
 								<ul className='flex flex-col gap-4 border-l border-gray-100 dark:border-gray-800'>
 									{Object.keys(option.pages).map(
-										(page: string, j: number) => (
-											<span
-												className='-ml-[1px] border-l border-gray-100 pl-4 text-sm text-gray-700 transition-colors duration-300 hover:border-gray-600 dark:border-slate-800 dark:text-gray-200 hover:dark:border-gray-400'
-												key={j}
-											>
-												{option.pages[page]}
-											</span>
-										)
+										(page: string, j: number) => {
+											if (page === 'index') {
+												return (
+													<Link
+														to={`/${root}`}
+														className='-ml-[1px] border-l border-gray-100 pl-4 text-sm text-gray-700 transition-colors duration-300 hover:border-gray-600 dark:border-slate-800 dark:text-gray-200 hover:dark:border-gray-400'
+														key={j}
+													>
+														{option.pages[page]}
+													</Link>
+												)
+											}
+
+											return (
+												<Link
+													to={page}
+													className='-ml-[1px] border-l border-gray-100 pl-4 text-sm text-gray-700 transition-colors duration-300 hover:border-gray-600 dark:border-slate-800 dark:text-gray-200 hover:dark:border-gray-400'
+													key={j}
+												>
+													{option.pages[page]}
+												</Link>
+											)
+										}
 									)}
 								</ul>
 							</li>
