@@ -22,11 +22,10 @@
 ## Roadmap
 
 -   [x] Light/dark mode toggle
--   [ ] Syntax Highlighting
 -   [ ] Components - Accordion, Bleed, Card, Card Group, Callouts, Tabs,
+-   [ ] Syntax Highlighting
 -   [ ] i18n Support
 -   [ ] LateX Support
--   [ ] Search
 -   [ ] Zero-config full-text search (coming soon)
 -   [ ] Versioning
 

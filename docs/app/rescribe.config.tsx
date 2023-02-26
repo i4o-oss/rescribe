@@ -67,7 +67,7 @@ const config: RescribeConfig = {
 				},
 			],
 		},
-		search: true,
+		search: false,
 	},
 	theme: {
 		darkModeToggle: <DarkModeToggle />,
