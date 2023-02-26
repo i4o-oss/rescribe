@@ -53,16 +53,25 @@ const config: RescribeConfig = {
 					pages: {
 						index: 'Introduction',
 						'getting-started': 'Getting Started',
-						test: 'Test',
+						roadmap: 'Roadmap',
 					},
 				},
 				{
 					group: 'Configuration',
 					pages: {
-						logo: 'Logo',
+						'rescribe-config': 'rescribe.config.tsx',
+						navbar: 'Navbar',
 						sidebar: 'Sidebar',
 						search: 'Search',
 						theme: 'Theme',
+						footer: 'Footer',
+						'example-config': 'Example Configuration',
+					},
+				},
+				{
+					group: 'Integrations',
+					pages: {
+						shiki: 'Syntax Highlighting with Shiki',
 					},
 				},
 			],
