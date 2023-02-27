@@ -59,6 +59,7 @@ const config: RescribeConfig = {
 				{
 					group: 'Configuration',
 					pages: {
+						'rescribe-provider': 'Rescribe Provider',
 						'rescribe-config': 'rescribe.config.tsx',
 						navbar: 'Navbar',
 						sidebar: 'Sidebar',
@@ -67,6 +68,10 @@ const config: RescribeConfig = {
 						footer: 'Footer',
 						'example-config': 'Example Configuration',
 					},
+				},
+				{
+					group: 'Utilities',
+					pages: {},
 				},
 				{
 					group: 'Integrations',
