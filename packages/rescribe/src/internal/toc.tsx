@@ -4,6 +4,7 @@ import cn from 'clsx'
 import { RescribeDataContext } from '../constants'
 
 export default function ToC() {
+	// TODO: Fix the types here
 	const { headings } = useContext(RescribeDataContext)
 
 	return (
@@ -13,7 +14,7 @@ export default function ToC() {
 					<h2 className='text-sm font-semibold text-slate-900 dark:text-slate-50'>
 						On this page
 					</h2>
-					<ul className='flex flex-col gap-2'>
+					<ul className='flex flex-col gap-3'>
 						{headings.map(({ depth, value, properties }) => (
 							<li
 								className={cn(
