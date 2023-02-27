@@ -14,7 +14,7 @@ import {
 	ScrollRestoration,
 	useLoaderData,
 } from '@remix-run/react'
-import { RescribeProvider } from 'rescribe'
+import { RescribeProvider } from '@i4o/rescribe'
 import config from '~/rescribe.config'
 import stylesheet from '~/main.css'
 import rescribeStylesheet from 'rescribe/main.css'

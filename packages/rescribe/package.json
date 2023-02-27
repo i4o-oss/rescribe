@@ -1,5 +1,5 @@
 {
-    "name": "rescribe",
+    "name": "@i4o/rescribe",
     "version": "0.0.0",
     "files": [
         "dist"

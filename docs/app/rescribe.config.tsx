@@ -1,4 +1,4 @@
-import type { RescribeConfig } from 'rescribe'
+import type { RescribeConfig } from '@i4o/rescribe'
 import { Switch } from '@i4o-oss/catalystui'
 import { Theme, useTheme } from '~/utils/theme-provider'
 import {

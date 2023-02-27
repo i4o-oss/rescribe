@@ -9,6 +9,7 @@
         "typecheck": "tsc"
     },
     "dependencies": {
+        "@i4o/rescribe": "workspace:*",
         "@i4o-oss/catalystui": "0.6.1",
         "@radix-ui/react-icons": "^1.2.0",
         "@remix-run/node": "^1.13.0",
@@ -17,8 +18,7 @@
         "isbot": "^3.6.6",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "rehype-slug": "^5.1.0",
-        "rescribe": "workspace:*"
+        "rehype-slug": "^5.1.0"
     },
     "devDependencies": {
         "@remix-run/dev": "^1.13.0",
