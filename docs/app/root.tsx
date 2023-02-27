@@ -17,7 +17,7 @@ import {
 import { RescribeProvider } from '@i4o/rescribe'
 import config from '~/rescribe.config'
 import stylesheet from '~/main.css'
-import rescribeStylesheet from 'rescribe/main.css'
+import rescribeStylesheet from '@i4o/rescribe/main.css'
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'
 import { getThemeSession } from '~/utils/theme.server'
 
