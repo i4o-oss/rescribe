@@ -93,9 +93,9 @@ const config: RescribeConfig = {
 					},
 				},
 				{
-					group: 'Integrations',
+					group: 'More',
 					pages: {
-						shiki: 'Syntax Highlighting with Shiki',
+						about: 'About',
 					},
 				},
 			],
