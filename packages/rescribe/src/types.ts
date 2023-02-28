@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 
 interface NavbarConfig {
+	logo: string | ReactNode
 	search?: boolean
 }
 
@@ -18,8 +19,7 @@ interface SidebarConfig {
 }
 
 export interface RescribeConfig {
-	logo: string | ReactNode
-	navbar?: NavbarConfig
+	navbar: NavbarConfig
 	sidebar?: SidebarConfig
 	theme?: {
 		darkModeToggle?: ReactNode
@@ -38,14 +38,14 @@ export interface RescribeDataProviderProps {
 
 export interface MdxFile {
 	base: string
+	data?: unknown
 	path: string
 	route: string
-	data?: unknown
 }
 
 export interface Folder {
 	base: string
+	children?: Array<MdxFile>
 	path: string
 	route: string
-	children?: Array<MdxFile>
 }

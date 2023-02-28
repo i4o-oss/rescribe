@@ -6,35 +6,21 @@ import { RescribeContext } from '../constants'
 function Navbar() {
 	const config = useContext(RescribeContext)
 
-	// const navItems = [
-	// 	{
-	// 		id: '1',
-	// 		label: 'Docs',
-	// 		href: '/docs',
-	// 	},
-	// 	{
-	// 		id: '2',
-	// 		label: 'About',
-	// 		href: '/about',
-	// 	},
-	// ]
-
 	return (
 		<header className='supports-backdrop-blur:bg-white/60 sticky top-0 z-50 flex h-20 w-screen flex-wrap items-center justify-between px-4 py-4 shadow-sm shadow-gray-200 backdrop-blur dark:bg-transparent dark:shadow-gray-700 sm:px-6 lg:px-8'>
 			<div className='relative flex flex-grow basis-0 items-center'>
 				<Link aria-label='Home page' to='/'>
-					{typeof config.logo === 'string' ? (
-						<img className='flex h-8' src={config.logo} />
+					{typeof config.navbar.logo === 'string' ? (
+						<img className='flex h-8' src={config.navbar.logo} />
 					) : (
-						config.logo
+						config.navbar.logo
 					)}
 				</Link>
 			</div>
 			<div className='flex flex-grow items-center justify-end gap-4'>
-				{/* <Nav items={navItems} /> */}
 				{config.navbar?.search && (
 					<input
-						className='h-12 w-80 rounded-md bg-neutral-100 px-4 py-1 text-sm dark:bg-neutral-900 dark:text-gray-300'
+						className='h-10 w-80 rounded-md bg-neutral-100 px-4 py-1 text-sm dark:bg-neutral-900 dark:text-gray-300'
 						placeholder='Search...'
 					/>
 				)}
