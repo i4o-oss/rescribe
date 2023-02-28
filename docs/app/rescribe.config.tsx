@@ -26,7 +26,10 @@ function DarkModeToggle() {
 }
 
 const config: RescribeConfig = {
-	logo: 'https://raw.githubusercontent.com/i4o-oss/rescribe/main/docs/public/rescribe_logo.png',
+	navbar: {
+		logo: 'https://raw.githubusercontent.com/i4o-oss/rescribe/main/docs/public/rescribe_logo.png',
+		search: true,
+	},
 	sidebar: {
 		links: [
 			{
@@ -52,8 +55,15 @@ const config: RescribeConfig = {
 					group: 'Overview',
 					pages: {
 						index: 'Introduction',
-						'getting-started': 'Getting Started',
+						changelog: 'Changelog',
 						roadmap: 'Roadmap',
+					},
+				},
+				{
+					group: 'Getting Started',
+					pages: {
+						installation: 'Installation',
+						development: 'Development',
 					},
 				},
 				{
@@ -70,8 +80,17 @@ const config: RescribeConfig = {
 					},
 				},
 				{
+					group: 'Layouts',
+					pages: {
+						'docs-layout': 'Docs',
+						'blog-layout': 'Blog',
+					},
+				},
+				{
 					group: 'Utilities',
-					pages: {},
+					pages: {
+						'get-toc-headings': 'getTocHeadings',
+					},
 				},
 				{
 					group: 'Integrations',
