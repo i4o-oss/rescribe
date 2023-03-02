@@ -6,7 +6,7 @@ import { SidebarLink } from '../types'
 function Sidebar() {
 	const { sidebar } = useContext(RescribeContext)
 	const location = useLocation()
-	const [, root] = location.pathname.split('/')
+	const [, root, , path] = location.pathname.split('/')
 	// TODO: Fix this type later
 	const navigationOptions = sidebar?.navigation[root] as Array<any>
 
@@ -86,7 +86,12 @@ function Sidebar() {
 												return (
 													<Link
 														to={`/${root}`}
-														className='-ml-[1px] border-l border-gray-100 py-1 pl-4 text-sm text-gray-700 transition-colors duration-300 hover:border-gray-600 dark:border-slate-800 dark:text-gray-200 hover:dark:border-gray-400'
+														className={`-ml-[1px] border-l py-1 pl-4 text-sm transition-colors duration-300 ${
+															location.pathname ===
+															`/${root}`
+																? 'border-brand-500 text-brand-500'
+																: 'hover:border-brand-500 hover:dark:border-brand-500 border-transparent text-gray-700 dark:text-gray-200'
+														}`}
 														key={j}
 													>
 														{option.pages[page]}
@@ -97,7 +102,12 @@ function Sidebar() {
 											return (
 												<Link
 													to={page}
-													className='-ml-[1px] border-l border-gray-100 py-1 pl-4 text-sm text-gray-700 transition-colors duration-300 hover:border-gray-600 dark:border-slate-800 dark:text-gray-200 hover:dark:border-gray-400'
+													className={`-ml-[1px] border-l py-1 pl-4 text-sm transition-colors duration-300 ${
+														location.pathname ===
+														`/${root}/${page}`
+															? 'border-brand-500 text-brand-500'
+															: 'hover:border-brand-500 hover:dark:border-brand-500 hover:text-brand-500 hover:dark:text-brand-500 border-transparent text-gray-700 dark:text-gray-200'
+													}`}
 													key={j}
 												>
 													{option.pages[page]}
