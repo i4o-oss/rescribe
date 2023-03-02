@@ -37,11 +37,11 @@ const config: RescribeConfig = {
 				icon: <FileTextIcon className='h-4 w-4' />,
 				label: 'Documentation',
 			},
-			{
-				href: '/docs/accordion',
-				icon: <DashboardIcon className='h-4 w-4' />,
-				label: 'Components',
-			},
+			// {
+			// 	href: '/docs/accordion',
+			// 	icon: <DashboardIcon className='h-4 w-4' />,
+			// 	label: 'Components',
+			// },
 			{
 				external: true,
 				href: 'https://github.com/i4o-oss/rescribe',
@@ -55,7 +55,7 @@ const config: RescribeConfig = {
 					group: 'Overview',
 					pages: {
 						index: 'Introduction',
-						changelog: 'Changelog',
+						// changelog: 'Changelog',
 						roadmap: 'Roadmap',
 					},
 				},
