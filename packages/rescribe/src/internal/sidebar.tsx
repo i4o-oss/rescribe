@@ -47,7 +47,10 @@ function Sidebar() {
 												<div
 													className={`group-hover:bg-brand-500 group-hover:dark:bg-brand-500 rounded-md p-1 ring-1 ring-zinc-400/25 group-hover:text-white dark:ring-zinc-700/40 group-hover:dark:text-white ${
 														link.href ===
-														location.pathname
+															location.pathname ||
+														location.pathname.startsWith(
+															link.href
+														)
 															? 'bg-brand-500 text-white'
 															: ''
 													} transition-all duration-300 `}
@@ -57,7 +60,10 @@ function Sidebar() {
 												<span
 													className={`text-sm font-semibold ${
 														link.href ===
-														location.pathname
+															location.pathname ||
+														location.pathname.startsWith(
+															link.href
+														)
 															? 'text-brand-500'
 															: ''
 													}`}
