@@ -38,7 +38,7 @@ const config: RescribeConfig = {
 				label: 'Documentation',
 			},
 			{
-				href: '/components',
+				href: '/docs/accordion',
 				icon: <DashboardIcon className='h-4 w-4' />,
 				label: 'Components',
 			},
@@ -84,6 +84,16 @@ const config: RescribeConfig = {
 					pages: {
 						'docs-layout': 'Docs',
 						'blog-layout': 'Blog',
+					},
+				},
+				{
+					group: 'Components',
+					pages: {
+						accordion: 'Accordion',
+						callout: 'Callout',
+						cards: 'Cards',
+						'card-group': 'Card Group',
+						list: 'List',
 					},
 				},
 				{
