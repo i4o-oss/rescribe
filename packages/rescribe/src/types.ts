@@ -50,6 +50,11 @@ export interface Folder {
 	route: string
 }
 
+export interface CalloutProps {
+	children: ReactNode
+	type: 'info' | 'warning' | 'danger' | 'success' | 'tip'
+}
+
 export interface CardProps {
 	title: string | ReactNode
 	description: string | ReactNode
