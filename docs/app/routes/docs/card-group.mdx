@@ -1,0 +1,46 @@
+import { Card, CardGroup, List } from '@i4o/rescribe'
+import { CodeIcon, DashboardIcon, GearIcon, QuestionMarkCircledIcon } from '@radix-ui/react-icons'
+
+# Card Group
+
+Display a group of cards in a grid
+
+<CardGroup cols={2}>
+<Card 
+    title='Card 1' 
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit' 
+    href='/docs/development' 
+    icon={<CodeIcon className='w-6 h-6' />}
+/>
+<Card 
+    title='Card 2' 
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit' 
+    href='/docs/rescribe-config' 
+    icon={<GearIcon className='w-6 h-6' />}
+/>
+<Card 
+    title='Card 3' 
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit' 
+    href='/components' 
+    icon={<DashboardIcon className='w-6 h-6' />}
+/>
+<Card 
+    title='Card 4' 
+    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    href='/docs/example-config' 
+    icon={<QuestionMarkCircledIcon className='w-6 h-6' />}
+/>
+</CardGroup>
+
+## Props
+
+<List
+    items={[
+        {
+            title: 'cols',
+            description: 'Number of columns in the grid',
+            type: '1 | 2 | 3',
+            default: 2
+        }
+    ]}
+/>
