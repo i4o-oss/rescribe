@@ -1,6 +1,6 @@
 import { Link } from '@remix-run/react'
 import { Navbar, Footer } from '@i4o/rescribe'
-import { PrimaryButton, CopyToClipboard } from '@i4o-oss/catalystui'
+import { PrimaryButton, CopyToClipboard } from '@i4o/catalystui'
 import {
 	MagnifyingGlassIcon,
 	DashboardIcon,

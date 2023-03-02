@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@i4o/rescribe": "workspace:*",
-        "@i4o-oss/catalystui": "0.6.1",
+        "@i4o/catalystui": "0.7.1",
         "@radix-ui/react-icons": "^1.2.0",
         "@remix-run/node": "^1.13.0",
         "@remix-run/react": "^1.13.0",
@@ -30,6 +30,6 @@
         "typescript": "^4.9.5"
     },
     "engines": {
-        "node": ">=14"
+        "node": ">=18"
     }
 }

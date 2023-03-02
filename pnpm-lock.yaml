@@ -16,7 +16,7 @@ importers:
 
   docs:
     specifiers:
-      '@i4o-oss/catalystui': 0.6.1
+      '@i4o/catalystui': 0.7.1
       '@i4o/rescribe': workspace:*
       '@radix-ui/react-icons': ^1.2.0
       '@remix-run/dev': ^1.13.0
@@ -34,7 +34,7 @@ importers:
       tailwindcss: ^3.2.7
       typescript: ^4.9.5
     dependencies:
-      '@i4o-oss/catalystui': 0.6.1_zula6vjvt3wdocc4mwcxqa6nzi
+      '@i4o/catalystui': 0.7.1_zula6vjvt3wdocc4mwcxqa6nzi
       '@i4o/rescribe': link:../packages/rescribe
       '@radix-ui/react-icons': 1.2.0_react@18.2.0
       '@remix-run/node': 1.13.0
@@ -68,7 +68,7 @@ importers:
       '@remix-run/eslint-config': 1.13.0_km5ddj7uwb23cqeymeyvzjsfb4
       eslint: 8.34.0
       eslint-config-prettier: 8.6.0_eslint@8.34.0
-      eslint-config-turbo: 0.0.8_eslint@8.34.0
+      eslint-config-turbo: 0.0.9_eslint@8.34.0
       eslint-plugin-react: 7.31.8_eslint@8.34.0
     devDependencies:
       '@typescript-eslint/eslint-plugin': 5.53.0_ny4s7qc6yg74faf3d6xty2ofzy
@@ -1781,6 +1781,41 @@ packages:
 
   /@i4o-oss/catalystui/0.6.1_zula6vjvt3wdocc4mwcxqa6nzi:
     resolution: {integrity: sha512-g61fm/3ZtVRncJzYc2FIRTZfStWgufubz8d1D3f1YP6E68HVdp7OJDQTzX//uUNSukMxaZtR993RWzFNTVcYQQ==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      '@headlessui/react': 1.7.11_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-accordion': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-alert-dialog': 1.0.2_zula6vjvt3wdocc4mwcxqa6nzi
+      '@radix-ui/react-avatar': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-checkbox': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-dialog': 1.0.2_zula6vjvt3wdocc4mwcxqa6nzi
+      '@radix-ui/react-dropdown-menu': 2.0.1_zula6vjvt3wdocc4mwcxqa6nzi
+      '@radix-ui/react-icons': 1.1.1_react@18.2.0
+      '@radix-ui/react-label': 2.0.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-navigation-menu': 1.1.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-popover': 1.0.2_zula6vjvt3wdocc4mwcxqa6nzi
+      '@radix-ui/react-radio-group': 1.1.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-select': 1.1.2_zula6vjvt3wdocc4mwcxqa6nzi
+      '@radix-ui/react-switch': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-tabs': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-toast': 1.1.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-toggle': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-toggle-group': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-toolbar': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-tooltip': 1.0.2_zula6vjvt3wdocc4mwcxqa6nzi
+      classnames: 2.3.2
+      copy-to-clipboard: 3.3.3
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      tailwindcss-radix: 2.6.1
+    transitivePeerDependencies:
+      - '@types/react'
+    dev: false
+
+  /@i4o/catalystui/0.7.1_zula6vjvt3wdocc4mwcxqa6nzi:
+    resolution: {integrity: sha512-Y5hB5BCaxYGzFDaklj6+opuXzJmg7bGPKdlGKm7nGUKHUQsmFexX4bQt6TBr/uQrS7fExAeLHJ7oHdNqHDHu0A==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -4364,13 +4399,13 @@ packages:
       eslint: 8.34.0
     dev: false
 
-  /eslint-config-turbo/0.0.8_eslint@8.34.0:
-    resolution: {integrity: sha512-ijj6uv0QX2kWahg3OYnTK1/q4MueXsqY2uE4MP9yeUA5CzVhL7GU+biKlv1BfMMqPltixHUcpZoW4yyNLCnMiw==}
+  /eslint-config-turbo/0.0.9_eslint@8.34.0:
+    resolution: {integrity: sha512-j1cTdx3tRmKo0csyfQKhpuT8dynK9oddbK5nmrShoMpXI2qMbxHLYH7MWAid4FmJN8rYympy3VKw5U63Yazycg==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
       eslint: 8.34.0
-      eslint-plugin-turbo: 0.0.8_eslint@8.34.0
+      eslint-plugin-turbo: 0.0.9_eslint@8.34.0
     dev: false
 
   /eslint-import-resolver-node/0.3.6:
@@ -4604,8 +4639,8 @@ packages:
       - typescript
     dev: false
 
-  /eslint-plugin-turbo/0.0.8_eslint@8.34.0:
-    resolution: {integrity: sha512-pExSCmjWw/KFKb3/0PVqxiWb30FbcwDEf6kKv3alvNBSVEzDHalyAGHc9klbLSG+nFmbkfNE3Ky/UHDryCqt8g==}
+  /eslint-plugin-turbo/0.0.9_eslint@8.34.0:
+    resolution: {integrity: sha512-fEsuSnYU3GLtT+s66mUuzDL1LaSieIx5uk3tPO0ToGv7hI2XzOfP24aPkQItTBGl7kq2JaVkRzPwcnfz8hkp0w==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
