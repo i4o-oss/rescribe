@@ -49,3 +49,28 @@ export interface Folder {
 	path: string
 	route: string
 }
+
+export interface CardProps {
+	title: string | ReactNode
+	description: string | ReactNode
+	icon?: ReactNode
+	image?: string
+	href: string
+}
+
+export interface CardGroupProps {
+	children: ReactNode
+	cols: 1 | 2 | 3
+}
+
+interface ListItem {
+	title: string
+	description: string
+	type?: string
+	required?: boolean
+	default?: string
+}
+
+export interface ListProps {
+	items: ListItem[]
+}
