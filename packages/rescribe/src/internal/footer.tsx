@@ -1,62 +1,39 @@
-import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
+import { useContext } from 'react'
+import { RescribeContext } from '../constants'
 
 function Footer() {
+	const { footer } = useContext(RescribeContext)
+
 	return (
 		<div className='sticky top-0 z-50 flex h-20 w-screen flex-wrap items-center justify-center border-t border-gray-200 bg-white py-4 dark:border-gray-700 dark:bg-[#040303]'>
 			<div className='flex w-[88rem] items-center justify-between sm:px-2 lg:px-8 xl:px-12'>
 				<div className='flex items-center gap-2 text-gray-900 dark:text-gray-400'>
-					<svg
-						xmlns='http://www.w3.org/2000/svg'
-						width='24'
-						height='24'
-						viewBox='0 0 24 24'
-						fill='none'
-						stroke='currentColor'
-						strokeWidth='2'
-						strokeLinecap='round'
-						strokeLinejoin='round'
-					>
-						<path d='m7 11 2-2-2-2'></path>
-						<path d='M11 13h4'></path>
-						<rect
-							x='3'
-							y='3'
-							width='18'
-							height='18'
-							rx='2'
-							ry='2'
-						></rect>
-					</svg>
-					<p>
-						Built by{' '}
+					{footer?.text ? (
+						footer?.text
+					) : (
 						<a
-							className='underline'
-							href='https://i4o.dev'
+							className='text-sm no-underline'
+							href='https://rescribe.site'
 							target='_blank'
 							rel='noreferrer noopener'
 						>
-							i4o
+							Powered by Rescribe
 						</a>
-						.
-					</p>
+					)}
 				</div>
 				<div className='flex items-center justify-end gap-4'>
-					<a
-						aria-label='Github Repo'
-						href='https://github.com/i4o-oss/rescribe'
-						target='_blank'
-						rel='noreferrer noopener'
-					>
-						<GitHubLogoIcon className='h-6 w-6 text-black dark:text-gray-100' />
-					</a>
-					<a
-						aria-label='Twitter Profile'
-						href='https://twitter.com/i4o_dev'
-						target='_blank'
-						rel='noreferrer noopener'
-					>
-						<TwitterLogoIcon className='h-6 w-6 text-black dark:text-gray-100' />
-					</a>
+					{footer?.socials?.map((social, index) => (
+						<a
+							aria-label={social.ariaLabel}
+							className='text-black dark:text-gray-100'
+							href={social.href}
+							key={`social-${index}`}
+							rel='noreferrer noopener'
+							target='_blank'
+						>
+							{social.icon}
+						</a>
+					))}
 				</div>
 			</div>
 		</div>

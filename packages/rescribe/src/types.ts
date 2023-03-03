@@ -1,8 +1,15 @@
 import type { ReactNode } from 'react'
 
+interface Socials {
+	ariaLabel?: string
+	icon: ReactNode
+	href: string
+}
+
 interface NavbarConfig {
 	logo: string | ReactNode
 	search?: boolean
+	socials?: Socials[]
 }
 
 export interface SidebarLink {
@@ -18,9 +25,15 @@ interface SidebarConfig {
 	search?: boolean
 }
 
+interface FooterConfig {
+	text?: string | ReactNode
+	socials?: Socials[]
+}
+
 export interface RescribeConfig {
+	footer?: FooterConfig
 	navbar: NavbarConfig
-	sidebar?: SidebarConfig
+	sidebar: SidebarConfig
 	theme?: {
 		darkModeToggle?: ReactNode
 	}
