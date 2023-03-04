@@ -1,4 +1,4 @@
-import { Accordion, AccordionGroup } from '@i4o/rescribe'
+import { Accordion, AccordionGroup, List } from '@i4o/rescribe'
 
 # Accordion
 
@@ -19,10 +19,21 @@ Show/hide multiple content in a stacked Accordion component
     </Accordion>
 </AccordionGroup>
 
-<AccordionGroup>
-    <Accordion title='Accordion 4'>
-        Content of Accordion 4
-    </Accordion>
-</AccordionGroup>
-
 ## Props
+
+<List
+    items={[
+        {
+            title: 'title',
+            description: 'Title of the accordion',
+            type: 'string | ReactNode',
+            required: true
+        },
+        {
+            title: 'defaultOpen',
+            description: 'If accordion should be open by default',
+            type: 'boolean',
+            default: 'false'
+        },
+    ]}
+/>
