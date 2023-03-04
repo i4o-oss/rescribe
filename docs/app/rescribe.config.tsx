@@ -154,6 +154,7 @@ const config: RescribeConfig = {
 						cards: 'Cards',
 						'card-group': 'Card Group',
 						list: 'List',
+						tabs: 'Tabs',
 					},
 				},
 				{

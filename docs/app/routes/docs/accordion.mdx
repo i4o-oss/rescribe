@@ -1,1 +1,28 @@
+import { Accordion, AccordionGroup } from '@i4o/rescribe'
+
 # Accordion
+
+Show/hide multiple content in a stacked Accordion component
+
+<AccordionGroup>
+    <Accordion defaultOpen={true} title='Accordion 1'>
+        Content of Accordion 1
+    </Accordion>
+    <Accordion title='Accordion 2'>
+        Content of Accordion 2
+    </Accordion>
+    <Accordion title='Accordion 3'>
+        Content of Accordion 3
+    </Accordion>
+    <Accordion title='Accordion 4'>
+        Content of Accordion 4
+    </Accordion>
+</AccordionGroup>
+
+<AccordionGroup>
+    <Accordion title='Accordion 4'>
+        Content of Accordion 4
+    </Accordion>
+</AccordionGroup>
+
+## Props
