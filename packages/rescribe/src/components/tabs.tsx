@@ -1,7 +1,7 @@
-import { ReactElement, useState } from 'react'
-import { TabGroupProps, TabProps } from '../types'
+import { Children, ReactElement, useState } from 'react'
+import type { TabGroupProps, TabProps } from '../types'
 
-// TODO: Fix types here
+// TODO: Replace any with better types here
 
 function Tab({ children, activeTab, currentTab, setActiveTab }: TabProps) {
 	return (
@@ -21,7 +21,7 @@ function Tab({ children, activeTab, currentTab, setActiveTab }: TabProps) {
 Tab.displayName = 'Tab'
 
 function TabGroup({ children }: TabGroupProps) {
-	function findActiveTab(a: ReactElement[]) {
+	function findActiveTab(a: any) {
 		return a.reduce(
 			(accumulator: number, currentValue: ReactElement, i: number) => {
 				if (currentValue.props.active) {
@@ -36,14 +36,14 @@ function TabGroup({ children }: TabGroupProps) {
 
 	const [activeTab, setActiveTab] = useState(findActiveTab(children))
 
-	function validateTab(tab: ReactElement) {
-		return tab.type.displayName === 'Tab'
+	function validateTab({ type }: { type: any }) {
+		return type.displayName === 'Tab'
 	}
 
 	return (
 		<>
 			<div className='flex items-center gap-4 border-b border-gray-100 dark:border-gray-800'>
-				{children?.map((item: ReactElement, index: number) => (
+				{Children.map(children, (item: ReactElement, index: number) => (
 					<>
 						{validateTab(item) ? (
 							<Tab
@@ -60,7 +60,7 @@ function TabGroup({ children }: TabGroupProps) {
 				))}
 			</div>
 			<div>
-				{children.map((item: ReactElement, index: number) => (
+				{Children.map(children, (item: ReactElement, index: number) => (
 					<div
 						className={`${
 							index === activeTab ? 'visible' : 'hidden'

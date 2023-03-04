@@ -1,9 +1,12 @@
-import { useState } from 'react'
-import { AccordionGroupProps, AccordionProps } from '../types'
+import { Children, ReactElement, useState } from 'react'
+import type { AccordionGroupProps, AccordionProps } from '../types'
+import { ChevronRightIcon } from '@radix-ui/react-icons'
+
+// TODO: Replace any with better types here
 
 function Accordion({
 	children,
-	defaultOpen,
+	defaultOpen = false,
 	index = 0,
 	length = 1,
 	title,
@@ -24,11 +27,16 @@ function Accordion({
 			} ${length === 1 ? 'rounded-t-lg rounded-b-lg' : ''}`}
 		>
 			<div
-				className={`flex items-center px-4 py-2 ${
+				className={`flex cursor-pointer items-center gap-2 px-4 py-2 ${
 					open ? 'border-b' : ''
 				}`}
 				onClick={() => setOpen(!open)}
 			>
+				<ChevronRightIcon
+					className={`transition-transform duration-200 ${
+						open ? 'rotate-90' : ''
+					}`}
+				/>
 				{title}
 			</div>
 			<div className={`px-4 py-2 ${open ? 'visible' : 'hidden'}`}>
@@ -41,33 +49,40 @@ function Accordion({
 Accordion.displayName = 'Accordion'
 
 function AccordionGroup({ children }: AccordionGroupProps) {
-	function validateAccordion(accordion) {
-		return accordion.type.displayName === 'Accordion'
+	function validateAccordion({ type }: { type: any }) {
+		return type.displayName === 'Accordion'
 	}
 
 	return (
 		<>
 			<div>
-				{children?.length > 1 ? (
-					children?.map((item, index: number) => {
-						return (
-							<>
-								{validateAccordion(item) ? (
-									<div>
-										<Accordion
-											defaultOpen={item.props.defaultOpen}
-											index={index}
-											length={children.length}
-											title={item.props.title}
-											key={`accordion-${index}`}
-										>
-											{item.props.children}
-										</Accordion>
-									</div>
-								) : null}
-							</>
-						)
-					})
+				{Children.count(children) > 1 ? (
+					Children.map(
+						children,
+						(item: ReactElement, index: number) => {
+							return (
+								<>
+									{validateAccordion(item) ? (
+										<div>
+											<Accordion
+												defaultOpen={
+													item.props.defaultOpen
+												}
+												index={index}
+												length={Children.count(
+													children
+												)}
+												title={item.props.title}
+												key={`accordion-${index}`}
+											>
+												{item.props.children}
+											</Accordion>
+										</div>
+									) : null}
+								</>
+							)
+						}
+					)
 				) : (
 					<>
 						{validateAccordion(children) ? (

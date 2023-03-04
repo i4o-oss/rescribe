@@ -1,4 +1,4 @@
-import type { Dispatch, ReactNode, SetStateAction } from 'react'
+import type { Dispatch, ReactElement, ReactNode, SetStateAction } from 'react'
 
 interface Socials {
 	ariaLabel?: string
@@ -72,7 +72,7 @@ export interface AccordionProps {
 }
 
 export interface AccordionGroupProps {
-	children: ReactNode
+	children: ReactElement
 }
 
 export interface CalloutProps {
@@ -115,5 +115,5 @@ export interface TabProps {
 }
 
 export interface TabGroupProps {
-	children: ReactNode
+	children: ReactElement
 }
