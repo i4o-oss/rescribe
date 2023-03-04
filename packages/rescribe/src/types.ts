@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { Dispatch, ReactNode, SetStateAction } from 'react'
 
 interface Socials {
 	ariaLabel?: string
@@ -63,6 +63,18 @@ export interface Folder {
 	route: string
 }
 
+export interface AccordionProps {
+	children: string | ReactNode
+	defaultOpen: boolean
+	title: string | ReactNode
+	index?: number
+	length?: number
+}
+
+export interface AccordionGroupProps {
+	children: ReactNode
+}
+
 export interface CalloutProps {
 	children: ReactNode
 	type: 'info' | 'warning' | 'danger' | 'success' | 'tip'
@@ -91,4 +103,17 @@ interface ListItem {
 
 export interface ListProps {
 	items: ListItem[]
+}
+
+export interface TabProps {
+	active?: boolean
+	title: string | ReactNode
+	children: string | ReactNode
+	currentTab: number
+	activeTab: number
+	setActiveTab: Dispatch<SetStateAction<number>>
+}
+
+export interface TabGroupProps {
+	children: ReactNode
 }

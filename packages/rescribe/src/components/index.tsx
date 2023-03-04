@@ -1,4 +1,6 @@
+export * from './accordion'
 export { default as Callout } from './callout'
 export { default as Card } from './card'
 export { default as CardGroup } from './card-group'
 export { default as List } from './list'
+export * from './tabs'
