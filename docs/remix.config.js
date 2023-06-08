@@ -1,7 +1,7 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
+    tailwind: true,
 	future: {
-		unstable_tailwind: true,
 	},
 	ignoredRouteFiles: ['**/.*'],
 	mdx: async () => {
