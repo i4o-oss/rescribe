@@ -11,7 +11,8 @@
         "dev": "turbo run dev --parallel",
         "start": "turbo run start --scope=@rescribe/docs",
         "lint": "turbo run lint",
-        "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\""
+        "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
+        "release": "turbo run build --filter @i4o/rescribe && changeset publish"
     },
     "devDependencies": {
         "@rescribe/eslint-config": "workspace:*",
@@ -22,5 +23,8 @@
     "engines": {
         "node": ">=18.0.0"
     },
-    "packageManager": "pnpm@7.26.0"
+    "packageManager": "pnpm@7.26.0",
+    "dependencies": {
+        "@changesets/cli": "^2.26.1"
+    }
 }
