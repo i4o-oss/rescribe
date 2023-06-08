@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Link, useLocation } from '@remix-run/react'
 import { RescribeContext } from '../constants'
-import { SidebarLink } from '../types'
+import type { SidebarLink } from '../types'
 
 function Sidebar() {
 	const { sidebar } = useContext(RescribeContext)

@@ -1,9 +1,10 @@
-import { Link } from '@remix-run/react'
+import { Link, useLocation } from '@remix-run/react'
 import { useContext } from 'react'
 import cn from 'clsx'
 import { RescribeDataContext } from '../constants'
 
 export default function ToC() {
+	const location = useLocation()
 	// TODO: Fix the types here
 	const { headings } = useContext(RescribeDataContext)
 
@@ -30,7 +31,16 @@ export default function ToC() {
 								)}
 								key={properties.id}
 							>
-								<Link to={`#${properties.id}`}>{value}</Link>
+								<Link
+									className={`-ml-[1px] py-1 text-sm transition-colors duration-300 ${
+										location.hash === `#${properties.id}`
+											? 'text-brand-500'
+											: 'text-gray-700 dark:text-gray-200'
+									}`}
+									to={`#${properties.id}`}
+								>
+									{value}
+								</Link>
 							</li>
 						))}
 					</ul>
