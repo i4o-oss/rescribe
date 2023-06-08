@@ -17,12 +17,14 @@ import {
 import { RescribeProvider } from '@i4o/rescribe'
 import config from '~/rescribe.config'
 import stylesheet from '~/main.css'
+import cuiStylesheet from '@i4o/catalystui/main.css'
 import rescribeStylesheet from '@i4o/rescribe/main.css'
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'
 import { getThemeSession } from '~/utils/theme.server'
 
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: stylesheet },
+	{ rel: 'stylesheet', href: cuiStylesheet },
 	{ rel: 'stylesheet', href: rescribeStylesheet },
 ]
 

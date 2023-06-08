@@ -2,7 +2,6 @@ import type { RescribeConfig } from '@i4o/rescribe'
 import { Switch } from '@i4o/catalystui'
 import { Theme, useTheme } from '~/utils/theme-provider'
 import {
-	DashboardIcon,
 	FileTextIcon,
 	GitHubLogoIcon,
 	TwitterLogoIcon,
@@ -97,11 +96,6 @@ const config: RescribeConfig = {
 				icon: <FileTextIcon className='h-4 w-4' />,
 				label: 'Documentation',
 			},
-			// {
-			// 	href: '/docs/accordion',
-			// 	icon: <DashboardIcon className='h-4 w-4' />,
-			// 	label: 'Components',
-			// },
 			{
 				external: true,
 				href: 'https://github.com/i4o-oss/rescribe',
