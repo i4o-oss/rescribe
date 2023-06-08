@@ -69,14 +69,6 @@ function App() {
 				<ThemeHead ssrTheme={Boolean(data.theme)} />
 			</head>
 			<body className='h-full w-full bg-white dark:bg-[#040303]'>
-				<script
-					defer
-					type='text/javascript'
-					src='https://api.pirsch.io/pirsch.js'
-					id='pirschjs'
-					data-code='FD5gKN6XjMwnzGB1b8TB6RfqXe0OANA9'
-					data-dev={process.env.NODE_ENV === 'development'}
-				></script>
 				<RescribeProvider config={config}>
 					<Outlet />
 				</RescribeProvider>
