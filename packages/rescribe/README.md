@@ -1,39 +1,31 @@
-<p align="center">
-  <a href="https://github.com/i4o-oss/rescribe">
-    <img style="width: 50%;" src="https://raw.githubusercontent.com/i4o-oss/rescribe/main/docs/public/rescribe_logo.png?raw=true" alt="Rescribe Logo">
-  </a>
+# Rescribe
 
-  <h3 align="center">Rescribe</h2>
-
-  <p align="center">
-    Components and utilities for quickly building documentation and blog sites with Remix.
-    <!-- <br /> -->
-    <!-- <a href="https://rescribe.i4o.dev/docs"><strong>Learn more »</strong></a> -->
-    <!-- <br /> -->
-    <!-- <br /> -->
-    <!-- <a href="https://rescribe.i4o.dev">Website</a> -->
-    <!-- · -->
-    <!-- <a href="https://github.com/i4o-oss/rescribe/issues">Issues</a> -->
-    <!-- · -->
-    <!-- <a href="https://github.com/orgs/i4o-oss/projects/3">Roadmap</a> -->
-  </p>
-</p>
+Components and utilities for building documentation and blog sites with Remix.
 
 ## Documentation
 
-For the full documentation, visit [rescribe.site](https://rescribe.site/)
+For full documentation and a complete list of components and utilities, visit [rescribe.site](https://rescribe.site)
+
+## Features
+
+- Made for Remix
+- Add docs to your Remix site
+- Bring your own light/dark theme toggle
+- Customizable colors
+- Out-of-the-box components like accordions, callouts, cards and card groups, lists and tabs
+- Blog (coming soon)
+- Mobile Responsiveness (WIP)
+- i18n (coming soon)
 
 ## Roadmap
 
--   [x] Light/dark mode toggle
--   [x] Components - Accordion, Bleed, Card, Card Group, Callouts, Tabs,
--   [ ] Syntax Highlighting
--   [ ] i18n Support
--   [ ] LateX Support
--   [ ] Zero-config full-text search (coming soon)
--   [ ] Versioning
+- [x] Light/dark mode toggle
+- [x] Components - Accordion, Bleed, Card, Card Group, Callouts, Tabs,
+- [ ] Syntax Highlighting
+- [ ] i18n
+- [ ] Zero-config full-text search
+- [ ] Versioning
 
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
