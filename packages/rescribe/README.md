@@ -19,10 +19,14 @@
   </p>
 </p>
 
+## Documentation
+
+For the full documentation, visit [rescribe.site](https://rescribe.site/)
+
 ## Roadmap
 
 -   [x] Light/dark mode toggle
--   [ ] Components - Accordion, Bleed, Card, Card Group, Callouts, Tabs,
+-   [x] Components - Accordion, Bleed, Card, Card Group, Callouts, Tabs,
 -   [ ] Syntax Highlighting
 -   [ ] i18n Support
 -   [ ] LateX Support

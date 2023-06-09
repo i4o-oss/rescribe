@@ -19,6 +19,10 @@
   </p>
 </p>
 
+## Documentation
+
+For the full documentation, visit [rescribe.site](https://rescribe.site/)
+
 ## Roadmap
 
 -   [x] Light/dark mode toggle

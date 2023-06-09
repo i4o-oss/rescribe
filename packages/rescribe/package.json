@@ -66,5 +66,14 @@
         "slash": "^5.0.0",
         "unified": "^10.1.2",
         "unist-util-visit": "^4.1.2"
+    },
+    "license": "MIT",
+    "homepage": "https://rescribe.site/",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/i4o-oss/rescribe.git"
+    },
+    "bugs": {
+        "url": "https://github.com/i4o-oss/rescribe/issues"
     }
 }
