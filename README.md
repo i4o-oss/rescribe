@@ -9,7 +9,7 @@ For full documentation and a complete list of components and utilities, visit [r
 ## Installation
 
 ```bash
-pnpm install @i4o/catalystui
+pnpm add @i4o/catalystui
 ```
 
 ## Features
