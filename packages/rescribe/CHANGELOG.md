@@ -1,5 +1,11 @@
 # @i4o/rescribe
 
+## 0.1.2
+
+### Patch Changes
+
+-   fe6ac22: Update readme and package details
+
 ## 0.1.1
 
 ### Patch Changes

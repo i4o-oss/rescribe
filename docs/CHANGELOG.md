@@ -4,6 +4,13 @@
 
 ### Patch Changes
 
+-   Updated dependencies [fe6ac22]
+    -   @i4o/rescribe@0.1.2
+
+## null
+
+### Patch Changes
+
 -   Updated dependencies [90ed614]
     -   @i4o/rescribe@0.1.1
 
