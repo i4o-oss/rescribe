@@ -6,6 +6,12 @@ Components and utilities for building documentation and blog sites with Remix.
 
 For full documentation and a complete list of components and utilities, visit [rescribe.site](https://rescribe.site)
 
+## Installation
+
+```bash
+pnpm install @i4o/catalystui
+```
+
 ## Features
 
 - Made for Remix
