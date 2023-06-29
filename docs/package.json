@@ -9,23 +9,25 @@
         "typecheck": "tsc"
     },
     "dependencies": {
-        "@i4o/rescribe": "workspace:*",
         "@i4o/catalystui": "1.0.0-alpha.8",
+        "@i4o/rescribe": "workspace:*",
         "@radix-ui/react-icons": "^1.2.0",
-        "@remix-run/node": "1.17.0",
-        "@remix-run/react": "1.17.0",
-        "@remix-run/serve": "1.17.0",
+        "@remix-run/node": "1.18.0",
+        "@remix-run/react": "1.18.0",
+        "@remix-run/serve": "1.18.0",
         "isbot": "^3.6.6",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "rehype-slug": "^5.1.0"
     },
     "devDependencies": {
-        "@remix-run/dev": "1.17.0",
+        "@remix-run/dev": "1.18.0",
         "@rescribe/eslint-config": "workspace:*",
         "@types/react": "^18.0.28",
         "@types/react-dom": "^18.0.11",
+        "autoprefixer": "^10.4.13",
         "eslint": "^8.34.0",
+        "postcss": "^8.4.21",
         "tailwindcss": "^3.2.7",
         "typescript": "^4.9.5"
     },

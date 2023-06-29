@@ -38,9 +38,9 @@
         "typescript": "^4.9.5"
     },
     "peerDependencies": {
-        "@remix-run/dev": "1.17.0",
-        "@remix-run/node": "1.17.0",
-        "@remix-run/react": "1.17.0",
+        "@remix-run/dev": "1.18.0",
+        "@remix-run/node": "1.18.0",
+        "@remix-run/react": "1.18.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
@@ -51,9 +51,9 @@
         "@i4o-oss/catalystui": "0.6.1",
         "@mdx-js/mdx": "^2.3.0",
         "@radix-ui/react-icons": "^1.2.0",
-        "@remix-run/dev": "1.17.0",
-        "@remix-run/node": "1.17.0",
-        "@remix-run/react": "1.17.0",
+        "@remix-run/dev": "1.18.0",
+        "@remix-run/node": "1.18.0",
+        "@remix-run/react": "1.18.0",
         "@tailwindcss/typography": "^0.5.9",
         "clsx": "^1.2.1",
         "github-slugger": "^2.0.0",
