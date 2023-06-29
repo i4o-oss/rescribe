@@ -1,0 +1,24 @@
+import { Callout, List } from '@i4o/rescribe'
+
+# Callout
+
+Draw attention to important content on your pages
+
+<Callout type='info'>This is an info callout</Callout>
+<Callout type='warning'>This is an warning callout</Callout>
+<Callout type='danger'>This is an danger callout</Callout>
+<Callout type='tip'>This is an tip callout</Callout>
+<Callout type='success'>This is an success callout</Callout>
+
+## Props
+
+<List
+    items={[
+        {
+            title: 'type',
+            description: 'Type of callout',
+            type: 'info | warning | danger | success | tip',
+            default: 'info'
+        }
+    ]}
+/>
