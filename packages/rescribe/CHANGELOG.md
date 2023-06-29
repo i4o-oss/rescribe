@@ -1,5 +1,11 @@
 # @i4o/rescribe
 
+## 0.2.0
+
+### Minor Changes
+
+-   9b3423c: Add support for Remix's v2 routing convention
+
 ## 0.1.2
 
 ### Patch Changes
