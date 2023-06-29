@@ -1,7 +1,10 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
-    tailwind: true,
+	postcss: true,
+	tailwind: true,
 	future: {
+		v2_dev: true,
+		v2_routeConvention: true,
 	},
 	ignoredRouteFiles: ['**/.*'],
 	mdx: async () => {
@@ -17,6 +20,7 @@ module.exports = {
 	// assetsBuildDirectory: "public/build",
 	// serverBuildPath: "build/index.js",
 	// publicPath: "/build/",
+	serverModuleFormat: 'cjs',
 	serverDependenciesToBundle: [/.*/],
 	watchPaths: ['../packages/rescribe/'],
 }
