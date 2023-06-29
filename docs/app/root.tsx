@@ -14,8 +14,6 @@ import {
 	ScrollRestoration,
 	useLoaderData,
 } from '@remix-run/react'
-import { RescribeProvider } from '@i4o/rescribe'
-import config from '~/rescribe.config'
 import stylesheet from '~/main.css'
 import cuiStylesheet from '@i4o/catalystui/main.css'
 import rescribeStylesheet from '@i4o/rescribe/main.css'
@@ -69,9 +67,7 @@ function App() {
 				<ThemeHead ssrTheme={Boolean(data.theme)} />
 			</head>
 			<body className='h-full w-full bg-white dark:bg-[#040303]'>
-				<RescribeProvider config={config}>
-					<Outlet />
-				</RescribeProvider>
+				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
 				<LiveReload />
