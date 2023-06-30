@@ -1,5 +1,11 @@
 # @i4o/rescribe
 
+## 0.2.2
+
+### Patch Changes
+
+-   ae0f45d: Fix issue with docs home link when using v2 routing
+
 ## 0.2.1
 
 ### Patch Changes
