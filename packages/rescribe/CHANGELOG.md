@@ -1,5 +1,11 @@
 # @i4o/rescribe
 
+## 0.2.1
+
+### Patch Changes
+
+-   09e47b5: Small fixes
+
 ## 0.2.0
 
 ### Minor Changes
