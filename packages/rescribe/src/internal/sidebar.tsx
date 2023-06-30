@@ -6,7 +6,7 @@ import type { SidebarLink } from '../types'
 function Sidebar() {
 	const { sidebar } = useContext(RescribeContext)
 	const location = useLocation()
-	const [, root, , path] = location.pathname.split('/')
+	const [, root, , _] = location.pathname.split('/')
 	// TODO: Fix this type later
 	const navigationOptions = sidebar?.navigation[root] as Array<any>
 
