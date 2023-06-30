@@ -19,6 +19,8 @@ import cuiStylesheet from '@i4o/catalystui/main.css'
 import rescribeStylesheet from '@i4o/rescribe/main.css'
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'
 import { getThemeSession } from '~/utils/theme.server'
+import { RescribeProvider } from '@i4o/rescribe'
+import config from './rescribe.config'
 
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: stylesheet },
@@ -67,7 +69,9 @@ function App() {
 				<ThemeHead ssrTheme={Boolean(data.theme)} />
 			</head>
 			<body className='h-full w-full bg-white dark:bg-[#040303]'>
-				<Outlet />
+				<RescribeProvider config={config}>
+					<Outlet />
+				</RescribeProvider>
 				<ScrollRestoration />
 				<Scripts />
 				<LiveReload />
