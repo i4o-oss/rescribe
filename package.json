@@ -1,30 +1,30 @@
 {
-    "name": "rescribe-monorepo",
-    "version": "0.0.0",
-    "private": true,
-    "workspaces": [
-        "docs",
-        "packages/*"
-    ],
-    "scripts": {
-        "build": "turbo run build",
-        "dev": "turbo run dev --parallel",
-        "start": "turbo run start --scope=rescribe-docs",
-        "lint": "turbo run lint",
-        "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
-        "release": "turbo run build --filter @i4o/rescribe && changeset publish"
-    },
-    "devDependencies": {
-        "@rescribe/eslint-config": "workspace:*",
-        "prettier": "^2.8.4",
-        "prettier-plugin-tailwindcss": "^0.2.3",
-        "turbo": "^1.8.2"
-    },
-    "engines": {
-        "node": ">=18.0.0"
-    },
-    "packageManager": "pnpm@7.26.0",
-    "dependencies": {
-        "@changesets/cli": "^2.26.1"
-    }
+	"name": "rescribe-monorepo",
+	"version": "0.0.0",
+	"private": true,
+	"workspaces": [
+		"docs",
+		"packages/*"
+	],
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev --parallel",
+		"start": "turbo run start --scope=rescribe-docs",
+		"lint": "turbo run lint",
+		"format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
+		"release": "turbo run build --filter @i4o/rescribe && changeset publish"
+	},
+	"devDependencies": {
+		"@rescribe/eslint-config": "workspace:*",
+		"prettier": "^2.8.4",
+		"prettier-plugin-tailwindcss": "^0.2.3",
+		"turbo": "^1.8.2"
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"packageManager": "pnpm@7.26.0",
+	"dependencies": {
+		"@changesets/cli": "^2.26.1"
+	}
 }

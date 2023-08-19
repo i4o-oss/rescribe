@@ -5,44 +5,45 @@ import { PaperPlaneIcon } from '@radix-ui/react-icons'
 
 Highlight important sections in your docs and link to those pages.
 
-<Card 
-    title='Card Title' 
-    description='This is how a card looks. You can use cards to highlight important sections in your docs and link to them. This card links to the card group page.' 
-    icon={<PaperPlaneIcon className='w-6 h-6' />}
-    href='/docs/card-group'
+<Card
+	title='Card Title'
+	description='This is how a card looks. You can use cards to highlight important sections in your docs and link to them. This card links to the card group page.'
+	icon={<PaperPlaneIcon className='h-6 w-6' />}
+	href='/docs/card-group'
 />
 
 ## Props
 
 <List
-    items={[
-        {
-            title: 'title',
-            description: 'Title of the card',
-            type: 'string | ReactNode',
-            required: true
-        },
-        {
-            title: 'description',
-            description: 'Description of the card',
-            type: 'string | ReactNode',
-            required: true
-        },
-        {
-            title: 'href',
-            description: 'The url the card clicking on the card should navigate to',
-            type: 'string',
-            required: true
-        },
-        {
-            title: 'icon',
-            description: 'Icon to display in the card',
-            type: 'string',
-        },
-        {
-            title: 'image',
-            description: 'Image to display in the card',
-            type: 'string',
-        },
-    ]}
+	items={[
+		{
+			title: 'title',
+			description: 'Title of the card',
+			type: 'string | ReactNode',
+			required: true,
+		},
+		{
+			title: 'description',
+			description: 'Description of the card',
+			type: 'string | ReactNode',
+			required: true,
+		},
+		{
+			title: 'href',
+			description:
+				'The url the card clicking on the card should navigate to',
+			type: 'string',
+			required: true,
+		},
+		{
+			title: 'icon',
+			description: 'Icon to display in the card',
+			type: 'string',
+		},
+		{
+			title: 'image',
+			description: 'Image to display in the card',
+			type: 'string',
+		},
+	]}
 />

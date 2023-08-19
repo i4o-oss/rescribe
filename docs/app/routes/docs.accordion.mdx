@@ -5,35 +5,29 @@ import { Accordion, AccordionGroup, List } from '@i4o/rescribe'
 Show/hide multiple content in a stacked Accordion component
 
 <AccordionGroup>
-    <Accordion defaultOpen={true} title='Accordion 1'>
-        Content of Accordion 1
-    </Accordion>
-    <Accordion title='Accordion 2'>
-        Content of Accordion 2
-    </Accordion>
-    <Accordion title='Accordion 3'>
-        Content of Accordion 3
-    </Accordion>
-    <Accordion title='Accordion 4'>
-        Content of Accordion 4
-    </Accordion>
+	<Accordion defaultOpen={true} title='Accordion 1'>
+		Content of Accordion 1
+	</Accordion>
+	<Accordion title='Accordion 2'>Content of Accordion 2</Accordion>
+	<Accordion title='Accordion 3'>Content of Accordion 3</Accordion>
+	<Accordion title='Accordion 4'>Content of Accordion 4</Accordion>
 </AccordionGroup>
 
 ## Props
 
 <List
-    items={[
-        {
-            title: 'title',
-            description: 'Title of the accordion',
-            type: 'string | ReactNode',
-            required: true
-        },
-        {
-            title: 'defaultOpen',
-            description: 'If accordion should be open by default',
-            type: 'boolean',
-            default: 'false'
-        },
-    ]}
+	items={[
+		{
+			title: 'title',
+			description: 'Title of the accordion',
+			type: 'string | ReactNode',
+			required: true,
+		},
+		{
+			title: 'defaultOpen',
+			description: 'If accordion should be open by default',
+			type: 'boolean',
+			default: 'false',
+		},
+	]}
 />

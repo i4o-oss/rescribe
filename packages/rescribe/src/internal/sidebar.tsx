@@ -88,7 +88,10 @@ function Sidebar() {
 								<ul className='flex flex-col gap-2 border-l border-gray-100 dark:border-gray-800'>
 									{Object.keys(option.pages).map(
 										(page: string, j: number) => {
-											if (page === 'index' || page === '_index') {
+											if (
+												page === 'index' ||
+												page === '_index'
+											) {
 												return (
 													<Link
 														to={`/${root}`}

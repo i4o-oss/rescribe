@@ -10,7 +10,11 @@ function Navbar() {
 			<div className='relative flex flex-grow basis-0 items-center'>
 				<Link aria-label='Home page' to='/'>
 					{typeof navbar.logo === 'string' ? (
-						<img className='flex h-8' src={navbar.logo} alt='logo' />
+						<img
+							className='flex h-8'
+							src={navbar.logo}
+							alt='logo'
+						/>
 					) : (
 						navbar.logo
 					)}

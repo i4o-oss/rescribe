@@ -14,23 +14,23 @@ pnpm add @i4o/catalystui
 
 ## Features
 
-- Made for Remix
-- Add docs to your Remix site
-- Bring your own light/dark theme toggle
-- Customizable colors
-- Out-of-the-box components like accordions, callouts, cards and card groups, lists and tabs
-- Blog (coming soon)
-- Mobile Responsiveness (WIP)
-- i18n (coming soon)
+-   Made for Remix
+-   Add docs to your Remix site
+-   Bring your own light/dark theme toggle
+-   Customizable colors
+-   Out-of-the-box components like accordions, callouts, cards and card groups, lists and tabs
+-   Blog (coming soon)
+-   Mobile Responsiveness (WIP)
+-   i18n (coming soon)
 
 ## Roadmap
 
-- [x] Light/dark mode toggle
-- [x] Components - Accordion, Bleed, Card, Card Group, Callouts, Tabs,
-- [ ] Syntax Highlighting
-- [ ] i18n
-- [ ] Zero-config full-text search
-- [ ] Versioning
+-   [x] Light/dark mode toggle
+-   [x] Components - Accordion, Bleed, Card, Card Group, Callouts, Tabs,
+-   [ ] Syntax Highlighting
+-   [ ] i18n
+-   [ ] Zero-config full-text search
+-   [ ] Versioning
 
 ## License
 

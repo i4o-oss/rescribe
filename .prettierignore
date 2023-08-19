@@ -1,7 +1,10 @@
+.changeset/
 node_modules/
 
+docs/build
 docs/api
 docs/.cache
 docs/public/build
+packages/core/dist
 packages/rescribe/dist
 pnpm-lock.yaml

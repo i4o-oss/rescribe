@@ -65,7 +65,7 @@ async function readFilesInDir(
 
 		return items as Array<Folder>
 	} else {
-        const pathnameParts = pathname.split('/').filter((e) => e !== '')
+		const pathnameParts = pathname.split('/').filter((e) => e !== '')
 		const filename = pathnameParts.join('.')
 		const items = await Promise.all(
 			files.map(async (f) => {
@@ -73,10 +73,7 @@ async function readFilesInDir(
 				const base = path.parse(f.name).base
 				const { name, ext } = parseFileName(base)
 				const fileRoute = normalizePageRoute(route, name)
-				if (
-					name === filename &&
-					MARKDOWN_EXTENSION_REGEX.test(ext)
-				) {
+				if (name === filename && MARKDOWN_EXTENSION_REGEX.test(ext)) {
 					return {
 						base,
 						path: filePath,
@@ -84,17 +81,17 @@ async function readFilesInDir(
 						data: await collectMdx(filePath),
 					}
 				} else if (
-                    pathnameParts.length === 1 &&
-                    name.startsWith(pathnameParts[0]) &&
-                    name.endsWith('_index')
-                ) {
+					pathnameParts.length === 1 &&
+					name.startsWith(pathnameParts[0]) &&
+					name.endsWith('_index')
+				) {
 					return {
 						base,
 						path: filePath,
 						route: fileRoute,
 						data: await collectMdx(filePath),
 					}
-                }
+				}
 			})
 		)
 
