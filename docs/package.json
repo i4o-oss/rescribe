@@ -1,5 +1,5 @@
 {
-    "name": "@rescribe/docs",
+    "name": "rescribe-docs",
     "private": true,
     "sideEffects": false,
     "scripts": {

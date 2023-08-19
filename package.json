@@ -1,5 +1,5 @@
 {
-    "name": "rescribe",
+    "name": "rescribe-monorepo",
     "version": "0.0.0",
     "private": true,
     "workspaces": [
@@ -9,7 +9,7 @@
     "scripts": {
         "build": "turbo run build",
         "dev": "turbo run dev --parallel",
-        "start": "turbo run start --scope=@rescribe/docs",
+        "start": "turbo run start --scope=rescribe-docs",
         "lint": "turbo run lint",
         "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
         "release": "turbo run build --filter @i4o/rescribe && changeset publish"
