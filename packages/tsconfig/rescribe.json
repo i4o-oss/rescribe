@@ -3,14 +3,25 @@
 	"display": "Rescribe",
 	"extends": "./base.json",
 	"compilerOptions": {
-		"jsx": "react-jsx",
-		"lib": ["DOM", "ES2019"],
-		"module": "ESNext",
-		"target": "es6",
+		"declaration": true,
+		"downlevelIteration": true,
 		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"module": "esnext",
+		"noEmit": true,
+		"noUnusedLocals": false,
 		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ESNext",
+		"types": ["node"],
 		"paths": {
 			"~/*": ["../rescribe/src/"]
-		}
-	}
+		},
+		"lib": ["DOM", "ESNext"]
+	},
+	"include": ["**/*"],
+	"exclude": ["**/dist/**/*", "**/node_modules/**/*"]
 }
