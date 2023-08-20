@@ -12,6 +12,7 @@ export default defineConfig([
 		entry: ['src/index.tsx'],
 		format: 'cjs',
 		dts: false,
+		// @ts-ignore
 		target,
 	},
 	{
