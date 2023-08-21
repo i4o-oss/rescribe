@@ -3,17 +3,15 @@
 	"version": "0.1.0",
 	"description": "",
 	"files": [
-		"dist/*"
+		"dist"
 	],
-	"main": "index.js",
-	"types": "dist/index.d.ts",
-	"style": "dist/main.css",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"style": "./dist/main.css",
 	"exports": {
-		".": {
-			"import": "./dist/index.esm.js",
-			"types": "./dist/index.d.ts",
-			"require": "./dist/index.cjs.js"
-		}
+		".": "./dist/index.js",
+		"./main.css": "./dist/main.css"
 	},
 	"scripts": {
 		"dev": "concurrently \"pnpm run dev:css\" \"pnpm dev:lib\"",
@@ -27,6 +25,7 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"@remix-run/react": "1.18.0",
 		"@rescribe/eslint-config": "workspace:*",
 		"@rescribe/tsconfig": "workspace:*",
 		"@types/node": "^20.5.1",
@@ -42,6 +41,7 @@
 		"typescript": "^4.9.5"
 	},
 	"peerDependencies": {
+		"@remix-run/react": "1.18.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},
