@@ -18,7 +18,7 @@
 		"target": "ESNext",
 		"types": ["node"],
 		"paths": {
-			"~/*": ["../rescribe/src/"]
+			"~/*": ["../rescribe/src/", "../core/src/"]
 		},
 		"lib": ["DOM", "ESNext"]
 	},
