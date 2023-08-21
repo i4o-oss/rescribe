@@ -7,7 +7,7 @@ import {
 	TwitterLogoIcon,
 } from '@radix-ui/react-icons'
 
-import { collection, config } from '@rescribe/core'
+import { collection, config, fields } from '@rescribe/core'
 
 export const configObj = config({
 	collections: {
@@ -16,7 +16,10 @@ export const configObj = config({
 			slug: 'docs',
 			path: 'content/docs/*',
 			schema: {
-				title: '',
+				title: fields.text({
+					label: 'Title',
+					description: 'Title of the document',
+				}),
 			},
 		}),
 		blog: collection({
@@ -24,7 +27,10 @@ export const configObj = config({
 			slug: 'blog',
 			path: 'content/blog/*',
 			schema: {
-				title: '',
+				title: fields.text({
+					label: 'Title',
+					description: 'Title of the blog post',
+				}),
 			},
 		}),
 	},
