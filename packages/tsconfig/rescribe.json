@@ -8,7 +8,7 @@
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"isolatedModules": true,
-		"jsx": "preserve",
+		"jsx": "react-jsx",
 		"module": "esnext",
 		"noEmit": true,
 		"noUnusedLocals": false,
@@ -17,9 +17,6 @@
 		"strict": true,
 		"target": "ESNext",
 		"types": ["node"],
-		"paths": {
-			"~/*": ["../rescribe/src/", "../core/src/"]
-		},
 		"lib": ["DOM", "ESNext"]
 	},
 	"include": ["**/*"],
