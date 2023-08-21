@@ -7,6 +7,29 @@ import {
 	TwitterLogoIcon,
 } from '@radix-ui/react-icons'
 
+import { collection, config } from '@rescribe/core'
+
+export const configObj = config({
+	collections: {
+		docs: collection({
+			label: 'Docs',
+			slug: 'docs',
+			path: 'content/docs/*',
+			schema: {
+				title: '',
+			},
+		}),
+		blog: collection({
+			label: 'Blog',
+			slug: 'blog',
+			path: 'content/blog/*',
+			schema: {
+				title: '',
+			},
+		}),
+	},
+})
+
 function DarkModeToggle() {
 	const [theme, setTheme] = useTheme()
 
@@ -25,7 +48,7 @@ function DarkModeToggle() {
 	)
 }
 
-const config: RescribeConfig = {
+const rescribeConfig: RescribeConfig = {
 	footer: {
 		socials: [
 			{
@@ -172,4 +195,4 @@ const config: RescribeConfig = {
 	},
 }
 
-export default config
+export default rescribeConfig
