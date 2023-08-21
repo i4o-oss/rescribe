@@ -4,7 +4,7 @@ import type { Options } from 'tsup'
 const config: Options = {
 	replaceNodeEnv: true,
 	splitting: true,
-	clean: true,
+	clean: false,
 	dts: true,
 	format: ['cjs', 'esm'],
 	skipNodeModulesBundle: true,
@@ -13,6 +13,7 @@ const config: Options = {
 	bundle: true,
 	minify: true,
 	name: '@rescribe/core',
+	external: ['react', 'react-dom', '@remix-run/react'],
 }
 
 export default defineConfig(config)
