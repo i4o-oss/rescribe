@@ -1,1 +1,1 @@
-export { default as Rescribe } from './Rescribe'
+export { default as Rescribe } from './rescribe'
