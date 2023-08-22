@@ -4,14 +4,17 @@ import { parsePathname } from './helpers'
 
 export function handleLoader({ request }: LoaderArgs) {
 	const url = new URL(request.url)
-	const pathname = parsePathname(url.pathname)
+	const parsedPath = parsePathname(url.pathname)
 
-	if (pathname === '') {
-		console.log('root')
+	if (parsedPath === null) {
 		return json({})
-	} else if (pathname.startsWith('/collections')) {
-		const collectionSlug = pathname.replace('/collections/', '')
-		console.log(`Fetching items from ${collectionSlug} collection`)
+	} else if (parsedPath.collection && !parsedPath.action) {
+		console.log(`Fetching items from ${parsedPath.collection} collection`)
+		return json({})
+	} else if (parsedPath.collection && parsedPath.action === 'edit') {
+		console.log(
+			`Editing ${parsedPath.slug} from ${parsedPath.collection} collection`
+		)
 		return json({})
 	} else {
 		return json({})
