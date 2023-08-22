@@ -15,7 +15,6 @@ import {
 	useLoaderData,
 } from '@remix-run/react'
 import stylesheet from '~/main.css'
-// import cuiStylesheet from '@i4o/catalystui/main.css'
 import rescribeStylesheet from '@i4o/rescribe/main.css'
 import rescribeCoreStylesheet from '@rescribe/core/main.css'
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'
@@ -25,7 +24,6 @@ import { rescribeConfig } from '~/rescribe.config'
 
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: stylesheet },
-	// { rel: 'stylesheet', href: cuiStylesheet },
 	{ rel: 'stylesheet', href: rescribeStylesheet },
 	{ rel: 'stylesheet', href: rescribeCoreStylesheet },
 ]

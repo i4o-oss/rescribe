@@ -49,7 +49,7 @@
 		"access": "public"
 	},
 	"dependencies": {
-		"@i4o-oss/catalystui": "0.6.1",
+		"@i4o/catalystui": "1.0.0-alpha.14",
 		"@mdx-js/mdx": "^2.3.0",
 		"@radix-ui/react-icons": "^1.2.0",
 		"@remix-run/dev": "1.18.0",
