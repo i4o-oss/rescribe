@@ -1,1 +1,1 @@
-export const BASENAME = '/rescribe'
+export const BASE_PATH = '/rescribe'
