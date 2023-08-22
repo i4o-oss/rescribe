@@ -7,11 +7,9 @@ export function Dashboard() {
 	const { collections } = useContext(ConfigContext)
 
 	return (
-		<main className='rs-flex rs-h-full rs-w-full rs-flex-col rs-items-center rs-justify-start rs-py-16 rs-gap-8'>
-			<div className='rs-mb-5 rs-flex rs-w-full rs-items-center'>
-				<h2 className='rs-mb-1 rs-text-2xl rs-font-bold'>
-					Collections
-				</h2>
+		<main className='rs-flex rs-h-full rs-w-full rs-flex-col rs-items-center rs-justify-start rs-py-16 rs-gap-12'>
+			<div className='rs-flex rs-w-full rs-items-center'>
+				<h2 className='rs-text-2xl rs-font-bold'>Collections</h2>
 			</div>
 			<section className='rs-flex rs-w-full rs-items-center rs-justify-center'>
 				<div className='rs-flex rs-w-full rs-flex-wrap rs-items-center'>
@@ -20,7 +18,7 @@ export function Dashboard() {
 							const collection = collections[key]
 							return (
 								<Link
-									className='rs-border-gray-100 dark:rs-border-gray-800 rs-col-span-1 rs-overflow-hidden rs-rounded-lg rs-border rs-shadow-lg'
+									className='rs-border-gray-100 dark:rs-border-gray-800 hover:rs-border-gray-200 hover:dark:rs-border-gray-800 rs-col-span-1 rs-overflow-hidden rs-rounded-lg rs-border rs-shadow-lg rs-transition-all rs-duration-200'
 									key={key}
 									to={`${BASE_PATH}/collections/${collection?.slug}`}
 								>
