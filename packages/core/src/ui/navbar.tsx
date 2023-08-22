@@ -1,9 +1,32 @@
-import { Link, useLocation } from '@remix-run/react'
+import { Select } from '@i4o/catalystui'
+import { Link, useLocation, useNavigate } from '@remix-run/react'
+import { useContext, useState } from 'react'
 import { BASE_PATH } from '../constants'
+import { parsePathname } from '../helpers'
+import { ConfigContext } from '../provider'
 
 export default function Navbar() {
+	const { collections } = useContext(ConfigContext)
 	const location = useLocation()
-	const parts = location.pathname.split('/')
+	const navigate = useNavigate()
+	const parsedPaths = parsePathname(location.pathname)
+	const [selectedCollection, setSelectedCollection] = useState(
+		parsedPaths?.collection || ''
+	)
+
+	const COLLECTION_SELECT_ITEMS = Object.keys(collections).map((key) => {
+		const collection = collections[key]
+
+		return {
+			label: collection.label,
+			value: key,
+		}
+	})
+
+	function collectionChangeHandler(value: string) {
+		setSelectedCollection(value)
+		navigate(`${BASE_PATH}/collections/${value}`)
+	}
 
 	return (
 		<nav className='rs-w-full rs-h-20 rs-px-4 lg:rs-px-4 rs-border-b rs-border-gray-100 dark:rs-border-gray-800 rs-flex rs-items-center'>
@@ -32,14 +55,25 @@ export default function Navbar() {
 							rescribe
 						</span>
 					</Link>
-					{parts[2] === 'collections' ? (
+					{parsedPaths?.collection ? (
 						<>
 							<span>/</span>
 							<span>collections</span>
-							{parts[3] !== '' ? (
+							{parsedPaths.collection ? (
 								<>
 									<span>/</span>
-									<span>{parts[3]}</span>
+									<Select
+										items={COLLECTION_SELECT_ITEMS}
+										name='collectionSelector'
+										onValueChange={collectionChangeHandler}
+										value={selectedCollection}
+									/>
+									{parsedPaths.action ? (
+										<>
+											<span>/</span>
+											<span>{parsedPaths.action}</span>
+										</>
+									) : null}
 								</>
 							) : null}
 						</>
