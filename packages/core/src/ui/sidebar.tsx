@@ -48,12 +48,13 @@ function Sidebar(props: Props) {
 							{Object.keys(collections).map((key) => (
 								<Link
 									className={`rs-py-2 rs-px-4 rs-text-sm rs-rounded-md rs-transition-colors rs-duration-200 ${
-										location.pathname === `/${root}/test`
+										location.pathname ===
+										`/${root}/collections/${key}`
 											? 'rs-bg-rescribe-accent/20 rs-text-rescribe-accent'
 											: 'rs-text-gray-600 dark:rs-text-gray-400 hover:rs-bg-rescribe-accent/20'
 									}`}
 									key={key}
-									to={`/${root}/${key}`}
+									to={`/${root}/collections/${key}`}
 								>
 									{collections[key].label}
 								</Link>

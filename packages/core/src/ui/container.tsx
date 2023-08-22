@@ -8,11 +8,9 @@ interface ContainerProps {
 
 function Container(props: ContainerProps) {
 	return (
-		<div className='relative mx-auto flex min-h-[calc(100vh-5rem)] w-full justify-between'>
+		<div className='rs-relative rs-flex rs-min-h-[calc(100vh-5rem)] rs-w-full'>
 			<Sidebar config={props.config} />
-			<div className='prose dark:prose-invert max-w-4xl flex-auto px-4 py-16 lg:pr-0 lg:pl-0 xl:px-16 [&_h2]:scroll-mt-36 [&_h3]:scroll-mt-36'>
-				{props.children}
-			</div>
+			<div className='rs-w-full rs-flex rs-p-8'>{props.children}</div>
 		</div>
 	)
 }
