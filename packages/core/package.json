@@ -1,7 +1,6 @@
 {
 	"name": "@rescribe/core",
 	"version": "0.1.0",
-	"description": "",
 	"files": [
 		"dist"
 	],
@@ -14,17 +13,15 @@
 		"./main.css": "./dist/main.css"
 	},
 	"scripts": {
-		"dev": "concurrently \"pnpm dev:css\" \"pnpm dev:lib\"",
+		"dev": "concurrently \"pnpm run dev:css\" \"pnpm dev:lib\"",
 		"dev:css": "tailwindcss -w -i ./styles/main.css -o ./dist/main.css",
 		"dev:lib": "tsup --watch",
-		"build": "pnpm build:css && pnpm build:lib",
+		"build": "pnpm run build:css && pnpm build:lib",
 		"build:css": "tailwindcss -m -i ./styles/main.css -o ./dist/main.css",
 		"build:lib": "tsup"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
 	"devDependencies": {
+		"@remix-run/node": "1.18.0",
 		"@remix-run/react": "1.18.0",
 		"@rescribe/eslint-config": "workspace:*",
 		"@rescribe/tsconfig": "workspace:*",
@@ -41,11 +38,15 @@
 		"typescript": "^4.9.5"
 	},
 	"peerDependencies": {
+		"@remix-run/node": "1.18.0",
 		"@remix-run/react": "1.18.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},
 	"dependencies": {
 		"zod": "^3.22.2"
-	}
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
 }
