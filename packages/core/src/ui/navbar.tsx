@@ -1,18 +1,28 @@
 import { Select } from '@i4o/catalystui'
 import { Link, useLocation, useNavigate } from '@remix-run/react'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { BASE_PATH } from '../constants'
 import { parsePathname } from '../helpers'
 import { ConfigContext } from '../provider'
 
-export default function Navbar() {
+function CollectionSelector({
+	location,
+	parsedPaths,
+}: {
+	location: any
+	parsedPaths: any
+}) {
 	const { collections } = useContext(ConfigContext)
-	const location = useLocation()
 	const navigate = useNavigate()
-	const parsedPaths = parsePathname(location.pathname)
 	const [selectedCollection, setSelectedCollection] = useState(
-		parsedPaths?.collection || ''
+		parsedPaths?.collection
 	)
+
+	useEffect(() => {
+		if (parsedPaths?.collection) {
+			setSelectedCollection(parsedPaths.collection)
+		}
+	}, [location, parsedPaths])
 
 	const COLLECTION_SELECT_ITEMS = Object.keys(collections).map((key) => {
 		const collection = collections[key]
@@ -27,6 +37,20 @@ export default function Navbar() {
 		setSelectedCollection(value)
 		navigate(`${BASE_PATH}/collections/${value}`)
 	}
+
+	return (
+		<Select
+			items={COLLECTION_SELECT_ITEMS}
+			name='collectionSelector'
+			onValueChange={collectionChangeHandler}
+			value={selectedCollection}
+		/>
+	)
+}
+
+export default function Navbar() {
+	const location = useLocation()
+	const parsedPaths = parsePathname(location.pathname)
 
 	return (
 		<nav className='rs-w-full rs-h-20 rs-px-4 lg:rs-px-4 rs-border-b rs-border-gray-100 dark:rs-border-gray-800 rs-flex rs-items-center'>
@@ -62,11 +86,9 @@ export default function Navbar() {
 							{parsedPaths.collection ? (
 								<>
 									<span>/</span>
-									<Select
-										items={COLLECTION_SELECT_ITEMS}
-										name='collectionSelector'
-										onValueChange={collectionChangeHandler}
-										value={selectedCollection}
+									<CollectionSelector
+										location={location}
+										parsedPaths={parsedPaths}
 									/>
 									{parsedPaths.action ? (
 										<>
