@@ -2,9 +2,24 @@ import { z } from 'zod'
 
 export type Glob = '*' | '**'
 
+export const FieldTypes = z.enum([
+	'text',
+	'slug',
+	'image',
+	'boolean',
+	'document',
+	'date',
+	'url',
+	'select',
+	'multiselect',
+])
+export type FieldType = z.infer<typeof FieldTypes>
+
 export type BasicField = {
 	label: string
 	description?: string
+} & {
+	type?: FieldType // FIXME: this is wrong but it works for now
 }
 
 export type TextField = BasicField & {
