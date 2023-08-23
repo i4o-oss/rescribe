@@ -4,24 +4,21 @@
 	"files": [
 		"dist"
 	],
-	"main": "dist/rescribe-core.cjs.js",
-	"module": "dist/rescribe-core.esm.js",
-	"exports": {
-		".": {
-			"module": "./dist/rescribe-core.esm.js",
-			"default": "./dist/rescribe-core.cjs.js"
-		},
-		"./package.json": "./package.json",
-		"./rescribe.css": "./styles/rescribe.css"
-	},
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
 	"style": "./styles/rescribe.css",
+	"exports": {
+		".": "./dist/index.js",
+		"./rescribe.css": "./dist/rescribe.css"
+	},
 	"scripts": {
-		"dev": "tailwindcss -w -i ./src/styles/main.css -o ./styles/rescribe.css",
+		"dev": "concurrently \"pnpm run dev:css\" \"pnpm dev:lib\"",
+		"dev:css": "tailwindcss -w -i ./styles/main.css -o ./dist/rescribe.css",
+		"dev:lib": "tsup --watch",
 		"build": "pnpm run build:css && pnpm build:lib",
-		"build:css": "tailwindcss -m -i ./src/styles/main.css -o ./styles/rescribe.css",
-		"build:lib": "tsup",
-		"setup": "pnpm run build:css"
+		"build:css": "tailwindcss -m -i ./styles/main.css -o ./dist/rescribe.css",
+		"build:lib": "tsup"
 	},
 	"devDependencies": {
 		"@remix-run/node": "1.18.0",
@@ -48,18 +45,7 @@
 	},
 	"dependencies": {
 		"@i4o/catalystui": "1.0.0-alpha.14",
-		"fast-glob": "^3.3.1",
 		"zod": "^3.22.2"
-	},
-	"preconstruct": {
-		"entrypoints": [
-			"index.tsx"
-		],
-		"exports": {
-			"extra": {
-				"./rescribe.css": "./styles/rescribe.css"
-			}
-		}
 	},
 	"keywords": [],
 	"author": "",
