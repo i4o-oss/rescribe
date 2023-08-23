@@ -1,0 +1,6 @@
+{
+	"display": "@rescribe/server",
+	"extends": "@rescribe/tsconfig/server.json",
+	"include": ["."],
+	"exclude": ["dist", "build", "node_modules"]
+}
