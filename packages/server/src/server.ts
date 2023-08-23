@@ -10,7 +10,6 @@ async function readItemsInCollection(collection: Collection) {
 	const fullPath = `${process.cwd()}/${REMIX_BASE_PATH}/${path}.{md,mdx}`
 	const entries = await fg(fullPath, { onlyFiles: true })
 
-	console.log(entries)
 	return entries
 }
 

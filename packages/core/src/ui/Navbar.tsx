@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from 'react'
 
 import { BASE_PATH } from '../constants'
 import { parsePathname } from '../helpers'
-import { ConfigContext } from '../provider'
+import { ConfigContext } from '../providers'
 
 function CollectionSelector({
 	location,
