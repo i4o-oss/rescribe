@@ -1,5 +1,3 @@
-import { RescribeProvider } from '@i4o/rescribe'
-import rescribeStylesheet from '@i4o/rescribe/main.css'
 import type {
 	LinksFunction,
 	LoaderArgs,
@@ -16,6 +14,9 @@ import {
 	ScrollRestoration,
 	useLoaderData,
 } from '@remix-run/react'
+
+import { RescribeProvider } from '@i4o/rescribe'
+import rescribeStylesheet from '@i4o/rescribe/main.css'
 import rescribeCoreStylesheet from '@rescribe/core/rescribe.css'
 import stylesheet from '~/main.css'
 import { rescribeConfig } from '~/rescribe.config'

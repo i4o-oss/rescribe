@@ -1,10 +1,11 @@
-import { CalloutProps } from '../types'
 import {
-	CircleBackslashIcon,
-	InfoCircledIcon,
-	ExclamationTriangleIcon,
 	CheckCircledIcon,
+	CircleBackslashIcon,
+	ExclamationTriangleIcon,
+	InfoCircledIcon,
 } from '@radix-ui/react-icons'
+
+import { CalloutProps } from '../types'
 
 export default function Callout({ children, type = 'info' }: CalloutProps) {
 	const classnames =

@@ -1,5 +1,6 @@
-import { PrimaryButton } from '@i4o/catalystui'
 import { Link, useLoaderData, useLocation } from '@remix-run/react'
+
+import { PrimaryButton } from '@i4o/catalystui'
 
 export default function CollectionItems() {
 	const { entries } = useLoaderData()

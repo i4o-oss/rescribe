@@ -1,4 +1,5 @@
 import type { LoaderArgs } from '@remix-run/node'
+
 import { Rescribe } from '@rescribe/core'
 import { configObj as config } from '~/rescribe.config'
 import { handleLoaderForRescribe } from '~/utils/rescribe.server'

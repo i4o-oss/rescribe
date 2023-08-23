@@ -1,14 +1,15 @@
-import { PrimaryButton, CopyToClipboard } from '@i4o/catalystui'
-import { Navbar, Footer } from '@i4o/rescribe'
-import {
-	MagnifyingGlassIcon,
-	DashboardIcon,
-	CheckCircledIcon,
-	HeartFilledIcon,
-	MixIcon,
-	GlobeIcon,
-} from '@radix-ui/react-icons'
 import { Link } from '@remix-run/react'
+
+import { CopyToClipboard, PrimaryButton } from '@i4o/catalystui'
+import { Footer, Navbar } from '@i4o/rescribe'
+import {
+	CheckCircledIcon,
+	DashboardIcon,
+	GlobeIcon,
+	HeartFilledIcon,
+	MagnifyingGlassIcon,
+	MixIcon,
+} from '@radix-ui/react-icons'
 
 const features = [
 	{

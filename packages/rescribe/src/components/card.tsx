@@ -1,5 +1,6 @@
-import { CardProps } from '../types'
 import { Link } from '@remix-run/react'
+
+import { CardProps } from '../types'
 
 export default function Card(props: CardProps) {
 	const CardElement = () => (

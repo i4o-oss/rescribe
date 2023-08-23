@@ -1,9 +1,11 @@
+import { Link, useLocation, useNavigate } from '@remix-run/react'
+
+import { Select } from '@i4o/catalystui'
+import { useContext, useEffect, useState } from 'react'
+
 import { BASE_PATH } from '../constants'
 import { parsePathname } from '../helpers'
 import { ConfigContext } from '../provider'
-import { Select } from '@i4o/catalystui'
-import { Link, useLocation, useNavigate } from '@remix-run/react'
-import { useContext, useEffect, useState } from 'react'
 
 function CollectionSelector({
 	location,

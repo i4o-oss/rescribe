@@ -1,5 +1,6 @@
-import { RescribeContext } from '../constants'
 import { useContext } from 'react'
+
+import { RescribeContext } from '../constants'
 
 function Footer() {
 	const { footer } = useContext(RescribeContext)

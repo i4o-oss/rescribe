@@ -1,6 +1,7 @@
-import type { AccordionGroupProps, AccordionProps } from '../types'
 import { ChevronRightIcon } from '@radix-ui/react-icons'
 import { Children, ReactElement, useState } from 'react'
+
+import type { AccordionGroupProps, AccordionProps } from '../types'
 
 // TODO: Replace any with better types here
 

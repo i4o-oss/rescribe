@@ -1,6 +1,7 @@
 import type { LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
-import { parsePathname, REMIX_BASE_PATH } from '@rescribe/core'
+
+import { REMIX_BASE_PATH, parsePathname } from '@rescribe/core'
 import type { Collection, Collections, Config } from '@rescribe/core'
 import fg from 'fast-glob'
 

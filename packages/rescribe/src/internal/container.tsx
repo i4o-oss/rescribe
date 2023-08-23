@@ -1,6 +1,7 @@
+import type { ReactNode } from 'react'
+
 import Sidebar from './sidebar'
 import ToC from './toc'
-import type { ReactNode } from 'react'
 
 interface ContainerProps {
 	children: ReactNode
