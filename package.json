@@ -12,6 +12,7 @@
 		"start": "turbo run start --scope=rescribe-docs",
 		"lint": "turbo run lint",
 		"format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
+		"postinstall": "preconstruct dev && cd packages/core && pnpm run setup",
 		"release": "turbo run build --filter @i4o/rescribe && changeset publish"
 	},
 	"devDependencies": {
@@ -25,6 +26,18 @@
 	},
 	"packageManager": "pnpm@7.26.0",
 	"dependencies": {
-		"@changesets/cli": "^2.26.1"
+		"@babel/core": "^7.22.10",
+		"@babel/plugin-transform-runtime": "^7.22.10",
+		"@babel/preset-env": "^7.22.10",
+		"@babel/preset-react": "^7.22.5",
+		"@babel/preset-typescript": "^7.22.5",
+		"@changesets/cli": "^2.26.1",
+		"@preconstruct/cli": "^2.8.1"
+	},
+	"preconstruct": {
+		"packages": [
+			"packages/core"
+		],
+		"exports": true
 	}
 }
