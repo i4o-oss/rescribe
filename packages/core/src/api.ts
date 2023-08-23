@@ -7,7 +7,7 @@ type LoaderHandlerArgs = LoaderArgs & {
 	config: Config<Collections>
 }
 
-export function handleLoader({ request }: LoaderArgs) {
+export function handleLoader({ request }: LoaderHandlerArgs) {
 	const url = new URL(request.url)
 	const parsedPath = parsePathname(url.pathname)
 
