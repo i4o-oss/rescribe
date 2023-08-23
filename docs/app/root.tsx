@@ -16,7 +16,7 @@ import {
 } from '@remix-run/react'
 import stylesheet from '~/main.css'
 import rescribeStylesheet from '@i4o/rescribe/main.css'
-import rescribeCoreStylesheet from '@rescribe/core/main.css'
+import rescribeCoreStylesheet from '@rescribe/core/rescribe.css'
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'
 import { getThemeSession } from '~/utils/theme.server'
 import { RescribeProvider } from '@i4o/rescribe'
