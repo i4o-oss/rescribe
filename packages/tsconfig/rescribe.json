@@ -15,9 +15,8 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"strict": true,
-		"target": "ESNext",
-		"types": ["node"],
-		"lib": ["DOM", "ESNext"]
+		"target": "esnext",
+		"types": ["node"]
 	},
 	"include": ["**/*"],
 	"exclude": ["**/dist/**/*", "**/node_modules/**/*"]
