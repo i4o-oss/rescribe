@@ -19,10 +19,6 @@ export const configObj = config({
 					label: 'Title',
 					description: 'Title of the document',
 				}),
-				published: fields.boolean({
-					label: 'Published',
-					description: 'If document is published',
-				}),
 			},
 		}),
 		blog: collection({
@@ -33,6 +29,10 @@ export const configObj = config({
 				title: fields.text({
 					label: 'Title',
 					description: 'Title of the blog post',
+				}),
+				published: fields.boolean({
+					label: 'Published',
+					description: 'If the post is published',
 				}),
 			},
 		}),
