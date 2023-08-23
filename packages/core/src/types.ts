@@ -15,18 +15,27 @@ export const FieldTypes = z.enum([
 ])
 export type FieldType = z.infer<typeof FieldTypes>
 
+
+
 export type BasicField = {
 	label: string
 	description?: string
-} & {
-	type?: FieldType // FIXME: this is wrong but it works for now
 }
-
 export type TextField = BasicField & {
 	multiline?: boolean
+} & {
+	type?: typeof FieldTypes.enum.text
 }
 
-export type Field = TextField
+
+export type BooleanField = BasicField & {
+	defaultChecked?: boolean
+} & {
+	type?: typeof FieldTypes.enum.boolean
+}
+
+
+export type Field = BooleanField | TextField
 
 // collection slug has to match the slug regex
 export const collectionSlug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)

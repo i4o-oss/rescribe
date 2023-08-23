@@ -2,6 +2,7 @@ import { Form } from '@remix-run/react'
 
 import { useContext } from 'react'
 
+import Boolean from '../form/Boolean'
 import TextInput from '../form/TextInput'
 import { CollectionContext } from '../providers'
 import type { Collection } from '../types'
@@ -24,6 +25,16 @@ export default function NewCollectionItem() {
 							/>
 						)
 					}
+					case 'boolean': {
+						return (
+							<Boolean
+								defaultChecked={field.defaultChecked}
+								description={field.description}
+								label={field.label}
+								key={key}
+							/>
+						)
+					}
 					default: {
 						return null
 					}
@@ -33,7 +44,7 @@ export default function NewCollectionItem() {
 
 	return (
 		<main className='rs-flex rs-h-full rs-w-full rs-flex-col rs-items-center rs-justify-start rs-gap-12'>
-			<Form className='rs-w-full'>{fields}</Form>
+			<Form className='rs-w-full rs-flex rs-flex-col rs-gap-8'>{fields}</Form>
 		</main>
 	)
 }
