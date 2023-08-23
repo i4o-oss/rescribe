@@ -1,4 +1,3 @@
-export * from './api'
 export * from './config'
 export * as fields from './fields'
 export type { Collection, Config, Field, Schema } from './types'
