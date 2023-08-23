@@ -7,7 +7,7 @@ export function Dashboard() {
 	const { collections } = useContext(ConfigContext)
 
 	return (
-		<main className='rs-flex rs-h-full rs-w-full rs-flex-col rs-items-center rs-justify-start rs-py-16 rs-gap-12'>
+		<main className='rs-flex rs-h-full rs-w-full rs-flex-col rs-items-center rs-justify-start rs-gap-12'>
 			<div className='rs-flex rs-w-full rs-items-center'>
 				<h2 className='rs-text-2xl rs-font-bold'>Collections</h2>
 			</div>
