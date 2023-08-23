@@ -1,8 +1,8 @@
+import { readFilesInDir } from './fs'
+import remarkHeadings from './plugins/remark-headings'
+import { createProcessor } from '@mdx-js/mdx'
 import type { VFile } from '@mdx-js/mdx/lib/compile'
 import fs from 'fs'
-import { createProcessor } from '@mdx-js/mdx'
-import remarkHeadings from './plugins/remark-headings'
-import { readFilesInDir } from './fs'
 
 async function readCurrentMdx({
 	pathname,

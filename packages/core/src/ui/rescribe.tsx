@@ -1,4 +1,3 @@
-import { useLocation } from '@remix-run/react'
 import { parsePathname } from '../helpers'
 import { ConfigProvider } from '../provider'
 import type { Collections, Config } from '../types'
@@ -6,6 +5,7 @@ import CollectionItems from './CollectionItems'
 import Container from './Container'
 import { Dashboard } from './Dashboard'
 import Navbar from './Navbar'
+import { useLocation } from '@remix-run/react'
 
 export default function Rescribe(props: { config: Config<Collections> }) {
 	const location = useLocation()

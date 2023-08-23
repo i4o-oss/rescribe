@@ -1,10 +1,9 @@
-import { Heading as AstHeading } from 'mdast'
-
-import type { Node } from 'unist-util-visit/lib'
 import Slugger from 'github-slugger'
-import { visit } from 'unist-util-visit'
+import { Heading as AstHeading } from 'mdast'
 import { toString } from 'mdast-util-to-string'
 import { VFileWithOutput } from 'unified'
+import { visit } from 'unist-util-visit'
+import type { Node } from 'unist-util-visit/lib'
 
 export interface Heading {
 	depth: number

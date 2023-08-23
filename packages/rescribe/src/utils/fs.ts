@@ -1,9 +1,9 @@
-import fs from 'fs'
-import path from 'path'
-import slash from 'slash'
-import matter from 'gray-matter'
 import { MARKDOWN_EXTENSION_REGEX, REMIX_ROUTES_DIR } from '../constants'
 import type { Folder } from '../types'
+import fs from 'fs'
+import matter from 'gray-matter'
+import path from 'path'
+import slash from 'slash'
 
 async function collectMdx(filePath: string) {
 	const content = await fs.promises.readFile(filePath, 'utf8')

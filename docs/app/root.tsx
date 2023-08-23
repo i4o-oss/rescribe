@@ -1,3 +1,5 @@
+import { RescribeProvider } from '@i4o/rescribe'
+import rescribeStylesheet from '@i4o/rescribe/main.css'
 import type {
 	LinksFunction,
 	LoaderArgs,
@@ -14,13 +16,11 @@ import {
 	ScrollRestoration,
 	useLoaderData,
 } from '@remix-run/react'
-import stylesheet from '~/main.css'
-import rescribeStylesheet from '@i4o/rescribe/main.css'
 import rescribeCoreStylesheet from '@rescribe/core/rescribe.css'
+import stylesheet from '~/main.css'
+import { rescribeConfig } from '~/rescribe.config'
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'
 import { getThemeSession } from '~/utils/theme.server'
-import { RescribeProvider } from '@i4o/rescribe'
-import { rescribeConfig } from '~/rescribe.config'
 
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: stylesheet },

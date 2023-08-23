@@ -1,8 +1,8 @@
 import type { LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
-import fg from 'fast-glob'
 import { parsePathname, REMIX_BASE_PATH } from '@rescribe/core'
 import type { Collection, Collections, Config } from '@rescribe/core'
+import fg from 'fast-glob'
 
 async function readItemsInCollection(collection: Collection) {
 	const { path } = collection

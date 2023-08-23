@@ -1,7 +1,7 @@
-import { Link, useLocation } from '@remix-run/react'
-import { useContext } from 'react'
-import cn from 'clsx'
 import { RescribeDataContext } from '../constants'
+import { Link, useLocation } from '@remix-run/react'
+import cn from 'clsx'
+import { useContext } from 'react'
 
 export default function ToC() {
 	const location = useLocation()

@@ -1,5 +1,5 @@
-import { createContext } from 'react'
 import { RescribeConfig } from './types'
+import { createContext } from 'react'
 
 export const REMIX_ROUTES_DIR = 'app/routes'
 

@@ -1,6 +1,5 @@
-import { Link } from '@remix-run/react'
-import { Navbar, Footer } from '@i4o/rescribe'
 import { PrimaryButton, CopyToClipboard } from '@i4o/catalystui'
+import { Navbar, Footer } from '@i4o/rescribe'
 import {
 	MagnifyingGlassIcon,
 	DashboardIcon,
@@ -9,6 +8,7 @@ import {
 	MixIcon,
 	GlobeIcon,
 } from '@radix-ui/react-icons'
+import { Link } from '@remix-run/react'
 
 const features = [
 	{

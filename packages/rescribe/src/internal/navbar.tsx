@@ -1,6 +1,6 @@
+import { RescribeContext } from '../constants'
 import { Link } from '@remix-run/react'
 import { useContext } from 'react'
-import { RescribeContext } from '../constants'
 
 function Navbar() {
 	const { navbar, theme } = useContext(RescribeContext)

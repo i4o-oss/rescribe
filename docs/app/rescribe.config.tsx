@@ -1,13 +1,12 @@
-import type { RescribeConfig } from '@i4o/rescribe'
 import { Switch } from '@i4o/catalystui'
-import { Theme, useTheme } from '~/utils/theme-provider'
+import type { RescribeConfig } from '@i4o/rescribe'
 import {
 	FileTextIcon,
 	GitHubLogoIcon,
 	TwitterLogoIcon,
 } from '@radix-ui/react-icons'
-
 import { collection, config, fields } from '@rescribe/core'
+import { Theme, useTheme } from '~/utils/theme-provider'
 
 export const configObj = config({
 	collections: {

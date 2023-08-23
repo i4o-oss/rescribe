@@ -8,5 +8,8 @@ module.exports = {
 	tabWidth: 4,
 	trailingComma: 'es5',
 	useTabs: true,
-	plugins: ['prettier-plugin-tailwindcss'],
+	plugins: [
+		'prettier-plugin-tailwindcss',
+		'@trivago/prettier-plugin-sort-imports',
+	],
 }

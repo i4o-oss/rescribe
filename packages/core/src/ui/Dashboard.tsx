@@ -1,7 +1,7 @@
-import { Link } from '@remix-run/react'
-import { useContext } from 'react'
 import { BASE_PATH } from '../constants'
 import { ConfigContext } from '../provider'
+import { Link } from '@remix-run/react'
+import { useContext } from 'react'
 
 export function Dashboard() {
 	const { collections } = useContext(ConfigContext)

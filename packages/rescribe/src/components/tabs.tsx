@@ -1,5 +1,5 @@
-import { Children, ReactElement, useState } from 'react'
 import type { TabGroupProps, TabProps } from '../types'
+import { Children, ReactElement, useState } from 'react'
 
 // TODO: Replace any with better types here
 
