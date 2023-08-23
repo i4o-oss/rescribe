@@ -1,0 +1,22 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "Rescribe",
+	"extends": "./base.json",
+	"compilerOptions": {
+		"declaration": true,
+		"downlevelIteration": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": true,
+		"module": "esnext",
+		"noEmit": true,
+		"noUnusedLocals": false,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "esnext",
+		"types": ["node"]
+	},
+	"include": ["**/*"],
+	"exclude": ["**/dist/**/*", "**/node_modules/**/*"]
+}

@@ -5,6 +5,7 @@
 	"files": [
 		"base.json",
 		"remix.json",
-		"rescribe.json"
+		"core.json",
+		"server.json"
 	]
 }
