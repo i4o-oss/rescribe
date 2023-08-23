@@ -1,7 +1,11 @@
 import type { BooleanField, TextField } from './types'
 import { FieldTypes } from './types'
 
-export function boolean({ defaultChecked = false, description, label }: BooleanField) {
+export function boolean({
+	defaultChecked = false,
+	description,
+	label,
+}: BooleanField) {
 	return {
 		label,
 		description,

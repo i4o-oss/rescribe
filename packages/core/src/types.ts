@@ -15,8 +15,6 @@ export const FieldTypes = z.enum([
 ])
 export type FieldType = z.infer<typeof FieldTypes>
 
-
-
 export type BasicField = {
 	label: string
 	description?: string
@@ -27,13 +25,11 @@ export type TextField = BasicField & {
 	type?: typeof FieldTypes.enum.text
 }
 
-
 export type BooleanField = BasicField & {
 	defaultChecked?: boolean
 } & {
 	type?: typeof FieldTypes.enum.boolean
 }
-
 
 export type Field = BooleanField | TextField
 
