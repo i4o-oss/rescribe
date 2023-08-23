@@ -7,6 +7,7 @@ import CollectionItems from './CollectionItems'
 import Container from './Container'
 import { Dashboard } from './Dashboard'
 import Navbar from './Navbar'
+import NewCollectionItem from './NewCollectionItem'
 
 export default function Rescribe(props: { config: Config<Collections> }) {
 	const location = useLocation()
@@ -20,7 +21,11 @@ export default function Rescribe(props: { config: Config<Collections> }) {
 			</CollectionProvider>
 		)
 	} else if (parsedPaths?.collection && parsedPaths.action === 'create') {
-		component = <div>Create Item</div>
+		component = (
+			<CollectionProvider config={props.config} paths={parsedPaths}>
+				<NewCollectionItem />
+			</CollectionProvider>
+		)
 	} else if (parsedPaths?.collection && parsedPaths.action === 'edit') {
 		component = <div>Edit Item</div>
 	} else if (parsedPaths?.root) {

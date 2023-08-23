@@ -24,11 +24,6 @@ export function Dashboard() {
 									key={key}
 									to={`${BASE_PATH}/collections/${collection?.slug}`}
 								>
-									{/* <img */}
-									{/* 	className='w-full' */}
-									{/* 	src={`/images/orgs/${index + 1}.svg`} */}
-									{/* 	alt='Org Cover' */}
-									{/* /> */}
 									<div className='rs-flex rs-flex-col rs-items-start rs-justify-center rs-gap-4 rs-px-6 rs-py-4'>
 										<div className='rs-text-lg rs-font-medium'>
 											{collection?.label}
