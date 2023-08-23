@@ -26,6 +26,10 @@ export type Collection = {
 	schema: Schema
 }
 
-export type Config<Collections extends { [key: string]: Collection }> = {
+export interface Collections {
+	[key: string]: Collection
+}
+
+export type Config<Collections> = {
 	collections: Collections
 } & ({} extends Collections ? {} : { collections: Collections })

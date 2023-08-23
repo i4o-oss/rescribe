@@ -1,6 +1,11 @@
 import type { LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { parsePathname } from './helpers'
+import type { Collections, Config } from './types'
+
+type LoaderHandlerArgs = LoaderArgs & {
+	config: Config<Collections>
+}
 
 export function handleLoader({ request }: LoaderArgs) {
 	const url = new URL(request.url)

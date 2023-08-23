@@ -1,12 +1,12 @@
 import { useLocation } from '@remix-run/react'
 import { parsePathname } from '../helpers'
 import { ConfigProvider } from '../provider'
-import type { Config } from '../types'
+import type { Collections, Config } from '../types'
 import Container from './container'
 import { Dashboard } from './dashboard'
 import Navbar from './navbar'
 
-export default function Rescribe(props: { config: Config<any> }) {
+export default function Rescribe(props: { config: Config<Collections> }) {
 	const location = useLocation()
 	const parsedPaths = parsePathname(location.pathname)
 
