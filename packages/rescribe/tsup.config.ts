@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import tsconfig from '@rescribe/tsconfig/rescribe.json' assert { type: 'json' }
+import tsconfig from '@rescribe/tsconfig/core.json' assert { type: 'json' }
 
 const { target } = tsconfig.compilerOptions
 
