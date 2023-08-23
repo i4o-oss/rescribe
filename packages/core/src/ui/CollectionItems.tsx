@@ -1,18 +1,25 @@
 import { Link, useLoaderData, useLocation } from '@remix-run/react'
 
 import { PrimaryButton } from '@i4o/catalystui'
+import { useContext } from 'react'
+
+import { CollectionContext } from '../providers'
+import type { Collection } from '../types'
 
 export default function CollectionItems() {
+	const collection = useContext<Collection | null>(CollectionContext)
 	const { entries } = useLoaderData()
 	const location = useLocation()
 
 	return (
 		<main className='rs-flex rs-h-full rs-w-full rs-flex-col rs-items-center rs-justify-start rs-gap-12'>
 			<div className='rs-flex rs-w-full rs-items-center rs-justify-between'>
-				<h2 className='rs-text-2xl rs-font-bold'>Collections</h2>
+				<h2 className='rs-text-2xl rs-font-bold'>
+					{collection?.label || 'Collection'}
+				</h2>
 				{entries.length > 0 ? (
 					<Link to={`${location.pathname}/new`}>
-						<PrimaryButton>New</PrimaryButton>
+						<PrimaryButton>Add item</PrimaryButton>
 					</Link>
 				) : null}
 			</div>
@@ -21,7 +28,9 @@ export default function CollectionItems() {
 					<div className='rs-w-full rs-flex rs-items-center rs-justify-center rs-border rs-border-gray-100 dark:rs-border-gray-800 rs-rounded-lg rs-px-8 rs-py-16'>
 						<div className='rs-w-full rs-max-w-[60%] rs-flex rs-flex-col rs-items-center rs-justify-center rs-text-center rs-gap-2'>
 							<h3 className='rs-text-lg rs-font-semibold'>
-								You don't have content in this collection yet
+								{collection?.label
+									? `You don't have content in the ${collection?.label} collection yet`
+									: "You don't have content in this collection yet"}
 							</h3>
 							<p className='rs-text-sm rs-max-w-[80%]'>
 								Create a new item in this collection by clicking

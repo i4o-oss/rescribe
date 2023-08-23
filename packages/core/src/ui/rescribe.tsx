@@ -1,7 +1,7 @@
 import { useLocation } from '@remix-run/react'
 
 import { parsePathname } from '../helpers'
-import { ConfigProvider } from '../provider'
+import { CollectionProvider, ConfigProvider } from '../providers'
 import type { Collections, Config } from '../types'
 import CollectionItems from './CollectionItems'
 import Container from './Container'
@@ -14,7 +14,11 @@ export default function Rescribe(props: { config: Config<Collections> }) {
 
 	let component = null
 	if (parsedPaths?.collection && !parsedPaths.action) {
-		component = <CollectionItems />
+		component = (
+			<CollectionProvider config={props.config} paths={parsedPaths}>
+				<CollectionItems />
+			</CollectionProvider>
+		)
 	} else if (parsedPaths?.collection && parsedPaths.action === 'create') {
 		component = <div>Create Item</div>
 	} else if (parsedPaths?.collection && parsedPaths.action === 'edit') {
