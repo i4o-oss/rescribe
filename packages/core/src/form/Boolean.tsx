@@ -3,19 +3,22 @@ import { Switch } from '@i4o/catalystui'
 import type { BooleanField } from '../types'
 
 type Props = BooleanField & {
-	key: string
+	schemaKey: string
 }
 
 export default function Boolean({
 	defaultChecked = false,
-	label,
 	description,
-	key,
+	label,
+	schemaKey,
 }: Props) {
 	return (
 		<div className='rs-flex rs-w-full rs-items-center rs-justify-between rs-gap-4'>
 			<div className='rs-flex rs-flex-col rs-gap-1'>
-				<label className='rs-text-lg rs-font-semibold' htmlFor={key}>
+				<label
+					className='rs-text-lg rs-font-semibold'
+					htmlFor={schemaKey}
+				>
 					{label}
 				</label>
 				{description ? (
@@ -24,7 +27,7 @@ export default function Boolean({
 					</span>
 				) : null}
 			</div>
-			<Switch defaultChecked={defaultChecked} name={key} />
+			<Switch defaultChecked={defaultChecked} name={schemaKey} />
 		</div>
 	)
 }
