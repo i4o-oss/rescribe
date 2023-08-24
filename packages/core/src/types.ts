@@ -19,16 +19,28 @@ export type BasicField = {
 	label: string
 	description?: string
 }
+export type BooleanField = BasicField & {
+	defaultChecked?: boolean
+} & {
+	type?: typeof FieldTypes.enum.boolean
+}
+
+export type DateField = BasicField & {
+    type?: typeof FieldTypes.enum.date
+}
+
 export type TextField = BasicField & {
 	multiline?: boolean
 } & {
 	type?: typeof FieldTypes.enum.text
 }
 
-export type BooleanField = BasicField & {
-	defaultChecked?: boolean
-} & {
-	type?: typeof FieldTypes.enum.boolean
+export type SlugField = Omit<TextField, 'multiline'> & {
+	type?: typeof FieldTypes.enum.slug
+}
+
+export type UrlField = Omit<TextField, 'multiline'> & {
+	type?: typeof FieldTypes.enum.url
 }
 
 export type Field = BooleanField | TextField
