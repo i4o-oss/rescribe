@@ -17,7 +17,7 @@ export const configObj = config({
 			schema: {
 				title: fields.text({
 					label: 'Title',
-					description: 'Title of the document',
+					description: 'Page Title',
 				}),
 			},
 		}),
@@ -28,7 +28,7 @@ export const configObj = config({
 			schema: {
 				title: fields.text({
 					label: 'Title',
-					description: 'Title of the blog post',
+					description: 'Post Title',
 				}),
 				published: fields.boolean({
 					label: 'Published',
@@ -111,7 +111,26 @@ export const rescribeConfig: RescribeConfig = {
 		),
 	},
 	navbar: {
-		logo: 'https://raw.githubusercontent.com/i4o-oss/rescribe/main/docs/public/rescribe_logo.png',
+		logo: (
+			<span className='inline-flex items-center gap-2'>
+				<svg
+					xmlns='http://www.w3.org/2000/svg'
+					viewBox='0 0 24 24'
+					fill='none'
+					stroke='currentColor'
+					strokeWidth='2'
+					strokeLinecap='round'
+					strokeLinejoin='round'
+					className='text-brand w-6 h-6'
+				>
+					<rect width='7' height='9' x='3' y='3' rx='1' />
+					<rect width='7' height='5' x='14' y='3' rx='1' />
+					<rect width='7' height='9' x='14' y='12' rx='1' />
+					<rect width='7' height='5' x='3' y='16' rx='1' />
+				</svg>
+				<span className='text-base font-semibold'>rescribe</span>
+			</span>
+		),
 		search: false,
 		socials: [
 			{

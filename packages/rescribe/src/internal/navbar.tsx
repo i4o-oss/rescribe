@@ -10,7 +10,11 @@ function Navbar() {
 	return (
 		<header className='supports-backdrop-blur:bg-white/60 sticky top-0 z-50 flex h-20 w-screen flex-wrap items-center justify-between px-4 py-4 shadow-sm shadow-gray-200 backdrop-blur dark:bg-transparent dark:shadow-gray-700 sm:px-6 lg:px-8'>
 			<div className='relative flex flex-grow basis-0 items-center'>
-				<Link aria-label='Home page' to='/'>
+				<Link
+					className='flex items-center'
+					aria-label='Home page'
+					to='/'
+				>
 					{typeof navbar.logo === 'string' ? (
 						<img
 							className='flex h-8'

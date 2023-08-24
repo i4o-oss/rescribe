@@ -16,6 +16,7 @@ import {
 } from '@remix-run/react'
 
 import { RescribeProvider } from '@i4o/rescribe'
+import rescribeOldStylesheet from '@i4o/rescribe/main.css'
 import rescribeStylesheet from '@rescribe/core/rescribe.css'
 import stylesheet from '~/main.css'
 import { rescribeConfig } from '~/rescribe.config'
@@ -23,6 +24,7 @@ import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'
 import { getThemeSession } from '~/utils/theme.server'
 
 export const links: LinksFunction = () => [
+	{ rel: 'stylesheet', href: rescribeOldStylesheet },
 	{ rel: 'stylesheet', href: rescribeStylesheet },
 	{ rel: 'stylesheet', href: stylesheet },
 ]
