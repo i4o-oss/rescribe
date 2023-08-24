@@ -44,7 +44,8 @@
 		"react-dom": "^18.2.0"
 	},
 	"dependencies": {
-		"@i4o/catalystui": "1.0.0-alpha.14",
+		"@i4o/catalystui": "1.0.0-alpha.16",
+		"date-fns": "^2.30.0",
 		"zod": "^3.22.2"
 	},
 	"keywords": [],
