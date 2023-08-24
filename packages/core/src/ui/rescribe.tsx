@@ -2,7 +2,6 @@ import { useLocation } from '@remix-run/react'
 
 import { useMemo } from 'react'
 
-import Header from '../editor/Header'
 import { parsePathname } from '../helpers'
 import { CollectionProvider, ConfigProvider } from '../providers'
 import type { Collections, Config } from '../types'
@@ -28,7 +27,6 @@ export default function Rescribe(props: { config: Config<Collections> }) {
 	} else if (params?.collection && params.action === 'create') {
 		component = (
 			<CollectionProvider config={props.config} paths={params}>
-				<Header />
 				<NewCollectionItem />
 			</CollectionProvider>
 		)

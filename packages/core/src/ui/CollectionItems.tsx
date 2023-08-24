@@ -26,7 +26,7 @@ export default function CollectionItems() {
 				</div>
 				<section className='rs-flex rs-w-full rs-items-center rs-justify-center'>
 					{entries.length === 0 ? (
-						<div className='rs-w-full rs-flex rs-items-center rs-justify-center rs-border rs-border-gray-100 dark:rs-border-gray-800 rs-rounded-lg rs-px-8 rs-py-16'>
+						<div className='rs-w-full rs-flex rs-items-center rs-justify-center rs-border rs-border-subtle rs-rounded-lg rs-px-8 rs-py-16'>
 							<div className='rs-w-full rs-max-w-[60%] rs-flex rs-flex-col rs-items-center rs-justify-center rs-text-center rs-gap-2'>
 								<span className='rs-mb-4'>
 									<svg
