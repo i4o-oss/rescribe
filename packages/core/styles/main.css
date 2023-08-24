@@ -4,18 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-	:root {
-		--foreground: 0 0% 12.5%;
-		--foreground-subtle: 0 0% 39.3%;
+:root {
+	--foreground: 0 0% 12.5%;
+	--foreground-subtle: 0 0% 39.3%;
 
-		--brand: 155 61% 44%;
-		--brand-states: 156 63.1% 39.7%;
-		--brand-foreground: 0 0% 100%;
-	}
+	--brand: 155 61% 44%;
+	--brand-states: 156 63.1% 39.7%;
+	--brand-foreground: 0 0% 100%;
+}
 
-	.dark {
-		--foreground: 0 0% 93.5%;
-		--foreground-subtle: 0 0% 69.5%;
-	}
+.dark {
+	--foreground: 0 0% 93.5%;
+	--foreground-subtle: 0 0% 69.5%;
 }
