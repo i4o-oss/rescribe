@@ -21,28 +21,36 @@ export default function Rescribe(props: { config: Config<Collections> }) {
 	let component = null
 	if (params?.collection && !params.action) {
 		component = (
-			<CollectionProvider config={props.config} paths={params}>
-				<CollectionItems />
-			</CollectionProvider>
+			<Container>
+				<CollectionProvider config={props.config} paths={params}>
+					<CollectionItems />
+				</CollectionProvider>
+			</Container>
 		)
 	} else if (params?.collection && params.action === 'create') {
 		component = (
-			<CollectionProvider config={props.config} paths={params}>
-				<NewCollectionItem />
-			</CollectionProvider>
+			<Container>
+				<CollectionProvider config={props.config} paths={params}>
+					<NewCollectionItem />
+				</CollectionProvider>
+			</Container>
 		)
 	} else if (params?.collection && params.action === 'edit') {
 		component = <div>Edit Item</div>
 	} else if (params?.root) {
-		component = <Dashboard />
+		component = (
+			<Container>
+				<Dashboard />
+			</Container>
+		)
 	} else {
 		component = <div>Not Found</div>
 	}
 
 	return (
 		<ConfigProvider config={props.config}>
-			<Navbar />
-			<Container>{component}</Container>
+			{!params?.action ? <Navbar /> : null}
+			{component}
 		</ConfigProvider>
 	)
 }

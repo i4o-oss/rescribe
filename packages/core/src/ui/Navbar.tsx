@@ -60,7 +60,7 @@ export default function Navbar() {
 	return (
 		<nav className='rs-w-full rs-h-20 rs-px-4 lg:rs-px-4 rs-border-b rs-border-gray-100 dark:rs-border-gray-800 rs-flex rs-items-center'>
 			<div className='rs-relative rs-mx-auto rs-flex rs-w-full rs-py-5 rs-items-center rs-justify-between rs-px-6'>
-				<div className='rs-flex rs-flex-row rs-items-center rs-justify-start rs-gap-4 rs-text-sm rs-text-foreground'>
+				<div className='rs-flex rs-flex-grow rs-items-center rs-justify-start rs-gap-4 rs-text-sm rs-text-foreground'>
 					<Link
 						className='rs-inline-flex rs-items-center rs-gap-2'
 						to={BASE_PATH}
@@ -100,14 +100,6 @@ export default function Navbar() {
 						</>
 					) : null}
 				</div>
-				<nav className='rs-flex rs-items-center rs-gap-x-2'>
-					{params?.collection && params.action ? (
-						<>
-							<Button>Save</Button>
-							<PrimaryButton>Publish</PrimaryButton>
-						</>
-					) : null}
-				</nav>
 			</div>
 		</nav>
 	)
