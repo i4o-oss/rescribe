@@ -17,3 +17,11 @@
 	--foreground: 0 0% 93.5%;
 	--foreground-subtle: 0 0% 69.5%;
 }
+
+.rs-border-subtle {
+	@apply rs-border-gray-200 dark:rs-border-gray-700;
+}
+
+.rs-border-subtle-states {
+	@apply hover:rs-border-gray-300 dark:hover:rs-border-gray-600;
+}

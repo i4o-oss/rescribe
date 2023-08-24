@@ -21,7 +21,7 @@ export function Dashboard() {
 								const collection = collections[key]
 								return (
 									<Link
-										className='rs-border-gray-100 dark:rs-border-gray-800 hover:rs-border-gray-200 hover:dark:rs-border-gray-800 rs-col-span-1 rs-overflow-hidden rs-rounded-lg rs-border rs-shadow-lg rs-transition-all rs-duration-200'
+										className='rs-border-subtle rs-border-subtle-states rs-col-span-1 rs-overflow-hidden rs-rounded-lg rs-border rs-transition-all rs-duration-200'
 										key={key}
 										to={`${BASE_PATH}/collections/${collection?.slug}`}
 									>
