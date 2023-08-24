@@ -19,18 +19,18 @@ type LoaderHandlerArgs = LoaderArgs & {
 
 export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 	const url = new URL(request.url)
-	const parsedPath = parsePathname(url.pathname)
+	const params = parsePathname(url.pathname)
 	const { collections } = config
 
-	if (parsedPath === null) {
+	if (params === null) {
 		return json({})
-	} else if (parsedPath.collection && !parsedPath.action) {
-		const collection = collections[parsedPath.collection]
+	} else if (params.collection && !params.action) {
+		const collection = collections[params.collection]
 		const entries = await readItemsInCollection(collection)
 		return json({ entries })
-	} else if (parsedPath.collection && parsedPath.action === 'edit') {
+	} else if (params.collection && params.action === 'edit') {
 		console.log(
-			`Editing ${parsedPath.slug} from ${parsedPath.collection} collection`
+			`Editing ${params.slug} from ${params.collection} collection`
 		)
 		return json({})
 	} else {

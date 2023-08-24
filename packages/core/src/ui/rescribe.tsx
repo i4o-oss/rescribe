@@ -1,5 +1,7 @@
 import { useLocation } from '@remix-run/react'
 
+import { useMemo } from 'react'
+
 import { parsePathname } from '../helpers'
 import { CollectionProvider, ConfigProvider } from '../providers'
 import type { Collections, Config } from '../types'
@@ -11,24 +13,27 @@ import NewCollectionItem from './NewCollectionItem'
 
 export default function Rescribe(props: { config: Config<Collections> }) {
 	const location = useLocation()
-	const parsedPaths = parsePathname(location.pathname)
+	const params = useMemo(
+		() => parsePathname(location.pathname),
+		[location.pathname]
+	)
 
 	let component = null
-	if (parsedPaths?.collection && !parsedPaths.action) {
+	if (params?.collection && !params.action) {
 		component = (
-			<CollectionProvider config={props.config} paths={parsedPaths}>
+			<CollectionProvider config={props.config} paths={params}>
 				<CollectionItems />
 			</CollectionProvider>
 		)
-	} else if (parsedPaths?.collection && parsedPaths.action === 'create') {
+	} else if (params?.collection && params.action === 'create') {
 		component = (
-			<CollectionProvider config={props.config} paths={parsedPaths}>
+			<CollectionProvider config={props.config} paths={params}>
 				<NewCollectionItem />
 			</CollectionProvider>
 		)
-	} else if (parsedPaths?.collection && parsedPaths.action === 'edit') {
+	} else if (params?.collection && params.action === 'edit') {
 		component = <div>Edit Item</div>
-	} else if (parsedPaths?.root) {
+	} else if (params?.root) {
 		component = <Dashboard />
 	} else {
 		component = <div>Not Found</div>
