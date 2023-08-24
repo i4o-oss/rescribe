@@ -32,20 +32,16 @@ export const configObj = config({
 				}),
 				slug: fields.slug({
 					label: 'Post URL',
-					description: 'URL of the post',
 				}),
 				excerpt: fields.text({
 					label: 'Excerpt',
-					description: 'Short description about the post',
 					multiline: true,
 				}),
 				published: fields.boolean({
 					label: 'Published',
-					description: 'If the post is published',
 				}),
 				publishedAt: fields.date({
 					label: 'Publish Date',
-					description: 'Date on which this post was published',
 				}),
 			},
 		}),
