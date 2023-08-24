@@ -5,7 +5,7 @@ type Props = UrlField & {
 	schemaKey: string
 }
 
-export default function SlugInput({
+export default function UrlInput({
 	defaultValue,
 	description,
 	label,
@@ -21,7 +21,7 @@ export default function SlugInput({
 					{label}
 				</label>
 				{description ? (
-					<span className='rs-text-sm rs-text-gray-600 dark:rs-text-gray-400'>
+					<span className='rs-text-sm rs-text-foreground-subtle'>
 						{description}
 					</span>
 				) : null}
