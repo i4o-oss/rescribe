@@ -43,10 +43,12 @@ export default function NewCollectionItem() {
 		: null
 
 	return (
-		<main className='rs-flex rs-h-full rs-w-full rs-flex-col rs-items-center rs-justify-start rs-gap-12'>
-			<Form className='rs-w-full rs-flex rs-flex-col rs-gap-8'>
-				{fields}
-			</Form>
+		<main className='rs-relative rs-flex rs-content-start rs-items-stretch rs-justify-center rs-w-full rs-flex-grow rs-py-16'>
+			<div className='rs-flex rs-h-full rs-w-full rs-max-w-3xl rs-flex-col rs-items-center rs-text-foreground rs-justify-start rs-gap-12'>
+				<Form className='rs-w-full rs-flex rs-flex-col rs-gap-8'>
+					{fields}
+				</Form>
+			</div>
 		</main>
 	)
 }
