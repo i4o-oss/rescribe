@@ -1,4 +1,10 @@
-import type { BooleanField, SlugField, TextField, UrlField } from './types'
+import type {
+	BooleanField,
+	DateField,
+	SlugField,
+	TextField,
+	UrlField,
+} from './types'
 import { FieldTypes } from './types'
 
 export function boolean({
@@ -14,20 +20,20 @@ export function boolean({
 	}
 }
 
-export function date({ description, label }: SlugField) {
-    return {
-        description,
-        label,
-        type: FieldTypes.enum.date
-    }
+export function date({ description, label }: DateField) {
+	return {
+		description,
+		label,
+		type: FieldTypes.enum.date,
+	}
 }
 
 export function slug({ description, label }: SlugField) {
-    return {
-        description,
-        label,
-        type: FieldTypes.enum.slug
-    }
+	return {
+		description,
+		label,
+		type: FieldTypes.enum.slug,
+	}
 }
 
 export function text({ description, label, multiline = false }: TextField) {
@@ -40,9 +46,9 @@ export function text({ description, label, multiline = false }: TextField) {
 }
 
 export function url({ description, label }: UrlField) {
-    return {
-        description,
-        label,
-        type: FieldTypes.enum.url
-    }
+	return {
+		description,
+		label,
+		type: FieldTypes.enum.url,
+	}
 }

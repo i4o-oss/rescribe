@@ -26,7 +26,7 @@ export type BooleanField = BasicField & {
 }
 
 export type DateField = BasicField & {
-    type?: typeof FieldTypes.enum.date
+	type?: typeof FieldTypes.enum.date
 }
 
 export type TextField = BasicField & {
@@ -35,15 +35,15 @@ export type TextField = BasicField & {
 	type?: typeof FieldTypes.enum.text
 }
 
-export type SlugField = Omit<TextField, 'multiline'> & {
+export type SlugField = BasicField & {
 	type?: typeof FieldTypes.enum.slug
 }
 
-export type UrlField = Omit<TextField, 'multiline'> & {
+export type UrlField = BasicField & {
 	type?: typeof FieldTypes.enum.url
 }
 
-export type Field = BooleanField | TextField
+export type Field = BooleanField | DateField | SlugField | TextField | UrlField
 
 // collection slug has to match the slug regex
 export const collectionSlug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
