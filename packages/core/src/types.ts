@@ -37,13 +37,15 @@ export type Field = BooleanField | TextField
 export const collectionSlug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
 export type CollectionSlug = z.infer<typeof collectionSlug>
 
-export type Schema = Record<string, Field>
+type SpecialSchemaKeys = 'title'
+export type SchemaKey = SpecialSchemaKeys | (string & {})
+export type Schema<key extends SchemaKey> = Record<key, Field>
 
 export type Collection = {
 	label: string
 	slug: CollectionSlug
 	path: `${string}/${Glob}` | `${string}/${Glob}/${string}`
-	schema: Schema
+	schema: Schema<SchemaKey>
 }
 
 export interface Collections {
