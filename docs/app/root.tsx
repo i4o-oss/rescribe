@@ -16,17 +16,15 @@ import {
 } from '@remix-run/react'
 
 import { RescribeProvider } from '@i4o/rescribe'
-import rescribeStylesheet from '@i4o/rescribe/main.css'
-import rescribeCoreStylesheet from '@rescribe/core/rescribe.css'
+import rescribeStylesheet from '@rescribe/core/rescribe.css'
 import stylesheet from '~/main.css'
 import { rescribeConfig } from '~/rescribe.config'
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'
 import { getThemeSession } from '~/utils/theme.server'
 
 export const links: LinksFunction = () => [
-	{ rel: 'stylesheet', href: stylesheet },
 	{ rel: 'stylesheet', href: rescribeStylesheet },
-	{ rel: 'stylesheet', href: rescribeCoreStylesheet },
+	{ rel: 'stylesheet', href: stylesheet },
 ]
 
 export const meta: MetaFunction = () => ({
