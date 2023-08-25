@@ -56,10 +56,14 @@ export default function NewCollectionItem() {
 			: null
 
 	return (
-		<>
-			<editorFetcher.Form action={location.pathname} method='POST'>
-				<ScrollArea className='rs-w-full rs-h-full rs-bg-transparent'>
-					<Header setSheetOpen={setSheetOpen} />
+		<editorFetcher.Form action={location.pathname} method='POST'>
+			<div className='rs-flex'>
+				<ScrollArea
+					className={`rs-flex rs-flex-shrink ${
+						sheetOpen ? 'rs-w-[calc(100vw-24rem)]' : 'rs-w-full'
+					} rs-h-full rs-bg-transparent`}
+				>
+					<Header sheetOpen={sheetOpen} setSheetOpen={setSheetOpen} />
 					<main className='rs-flex rs-content-start rs-items-stretch rs-justify-center rs-w-full rs-flex-grow rs-pb-16 rs-pt-24'>
 						<div className='rs-flex rs-h-full rs-w-full rs-max-w-3xl rs-flex-col rs-items-center rs-text-foreground rs-justify-start rs-gap-12'>
 							<div className='rs-w-full rs-flex rs-flex-col rs-gap-8'>
@@ -69,11 +73,14 @@ export default function NewCollectionItem() {
 					</main>
 				</ScrollArea>
 				<section
-					className={`rs-fixed rs-top-0 rs-bottom-0 rs-right-0 rs-w-96 rs-flex rs-flex-col rs-gap-4 rs-px-8 rs-bg-white dark:rs-bg-[#010101] rs-text-foreground rs-border-l rs-border-subtle rs-shadow-md ${
+					className={`rs-w-96 rs-h-screen rs-flex rs-flex-col rs-gap-2 rs-px-8 rs-bg-white dark:rs-bg-[#010101] rs-text-foreground rs-border-l rs-border-subtle rs-shadow-md ${
 						sheetOpen ? 'rs-flex' : 'rs-hidden'
 					}`}
 				>
-					<div className='rs-w-full rs-h-24 rs-flex rs-items-center rs-justify-end rs-gap-8'>
+					<div className='rs-w-full rs-h-24 rs-flex rs-items-center rs-justify-between rs-gap-8'>
+						<span className='rs-text-lg rs-font-semibold'>
+							Settings
+						</span>
 						<IconButton
 							className='rs-w-8 rs-h-8 rs-p-1 !rs-bg-transparent'
 							icon={
@@ -105,7 +112,7 @@ export default function NewCollectionItem() {
 						{otherInputs}
 					</div>
 				</section>
-			</editorFetcher.Form>
-		</>
+			</div>
+		</editorFetcher.Form>
 	)
 }
