@@ -64,6 +64,7 @@ export async function handleAction({ config, request }: ActionHandlerArgs) {
 		const frontmatter = YAML.stringify(frontmatterObj)
 		const markdown = generateMarkdownFromHtml(formData.content)
 
+        // TODO: find a better way to form markdown file content
 		const markdownFileContent = `
 ---
 ${frontmatter}
@@ -72,6 +73,8 @@ ${frontmatter}
 ${markdown}
 `
 
+        // TODO: directories have to exist in order to write file. figure out if directories exist and create them.
+        // TODO: if slug changes this will create a new file. keep track of old file name and rename or delete + recreate it.
 		const fullPath = `${process.cwd()}${REMIX_BASE_PATH}/${collection.path.replace(
 			'*',
 			''
