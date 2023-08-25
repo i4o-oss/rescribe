@@ -25,3 +25,29 @@
 .rs-border-subtle-states {
 	@apply hover:rs-border-gray-300 dark:hover:rs-border-gray-600;
 }
+
+.editor-wrapper > div:first-child {
+	@apply rs-flex rs-w-full rs-max-w-3xl rs-items-start rs-justify-center;
+}
+
+.ProseMirror {
+	@apply rs-w-full rs-max-w-3xl !rs-min-h-[640px] !rs-outline-none !rs-border-none !rs-text-[1rem] !rs-text-foreground lg:!rs-text-[1.3rem] rs-prose rs-prose-slate;
+}
+
+.ProseMirror.ProseMirror-focused {
+	@apply !rs-border-none;
+}
+
+.ProseMirror,
+.ProseMirror.ProseMirror-focused {
+	@apply !rs-outline-none !rs-p-0;
+	/*border: none transparent !important;*/
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+	content: attr(data-placeholder);
+	float: left;
+	color: #adb5bd;
+	pointer-events: none;
+	height: 0;
+}

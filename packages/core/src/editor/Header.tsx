@@ -16,7 +16,7 @@ export default function Header({
 
 	return (
 		<>
-			<header className='rs-w-screen rs-h-24 rs-grid rs-grid-cols-2 rs-gap-8'>
+			<header className='rs-fixed rs-top-0 rs-left-0 rs-right-0 rs-w-screen rs-h-24 rs-grid rs-grid-cols-2 rs-gap-8 rs-z-auto'>
 				<div className='rs-flex rs-items-center rs-justify-start rs-px-8 rs-gap-4'>
 					<Link to={`${BASE_PATH}/collections/${collection?.slug}`}>
 						<Button

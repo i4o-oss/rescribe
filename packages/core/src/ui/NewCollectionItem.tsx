@@ -1,92 +1,27 @@
 import { Form } from '@remix-run/react'
 
-import { IconButton } from '@i4o/catalystui'
+import { IconButton, ScrollArea } from '@i4o/catalystui'
 import * as Portal from '@radix-ui/react-portal'
 import { useContext, useState } from 'react'
 
 import Header from '../editor/Header'
-import Boolean from '../form/Boolean'
-import DateInput from '../form/DateInput'
-import SlugInput from '../form/SlugInput'
-import TextInput from '../form/TextInput'
-import UrlInput from '../form/UrlInput'
-import { CollectionContext } from '../providers'
-import type { Collection, Field, SchemaKey } from '../types'
-
-export function Input({
-	field,
-	schemaKey,
-}: {
-	field: Field
-	schemaKey: SchemaKey
-}) {
-	switch (field.type) {
-		case 'boolean': {
-			return (
-				<Boolean
-					defaultChecked={field.defaultChecked}
-					description={field.description}
-					label={field.label}
-					schemaKey={schemaKey}
-				/>
-			)
-		}
-		case 'date': {
-			return (
-				<DateInput
-					description={field.description}
-					label={field.label}
-					schemaKey={schemaKey}
-				/>
-			)
-		}
-		case 'slug': {
-			return (
-				<SlugInput
-					description={field.description}
-					label={field.label}
-					schemaKey={schemaKey}
-				/>
-			)
-		}
-		case 'text': {
-			return (
-				<TextInput
-					description={field.description}
-					isTitleField={schemaKey === 'title'}
-					label={field.label}
-					multiline={field.multiline}
-					schemaKey={schemaKey}
-				/>
-			)
-		}
-		case 'url': {
-			return (
-				<UrlInput
-					description={field.description}
-					label={field.label}
-					schemaKey={schemaKey}
-				/>
-			)
-		}
-		default: {
-			return null
-		}
-	}
-}
+import InputRenderer from '../editor/InputRenderer'
+import { CollectionContext, EditorProvider } from '../providers'
+import type { Collection, SchemaKey } from '../types'
 
 export default function NewCollectionItem() {
 	const collection = useContext<Collection | null>(CollectionContext)
-	const [sheetOpen, setSheetOpen] = useState(false)
+	const [sheetOpen, setSheetOpen] = useState<boolean>(false)
+	const [wordCount, setWordCount] = useState<number>(0)
 
 	const contentFields = collection?.schema
 		? Object.keys(collection.schema).filter(
-				(key: SchemaKey) => key === 'title'
+				(key: SchemaKey) => key === 'title' || key === 'content'
 		  )
 		: []
 	const otherFields = collection?.schema
 		? Object.keys(collection.schema).filter(
-				(key: SchemaKey) => key !== 'title'
+				(key: SchemaKey) => key !== 'title' && key !== 'content'
 		  )
 		: []
 
@@ -94,7 +29,14 @@ export default function NewCollectionItem() {
 		collection?.schema && contentFields.length > 0
 			? contentFields.map((key) => {
 					const field = collection.schema[key]
-					return <Input field={field} key={key} schemaKey={key} />
+					return (
+						<EditorProvider
+							data={{ wordCount, setWordCount }}
+							key={key}
+						>
+							<InputRenderer field={field} schemaKey={key} />
+						</EditorProvider>
+					)
 			  })
 			: null
 
@@ -102,23 +44,31 @@ export default function NewCollectionItem() {
 		collection?.schema && otherFields.length > 0
 			? otherFields.map((key) => {
 					const field = collection.schema[key]
-					return <Input field={field} key={key} schemaKey={key} />
+					return (
+						<InputRenderer
+							field={field}
+							key={key}
+							schemaKey={key}
+						/>
+					)
 			  })
 			: null
 
 	return (
 		<>
-			<Header setSheetOpen={setSheetOpen} />
-			<main className='rs-relative rs-flex rs-content-start rs-items-stretch rs-justify-center rs-w-full rs-flex-grow rs-py-16'>
-				<div className='rs-flex rs-h-full rs-w-full rs-max-w-3xl rs-flex-col rs-items-center rs-text-foreground rs-justify-start rs-gap-12'>
-					<Form className='rs-w-full rs-flex rs-flex-col rs-gap-8'>
-						{contentInputs}
-					</Form>
-				</div>
-			</main>
+			<ScrollArea className='rs-w-full rs-h-full rs-bg-transparent'>
+				<Header setSheetOpen={setSheetOpen} />
+				<main className='rs-flex rs-content-start rs-items-stretch rs-justify-center rs-w-full rs-flex-grow rs-pb-16 rs-pt-24'>
+					<div className='rs-flex rs-h-full rs-w-full rs-max-w-3xl rs-flex-col rs-items-center rs-text-foreground rs-justify-start rs-gap-12'>
+						<Form className='rs-w-full rs-flex rs-flex-col rs-gap-8'>
+							{contentInputs}
+						</Form>
+					</div>
+				</main>
+			</ScrollArea>
 			<Portal.Root>
 				<section
-					className={`rs-fixed rs-top-0 rs-bottom-0 rs-right-0 rs-w-[32rem] rs-flex rs-flex-col rs-px-8 rs-text-foreground rs-border-l rs-border-subtle rs-shadow-md ${
+					className={`rs-fixed rs-top-0 rs-bottom-0 rs-right-0 rs-w-[32rem] rs-flex rs-flex-col rs-gap-4 rs-px-8 rs-bg-white dark:rs-bg-[#010101] rs-text-foreground rs-border-l rs-border-subtle rs-shadow-md ${
 						sheetOpen ? 'rs-flex' : 'rs-hidden'
 					}`}
 				>
