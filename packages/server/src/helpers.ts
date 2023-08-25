@@ -3,6 +3,8 @@ import { REMIX_BASE_PATH } from '@rescribe/core'
 import fg from 'fast-glob'
 import { z } from 'zod'
 
+const TurndownService = require('turndown')
+
 export async function readItemsInCollection(collection: Collection) {
 	const { path } = collection
 	const fullPath = `${process.cwd()}/${REMIX_BASE_PATH}/${path}.{md,mdx}`
@@ -33,4 +35,15 @@ export function generateZodSchema<key extends SchemaKey>(
 	const formDataSchema = Object.fromEntries(collectionSchemaEntries)
 
 	return formDataSchema
+}
+
+export function generateMarkdownFromHtml(html: string) {
+	const turndownService = new TurndownService({
+		bulletListMarker: '-',
+		headingStyle: 'atx',
+	})
+	turndownService.keep(['div', 'iframe'])
+	const markdown = turndownService.turndown(html)
+
+	return markdown
 }

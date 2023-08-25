@@ -1,11 +1,18 @@
 import type { ActionArgs, LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
 
-import { parsePathname } from '@rescribe/core'
+import { REMIX_BASE_PATH, parsePathname } from '@rescribe/core'
 import type { Collections, Config } from '@rescribe/core'
+import fg from 'fast-glob'
+import fs from 'node:fs/promises'
+import YAML from 'yaml'
 import { zx } from 'zodix'
 
-import { generateZodSchema, readItemsInCollection } from './helpers'
+import {
+	generateMarkdownFromHtml,
+	generateZodSchema,
+	readItemsInCollection,
+} from './helpers'
 
 type LoaderHandlerArgs = LoaderArgs & {
 	config: Config<Collections>
@@ -46,7 +53,30 @@ export async function handleAction({ config, request }: ActionHandlerArgs) {
 		const formDataSchema = generateZodSchema(collection.schema)
 		const formData = await zx.parseForm(request, formDataSchema)
 
-		console.log(formData)
+		const frontmatterObj = {
+			title: formData.title,
+			slug: formData.slug,
+			excerpt: formData.excerpt,
+			publishedAt: formData.publishedAt,
+			published: formData.published,
+		}
+
+		const frontmatter = YAML.stringify(frontmatterObj)
+		const markdown = generateMarkdownFromHtml(formData.content)
+
+		const markdownFileContent = `
+---
+${frontmatter}
+---
+
+${markdown}
+`
+
+		const fullPath = `${process.cwd()}${REMIX_BASE_PATH}/${collection.path.replace(
+			'*',
+			''
+		)}${formData.slug}.md`
+		const file = await fs.writeFile(fullPath, markdownFileContent)
 	}
 
 	return json({})

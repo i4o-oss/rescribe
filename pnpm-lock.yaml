@@ -355,6 +355,12 @@ importers:
       fast-glob:
         specifier: ^3.3.1
         version: 3.3.1
+      turndown:
+        specifier: ^7.1.2
+        version: 7.1.2
+      yaml:
+        specifier: ^2.3.1
+        version: 2.3.1
       zod:
         specifier: ^3.22.2
         version: 3.22.2
@@ -377,6 +383,9 @@ importers:
       '@types/node':
         specifier: ^20.5.1
         version: 20.5.1
+      '@types/turndown':
+        specifier: ^5.0.1
+        version: 5.0.1
       concurrently:
         specifier: ^7.6.0
         version: 7.6.0
@@ -5563,6 +5572,10 @@ packages:
     resolution: {integrity: sha512-5eQEtSCoESnh2FsiLTxE121IiE60hnMqcb435fShf4bpLRjEu1Eoekht23y6zXS9Ts3l+Szu3TARnTsA0GkOkQ==}
     dev: false
 
+  /@types/turndown@5.0.1:
+    resolution: {integrity: sha512-N8Ad4e3oJxh9n9BiZx9cbe/0M3kqDpOTm2wzj13wdDUxDPjfjloWIJaquZzWE1cYTAHpjOH3rcTnXQdpEfS/SQ==}
+    dev: true
+
   /@types/unist@2.0.7:
     resolution: {integrity: sha512-cputDpIbFgLUaGQn6Vqg3/YsJwxUwHLO13v3i5ouxT4lat0khip9AEWxtERujXV9wxIB1EyF97BSJFt6vpdI8g==}
 
@@ -6807,6 +6820,10 @@ packages:
 
   /dom-accessibility-api@0.5.16:
     resolution: {integrity: sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg==}
+    dev: false
+
+  /domino@2.1.6:
+    resolution: {integrity: sha512-3VdM/SXBZX2omc9JF9nOPCtDaYQ67BGp5CoLpIQlO2KCAPETs8TcDHacF26jXadGbvUteZzRTeos2fhID5+ucQ==}
     dev: false
 
   /dotenv@16.0.3:
@@ -11566,6 +11583,12 @@ packages:
       turbo-windows-64: 1.8.2
       turbo-windows-arm64: 1.8.2
     dev: true
+
+  /turndown@7.1.2:
+    resolution: {integrity: sha512-ntI9R7fcUKjqBP6QU8rBK2Ehyt8LAzt3UBT9JR9tgo6GtuKvyUzpayWmeMKJw1DPdXzktvtIT8m2mVXz+bL/Qg==}
+    dependencies:
+      domino: 2.1.6
+    dev: false
 
   /type-check@0.3.2:
     resolution: {integrity: sha512-ZCmOJdvOWDBYJlzAoFkC+Q0+bUyEOS1ltgp1MGU03fqHG+dbi9tBFU2Rd9QKiDZFAYrhPh2JUf7rZRIuHRKtOg==}
