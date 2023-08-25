@@ -13,12 +13,9 @@ export default function Boolean({
 	schemaKey,
 }: Props) {
 	return (
-		<div className='rs-flex rs-w-full rs-items-center rs-justify-between rs-gap-4'>
+		<div className='rs-flex rs-w-full rs-items-center rs-justify-between rs-gap-2'>
 			<div className='rs-flex rs-flex-col rs-gap-1'>
-				<label
-					className='rs-text-lg rs-font-semibold'
-					htmlFor={schemaKey}
-				>
+				<label className='rs-font-semibold' htmlFor={schemaKey}>
 					{label}
 				</label>
 				{description ? (

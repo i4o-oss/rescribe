@@ -31,12 +31,9 @@ export default function TextInput({
 	}
 
 	return (
-		<div className='rs-flex rs-w-full rs-flex-col rs-gap-4'>
+		<div className='rs-flex rs-w-full rs-flex-col rs-gap-2'>
 			<div className='rs-flex rs-flex-col rs-gap-1'>
-				<label
-					className='rs-text-lg rs-font-semibold'
-					htmlFor={schemaKey}
-				>
+				<label className='rs-font-semibold' htmlFor={schemaKey}>
 					{label}
 				</label>
 				{description ? (
