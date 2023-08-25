@@ -1,17 +1,18 @@
+import type { Dispatch, SetStateAction } from 'react'
 import { z } from 'zod'
 
 export type Glob = '*' | '**'
 
 export const FieldTypes = z.enum([
-	'text',
-	'slug',
-	'image',
 	'boolean',
-	'document',
 	'date',
-	'url',
-	'select',
+	'document',
+	'image',
 	'multiselect',
+	'select',
+	'slug',
+	'text',
+	'url',
 ])
 export type FieldType = z.infer<typeof FieldTypes>
 
@@ -29,6 +30,10 @@ export type DateField = BasicField & {
 	type?: typeof FieldTypes.enum.date
 }
 
+export type DocumentField = BasicField & {
+	type?: typeof FieldTypes.enum.document
+}
+
 export type TextField = BasicField & {
 	multiline?: boolean
 } & {
@@ -43,13 +48,19 @@ export type UrlField = BasicField & {
 	type?: typeof FieldTypes.enum.url
 }
 
-export type Field = BooleanField | DateField | SlugField | TextField | UrlField
+export type Field =
+	| BooleanField
+	| DateField
+	| DocumentField
+	| SlugField
+	| TextField
+	| UrlField
 
 // collection slug has to match the slug regex
 export const collectionSlug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
 export type CollectionSlug = z.infer<typeof collectionSlug>
 
-type SpecialSchemaKeys = 'title'
+type SpecialSchemaKeys = 'content' | 'slug' | 'title'
 export type SchemaKey = SpecialSchemaKeys | (string & {})
 export type Schema<key extends SchemaKey> = Record<key, Field>
 
@@ -67,3 +78,8 @@ export interface Collections {
 export type Config<Collections> = {
 	collections: Collections
 } & ({} extends Collections ? {} : { collections: Collections })
+
+export type EditorProviderData = {
+	wordCount: number
+	setWordCount: Dispatch<SetStateAction<number>>
+}

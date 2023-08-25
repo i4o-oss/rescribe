@@ -1,6 +1,7 @@
 import type {
 	BooleanField,
 	DateField,
+	DocumentField,
 	SlugField,
 	TextField,
 	UrlField,
@@ -25,6 +26,14 @@ export function date({ description, label }: DateField) {
 		description,
 		label,
 		type: FieldTypes.enum.date,
+	}
+}
+
+export function document({ description, label }: DocumentField) {
+	return {
+		description,
+		label,
+		type: FieldTypes.enum.document,
 	}
 }
 

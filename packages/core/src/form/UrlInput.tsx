@@ -5,6 +5,8 @@ type Props = UrlField & {
 	schemaKey: string
 }
 
+// TODO: validate if string is a url
+
 export default function UrlInput({
 	defaultValue,
 	description,

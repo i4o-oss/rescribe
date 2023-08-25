@@ -5,6 +5,8 @@ type Props = SlugField & {
 	schemaKey: string
 }
 
+// TODO: generate slug from title field
+
 export default function SlugInput({
 	defaultValue,
 	description,

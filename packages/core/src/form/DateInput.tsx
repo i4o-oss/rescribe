@@ -12,7 +12,7 @@ export default function DateInput({ description, label, schemaKey }: Props) {
 	const [date, setDate] = useState<Date | undefined>(new Date())
 
 	return (
-		<div className='rs-flex rs-flex-col rs-w-full rs-gap-2'>
+		<div className='rs-flex rs-items-center rs-justify-between rs-w-full rs-gap-2'>
 			<div className='rs-flex rs-flex-col rs-gap-1'>
 				<label className='rs-font-semibold' htmlFor={schemaKey}>
 					{label}
