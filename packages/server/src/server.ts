@@ -1,17 +1,11 @@
-import type { LoaderArgs } from '@remix-run/node'
+import type { ActionArgs, LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
 
-import { REMIX_BASE_PATH, parsePathname } from '@rescribe/core'
-import type { Collection, Collections, Config } from '@rescribe/core'
-import fg from 'fast-glob'
+import { parsePathname } from '@rescribe/core'
+import type { Collections, Config } from '@rescribe/core'
+import { zx } from 'zodix'
 
-async function readItemsInCollection(collection: Collection) {
-	const { path } = collection
-	const fullPath = `${process.cwd()}/${REMIX_BASE_PATH}/${path}.{md,mdx}`
-	const entries = await fg(fullPath, { onlyFiles: true })
-
-	return entries
-}
+import { generateZodSchema, readItemsInCollection } from './helpers'
 
 type LoaderHandlerArgs = LoaderArgs & {
 	config: Config<Collections>
@@ -36,4 +30,24 @@ export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 	} else {
 		return json({})
 	}
+}
+
+type ActionHandlerArgs = ActionArgs & {
+	config: Config<Collections>
+}
+
+export async function handleAction({ config, request }: ActionHandlerArgs) {
+	const url = new URL(request.url)
+	const params = parsePathname(url.pathname)
+	const { collections } = config
+
+	if (params?.collection) {
+		const collection = collections[params.collection]
+		const formDataSchema = generateZodSchema(collection.schema)
+		const formData = await zx.parseForm(request, formDataSchema)
+
+		console.log(formData)
+	}
+
+	return json({})
 }

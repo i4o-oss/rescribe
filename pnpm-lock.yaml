@@ -358,6 +358,9 @@ importers:
       zod:
         specifier: ^3.22.2
         version: 3.22.2
+      zodix:
+        specifier: ^0.4.1
+        version: 0.4.1(@remix-run/server-runtime@1.18.0)(zod@3.22.2)
     devDependencies:
       '@remix-run/node':
         specifier: 1.18.0
@@ -12191,6 +12194,16 @@ packages:
 
   /zod@3.22.2:
     resolution: {integrity: sha512-wvWkphh5WQsJbVk1tbx1l1Ly4yg+XecD+Mq280uBGt9wa5BKSWf4Mhp6GmrkPixhMxmabYY7RbzlwVP32pbGCg==}
+    dev: false
+
+  /zodix@0.4.1(@remix-run/server-runtime@1.18.0)(zod@3.22.2):
+    resolution: {integrity: sha512-YanL8q3BhejzcGY/2rB3cgR3wRQaoHfDD32A7DQX2GJNBZ3Ca1T2t/hG3V7OHFi+E24J+BiEYzDlE2Htgj6kYQ==}
+    peerDependencies:
+      '@remix-run/server-runtime': 1.x
+      zod: 3.x
+    dependencies:
+      '@remix-run/server-runtime': 1.18.0
+      zod: 3.22.2
     dev: false
 
   /zwitch@2.0.4:
