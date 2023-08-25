@@ -19,6 +19,13 @@ export const configObj = config({
 					label: 'Title',
 					description: 'Page Title',
 				}),
+				content: fields.document({
+					label: 'Content',
+				}),
+				slug: fields.slug({
+					label: 'Page URL',
+					description: 'URL of the page',
+				}),
 			},
 		}),
 		blog: collection({
@@ -29,6 +36,9 @@ export const configObj = config({
 				title: fields.text({
 					label: 'Title',
 					description: 'Title',
+				}),
+				content: fields.document({
+					label: 'Content',
 				}),
 				slug: fields.slug({
 					label: 'Post URL',
