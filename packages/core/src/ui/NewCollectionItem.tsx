@@ -68,7 +68,7 @@ export default function NewCollectionItem() {
 			</ScrollArea>
 			<Portal.Root>
 				<section
-					className={`rs-fixed rs-top-0 rs-bottom-0 rs-right-0 rs-w-[32rem] rs-flex rs-flex-col rs-gap-4 rs-px-8 rs-bg-white dark:rs-bg-[#010101] rs-text-foreground rs-border-l rs-border-subtle rs-shadow-md ${
+					className={`rs-fixed rs-top-0 rs-bottom-0 rs-right-0 rs-w-96 rs-flex rs-flex-col rs-gap-4 rs-px-8 rs-bg-white dark:rs-bg-[#010101] rs-text-foreground rs-border-l rs-border-subtle rs-shadow-md ${
 						sheetOpen ? 'rs-flex' : 'rs-hidden'
 					}`}
 				>
