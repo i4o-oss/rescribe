@@ -22,5 +22,9 @@ module.exports = {
 	// publicPath: "/build/",
 	serverModuleFormat: 'cjs',
 	serverDependenciesToBundle: [/.*/],
-	watchPaths: ['../packages/rescribe/', '../packages/core/'],
+	watchPaths: [
+		'../packages/rescribe/',
+		'../packages/core/',
+		'../packages/server/',
+	],
 }
