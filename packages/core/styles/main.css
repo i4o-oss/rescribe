@@ -31,7 +31,7 @@
 }
 
 .ProseMirror {
-	@apply rs-w-full rs-max-w-3xl !rs-min-h-[640px] !rs-outline-none !rs-border-none !rs-text-[1rem] !rs-text-foreground lg:!rs-text-[1.3rem] rs-prose rs-prose-slate;
+	@apply rs-w-full rs-max-w-3xl !rs-min-h-[640px] !rs-outline-none !rs-border-none !rs-text-[1rem] !rs-text-foreground lg:!rs-text-[1.3rem] rs-prose dark:rs-prose-invert rs-prose-sm prose-headings:rs-mb-2 prose-p:rs-mt-2 prose-p:rs-mb-2 rs-leading-snug prose-li:rs-mt-0 prose-blockquote:rs-border-slate-900;
 }
 
 .ProseMirror.ProseMirror-focused {
