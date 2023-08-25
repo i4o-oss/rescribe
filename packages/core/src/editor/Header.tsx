@@ -41,7 +41,12 @@ export default function Header({
 					</Link>
 				</div>
 				<div className='rs-flex rs-items-center rs-justify-end rs-px-8 rs-gap-4'>
-					{/* <Button className='rs-h-8 rs-text-brand !rs-bg-transparent'>Publish</Button> */}
+					<Button
+						className='rs-h-8 rs-text-brand !rs-bg-transparent'
+						type='submit'
+					>
+						Create
+					</Button>
 					<IconButton
 						className='rs-w-8 rs-h-8 rs-p-1 !rs-bg-transparent'
 						icon={

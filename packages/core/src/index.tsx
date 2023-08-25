@@ -2,5 +2,12 @@ export * from './config'
 export * from './constants'
 export * as fields from './fields'
 export * from './helpers'
-export type { Collection, Collections, Config, Field, Schema } from './types'
+export type {
+	Collection,
+	Collections,
+	Config,
+	Field,
+	Schema,
+	SchemaKey,
+} from './types'
 export * from './ui'

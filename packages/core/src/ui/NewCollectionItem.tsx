@@ -1,7 +1,6 @@
-import { Form } from '@remix-run/react'
+import { useFetcher, useLocation } from '@remix-run/react'
 
 import { IconButton, ScrollArea } from '@i4o/catalystui'
-import * as Portal from '@radix-ui/react-portal'
 import { useContext, useState } from 'react'
 
 import Header from '../editor/Header'
@@ -11,6 +10,8 @@ import type { Collection, SchemaKey } from '../types'
 
 export default function NewCollectionItem() {
 	const collection = useContext<Collection | null>(CollectionContext)
+	const editorFetcher = useFetcher()
+	const location = useLocation()
 	const [sheetOpen, setSheetOpen] = useState<boolean>(false)
 	const [wordCount, setWordCount] = useState<number>(0)
 
@@ -56,17 +57,17 @@ export default function NewCollectionItem() {
 
 	return (
 		<>
-			<ScrollArea className='rs-w-full rs-h-full rs-bg-transparent'>
-				<Header setSheetOpen={setSheetOpen} />
-				<main className='rs-flex rs-content-start rs-items-stretch rs-justify-center rs-w-full rs-flex-grow rs-pb-16 rs-pt-24'>
-					<div className='rs-flex rs-h-full rs-w-full rs-max-w-3xl rs-flex-col rs-items-center rs-text-foreground rs-justify-start rs-gap-12'>
-						<Form className='rs-w-full rs-flex rs-flex-col rs-gap-8'>
-							{contentInputs}
-						</Form>
-					</div>
-				</main>
-			</ScrollArea>
-			<Portal.Root>
+			<editorFetcher.Form action={location.pathname} method='POST'>
+				<ScrollArea className='rs-w-full rs-h-full rs-bg-transparent'>
+					<Header setSheetOpen={setSheetOpen} />
+					<main className='rs-flex rs-content-start rs-items-stretch rs-justify-center rs-w-full rs-flex-grow rs-pb-16 rs-pt-24'>
+						<div className='rs-flex rs-h-full rs-w-full rs-max-w-3xl rs-flex-col rs-items-center rs-text-foreground rs-justify-start rs-gap-12'>
+							<div className='rs-w-full rs-flex rs-flex-col rs-gap-8'>
+								{contentInputs}
+							</div>
+						</div>
+					</main>
+				</ScrollArea>
 				<section
 					className={`rs-fixed rs-top-0 rs-bottom-0 rs-right-0 rs-w-96 rs-flex rs-flex-col rs-gap-4 rs-px-8 rs-bg-white dark:rs-bg-[#010101] rs-text-foreground rs-border-l rs-border-subtle rs-shadow-md ${
 						sheetOpen ? 'rs-flex' : 'rs-hidden'
@@ -100,11 +101,11 @@ export default function NewCollectionItem() {
 							onClick={() => setSheetOpen(false)}
 						/>
 					</div>
-					<Form className='rs-w-full rs-flex rs-flex-col rs-gap-8'>
+					<div className='rs-w-full rs-flex rs-flex-col rs-gap-8'>
 						{otherInputs}
-					</Form>
+					</div>
 				</section>
-			</Portal.Root>
+			</editorFetcher.Form>
 		</>
 	)
 }
