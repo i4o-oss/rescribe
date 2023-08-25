@@ -100,9 +100,15 @@ importers:
       '@i4o/catalystui':
         specifier: 1.0.0-alpha.16
         version: 1.0.0-alpha.16(@types/react-dom@18.0.11)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-portal':
+        specifier: ^1.0.3
+        version: 1.0.3(@types/react-dom@18.0.11)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
+      framer-motion:
+        specifier: ^10.16.1
+        version: 10.16.1(react-dom@18.2.0)(react@18.2.0)
       zod:
         specifier: ^3.22.2
         version: 3.22.2
@@ -1725,6 +1731,19 @@ packages:
 
   /@emotion/hash@0.9.1:
     resolution: {integrity: sha512-gJB6HLm5rYwSLI6PQa+X1t5CFGrv1J1TWG+sOyMCeKz2ojaj6Fnl/rZEspogG+cvqbt4AE/2eIyD2QfLKTBNlQ==}
+
+  /@emotion/is-prop-valid@0.8.8:
+    resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
+    requiresBuild: true
+    dependencies:
+      '@emotion/memoize': 0.7.4
+    dev: false
+    optional: true
+
+  /@emotion/memoize@0.7.4:
+    resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    dev: false
+    optional: true
 
   /@esbuild/android-arm64@0.17.19:
     resolution: {integrity: sha512-KBMWvEZooR7+kzY0BtbTQn0OAYY7CsiydT63pVEaPtVYF0hXbUaOyZog37DKxK7NF3XacBJOpYT4adIJh+avxA==}
@@ -7313,6 +7332,24 @@ packages:
   /fraction.js@4.2.1:
     resolution: {integrity: sha512-/KxoyCnPM0GwYI4NN0Iag38Tqt+od3/mLuguepLgCAKPn0ZhC544nssAW0tG2/00zXEYl9W+7hwAIpLHo6Oc7Q==}
     dev: true
+
+  /framer-motion@10.16.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-K6TXr5mZtitC/dxQCBdg7xzdN0d5IAIrlaqCPKtIQVdzVPGC0qBuJKXggHX1vjnP5gPOFwB1KbCCTWcnFc3kWg==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: 2.6.2
+    optionalDependencies:
+      '@emotion/is-prop-valid': 0.8.8
+    dev: false
 
   /fresh@0.5.2:
     resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}

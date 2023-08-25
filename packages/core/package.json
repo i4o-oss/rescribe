@@ -45,7 +45,9 @@
 	},
 	"dependencies": {
 		"@i4o/catalystui": "1.0.0-alpha.16",
+		"@radix-ui/react-portal": "^1.0.3",
 		"date-fns": "^2.30.0",
+		"framer-motion": "^10.16.1",
 		"zod": "^3.22.2"
 	},
 	"keywords": [],
