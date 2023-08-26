@@ -48,6 +48,7 @@ export async function handleAction({ config, request }: ActionHandlerArgs) {
 	const params = parsePathname(url.pathname)
 	const { collections } = config
 
+	// TODO: data should have at least title and slug to be saved
 	if (params?.collection && params.action === 'create') {
 		const collection = collections[params.collection]
 		const formDataSchema = generateZodSchema(collection.schema)

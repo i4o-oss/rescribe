@@ -47,6 +47,7 @@ export default function Header({
 					</Link>
 				</div>
 				<div className='rs-flex rs-items-center rs-justify-end rs-px-8 rs-gap-8'>
+					{/* TODO: show create button only when title is not empty and loses focus */}
 					<Button
 						className='rs-h-8 rs-text-brand !rs-bg-transparent'
 						type='submit'

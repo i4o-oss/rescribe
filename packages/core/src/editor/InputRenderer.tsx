@@ -42,6 +42,8 @@ export default function InputRenderer({
 				/>
 			)
 		}
+		// TODO: generate slug automatically when title field loses focus and not empty
+		// this essentially ties the slug field to the title field and hence both are required fields but only for collections
 		case 'slug': {
 			return (
 				<SlugInput
