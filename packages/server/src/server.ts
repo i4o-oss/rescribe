@@ -1,9 +1,9 @@
 import type { ActionArgs, LoaderArgs } from '@remix-run/node'
+import { redirect } from '@remix-run/node'
 import { json } from '@remix-run/node'
 
 import { REMIX_BASE_PATH, parsePathname } from '@rescribe/core'
 import type { Collections, Config } from '@rescribe/core'
-import fg from 'fast-glob'
 import fs from 'node:fs/promises'
 import YAML from 'yaml'
 import { zx } from 'zodix'
@@ -48,7 +48,7 @@ export async function handleAction({ config, request }: ActionHandlerArgs) {
 	const params = parsePathname(url.pathname)
 	const { collections } = config
 
-	if (params?.collection) {
+	if (params?.collection && params.action === 'create') {
 		const collection = collections[params.collection]
 		const formDataSchema = generateZodSchema(collection.schema)
 		const formData = await zx.parseForm(request, formDataSchema)
@@ -79,7 +79,11 @@ ${markdown}
 			'*',
 			''
 		)}${formData.slug}.md`
-		const file = await fs.writeFile(fullPath, markdownFileContent)
+		await fs.writeFile(fullPath, markdownFileContent)
+
+		return redirect(
+			`/rescribe/collections/${params.collection}/${formData.slug}`
+		)
 	}
 
 	return json({})

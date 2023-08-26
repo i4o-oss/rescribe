@@ -1,10 +1,8 @@
 import type { Collection, Schema, SchemaKey } from '@rescribe/core'
 import { REMIX_BASE_PATH } from '@rescribe/core'
 import fg from 'fast-glob'
+import { NodeHtmlMarkdown } from 'node-html-markdown'
 import { z } from 'zod'
-
-const TurndownService = require('turndown')
-const turndownPluginGfm = require('joplin-turndown-plugin-gfm')
 
 export async function readItemsInCollection(collection: Collection) {
 	const { path } = collection
@@ -39,13 +37,12 @@ export function generateZodSchema<key extends SchemaKey>(
 }
 
 export function generateMarkdownFromHtml(html: string) {
-	const turndownService = new TurndownService({
-		bulletListMarker: '-',
-		headingStyle: 'atx',
+	const textReplace = [/\[\s\]/g, '[ ]'] as const
+	const markdown = NodeHtmlMarkdown.translate(html, {
+		bulletMarker: '-',
+		globalEscape: textReplace,
+		useInlineLinks: false,
 	})
-	turndownService.keep(['div', 'iframe'])
-	turndownService.use(turndownPluginGfm.gfm)
-	const markdown = turndownService.turndown(html)
 
 	return markdown
 }
