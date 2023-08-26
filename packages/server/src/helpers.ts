@@ -4,6 +4,7 @@ import fg from 'fast-glob'
 import { z } from 'zod'
 
 const TurndownService = require('turndown')
+const turndownPluginGfm = require('joplin-turndown-plugin-gfm')
 
 export async function readItemsInCollection(collection: Collection) {
 	const { path } = collection
@@ -43,6 +44,7 @@ export function generateMarkdownFromHtml(html: string) {
 		headingStyle: 'atx',
 	})
 	turndownService.keep(['div', 'iframe'])
+	turndownService.use(turndownPluginGfm.gfm)
 	const markdown = turndownService.turndown(html)
 
 	return markdown
