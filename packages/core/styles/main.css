@@ -51,3 +51,34 @@
 	pointer-events: none;
 	height: 0;
 }
+
+.ProseMirror ul[data-type='taskList'] {
+	@apply rs-list-none rs-p-0;
+}
+
+.ProseMirror ul[data-type='taskList'] p {
+	@apply rs-m-0;
+}
+
+.ProseMirror ul[data-type='taskList'] li {
+	@apply rs-flex;
+}
+
+.ProseMirror ul[data-type='taskList'] li > label {
+	flex: 0 0 auto;
+	margin-right: 0.5rem;
+	user-select: none;
+}
+
+.ProseMirror ul[data-type='taskList'] li > div {
+	flex: 1 1 auto;
+}
+
+.ProseMirror ul[data-type='taskList'] li ul li,
+.ProseMirror ul[data-type='taskList'] li ol li {
+	@apply rs-list-item;
+}
+
+.ProseMirror ul[data-type='taskList'] li ul[data-type='taskList'] > li {
+	@apply rs-flex;
+}
