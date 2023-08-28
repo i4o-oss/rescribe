@@ -4,6 +4,7 @@ import { json } from '@remix-run/node'
 
 import { REMIX_BASE_PATH, parsePathname } from '@rescribe/core'
 import type { Collections, Config } from '@rescribe/core'
+import fg from 'fast-glob'
 import fs from 'node:fs/promises'
 import YAML from 'yaml'
 import { zx } from 'zodix'
@@ -35,7 +36,22 @@ export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 		)
 		return json({})
 	} else {
-		return json({})
+		// params.root === true
+		const data = await Promise.all(
+			Object.values(collections).map(async (collection) => {
+				const fullPath = `${process.cwd()}/${REMIX_BASE_PATH}/${
+					collection.path
+				}.{md,mdx}`
+				const entries = await fg(fullPath, { onlyFiles: true })
+
+				return {
+					...collection,
+					itemsCount: entries.length,
+				}
+			})
+		)
+
+		return json(data)
 	}
 }
 
@@ -76,6 +92,7 @@ ${markdown}
 
 		// TODO: directories have to exist in order to write file. figure out if directories exist and create them.
 		// TODO: if slug changes this will create a new file. keep track of old file name and rename or delete + recreate it.
+		// TODO: this path only works for files with depth = 1 but glob allows nested directories. figure out how to get a working path regardless of how files are organized.
 		const fullPath = `${process.cwd()}${REMIX_BASE_PATH}/${collection.path.replace(
 			'*',
 			''

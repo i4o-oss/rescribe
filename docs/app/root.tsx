@@ -72,7 +72,7 @@ function App() {
 				<Links />
 				<ThemeHead ssrTheme={Boolean(data.theme)} />
 			</head>
-			<body className='h-full w-full bg-white dark:bg-[#010101]'>
+			<body className='h-full w-full bg-white dark:bg-[#090909]'>
 				<RescribeProvider config={rescribeConfig}>
 					<Outlet />
 				</RescribeProvider>

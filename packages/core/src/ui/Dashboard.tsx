@@ -1,12 +1,14 @@
-import { Link } from '@remix-run/react'
-
-import { useContext } from 'react'
+import { Link, useLoaderData } from '@remix-run/react'
 
 import { BASE_PATH } from '../constants'
-import { ConfigContext } from '../providers'
+import type { Collection } from '../types'
+
+type LoaderData = (Collection & {
+	itemsCount: number
+})[]
 
 export function Dashboard() {
-	const { collections } = useContext(ConfigContext)
+	const collections = useLoaderData<LoaderData>()
 
 	return (
 		<main className='rs-relative rs-flex rs-content-start rs-items-stretch rs-justify-center rs-w-full rs-flex-grow rs-py-16'>
@@ -17,19 +19,41 @@ export function Dashboard() {
 				<section className='rs-flex rs-w-full rs-items-center rs-justify-center'>
 					<div className='rs-flex rs-w-full rs-flex-wrap rs-items-center'>
 						<div className='rs-grid rs-w-full rs-grid-cols-2 rs-gap-4'>
-							{Object.keys(collections).map((key) => {
-								const collection = collections[key]
+							{collections.map((collection) => {
 								return (
 									<Link
-										className='rs-border-subtle rs-border-subtle-states rs-col-span-1 rs-overflow-hidden rs-rounded-lg rs-border rs-transition-all rs-duration-200'
-										key={key}
-										to={`${BASE_PATH}/collections/${collection?.slug}`}
+										className='rs-group rs-relative rs-h-48 rs-border-subtle hover:rs-border-brand hover:rs-shadow-[0_0_1rem_-0.35rem_#2cb67d] rs-col-span-1 rs-overflow-hidden rs-rounded-lg rs-border rs-transition-all rs-duration-200 rs-flex rs-flex-col rs-items-start rs-justify-between rs-gap-4 rs-p-6'
+										key={collection.slug}
+										to={`${BASE_PATH}/collections/${collection.slug}`}
 									>
-										<div className='rs-flex rs-flex-col rs-items-start rs-justify-center rs-gap-4 rs-px-6 rs-py-4'>
-											<div className='rs-text-lg rs-font-medium'>
+										<span className='rs-absolute -rs-top-8 -rs-right-8'>
+											<svg
+												xmlns='http://www.w3.org/2000/svg'
+												viewBox='0 0 24 24'
+												fill='none'
+												stroke='currentColor'
+												strokeWidth='1'
+												strokeLinecap='round'
+												strokeLinejoin='round'
+												className='rs-w-32 rs-h-32 rs-text-foreground/5 group-hover:rs-text-brand/20 rs-transition-all rs-duration-200 group-hover:rs-scale-125'
+											>
+												<path d='M5.5 8.5 9 12l-3.5 3.5L2 12l3.5-3.5Z' />
+												<path d='m12 2 3.5 3.5L12 9 8.5 5.5 12 2Z' />
+												<path d='M18.5 8.5 22 12l-3.5 3.5L15 12l3.5-3.5Z' />
+												<path d='m12 15 3.5 3.5L12 22l-3.5-3.5L12 15Z' />
+											</svg>
+										</span>
+										<div className='rs-flex rs-flex-col rs-items-start rs-gap-2'>
+											<h3 className='rs-text-xl rs-font-medium'>
 												{collection?.label}
-											</div>
+											</h3>
+											<p className='rs-text-sm rs-text-foreground-subtle'>
+												{collection.path}
+											</p>
 										</div>
+										<p className='rs-px-4 rs-py-1 cui-bg-ui rs-rounded-full rs-text-sm'>
+											{`${collection.itemsCount} items`}
+										</p>
 									</Link>
 								)
 							})}
