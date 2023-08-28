@@ -64,9 +64,9 @@ export default function CollectionItems() {
 						</div>
 					) : (
 						<div className='rs-w-full rs-flex rs-flex-col rs-items-start rs-justify-start'>
-							{entries.map((item: any) => (
-								<div className='' key={item.slug}>
-									Collection Items
+							{entries.map((item: any, index: number) => (
+								<div className='' key={index}>
+									{item}
 								</div>
 							))}
 						</div>

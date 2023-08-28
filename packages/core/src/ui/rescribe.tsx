@@ -31,7 +31,11 @@ export default function Rescribe(props: { config: Config<Collections> }) {
 			</CollectionProvider>
 		)
 	} else if (params?.collection && params.action === 'edit') {
-		component = <div>Edit Item</div>
+		component = (
+			<CollectionProvider config={props.config} paths={params}>
+				<div>Edit Item</div>
+			</CollectionProvider>
+		)
 	} else if (params?.root) {
 		component = <Dashboard />
 	} else {

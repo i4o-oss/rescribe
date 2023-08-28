@@ -5,6 +5,7 @@ import { json } from '@remix-run/node'
 import { REMIX_BASE_PATH, parsePathname } from '@rescribe/core'
 import type { Collections, Config } from '@rescribe/core'
 import fg from 'fast-glob'
+import matter from 'gray-matter'
 import fs from 'node:fs/promises'
 import YAML from 'yaml'
 import { zx } from 'zodix'
@@ -31,10 +32,16 @@ export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 		const entries = await readItemsInCollection(collection)
 		return json({ entries })
 	} else if (params.collection && params.action === 'edit') {
-		console.log(
-			`Editing ${params.slug} from ${params.collection} collection`
-		)
-		return json({})
+		const collection = collections[params.collection]
+
+		const fullPath = `${process.cwd()}${REMIX_BASE_PATH}/${collection.path.replace(
+			'*',
+			''
+		)}${params.slug}.md`
+		const file = await fs.readFile(fullPath, 'utf8')
+		const { content, data } = matter(file)
+
+		return json({ frontmatter: data, content })
 	} else {
 		// params.root === true
 		const data = await Promise.all(

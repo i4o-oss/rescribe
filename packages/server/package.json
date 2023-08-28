@@ -15,7 +15,7 @@
 		"build": "tsup"
 	},
 	"devDependencies": {
-		"@remix-run/node": "1.18.0",
+		"@remix-run/node": "^1.19.3",
 		"@rescribe/core": "workspace:*",
 		"@rescribe/eslint-config": "workspace:*",
 		"@rescribe/tsconfig": "workspace:*",
@@ -26,10 +26,11 @@
 		"typescript": "^4.9.5"
 	},
 	"peerDependencies": {
-		"@remix-run/node": "1.18.0"
+		"@remix-run/node": "^1.19.3"
 	},
 	"dependencies": {
 		"fast-glob": "^3.3.1",
+		"gray-matter": "^4.0.3",
 		"node-html-markdown": "^1.3.0",
 		"yaml": "^2.3.1",
 		"zod": "^3.22.2",
