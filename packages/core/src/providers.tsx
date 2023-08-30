@@ -7,6 +7,7 @@ import type {
 	Collections,
 	Config,
 	EditorProviderData,
+	RescribeData,
 } from './types'
 
 export const CollectionContext = createContext<Collection | null>(null)
@@ -14,14 +15,14 @@ export const CollectionContext = createContext<Collection | null>(null)
 export function CollectionProvider({
 	children,
 	config,
-	paths,
+	params,
 }: {
 	children: ReactNode
 	config: Config<Collections>
-	paths: ReturnType<typeof parsePathname>
+	params: ReturnType<typeof parsePathname>
 }) {
-	const collection = paths?.collection
-		? config.collections[paths.collection]
+	const collection = params?.collection
+		? config.collections[params.collection]
 		: null
 
 	return (
@@ -31,21 +32,28 @@ export function CollectionProvider({
 	)
 }
 
-export const ConfigContext = createContext<Config<Collections>>({
-	collections: {},
-})
+export const RescribeContext = createContext<RescribeData | undefined>(
+	undefined
+)
 
-export function ConfigProvider({
+type RescribeProviderProps = RescribeData & {
+	children: ReactNode
+}
+
+export function RescribeProvider({
 	children,
 	config,
-}: {
-	children: ReactNode
-	config: Config<Collections>
-}) {
+	data,
+	Link,
+	location,
+	navigate,
+}: RescribeProviderProps) {
 	return (
-		<ConfigContext.Provider value={config}>
+		<RescribeContext.Provider
+			value={{ config, data, Link, location, navigate }}
+		>
 			{children}
-		</ConfigContext.Provider>
+		</RescribeContext.Provider>
 	)
 }
 

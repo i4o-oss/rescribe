@@ -1,4 +1,5 @@
 import type { ActionArgs, LoaderArgs } from '@remix-run/node'
+import { Link, useLoaderData, useLocation, useNavigate } from '@remix-run/react'
 
 import { Rescribe } from '@rescribe/core'
 import { configObj as config } from '~/rescribe.config'
@@ -16,5 +17,17 @@ export function action(args: ActionArgs) {
 }
 
 export default function RescribeRoot() {
-	return <Rescribe config={config} />
+	const data = useLoaderData()
+	const location = useLocation()
+	const navigate = useNavigate()
+
+	return (
+		<Rescribe
+			config={config}
+			data={data}
+			Link={Link}
+			location={location}
+			navigate={navigate}
+		/>
+	)
 }

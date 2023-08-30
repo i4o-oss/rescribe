@@ -1,4 +1,12 @@
-import type { Dispatch, SetStateAction } from 'react'
+import type { Location, NavigateFunction } from '@remix-run/react'
+import type { RemixLinkProps } from '@remix-run/react/dist/components'
+
+import type {
+	Dispatch,
+	ForwardRefExoticComponent,
+	RefAttributes,
+	SetStateAction,
+} from 'react'
 import { z } from 'zod'
 
 export type Glob = '*' | '**'
@@ -82,4 +90,14 @@ export type Config<Collections> = {
 export type EditorProviderData = {
 	wordCount: number
 	setWordCount: Dispatch<SetStateAction<number>>
+}
+
+export type RescribeData = {
+	config: Config<Collections>
+	data: unknown
+	Link: ForwardRefExoticComponent<
+		RemixLinkProps & RefAttributes<HTMLAnchorElement>
+	>
+	location: Location
+	navigate: NavigateFunction
 }

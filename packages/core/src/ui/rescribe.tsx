@@ -1,17 +1,42 @@
-import { useLocation } from '@remix-run/react'
-
 import { useMemo } from 'react'
+import invariant from 'tiny-invariant'
 
 import { parsePathname } from '../helpers'
-import { CollectionProvider, ConfigProvider } from '../providers'
-import type { Collections, Config } from '../types'
+import { CollectionProvider, RescribeProvider } from '../providers'
+import type { RescribeData } from '../types'
 import CollectionItems from './CollectionItems'
 import { Dashboard } from './Dashboard'
 import Navbar from './Navbar'
 import NewCollectionItem from './NewCollectionItem'
 
-export default function Rescribe(props: { config: Config<Collections> }) {
-	const location = useLocation()
+export default function Rescribe({
+	config,
+	data,
+	Link,
+	location,
+	navigate,
+}: RescribeData) {
+	invariant(
+		config,
+		'`config` prop is missing. Check the docs to see how to write the configuration and pass it to the Rescribe component.'
+	)
+	invariant(
+		data,
+		'`data` prop is missing. Please pass the output of `useLoaderData()` to the `data` prop.'
+	)
+	invariant(
+		Link,
+		'`Link` component is missing. Please pass the `Link` from `@remix-run/react` as the `Link` prop.'
+	)
+	invariant(
+		location,
+		'`location` prop is missing. Please pass the output of `useLocation()` to the `location` prop.'
+	)
+	invariant(
+		navigate,
+		'`navigate` prop is missing. Please pass the output of `useNavigate()` to the `navigate` prop.'
+	)
+
 	const params = useMemo(
 		() => parsePathname(location.pathname),
 		[location.pathname]
@@ -20,19 +45,19 @@ export default function Rescribe(props: { config: Config<Collections> }) {
 	let component = null
 	if (params?.collection && !params.action) {
 		component = (
-			<CollectionProvider config={props.config} paths={params}>
+			<CollectionProvider config={config} params={params}>
 				<CollectionItems />
 			</CollectionProvider>
 		)
 	} else if (params?.collection && params.action === 'create') {
 		component = (
-			<CollectionProvider config={props.config} paths={params}>
+			<CollectionProvider config={config} params={params}>
 				<NewCollectionItem />
 			</CollectionProvider>
 		)
 	} else if (params?.collection && params.action === 'edit') {
 		component = (
-			<CollectionProvider config={props.config} paths={params}>
+			<CollectionProvider config={config} params={params}>
 				<div>Edit Item</div>
 			</CollectionProvider>
 		)
@@ -43,9 +68,15 @@ export default function Rescribe(props: { config: Config<Collections> }) {
 	}
 
 	return (
-		<ConfigProvider config={props.config}>
+		<RescribeProvider
+			config={config}
+			data={data}
+			Link={Link}
+			location={location}
+			navigate={navigate}
+		>
 			{!params?.action ? <Navbar /> : null}
 			{component}
-		</ConfigProvider>
+		</RescribeProvider>
 	)
 }

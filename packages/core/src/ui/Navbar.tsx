@@ -1,21 +1,26 @@
-import { Link, useLocation, useNavigate } from '@remix-run/react'
+import type { Location } from '@remix-run/react'
 
 import { Select } from '@i4o/catalystui'
 import { useContext, useEffect, useMemo, useState } from 'react'
+import invariant from 'tiny-invariant'
 
 import { BASE_PATH } from '../constants'
 import { parsePathname } from '../helpers'
-import { ConfigContext } from '../providers'
+import { RescribeContext } from '../providers'
+import type { RescribeData } from '../types'
 
 function CollectionSelector({
 	location,
 	params,
 }: {
-	location: any
-	params: any
+	location: Location
+	params: ReturnType<typeof parsePathname>
 }) {
-	const { collections } = useContext(ConfigContext)
-	const navigate = useNavigate()
+	const context = useContext<RescribeData | undefined>(RescribeContext)
+	invariant(context?.config, 'config cannot be undefined')
+	invariant(context?.navigate, 'navigate is not a function')
+	const { collections } = context.config
+	const navigate = context.navigate
 	const [selectedCollection, setSelectedCollection] = useState(
 		params?.collection
 	)
@@ -51,10 +56,16 @@ function CollectionSelector({
 }
 
 export default function Navbar() {
-	const location = useLocation()
+	const context = useContext<RescribeData | undefined>(RescribeContext)
+	invariant(context?.config, 'config cannot be undefined')
+	invariant(context?.location, 'location cannot be undefined')
+	invariant(context?.Link, 'Link is null')
+
+	const Link = context.Link
+
 	const params = useMemo(
-		() => parsePathname(location.pathname),
-		[location.pathname]
+		() => parsePathname(context.location.pathname),
+		[context.location.pathname]
 	)
 
 	return (
@@ -92,7 +103,7 @@ export default function Navbar() {
 								<>
 									<span>/</span>
 									<CollectionSelector
-										location={location}
+										location={context.location}
 										params={params}
 									/>
 								</>
