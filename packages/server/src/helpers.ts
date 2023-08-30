@@ -1,7 +1,6 @@
 import type { Collection, Schema, SchemaKey } from '@rescribe/core'
 import { REMIX_BASE_PATH } from '@rescribe/core'
 import fg from 'fast-glob'
-import { NodeHtmlMarkdown } from 'node-html-markdown'
 import { z } from 'zod'
 
 export async function readItemsInCollection(collection: Collection) {
@@ -34,15 +33,4 @@ export function generateZodSchema<key extends SchemaKey>(
 	const formDataSchema = Object.fromEntries(collectionSchemaEntries)
 
 	return formDataSchema
-}
-
-export function generateMarkdownFromHtml(html: string) {
-	const textReplace = [/\[\s\]/g, '[ ]'] as const
-	const markdown = NodeHtmlMarkdown.translate(html, {
-		bulletMarker: '-',
-		globalEscape: textReplace,
-		useInlineLinks: false,
-	})
-
-	return markdown
 }

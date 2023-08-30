@@ -10,11 +10,7 @@ import fs from 'node:fs/promises'
 import YAML from 'yaml'
 import { zx } from 'zodix'
 
-import {
-	generateMarkdownFromHtml,
-	generateZodSchema,
-	readItemsInCollection,
-} from './helpers'
+import { generateZodSchema, readItemsInCollection } from './helpers'
 
 type LoaderHandlerArgs = LoaderArgs & {
 	config: Config<Collections>
@@ -85,12 +81,11 @@ export async function handleAction({ config, request }: ActionHandlerArgs) {
 			published: formData.published,
 		}
 
-		const frontmatter = YAML.stringify(frontmatterObj)
-		const markdown = generateMarkdownFromHtml(formData.content)
+		const frontmatter = YAML.stringify(frontmatterObj).trimEnd()
+		const markdown = formData.content
 
 		// TODO: find a better way to form markdown file content
-		const markdownFileContent = `
----
+		const markdownFileContent = `---
 ${frontmatter}
 ---
 
