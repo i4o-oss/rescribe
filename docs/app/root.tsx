@@ -29,25 +29,78 @@ export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: stylesheet },
 ]
 
-export const meta: MetaFunction = () => ({
-	charset: 'utf-8',
-	viewport: 'width=device-width,initial-scale=1',
-	'msapplication-TileColor': '#2b5797',
-	'og:site': 'https://rescribe.site',
-	'og:url': 'https://rescribe.site',
-	'og:title': 'Rescribe — Simple, open-source site generator for Remix.',
-	'og:description': '',
-	'og:image': '',
-	'theme-color': '#ffffff',
-	title: 'Rescribe — Simple, open-source site generator for Remix.',
-	'twitter:card': 'summary_large_image',
-	'twitter:site': '@i4o_dev',
-	'twitter:url': 'https://rescribe.site',
-	'twitter:creator': '@i4o_dev',
-	'twitter:title': 'Rescribe',
-	'twitter:description': '',
-	'twitter:image': '',
-})
+export const meta: MetaFunction = () => [
+	{
+		charSet: 'utf-8',
+	},
+	{
+		name: 'msapplication-TileColor',
+		content: '#2b5797',
+	},
+	{
+		property: 'og:site',
+		content: 'https://rescribe.site',
+	},
+	{
+		property: 'og:url',
+		content: 'https://rescribe.site',
+	},
+	{
+		property: 'og:title',
+		content: 'Rescribe',
+	},
+	{
+		property: 'og:description',
+		content: '',
+	},
+	{
+		property: 'og:image',
+		content: '/images/aurelius_open_graph.png',
+	},
+	{
+		name: 'theme-color',
+		content: '#ffffff',
+	},
+	{
+		title: 'Rescribe',
+	},
+	{
+		name: 'description',
+		content: '',
+	},
+	{
+		name: 'twitter:card',
+		content: 'summary_large_image',
+	},
+	{
+		name: 'twitter:site',
+		content: '@i4o_dev',
+	},
+	{
+		name: 'twitter:url',
+		content: 'https://rescribe.site/',
+	},
+	{
+		name: 'twitter:creator',
+		content: '@i4o_dev',
+	},
+	{
+		name: 'twitter:title',
+		content: 'Rescribe',
+	},
+	{
+		name: 'twitter:description',
+		content: '',
+	},
+	{
+		name: 'twitter:image',
+		content: 'https://www.aurelius.ink/images/aurelius_open_graph.png',
+	},
+	{
+		name: 'viewport',
+		content: 'width=device-width,initial-scale=1',
+	},
+]
 
 export type LoaderData = SerializeFrom<typeof loader>
 

@@ -1,11 +1,10 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
+	browserNodeBuiltinsPolyfill: {
+		modules: { fs: true, path: true, punycode: true },
+	},
 	postcss: true,
 	tailwind: true,
-	future: {
-		v2_dev: true,
-		v2_routeConvention: true,
-	},
 	ignoredRouteFiles: ['**/.*'],
 	mdx: async () => {
 		const [rehypeSlug] = await Promise.all([
@@ -22,9 +21,5 @@ module.exports = {
 	// publicPath: "/build/",
 	serverModuleFormat: 'cjs',
 	serverDependenciesToBundle: [/.*/],
-	watchPaths: [
-		'../packages/rescribe/',
-		'../packages/core/',
-		'../packages/server/',
-	],
+	watchPaths: ['../packages/'],
 }
