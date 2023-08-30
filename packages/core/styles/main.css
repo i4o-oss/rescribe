@@ -1,4 +1,5 @@
 @import '@i4o/catalystui/dist/main.css';
+@import '@i4o/oh-hi-markdown/dist/main.css';
 
 @tailwind base;
 @tailwind components;

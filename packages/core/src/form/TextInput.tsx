@@ -20,7 +20,7 @@ export default function TextInput({
 			<div className='rs-w-full rs-max-w-3xl'>
 				<textarea
 					autoFocus
-					className='rs-min-h-[2rem] rs-w-full rs-resize-none rs-overflow-y-hidden rs-bg-transparent rs-text-2xl rs-font-semibold rs-leading-snug rs-text-foreground focus:rs-outline-none lg:rs-min-h-[6rem] lg:rs-text-5xl'
+					className='rs-min-h-[1.5rem] rs-w-full rs-resize-none rs-overflow-y-hidden rs-bg-transparent rs-text-2xl rs-font-semibold rs-leading-snug rs-text-foreground focus:rs-outline-none lg:rs-min-h-[6rem] lg:rs-text-5xl'
 					id={schemaKey}
 					name={schemaKey}
 					placeholder={description}
