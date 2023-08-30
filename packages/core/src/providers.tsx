@@ -44,13 +44,14 @@ export function RescribeProvider({
 	children,
 	config,
 	data,
+	fetcher,
 	Link,
 	location,
 	navigate,
 }: RescribeProviderProps) {
 	return (
 		<RescribeContext.Provider
-			value={{ config, data, Link, location, navigate }}
+			value={{ config, data, fetcher, Link, location, navigate }}
 		>
 			{children}
 		</RescribeContext.Provider>

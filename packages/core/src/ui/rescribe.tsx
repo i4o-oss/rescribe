@@ -12,6 +12,7 @@ import NewCollectionItem from './NewCollectionItem'
 export default function Rescribe({
 	config,
 	data,
+	fetcher,
 	Link,
 	location,
 	navigate,
@@ -23,6 +24,10 @@ export default function Rescribe({
 	invariant(
 		data,
 		'`data` prop is missing. Please pass the output of `useLoaderData()` to the `data` prop.'
+	)
+	invariant(
+		fetcher,
+		'`fetcher` prop is missing. Please pass the output of `useLocation()` to the `location` prop.'
 	)
 	invariant(
 		Link,
@@ -71,6 +76,7 @@ export default function Rescribe({
 		<RescribeProvider
 			config={config}
 			data={data}
+			fetcher={fetcher}
 			Link={Link}
 			location={location}
 			navigate={navigate}

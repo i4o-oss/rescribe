@@ -1,5 +1,8 @@
 import type { Location, NavigateFunction } from '@remix-run/react'
-import type { RemixLinkProps } from '@remix-run/react/dist/components'
+import type {
+	FetcherWithComponents,
+	RemixLinkProps,
+} from '@remix-run/react/dist/components'
 
 import type {
 	Dispatch,
@@ -95,6 +98,7 @@ export type EditorProviderData = {
 export type RescribeData = {
 	config: Config<Collections>
 	data: unknown
+	fetcher: FetcherWithComponents<any>
 	Link: ForwardRefExoticComponent<
 		RemixLinkProps & RefAttributes<HTMLAnchorElement>
 	>
