@@ -79,7 +79,7 @@ export default function EditCollectionItem() {
 					</main>
 				</ScrollArea>
 				<section
-					className={`rs-w-96 rs-h-screen rs-flex rs-flex-col rs-gap-2 rs-px-8 rs-bg-white dark:rs-bg-[#010101] rs-text-foreground rs-border-l rs-border-subtle rs-shadow-md ${
+					className={`rs-w-96 rs-h-screen rs-flex rs-flex-col rs-gap-2 rs-px-8 rs-text-foreground rs-border-l rs-border-subtle rs-shadow-md ${
 						sheetOpen ? 'rs-flex' : 'rs-hidden'
 					}`}
 				>
