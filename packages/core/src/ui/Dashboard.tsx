@@ -26,21 +26,27 @@ export function Dashboard() {
 										key={collection.slug}
 										to={`${BASE_PATH}/collections/${collection.slug}`}
 									>
-										<span className='rs-absolute -rs-top-8 -rs-right-8'>
+										<span className='rs-absolute rs-top-4 rs-right-4'>
 											<svg
 												xmlns='http://www.w3.org/2000/svg'
 												viewBox='0 0 24 24'
 												fill='none'
 												stroke='currentColor'
-												strokeWidth='1'
+												strokeWidth='2'
 												strokeLinecap='round'
 												strokeLinejoin='round'
-												className='rs-w-32 rs-h-32 rs-text-foreground/5 group-hover:rs-text-brand/20 rs-transition-all rs-duration-200 group-hover:rs-scale-125'
+												className='rs-w-8 rs-h-8 rs-text-foreground/10 group-hover:rs-text-brand rs-transition-all rs-duration-200'
 											>
-												<path d='M5.5 8.5 9 12l-3.5 3.5L2 12l3.5-3.5Z' />
-												<path d='m12 2 3.5 3.5L12 9 8.5 5.5 12 2Z' />
-												<path d='M18.5 8.5 22 12l-3.5 3.5L15 12l3.5-3.5Z' />
-												<path d='m12 15 3.5 3.5L12 22l-3.5-3.5L12 15Z' />
+												<ellipse
+													cx='12'
+													cy='5'
+													rx='9'
+													ry='3'
+												/>
+												<path d='M3 5V19A9 3 0 0 0 15 21.84' />
+												<path d='M21 5V8' />
+												<path d='M21 12L18 17H22L19 22' />
+												<path d='M3 12A9 3 0 0 0 14.59 14.87' />
 											</svg>
 										</span>
 										<div className='rs-flex rs-flex-col rs-items-start rs-gap-2'>
@@ -51,7 +57,7 @@ export function Dashboard() {
 												{collection.path}
 											</p>
 										</div>
-										<p className='rs-px-4 rs-py-1 cui-bg-ui rs-rounded-full rs-text-sm'>
+										<p className='rs-px-4 rs-py-1 cui-bg-ui group-hover:rs-bg-brand/30 rs-rounded-full rs-text-sm'>
 											{`${collection.itemsCount} items`}
 										</p>
 									</Link>

@@ -76,7 +76,7 @@ export default function CollectionItems() {
 							<div className='rs-w-full rs-flex rs-flex-col rs-items-start rs-justify-center rs-divide-y rs-divide-gray-200 dark:rs-divide-gray-700'>
 								{items.map((item: any) => (
 									<Link
-										className='rs-col-span-2 rs-px-4 rs-grid rs-h-16 rs-w-full rs-grid-cols-3 rs-gap-4 rs-bg-transparent hover:rs-bg-gray-100 dark:hover:rs-bg-gray-800'
+										className='rs-col-span-2 rs-px-4 rs-grid rs-h-16 rs-w-full rs-grid-cols-3 rs-gap-4 rs-bg-transparent hover:rs-bg-brand/30'
 										key={item.slug}
 										to={`${location.pathname}/${item.slug}`}
 									>
