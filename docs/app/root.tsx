@@ -29,13 +29,14 @@ export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: stylesheet },
 ]
 
+// @ts-ignore
 export const meta: MetaFunction = () => [
 	{
 		charSet: 'utf-8',
 	},
 	{
 		name: 'msapplication-TileColor',
-		content: '#2b5797',
+		content: '#2cb67d',
 	},
 	{
 		property: 'og:site',
@@ -59,7 +60,7 @@ export const meta: MetaFunction = () => [
 	},
 	{
 		name: 'theme-color',
-		content: '#ffffff',
+		content: '#090909',
 	},
 	{
 		title: 'Rescribe',
