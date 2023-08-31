@@ -3,6 +3,7 @@ title: Test Post 2
 slug: test-post-2
 excerpt: Lorem markdownum ictibus Letoidos exteriusque terram pensas positoris
     Parrhasis cognoscit temptat,
+createdAt: 2023-08-31T07:21:09.173Z
 publishedAt: 2023-08-31T07:21:09.173Z
 published: false
 ---

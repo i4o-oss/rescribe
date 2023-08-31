@@ -3,6 +3,7 @@ title: Test Post
 slug: test-post
 excerpt: Lorem markdownum; sociis, vel nigra innumeris sanguis quas quae
     Messeneque animi amores dilectus in illam
+createdAt: 2023-08-30T12:44:19.483Z
 publishedAt: 2023-08-30T12:44:19.483Z
 published: false
 ---
