@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig",
-	"display": "Rescribe",
+	"display": "@rescribe/server",
 	"extends": "./base.json",
 	"compilerOptions": {
 		"declaration": true,
@@ -8,6 +8,7 @@
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"isolatedModules": true,
+		"lib": ["esnext"],
 		"module": "esnext",
 		"moduleResolution": "node",
 		"noEmit": true,

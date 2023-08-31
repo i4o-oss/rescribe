@@ -1,6 +1,6 @@
-import type { ActionArgs, LoaderArgs } from '@remix-run/node'
-import { redirect } from '@remix-run/node'
-import { json } from '@remix-run/node'
+import type { ActionArgs, LoaderArgs } from '@remix-run/server-runtime'
+import { redirect } from '@remix-run/server-runtime'
+import { json } from '@remix-run/server-runtime'
 
 import { REMIX_BASE_PATH, parsePathname } from '@rescribe/core'
 import type { Collections, Config } from '@rescribe/core'

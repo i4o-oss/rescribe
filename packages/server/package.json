@@ -15,7 +15,6 @@
 		"build": "tsup"
 	},
 	"devDependencies": {
-		"@remix-run/node": "^1.19.3",
 		"@rescribe/core": "workspace:*",
 		"@rescribe/eslint-config": "workspace:*",
 		"@rescribe/tsconfig": "workspace:*",
@@ -26,7 +25,7 @@
 		"typescript": "^4.9.5"
 	},
 	"peerDependencies": {
-		"@remix-run/node": "^1.19.3"
+		"@remix-run/server-runtime": ">=1.15"
 	},
 	"dependencies": {
 		"fast-glob": "^3.3.1",
