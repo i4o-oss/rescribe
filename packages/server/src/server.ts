@@ -26,7 +26,18 @@ export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 	} else if (params.collection && !params.action) {
 		const collection = collections[params.collection]
 		const entries = await readItemsInCollection(collection)
-		return json({ entries })
+		const collectionItems = await Promise.all(
+			entries.map(async (entry) => {
+				const file = await fs.readFile(entry, 'utf8')
+				const { data } = matter(file)
+				const metadata = YAML.parse(`${JSON.stringify(data)}\n`)
+
+				return {
+					...metadata,
+				}
+			})
+		)
+		return json({ items: collectionItems })
 	} else if (params.collection && params.action === 'edit') {
 		const collection = collections[params.collection]
 
@@ -36,8 +47,9 @@ export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 		)}${params.slug}.md`
 		const file = await fs.readFile(fullPath, 'utf8')
 		const { content, data } = matter(file)
+		const metadata = YAML.parse(`${JSON.stringify(data)}\n`)
 
-		return json({ frontmatter: data, content })
+		return json({ ...metadata, content })
 	} else {
 		// params.root === true
 		const data = await Promise.all(
@@ -72,11 +84,13 @@ export async function handleAction({ config, request }: ActionHandlerArgs) {
 		const collection = collections[params.collection]
 		const formDataSchema = generateZodSchema(collection.schema)
 		const formData = await zx.parseForm(request, formDataSchema)
+		const createdAt = new Date().toISOString()
 
 		const frontmatterObj = {
 			title: formData.title,
 			slug: formData.slug,
 			excerpt: formData.excerpt,
+			createdAt,
 			publishedAt: formData.publishedAt,
 			published: formData.published,
 		}
@@ -104,6 +118,12 @@ ${markdown}
 		return redirect(
 			`/rescribe/collections/${params.collection}/${formData.slug}`
 		)
+	} else if (params?.collection && params.action === 'edit') {
+		const collection = collections[params.collection]
+		const formDataSchema = generateZodSchema(collection.schema)
+		const formData = await zx.parseForm(request, formDataSchema)
+
+		console.log(formData)
 	}
 
 	return json({})
