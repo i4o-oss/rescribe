@@ -1,6 +1,7 @@
 import { Link, useLoaderData, useLocation } from '@remix-run/react'
 
 import { PrimaryButton } from '@i4o/catalystui'
+import { format, formatDistance } from 'date-fns'
 import { useContext } from 'react'
 
 import { CollectionContext } from '../providers'
@@ -9,23 +10,23 @@ import type { Collection } from '../types'
 export default function CollectionItems() {
 	const location = useLocation()
 	const collection = useContext<Collection | null>(CollectionContext)
-	const { entries } = useLoaderData<{ entries: string[] }>()
+	const { items } = useLoaderData()
 
 	return (
 		<main className='rs-relative rs-flex rs-content-start rs-items-stretch rs-justify-center rs-w-full rs-flex-grow rs-py-16'>
 			<div className='rs-flex rs-h-full rs-w-full rs-max-w-4xl rs-flex-col rs-items-center rs-text-foreground rs-justify-start rs-gap-12'>
-				<div className='rs-flex rs-w-full rs-items-center rs-justify-between'>
+				<div className='rs-flex rs-w-full rs-items-center rs-justify-between rs-px-4'>
 					<h2 className='rs-text-2xl rs-font-bold'>
 						{collection?.label || 'Collection'}
 					</h2>
-					{entries.length > 0 ? (
+					{items.length > 0 ? (
 						<Link to={`${location.pathname}/new`}>
 							<PrimaryButton>Add item</PrimaryButton>
 						</Link>
 					) : null}
 				</div>
-				<section className='rs-flex rs-w-full rs-items-center rs-justify-center'>
-					{entries.length === 0 ? (
+				<section className='rs-flex rs-flex-col rs-items-start rs-justify-start rs-w-full'>
+					{items.length === 0 ? (
 						<div className='rs-w-full rs-flex rs-items-center rs-justify-center rs-border rs-border-subtle rs-rounded-lg rs-px-8 rs-py-16'>
 							<div className='rs-w-full rs-max-w-[60%] rs-flex rs-flex-col rs-items-center rs-justify-center rs-text-center rs-gap-2'>
 								<span className='rs-mb-4'>
@@ -63,13 +64,48 @@ export default function CollectionItems() {
 							</div>
 						</div>
 					) : (
-						<div className='rs-w-full rs-flex rs-flex-col rs-items-start rs-justify-start'>
-							{entries.map((item: any, index: number) => (
-								<div className='' key={index}>
-									{item}
-								</div>
-							))}
-						</div>
+						<>
+							<div className='rs-col-span-2 rs-px-4 rs-grid rs-h-16 rs-w-full rs-grid-cols-3 rs-gap-4 rs-bg-transparent rs-border-b rs-border-subtle'>
+								<span className='rs-col-span-2 rs-text-lg rs-flex rs-items-center rs-justify-start rs-text-foreground-subtle rs-font-medium'>
+									Title
+								</span>
+								<span className='rs-flex rs-text-lg rs-items-center rs-justify-start rs-text-foreground-subtle rs-font-medium'>
+									Created
+								</span>
+							</div>
+							<div className='rs-w-full rs-flex rs-flex-col rs-items-start rs-justify-center rs-divide-y rs-divide-gray-200 dark:rs-divide-gray-700'>
+								{items.map((item: any) => (
+									<Link
+										className='rs-col-span-2 rs-px-4 rs-grid rs-h-16 rs-w-full rs-grid-cols-3 rs-gap-4 rs-bg-transparent hover:rs-bg-gray-100 dark:hover:rs-bg-gray-800'
+										key={item.slug}
+										to={`${location.pathname}/${item.slug}`}
+									>
+										<div className='rs-col-span-2 rs-flex rs-items-center rs-justify-start'>
+											<h3 className='rs-text-foreground rs-font-medium rs-text-left'>
+												{item.title}
+											</h3>
+										</div>
+										<div className='rs-flex rs-items-center rs-justify-start rs-space-x-2'>
+											<span
+												className='rs-text-foreground-subtle rs-text-xs'
+												title={format(
+													new Date(item.createdAt),
+													'PPPp'
+												)}
+											>
+												{formatDistance(
+													new Date(item.createdAt),
+													new Date(),
+													{
+														addSuffix: true,
+													}
+												)}
+											</span>
+										</div>
+									</Link>
+								))}
+							</div>
+						</>
 					)}
 				</section>
 			</div>

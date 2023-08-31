@@ -10,4 +10,4 @@ export type {
 	Schema,
 	SchemaKey,
 } from './types'
-export * from './ui'
+export { default as Rescribe } from './rescribe'
