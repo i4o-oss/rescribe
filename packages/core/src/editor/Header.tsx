@@ -1,11 +1,11 @@
+import { Link } from '@remix-run/react'
+
 import { Button, IconButton } from '@i4o/catalystui'
 import type { Dispatch, SetStateAction } from 'react'
 import { useContext } from 'react'
-import invariant from 'tiny-invariant'
 
 import { BASE_PATH } from '../constants'
-import { CollectionContext, RescribeContext } from '../providers'
-import type { RescribeData } from '../types'
+import { CollectionContext } from '../providers'
 
 export default function Header({
 	sheetOpen,
@@ -15,10 +15,6 @@ export default function Header({
 	setSheetOpen: Dispatch<SetStateAction<boolean>>
 }) {
 	const collection = useContext(CollectionContext)
-	const context = useContext<RescribeData | undefined>(RescribeContext)
-	invariant(context?.Link, 'Link is null')
-
-	const Link = context.Link
 
 	return (
 		<>

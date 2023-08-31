@@ -1,24 +1,18 @@
+import { useFetcher, useLocation } from '@remix-run/react'
+
 import { IconButton, ScrollArea } from '@i4o/catalystui'
 import { useContext, useState } from 'react'
-import invariant from 'tiny-invariant'
 
 import Header from '../editor/Header'
 import InputRenderer from '../editor/InputRenderer'
-import {
-	CollectionContext,
-	EditorProvider,
-	RescribeContext,
-} from '../providers'
-import type { Collection, RescribeData, SchemaKey } from '../types'
+import { CollectionContext, EditorProvider } from '../providers'
+import type { Collection, SchemaKey } from '../types'
 
 export default function NewCollectionItem() {
 	const collection = useContext<Collection | null>(CollectionContext)
-	const context = useContext<RescribeData | undefined>(RescribeContext)
-	invariant(context?.fetcher, 'fetcher cannot be undefined')
-	invariant(context?.location, 'location cannot be undefined')
 
-	const editorFetcher = context.fetcher
-	const location = context.location
+	const editorFetcher = useFetcher()
+	const location = useLocation()
 	const [sheetOpen, setSheetOpen] = useState<boolean>(false)
 	const [wordCount, setWordCount] = useState<number>(0)
 

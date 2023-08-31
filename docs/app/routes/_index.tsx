@@ -1,7 +1,7 @@
 import { Link } from '@remix-run/react'
 
 import { CopyToClipboard, PrimaryButton } from '@i4o/catalystui'
-// import { Footer, Navbar } from '@i4o/rescribe'
+import { Footer, Navbar } from '@i4o/rescribe'
 import {
 	CheckCircledIcon,
 	DashboardIcon,
@@ -53,7 +53,7 @@ const features = [
 export default function Home() {
 	return (
 		<>
-			{/* <Navbar /> */}
+			<Navbar />
 			<div className='flex min-h-[calc(100vh-10rem)] w-full flex-col '>
 				<div className='isolate w-full'>
 					<div className='absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]'>
@@ -187,7 +187,7 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	)
 }

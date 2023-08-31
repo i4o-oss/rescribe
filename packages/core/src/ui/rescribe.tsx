@@ -1,3 +1,5 @@
+import { useLocation } from '@remix-run/react'
+
 import { useMemo } from 'react'
 import invariant from 'tiny-invariant'
 
@@ -9,39 +11,13 @@ import { Dashboard } from './Dashboard'
 import Navbar from './Navbar'
 import NewCollectionItem from './NewCollectionItem'
 
-export default function Rescribe({
-	config,
-	data,
-	fetcher,
-	Link,
-	location,
-	navigate,
-}: RescribeData) {
+export default function Rescribe({ config }: RescribeData) {
 	invariant(
 		config,
 		'`config` prop is missing. Check the docs to see how to write the configuration and pass it to the Rescribe component.'
 	)
-	invariant(
-		data,
-		'`data` prop is missing. Please pass the output of `useLoaderData()` to the `data` prop.'
-	)
-	invariant(
-		fetcher,
-		'`fetcher` prop is missing. Please pass the output of `useLocation()` to the `location` prop.'
-	)
-	invariant(
-		Link,
-		'`Link` component is missing. Please pass the `Link` from `@remix-run/react` as the `Link` prop.'
-	)
-	invariant(
-		location,
-		'`location` prop is missing. Please pass the output of `useLocation()` to the `location` prop.'
-	)
-	invariant(
-		navigate,
-		'`navigate` prop is missing. Please pass the output of `useNavigate()` to the `navigate` prop.'
-	)
 
+	const location = useLocation()
 	const params = useMemo(
 		() => parsePathname(location.pathname),
 		[location.pathname]
@@ -73,14 +49,7 @@ export default function Rescribe({
 	}
 
 	return (
-		<RescribeProvider
-			config={config}
-			data={data}
-			fetcher={fetcher}
-			Link={Link}
-			location={location}
-			navigate={navigate}
-		>
+		<RescribeProvider config={config}>
 			{!params?.action ? <Navbar /> : null}
 			{component}
 		</RescribeProvider>

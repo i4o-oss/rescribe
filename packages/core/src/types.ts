@@ -1,15 +1,4 @@
-import type { Location, NavigateFunction } from '@remix-run/react'
-import type {
-	FetcherWithComponents,
-	RemixLinkProps,
-} from '@remix-run/react/dist/components'
-
-import type {
-	Dispatch,
-	ForwardRefExoticComponent,
-	RefAttributes,
-	SetStateAction,
-} from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 import { z } from 'zod'
 
 export type Glob = '*' | '**'
@@ -97,11 +86,4 @@ export type EditorProviderData = {
 
 export type RescribeData = {
 	config: Config<Collections>
-	data: unknown
-	fetcher: FetcherWithComponents<any>
-	Link: ForwardRefExoticComponent<
-		RemixLinkProps & RefAttributes<HTMLAnchorElement>
-	>
-	location: Location
-	navigate: NavigateFunction
 }

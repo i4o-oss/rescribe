@@ -1,21 +1,14 @@
-import { useContext } from 'react'
-import invariant from 'tiny-invariant'
+import { Link, useLoaderData } from '@remix-run/react'
 
 import { BASE_PATH } from '../constants'
-import { RescribeContext } from '../providers'
-import type { Collection, RescribeData } from '../types'
+import type { Collection } from '../types'
 
 type LoaderData = (Collection & {
 	itemsCount: number
 })[]
 
 export function Dashboard() {
-	const context = useContext<RescribeData | undefined>(RescribeContext)
-	invariant(context?.data, 'Loader Data cannot be undefined')
-	invariant(context?.Link, 'Link is null')
-
-	const Link = context.Link
-	const collections = context.data as LoaderData
+	const collections = useLoaderData<LoaderData>()
 
 	return (
 		<main className='rs-relative rs-flex rs-content-start rs-items-stretch rs-justify-center rs-w-full rs-flex-grow rs-py-16'>

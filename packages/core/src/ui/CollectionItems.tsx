@@ -1,20 +1,15 @@
+import { Link, useLoaderData, useLocation } from '@remix-run/react'
+
 import { PrimaryButton } from '@i4o/catalystui'
 import { useContext } from 'react'
-import invariant from 'tiny-invariant'
 
-import { CollectionContext, RescribeContext } from '../providers'
-import type { Collection, RescribeData } from '../types'
+import { CollectionContext } from '../providers'
+import type { Collection } from '../types'
 
 export default function CollectionItems() {
-	const context = useContext<RescribeData | undefined>(RescribeContext)
-	invariant(context?.data, 'Loader Data cannot be undefined')
-	invariant(context?.location, 'location cannot be undefined')
-	invariant(context?.Link, 'Link is null')
-
-	const Link = context.Link
-	const location = context.location
+	const location = useLocation()
 	const collection = useContext<Collection | null>(CollectionContext)
-	const { entries } = context.data as { entries: string[] }
+	const { entries } = useLoaderData<{ entries: string[] }>()
 
 	return (
 		<main className='rs-relative rs-flex rs-content-start rs-items-stretch rs-justify-center rs-w-full rs-flex-grow rs-py-16'>

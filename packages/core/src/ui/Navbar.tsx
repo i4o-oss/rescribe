@@ -1,4 +1,6 @@
 import type { Location } from '@remix-run/react'
+import { useNavigate } from '@remix-run/react'
+import { Link, useLocation } from '@remix-run/react'
 
 import { Select } from '@i4o/catalystui'
 import { useContext, useEffect, useMemo, useState } from 'react'
@@ -18,12 +20,13 @@ function CollectionSelector({
 }) {
 	const context = useContext<RescribeData | undefined>(RescribeContext)
 	invariant(context?.config, 'config cannot be undefined')
-	invariant(context?.navigate, 'navigate is not a function')
-	const { collections } = context.config
-	const navigate = context.navigate
+
+	const navigate = useNavigate()
+
 	const [selectedCollection, setSelectedCollection] = useState(
 		params?.collection
 	)
+	const { collections } = context.config
 
 	useEffect(() => {
 		if (params?.collection) {
@@ -58,14 +61,12 @@ function CollectionSelector({
 export default function Navbar() {
 	const context = useContext<RescribeData | undefined>(RescribeContext)
 	invariant(context?.config, 'config cannot be undefined')
-	invariant(context?.location, 'location cannot be undefined')
-	invariant(context?.Link, 'Link is null')
 
-	const Link = context.Link
+	const location = useLocation()
 
 	const params = useMemo(
-		() => parsePathname(context.location.pathname),
-		[context.location.pathname]
+		() => parsePathname(location.pathname),
+		[location.pathname]
 	)
 
 	return (
@@ -103,7 +104,7 @@ export default function Navbar() {
 								<>
 									<span>/</span>
 									<CollectionSelector
-										location={context.location}
+										location={location}
 										params={params}
 									/>
 								</>
