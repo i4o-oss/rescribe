@@ -109,9 +109,6 @@ importers:
       '@radix-ui/react-portal':
         specifier: ^1.0.3
         version: 1.0.3(@types/react-dom@18.0.11)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
-      '@remix-run/node':
-        specifier: '>=1.15'
-        version: 1.19.3
       '@remix-run/react':
         specifier: '>=1.15'
         version: 1.19.3(react-dom@18.2.0)(react@18.2.0)
