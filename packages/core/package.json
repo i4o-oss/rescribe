@@ -21,8 +21,6 @@
 		"build:lib": "tsup"
 	},
 	"devDependencies": {
-		"@remix-run/node": "1.18.0",
-		"@remix-run/react": "1.18.0",
 		"@rescribe/eslint-config": "workspace:*",
 		"@rescribe/tsconfig": "workspace:*",
 		"@tailwindcss/typography": "^0.5.9",
@@ -34,15 +32,16 @@
 		"postcss": "^8.4.21",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-router": "^6.15.0",
 		"tailwindcss": "^3.2.7",
 		"tsup": "^6.6.3",
 		"typescript": "^4.9.5"
 	},
 	"peerDependencies": {
-		"@remix-run/node": "1.18.0",
-		"@remix-run/react": "1.18.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"@remix-run/node": ">=1.15",
+		"@remix-run/react": ">=1.15",
+		"react": ">=17",
+		"react-dom": ">=17"
 	},
 	"dependencies": {
 		"@i4o/catalystui": "1.0.0-alpha.16",
