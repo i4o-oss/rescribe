@@ -3,14 +3,14 @@ import { useLocation } from '@remix-run/react'
 import { useMemo } from 'react'
 import invariant from 'tiny-invariant'
 
-import { parsePathname } from '../helpers'
-import { CollectionProvider, RescribeProvider } from '../providers'
-import type { RescribeData } from '../types'
-import CollectionItems from './CollectionItems'
-import { Dashboard } from './Dashboard'
-import EditCollectionItem from './EditCollectionItem'
-import Navbar from './Navbar'
-import NewCollectionItem from './NewCollectionItem'
+import { parsePathname } from './helpers'
+import { CollectionProvider, RescribeProvider } from './providers'
+import type { RescribeData } from './types'
+import CollectionItems from './ui/CollectionItems'
+import { Dashboard } from './ui/Dashboard'
+import EditCollectionItem from './ui/EditCollectionItem'
+import Navbar from './ui/Navbar'
+import NewCollectionItem from './ui/NewCollectionItem'
 
 export default function Rescribe({ config }: RescribeData) {
 	invariant(
