@@ -21,6 +21,7 @@ export default function TextInput({
 				<textarea
 					autoFocus
 					className='rs-min-h-[1.5rem] rs-w-full rs-resize-none rs-overflow-y-hidden rs-bg-transparent rs-text-2xl rs-font-semibold rs-leading-snug rs-text-foreground focus:rs-outline-none lg:rs-min-h-[6rem] lg:rs-text-5xl'
+					defaultValue={defaultValue}
 					id={schemaKey}
 					name={schemaKey}
 					placeholder={description}
@@ -45,6 +46,7 @@ export default function TextInput({
 			{multiline ? (
 				<textarea
 					className='rs-min-h-[6rem] rs-w-full rs-rounded-md rs-border rs-border-subtle rs-bg-transparent rs-px-4 rs-py-2 rs-font-medium'
+					defaultValue={defaultValue}
 					id={schemaKey}
 					name={schemaKey}
 					rows={1}

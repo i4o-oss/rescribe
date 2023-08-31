@@ -8,6 +8,7 @@ import { CollectionProvider, RescribeProvider } from '../providers'
 import type { RescribeData } from '../types'
 import CollectionItems from './CollectionItems'
 import { Dashboard } from './Dashboard'
+import EditCollectionItem from './EditCollectionItem'
 import Navbar from './Navbar'
 import NewCollectionItem from './NewCollectionItem'
 
@@ -39,7 +40,7 @@ export default function Rescribe({ config }: RescribeData) {
 	} else if (params?.collection && params.action === 'edit') {
 		component = (
 			<CollectionProvider config={config} params={params}>
-				<div>Edit Item</div>
+				<EditCollectionItem />
 			</CollectionProvider>
 		)
 	} else if (params?.root) {

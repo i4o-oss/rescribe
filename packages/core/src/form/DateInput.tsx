@@ -5,11 +5,17 @@ import { useState } from 'react'
 import type { DateField } from '../types'
 
 type Props = DateField & {
+	defaultValue?: Date
 	schemaKey: string
 }
 
-export default function DateInput({ description, label, schemaKey }: Props) {
-	const [date, setDate] = useState<Date | undefined>(new Date())
+export default function DateInput({
+	defaultValue = new Date(),
+	description,
+	label,
+	schemaKey,
+}: Props) {
+	const [date, setDate] = useState<Date | undefined>(defaultValue)
 
 	return (
 		<div className='rs-flex rs-flex-col rs-w-full rs-gap-2'>

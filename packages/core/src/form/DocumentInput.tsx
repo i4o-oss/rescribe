@@ -4,12 +4,16 @@ import { useRef } from 'react'
 import type { DocumentField } from '../types'
 
 type DocumentInputProps = DocumentField & {
+	defaultValue?: string
 	schemaKey: string
 }
 
-export default function DocumentInput({ schemaKey }: DocumentInputProps) {
+export default function DocumentInput({
+	defaultValue = '',
+	schemaKey,
+}: DocumentInputProps) {
 	// const context = useContext<EditorProviderData | undefined>(EditorContext)
-	const content = useRef<string>('')
+	const content = useRef<string>(defaultValue)
 
 	function setContent(value: () => string) {
 		content.current = value()

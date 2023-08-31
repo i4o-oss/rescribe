@@ -7,9 +7,11 @@ import UrlInput from '../form/UrlInput'
 import type { Field, SchemaKey } from '../types'
 
 export default function InputRenderer({
+	defaultValue,
 	field,
 	schemaKey,
 }: {
+	defaultValue?: unknown
 	field: Field
 	schemaKey: SchemaKey
 }) {
@@ -17,7 +19,9 @@ export default function InputRenderer({
 		case 'boolean': {
 			return (
 				<Boolean
-					defaultChecked={field.defaultChecked}
+					defaultChecked={
+						(defaultValue as boolean) || field.defaultChecked
+					}
 					description={field.description}
 					label={field.label}
 					schemaKey={schemaKey}
@@ -27,6 +31,11 @@ export default function InputRenderer({
 		case 'date': {
 			return (
 				<DateInput
+					defaultValue={
+						defaultValue
+							? new Date(defaultValue as string)
+							: undefined
+					}
 					description={field.description}
 					label={field.label}
 					schemaKey={schemaKey}
@@ -36,6 +45,7 @@ export default function InputRenderer({
 		case 'document': {
 			return (
 				<DocumentInput
+					defaultValue={defaultValue as string}
 					description={field.description}
 					label={field.label}
 					schemaKey={schemaKey}
@@ -47,6 +57,7 @@ export default function InputRenderer({
 		case 'slug': {
 			return (
 				<SlugInput
+					defaultValue={defaultValue as string}
 					description={field.description}
 					label={field.label}
 					schemaKey={schemaKey}
@@ -56,6 +67,7 @@ export default function InputRenderer({
 		case 'text': {
 			return (
 				<TextInput
+					defaultValue={defaultValue as string}
 					description={field.description}
 					isTitleField={schemaKey === 'title'}
 					label={field.label}
@@ -67,6 +79,7 @@ export default function InputRenderer({
 		case 'url': {
 			return (
 				<UrlInput
+					defaultValue={defaultValue as string}
 					description={field.description}
 					label={field.label}
 					schemaKey={schemaKey}
