@@ -8,27 +8,33 @@ import invariant from 'tiny-invariant'
 
 import Header from '../editor/Header'
 import InputRenderer from '../editor/InputRenderer'
-import { generateZodSchema, getDefaults } from '../helpers'
 import { CollectionContext, EditorProvider } from '../providers'
 import type { Collection, SchemaKey } from '../types'
 
 type Props = {
+	defaultValue: { [x: string]: any } | undefined
+	id: string
 	sheetOpen: boolean
 	setSheetOpen: Dispatch<SetStateAction<boolean>>
 	wordCount: number
 	setWordCount: Dispatch<SetStateAction<number>>
 }
 
-const Form = ({ sheetOpen, setSheetOpen, wordCount, setWordCount }: Props) => {
+const Form = ({
+	defaultValue,
+	id,
+	sheetOpen,
+	setSheetOpen,
+	wordCount,
+	setWordCount,
+}: Props) => {
 	const collection = useContext<Collection | null>(CollectionContext)
 	invariant(collection, 'collection cannot be undefined')
-	const schema = generateZodSchema(collection.schema)
-	const defaultValues = getDefaults(schema)
 
 	const { Form, state: fetcherState } = useFetcher()
 	const [form, fields] = useForm({
-		defaultValue: defaultValues,
-		id: 'create',
+		defaultValue,
+		id,
 	})
 	const location = useLocation()
 
