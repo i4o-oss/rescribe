@@ -40,19 +40,9 @@ type RescribeProviderProps = RescribeData & {
 	children: ReactNode
 }
 
-export function RescribeProvider({
-	children,
-	config,
-	data,
-	fetcher,
-	Link,
-	location,
-	navigate,
-}: RescribeProviderProps) {
+export function RescribeProvider({ children, config }: RescribeProviderProps) {
 	return (
-		<RescribeContext.Provider
-			value={{ config, data, fetcher, Link, location, navigate }}
-		>
+		<RescribeContext.Provider value={{ config }}>
 			{children}
 		</RescribeContext.Provider>
 	)
