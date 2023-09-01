@@ -2,6 +2,7 @@
 title: Test Post 3
 slug: test-post-3
 excerpt: asdf qwer asdf
+createdAt: 2023-09-01T21:00:45.921Z
 publishedAt: 2023-09-01T21:00:45.921Z
 published: false
 ---
