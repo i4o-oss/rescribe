@@ -97,6 +97,12 @@ importers:
 
   packages/core:
     dependencies:
+      '@conform-to/react':
+        specifier: ^0.8.0
+        version: 0.8.0(react@18.2.0)
+      '@conform-to/zod':
+        specifier: ^0.8.0
+        version: 0.8.0(@conform-to/dom@0.8.0)(zod@3.22.2)
       '@i4o/catalystui':
         specifier: 1.0.0-alpha.16
         version: 1.0.0-alpha.16(@types/react-dom@18.0.11)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
@@ -1830,6 +1836,29 @@ packages:
       fs-extra: 7.0.1
       human-id: 1.0.2
       prettier: 2.8.4
+    dev: false
+
+  /@conform-to/dom@0.8.0:
+    resolution: {integrity: sha512-6IRg+ZtRV2K3GszXWaE0Fs0xO1mY8p9vORtTXazldjODqINcQA49+68yTYLJsnnwKiv1I1kXv538TcLc52K8Dw==}
+    dev: false
+
+  /@conform-to/react@0.8.0(react@18.2.0):
+    resolution: {integrity: sha512-8eqZHyT8octeEJ4ywiEFzpoVoQYeEoCTavSZmoGeIhwO2hTuBEgp1Jk3Fa/Dy7lT4E0ZJxE0orZTgHprLcz0Jg==}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      '@conform-to/dom': 0.8.0
+      react: 18.2.0
+    dev: false
+
+  /@conform-to/zod@0.8.0(@conform-to/dom@0.8.0)(zod@3.22.2):
+    resolution: {integrity: sha512-5AZhKKgfIrtW8ackQaPOaxazxxaoPhiTOSi3tv2Cb385dMSm3UyUsi9jExnSivt5uqFSDM0U50RNPQ5Ad5L7bw==}
+    peerDependencies:
+      '@conform-to/dom': 0.8.0
+      zod: ^3.21.0
+    dependencies:
+      '@conform-to/dom': 0.8.0
+      zod: 3.22.2
     dev: false
 
   /@emotion/hash@0.9.1:
