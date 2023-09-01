@@ -50,10 +50,14 @@ export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 			''
 		)}${params.slug}.md`
 		const file = await fs.readFile(fullPath, 'utf8')
-		const { content, data } = matter(file)
-		const metadata = YAML.parse(`${JSON.stringify(data)}\n`)
+		const { content, data: frontmatter } = matter(file)
+		const metadata = YAML.parse(`${JSON.stringify(frontmatter)}\n`)
+		const data = {
+			...metadata,
+			content: content.trim(),
+		}
 
-		return json({ ...metadata, content })
+		return json(data)
 	} else {
 		// params.root === true
 		const data = await Promise.all(
