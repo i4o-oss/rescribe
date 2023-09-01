@@ -2,7 +2,11 @@ import type { ActionArgs, LoaderArgs } from '@remix-run/server-runtime'
 import { redirect } from '@remix-run/server-runtime'
 import { json } from '@remix-run/server-runtime'
 
-import { REMIX_BASE_PATH, parsePathname } from '@rescribe/core'
+import {
+	REMIX_BASE_PATH,
+	generateZodSchema,
+	parsePathname,
+} from '@rescribe/core'
 import type { Collections, Config } from '@rescribe/core'
 import fg from 'fast-glob'
 import matter from 'gray-matter'
@@ -10,7 +14,7 @@ import fs from 'node:fs/promises'
 import YAML from 'yaml'
 import { zx } from 'zodix'
 
-import { generateZodSchema, readItemsInCollection } from './helpers'
+import { readItemsInCollection } from './helpers'
 
 type LoaderHandlerArgs = LoaderArgs & {
 	config: Config<Collections>
@@ -96,7 +100,7 @@ export async function handleAction({ config, request }: ActionHandlerArgs) {
 		}
 
 		const frontmatter = YAML.stringify(frontmatterObj).trimEnd()
-		const markdown = formData.content
+		const markdown = formData.content.trim()
 
 		// TODO: find a better way to form markdown file content
 		const markdownFileContent = `---
@@ -114,7 +118,7 @@ ${markdown}
 			''
 		)}${formData.slug}.md`
 		await fs.writeFile(fullPath, markdownFileContent)
-
+		//
 		return redirect(
 			`/rescribe/collections/${params.collection}/${formData.slug}`
 		)
@@ -123,7 +127,33 @@ ${markdown}
 		const formDataSchema = generateZodSchema(collection.schema)
 		const formData = await zx.parseForm(request, formDataSchema)
 
-		console.log(formData)
+		const frontmatterObj = {
+			title: formData.title,
+			slug: formData.slug,
+			excerpt: formData.excerpt,
+			publishedAt: formData.publishedAt,
+			published: formData.published,
+		}
+
+		const frontmatter = YAML.stringify(frontmatterObj).trimEnd()
+		const markdown = formData.content.trim()
+
+		const markdownFileContent = `---
+${frontmatter}
+---
+
+${markdown}
+`
+
+		// TODO: if slug changes this will create a new file. keep track of old file name and rename or delete + recreate it.
+		// TODO: this path only works for files with depth = 1 but glob allows nested directories. figure out how to get a working path regardless of how files are organized.
+		const fullPath = `${process.cwd()}${REMIX_BASE_PATH}/${collection.path.replace(
+			'*',
+			''
+		)}${formData.slug}.md`
+		await fs.writeFile(fullPath, markdownFileContent)
+
+		return json({ message: 'updated' })
 	}
 
 	return json({})
