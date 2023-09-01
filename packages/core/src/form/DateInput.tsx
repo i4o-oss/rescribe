@@ -1,3 +1,4 @@
+import type { FieldConfig } from '@conform-to/react'
 import { Button, DatePicker } from '@i4o/catalystui'
 import { format } from 'date-fns'
 import { useState } from 'react'
@@ -5,34 +6,30 @@ import { useState } from 'react'
 import type { DateField } from '../types'
 
 type Props = DateField & {
-	defaultValue?: Date
-	schemaKey: string
+	fieldConfig: FieldConfig<any>
 }
 
-export default function DateInput({
-	defaultValue = new Date(),
-	description,
-	label,
-	schemaKey,
-}: Props) {
-	const [date, setDate] = useState<Date | undefined>(defaultValue)
+export default function DateInput({ fieldConfig, ...fieldData }: Props) {
+	const [date, setDate] = useState<Date | undefined>(
+		fieldConfig.defaultValue || new Date()
+	)
 
 	return (
 		<div className='rs-flex rs-flex-col rs-w-full rs-gap-2'>
 			<div className='rs-flex rs-flex-col rs-gap-1'>
-				<label className='rs-font-semibold' htmlFor={schemaKey}>
-					{label}
+				<label className='rs-font-semibold' htmlFor={fieldConfig.id}>
+					{fieldData.label}
 				</label>
-				{description ? (
+				{fieldData.description ? (
 					<span className='rs-text-sm rs-text-foreground-subtle'>
-						{description}
+						{fieldData.description}
 					</span>
 				) : null}
 			</div>
 			<input
 				className='rs-hidden'
-				id={schemaKey}
-				name={schemaKey}
+				id={fieldConfig.id}
+				name={fieldConfig.name}
 				readOnly
 				value={date?.toISOString()}
 			/>
