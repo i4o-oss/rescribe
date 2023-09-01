@@ -1,90 +1,46 @@
+import type { FieldConfig } from '@conform-to/react'
+
 import Boolean from '../form/Boolean'
 import DateInput from '../form/DateInput'
 import DocumentInput from '../form/DocumentInput'
 import SlugInput from '../form/SlugInput'
 import TextInput from '../form/TextInput'
 import UrlInput from '../form/UrlInput'
-import type { Field, SchemaKey } from '../types'
+import type { Field } from '../types'
 
 export default function InputRenderer({
-	defaultValue,
-	field,
-	schemaKey,
+	fieldConfig,
+	fieldData,
 }: {
-	defaultValue?: unknown
-	field: Field
-	schemaKey: SchemaKey
+	fieldConfig: FieldConfig<any>
+	fieldData: Field
 }) {
-	switch (field.type) {
+	switch (fieldData.type) {
 		case 'boolean': {
-			return (
-				<Boolean
-					defaultChecked={
-						(defaultValue as boolean) || field.defaultChecked
-					}
-					description={field.description}
-					label={field.label}
-					schemaKey={schemaKey}
-				/>
-			)
+			return <Boolean fieldConfig={fieldConfig} {...fieldData} />
 		}
 		case 'date': {
-			return (
-				<DateInput
-					defaultValue={
-						defaultValue
-							? new Date(defaultValue as string)
-							: undefined
-					}
-					description={field.description}
-					label={field.label}
-					schemaKey={schemaKey}
-				/>
-			)
+			return <DateInput fieldConfig={fieldConfig} {...fieldData} />
 		}
 		case 'document': {
-			return (
-				<DocumentInput
-					defaultValue={defaultValue as string}
-					description={field.description}
-					label={field.label}
-					schemaKey={schemaKey}
-				/>
-			)
+			return <DocumentInput fieldConfig={fieldConfig} {...fieldData} />
 		}
 		// TODO: generate slug automatically when title field loses focus and not empty
 		// this essentially ties the slug field to the title field and hence both are required fields but only for collections
 		case 'slug': {
-			return (
-				<SlugInput
-					defaultValue={defaultValue as string}
-					description={field.description}
-					label={field.label}
-					schemaKey={schemaKey}
-				/>
-			)
+			return <SlugInput fieldConfig={fieldConfig} {...fieldData} />
 		}
 		case 'text': {
 			return (
 				<TextInput
-					defaultValue={defaultValue as string}
-					description={field.description}
-					isTitleField={schemaKey === 'title'}
-					label={field.label}
-					multiline={field.multiline}
-					schemaKey={schemaKey}
+					fieldConfig={fieldConfig}
+					{...fieldData}
+					isTitleField={fieldConfig.name === 'title'}
 				/>
 			)
 		}
 		case 'url': {
-			return (
-				<UrlInput
-					defaultValue={defaultValue as string}
-					description={field.description}
-					label={field.label}
-					schemaKey={schemaKey}
-				/>
-			)
+			return <UrlInput fieldConfig={fieldConfig} {...fieldData} />
 		}
 		default: {
 			return null

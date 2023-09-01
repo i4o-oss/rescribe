@@ -1,20 +1,29 @@
-import { Link } from '@remix-run/react'
+import { Link, useLocation } from '@remix-run/react'
 
 import { Button, IconButton } from '@i4o/catalystui'
 import type { Dispatch, SetStateAction } from 'react'
+import { useMemo } from 'react'
 import { useContext } from 'react'
 
 import { BASE_PATH } from '../constants'
+import { parsePathname } from '../helpers'
 import { CollectionContext } from '../providers'
 
 export default function Header({
+	fetcherState,
 	sheetOpen,
 	setSheetOpen,
 }: {
+	fetcherState: 'idle' | 'submitting' | 'loading'
 	sheetOpen: boolean
 	setSheetOpen: Dispatch<SetStateAction<boolean>>
 }) {
 	const collection = useContext(CollectionContext)
+	const location = useLocation()
+	const params = useMemo(
+		() => parsePathname(location.pathname),
+		[location.pathname]
+	)
 
 	return (
 		<>
@@ -50,9 +59,17 @@ export default function Header({
 					{/* TODO: show create button only when title is not empty and loses focus */}
 					<Button
 						className='rs-h-8 rs-text-brand !rs-bg-transparent'
+						loading={fetcherState !== 'idle'}
+						loadingText={
+							params?.collection && params.action === 'edit'
+								? 'Updating...'
+								: 'Creating...'
+						}
 						type='submit'
 					>
-						Create
+						{params?.collection && params.action === 'edit'
+							? 'Update'
+							: 'Create'}
 					</Button>
 					{!sheetOpen ? (
 						<IconButton
