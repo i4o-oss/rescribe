@@ -9,3 +9,5 @@ packages/core/dist
 packages/rescribe/dist
 packages/server/dist
 pnpm-lock.yaml
+
+**/*.md
