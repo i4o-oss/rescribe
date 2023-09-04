@@ -12,6 +12,17 @@ export async function readItemsInCollection(collection: Collection) {
 	return entries
 }
 
+export function getPath(collection: Collection, slug = '') {
+	if (slug) {
+		return `${process.cwd()}${REMIX_BASE_PATH}/${collection.path.replace(
+			'*',
+			''
+		)}${slug}.md`
+	} else {
+		return `${process.cwd()}${REMIX_BASE_PATH}/${collection.path}.md`
+	}
+}
+
 export function createSchema<key extends SchemaKey>({
 	collectionSchema,
 	options,
