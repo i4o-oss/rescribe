@@ -1,4 +1,4 @@
-import { useFetcher, useLocation } from '@remix-run/react'
+import { useActionData, useFetcher, useLocation } from '@remix-run/react'
 
 import { useForm } from '@conform-to/react'
 import { IconButton, ScrollArea } from '@i4o/catalystui'
@@ -28,6 +28,7 @@ const Form = ({
 	wordCount,
 	setWordCount,
 }: Props) => {
+	const lastSubmission = useActionData()
 	const collection = useContext<Collection | null>(CollectionContext)
 	invariant(collection, 'collection cannot be undefined')
 
@@ -35,6 +36,7 @@ const Form = ({
 	const [form, fields] = useForm({
 		defaultValue,
 		id,
+		lastSubmission,
 	})
 	const location = useLocation()
 
