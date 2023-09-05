@@ -1,0 +1,54 @@
+{
+	"name": "@rescribe/blog",
+	"version": "0.1.0",
+	"files": [
+		"dist"
+	],
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"style": "./dist/main.css",
+	"exports": {
+		".": "./dist/index.js",
+		"./main.css": "./dist/main.css"
+	},
+	"description": "",
+	"scripts": {
+		"dev": "concurrently \"pnpm run dev:css\" \"pnpm dev:lib\"",
+		"dev:css": "tailwindcss -w -i ./styles/main.css -o ./dist/main.css",
+		"dev:lib": "tsup --watch",
+		"build": "pnpm run build:css && pnpm build:lib",
+		"build:css": "tailwindcss -m -i ./styles/main.css -o ./dist/main.css",
+		"build:lib": "tsup"
+	},
+	"devDependencies": {
+		"@rescribe/eslint-config": "workspace:*",
+		"@rescribe/tsconfig": "workspace:*",
+		"@types/mdast": "^3.0.10",
+		"@types/mdx": "^2.0.3",
+		"@types/node": "^20.5.1",
+		"@types/react": "^18.0.28",
+		"@types/react-dom": "^18.0.11",
+		"autoprefixer": "^10.4.13",
+		"concurrently": "^7.6.0",
+		"postcss": "^8.4.21",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"tailwindcss": "^3.2.7",
+		"tsup": "^6.6.3",
+		"typescript": "^4.9.5"
+	},
+	"peerDependencies": {
+		"@remix-run/node": ">=1.15",
+		"@remix-run/react": ">=1.15",
+		"@rescribe/core": "latest",
+		"react": ">=17",
+		"react-dom": ">=17"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
