@@ -3,6 +3,8 @@ import { z } from 'zod'
 
 export type Glob = '*' | '**'
 
+export type ContentPath = `${string}/${Glob}` | `${string}/${Glob}/${string}`
+
 export const FieldTypes = z.enum([
 	'boolean',
 	'date',
@@ -67,7 +69,7 @@ export type Schema<key extends SchemaKey> = Record<key, Field>
 export type Collection = {
 	label: string
 	slug: CollectionSlug
-	path: `${string}/${Glob}` | `${string}/${Glob}/${string}`
+	path: ContentPath
 	schema: Schema<SchemaKey>
 }
 

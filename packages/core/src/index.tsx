@@ -5,6 +5,7 @@ export * from './helpers'
 export type {
 	Collection,
 	Collections,
+	ContentPath,
 	Config,
 	Field,
 	Schema,
