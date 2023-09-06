@@ -5,21 +5,22 @@ import fg from 'fast-glob'
 import { z } from 'zod'
 
 export async function readItemsInCollection(collection: Collection) {
-	const { path } = collection
-	const fullPath = `${process.cwd()}/${REMIX_BASE_PATH}/${path}.{md,mdx}`
+	const { format = 'md', path } = collection
+	const fullPath = `${process.cwd()}/${REMIX_BASE_PATH}/${path}.${format}`
 	const entries = await fg(fullPath, { onlyFiles: true })
 
 	return entries
 }
 
 export function getPath(collection: Collection, slug = '') {
+	const { format = 'md' } = collection
 	if (slug) {
 		return `${process.cwd()}${REMIX_BASE_PATH}/${collection.path.replace(
 			'*',
 			''
-		)}${slug}.md`
+		)}${slug}.${format}`
 	} else {
-		return `${process.cwd()}${REMIX_BASE_PATH}/${collection.path}.md`
+		return `${process.cwd()}${REMIX_BASE_PATH}/${collection.path}.${format}`
 	}
 }
 

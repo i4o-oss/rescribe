@@ -6,6 +6,7 @@ export { RescribeProvider } from './providers'
 export { default as Rescribe } from './rescribe'
 export type {
 	Collection,
+	CollectionFormat,
 	Collections,
 	Config,
 	ContentPath,

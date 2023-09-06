@@ -11,6 +11,7 @@ import { Theme, useTheme } from '~/utils/theme-provider'
 export const configObj = config({
 	collections: {
 		docs: collection({
+			format: 'mdx',
 			label: 'Docs',
 			slug: 'docs',
 			path: 'content/docs/*',
@@ -29,6 +30,7 @@ export const configObj = config({
 			},
 		}),
 		blog: collection({
+			format: 'mdx',
 			label: 'Blog',
 			slug: 'blog',
 			path: 'content/blog/*',

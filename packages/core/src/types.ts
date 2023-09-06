@@ -2,8 +2,8 @@ import type { Dispatch, SetStateAction } from 'react'
 import { z } from 'zod'
 
 export type Glob = '*' | '**'
-
 export type ContentPath = `${string}/${Glob}` | `${string}/${Glob}/${string}`
+export type CollectionFormat = 'md' | 'mdx'
 
 export const FieldTypes = z.enum([
 	'boolean',
@@ -67,6 +67,7 @@ export type SchemaKey = SpecialSchemaKeys | (string & {})
 export type Schema<key extends SchemaKey> = Record<key, Field>
 
 export type Collection = {
+	format?: CollectionFormat
 	label: string
 	slug: CollectionSlug
 	path: ContentPath

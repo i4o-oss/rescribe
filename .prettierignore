@@ -11,4 +11,5 @@ packages/rescribe/dist
 packages/server/dist
 pnpm-lock.yaml
 
-**/*.md
+docs/**/*.md
+docs/**/*.mdx
