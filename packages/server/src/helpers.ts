@@ -2,14 +2,43 @@ import { refine } from '@conform-to/zod'
 import type { Collection, Schema, SchemaKey } from '@rescribe/core'
 import { REMIX_BASE_PATH } from '@rescribe/core'
 import fg from 'fast-glob'
+import matter from 'gray-matter'
+import fs from 'node:fs/promises'
+import YAML from 'yaml'
 import { z } from 'zod'
 
 export async function readItemsInCollection(collection: Collection) {
-	const { format = 'md', path } = collection
-	const fullPath = `${process.cwd()}/${REMIX_BASE_PATH}/${path}.${format}`
+	const fullPath = getPath(collection)
 	const entries = await fg(fullPath, { onlyFiles: true })
+	const items = await Promise.all(
+		entries.map(async (entry) => {
+			const file = await fs.readFile(entry, 'utf8')
+			const { content, data } = matter(file)
+			const metadata = YAML.parse(`${JSON.stringify(data)}\n`)
 
-	return entries
+			return {
+				...metadata,
+				content,
+			}
+		})
+	)
+
+	return items
+}
+
+export async function getItemInCollectionFromSlug(
+	collection: Collection,
+	slug: string
+) {
+	const fullPath = getPath(collection, slug)
+	const file = await fs.readFile(fullPath, 'utf8')
+	const { content, data } = matter(file)
+	const metadata = YAML.parse(`${JSON.stringify(data)}\n`)
+
+	return {
+		...metadata,
+		content,
+	}
 }
 
 export function getPath(collection: Collection, slug = '') {
