@@ -3,7 +3,7 @@ import { useLocation } from '@remix-run/react'
 import { useMemo } from 'react'
 import invariant from 'tiny-invariant'
 
-import { parsePathname } from './helpers'
+import { parseAdminPathname } from './helpers'
 import { CollectionProvider, RescribeProvider } from './providers'
 import type { RescribeData } from './types'
 import CollectionItems from './ui/CollectionItems'
@@ -20,7 +20,7 @@ export default function Rescribe({ config }: RescribeData) {
 
 	const location = useLocation()
 	const params = useMemo(
-		() => parsePathname(location.pathname),
+		() => parseAdminPathname({ pathname: location.pathname }),
 		[location.pathname]
 	)
 

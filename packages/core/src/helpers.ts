@@ -1,7 +1,13 @@
 import { BASE_PATH_REGEX } from './constants'
 
-export function parsePathname(pathname: string) {
-	const replaced = pathname.replace(BASE_PATH_REGEX, '')
+export function parseAdminPathname({
+	basePath = BASE_PATH_REGEX,
+	pathname,
+}: {
+	basePath?: string | RegExp
+	pathname: string
+}) {
+	const replaced = pathname.replace(basePath, '')
 	const parts =
 		replaced === '' ? [] : replaced.split('/').map(decodeURIComponent)
 
@@ -24,4 +30,20 @@ export function parsePathname(pathname: string) {
 	}
 
 	return null
+}
+
+export function parseOutputPathname({
+	basePath,
+	pathname,
+}: {
+	basePath: string | RegExp
+	pathname: string
+}) {
+	const replaced = pathname.replace(basePath, '')
+	const parts =
+		replaced === '' ? [] : replaced.split('/').map(decodeURIComponent)
+
+	if (parts.length === 0) {
+		return { root: true }
+	}
 }

@@ -7,7 +7,7 @@ import { useContext, useEffect, useMemo, useState } from 'react'
 import invariant from 'tiny-invariant'
 
 import { BASE_PATH } from '../constants'
-import { parsePathname } from '../helpers'
+import { parseAdminPathname } from '../helpers'
 import { RescribeContext } from '../providers'
 import type { RescribeData } from '../types'
 
@@ -16,7 +16,7 @@ function CollectionSelector({
 	params,
 }: {
 	location: Location
-	params: ReturnType<typeof parsePathname>
+	params: ReturnType<typeof parseAdminPathname>
 }) {
 	const context = useContext<RescribeData | undefined>(RescribeContext)
 	invariant(context?.config, 'config cannot be undefined')
@@ -65,7 +65,7 @@ export default function Navbar() {
 	const location = useLocation()
 
 	const params = useMemo(
-		() => parsePathname(location.pathname),
+		() => parseAdminPathname({ pathname: location.pathname }),
 		[location.pathname]
 	)
 

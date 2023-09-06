@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 import { useContext } from 'react'
 
 import { BASE_PATH } from '../constants'
-import { parsePathname } from '../helpers'
+import { parseAdminPathname } from '../helpers'
 import { CollectionContext } from '../providers'
 
 export default function Header({
@@ -21,7 +21,7 @@ export default function Header({
 	const collection = useContext(CollectionContext)
 	const location = useLocation()
 	const params = useMemo(
-		() => parsePathname(location.pathname),
+		() => parseAdminPathname({ pathname: location.pathname }),
 		[location.pathname]
 	)
 

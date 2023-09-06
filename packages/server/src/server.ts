@@ -3,7 +3,7 @@ import { redirect } from '@remix-run/server-runtime'
 import { json } from '@remix-run/server-runtime'
 
 import { parse } from '@conform-to/zod'
-import { parsePathname } from '@rescribe/core'
+import { parseAdminPathname } from '@rescribe/core'
 import type { Collections, Config } from '@rescribe/core'
 import fg from 'fast-glob'
 import matter from 'gray-matter'
@@ -23,26 +23,15 @@ type LoaderHandlerArgs = LoaderArgs & {
 
 export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 	const url = new URL(request.url)
-	const params = parsePathname(url.pathname)
+	const params = parseAdminPathname({ pathname: url.pathname })
 	const { collections } = config
 
 	if (params === null) {
 		return json({})
 	} else if (params.collection && !params.action) {
 		const collection = collections[params.collection]
-		const entries = await readItemsInCollection(collection)
-		const collectionItems = await Promise.all(
-			entries.map(async (entry) => {
-				const file = await fs.readFile(entry, 'utf8')
-				const { data } = matter(file)
-				const metadata = YAML.parse(`${JSON.stringify(data)}\n`)
-
-				return {
-					...metadata,
-				}
-			})
-		)
-		return json({ items: collectionItems })
+		const items = await readItemsInCollection(collection)
+		return json({ items })
 	} else if (params.collection && params.action === 'create') {
 		const collection = collections[params.collection]
 		const schema = createSchema({ collectionSchema: collection.schema })
@@ -87,7 +76,7 @@ type ActionHandlerArgs = ActionArgs & {
 
 export async function handleAction({ config, request }: ActionHandlerArgs) {
 	const url = new URL(request.url)
-	const params = parsePathname(url.pathname)
+	const params = parseAdminPathname({ pathname: url.pathname })
 	const { collections } = config
 
 	if (params?.collection && params.action) {

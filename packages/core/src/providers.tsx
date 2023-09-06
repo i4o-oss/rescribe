@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { createContext } from 'react'
 
-import type { parsePathname } from './helpers'
+import type { parseAdminPathname } from './helpers'
 import type {
 	Collection,
 	Collections,
@@ -19,7 +19,7 @@ export function CollectionProvider({
 }: {
 	children: ReactNode
 	config: Config<Collections>
-	params: ReturnType<typeof parsePathname>
+	params: ReturnType<typeof parseAdminPathname>
 }) {
 	const collection = params?.collection
 		? config.collections[params.collection]
