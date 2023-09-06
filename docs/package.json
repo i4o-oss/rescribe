@@ -15,6 +15,7 @@
 		"@remix-run/node": "1.19.3",
 		"@remix-run/react": "1.19.3",
 		"@remix-run/serve": "1.19.3",
+		"@rescribe/blog": "workspace:*",
 		"@rescribe/core": "workspace:*",
 		"@rescribe/server": "workspace:*",
 		"isbot": "^3.6.6",

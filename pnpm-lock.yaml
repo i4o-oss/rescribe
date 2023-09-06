@@ -48,6 +48,9 @@ importers:
       '@remix-run/serve':
         specifier: 1.19.3
         version: 1.19.3
+      '@rescribe/blog':
+        specifier: workspace:*
+        version: link:../packages/blog
       '@rescribe/core':
         specifier: workspace:*
         version: link:../packages/core
