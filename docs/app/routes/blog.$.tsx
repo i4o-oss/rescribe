@@ -19,19 +19,7 @@ export default function BlogRoot() {
 		<>
 			<Navbar />
 			<div className='flex min-h-[calc(100vh-10rem)] w-full flex-col mx-auto max-w-4xl justify-start items-center'>
-				<div className='container max-w-4xl p-6 lg:py-10 lg:px-0'>
-					<div className='flex h-48 flex-col items-start gap-4 md:flex-row md:items-center md:justify-between md:gap-8'>
-						<div className='flex flex-1 flex-col items-start justify-start space-y-4'>
-							<h1 className='text-foreground inline-block text-3xl font-extrabold tracking-tight lg:text-5xl'>
-								Blog
-							</h1>
-							<p className='text-foreground-subtle text-xl'>
-								Crafts, product updates, and technical details
-							</p>
-						</div>
-					</div>
-					<BlogOutlet />
-				</div>
+				<BlogOutlet />
 			</div>
 			<Footer />
 		</>

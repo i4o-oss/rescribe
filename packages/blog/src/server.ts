@@ -1,5 +1,6 @@
 import { json } from '@remix-run/server-runtime'
 
+import { compile } from '@mdx-js/mdx'
 import { parseOutputPathname } from '@rescribe/core'
 
 import type { BlogLoaderHandlerArgs } from './types'
@@ -16,8 +17,20 @@ export async function handleBlogLoader({
 		const items = await blog.all()
 		return json({ items })
 	} else if (params?.collection && params.slug) {
-		const item = await blog.unique({ where: { slug: params.slug } })
-		return json({ item })
+		const item = await blog.unique({
+			where: { slug: params.slug },
+		})
+		if (!item) return json({})
+
+		// @ts-ignore
+		const { frontmatter, content } = item
+		const code = String(
+			await compile(content, {
+				development: false,
+				outputFormat: 'function-body',
+			})
+		)
+		return json({ frontmatter, code })
 	}
 
 	return json({})
