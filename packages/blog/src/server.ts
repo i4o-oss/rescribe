@@ -2,6 +2,7 @@ import { json } from '@remix-run/server-runtime'
 
 import { compile } from '@mdx-js/mdx'
 import { parseOutputPathname } from '@rescribe/core'
+import rehypeHighlight from 'rehype-highlight'
 
 import type { BlogLoaderHandlerArgs } from './types'
 
@@ -28,6 +29,8 @@ export async function handleBlogLoader({
 			await compile(content, {
 				development: false,
 				outputFormat: 'function-body',
+				// @ts-ignore
+				rehypePlugins: [rehypeHighlight],
 			})
 		)
 		return json({ frontmatter, code })
