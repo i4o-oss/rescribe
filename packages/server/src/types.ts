@@ -1,4 +1,16 @@
-import type { ContentPath, Schema, SchemaKey } from '@rescribe/core'
+import type { LoaderArgs } from '@remix-run/server-runtime'
+
+import type {
+	Collections,
+	Config,
+	ContentPath,
+	Schema,
+	SchemaKey,
+} from '@rescribe/core'
+
+export type LoaderHandlerArgs = LoaderArgs & {
+	config: Config<Collections>
+}
 
 export interface UniqueArg {
 	where: {

@@ -1,4 +1,4 @@
-import type { ActionArgs, LoaderArgs } from '@remix-run/server-runtime'
+import type { ActionArgs } from '@remix-run/server-runtime'
 import { redirect } from '@remix-run/server-runtime'
 import { json } from '@remix-run/server-runtime'
 
@@ -16,10 +16,7 @@ import {
 	getPath,
 	readItemsInCollection,
 } from './helpers'
-
-type LoaderHandlerArgs = LoaderArgs & {
-	config: Config<Collections>
-}
+import type { LoaderHandlerArgs } from './types'
 
 export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 	const url = new URL(request.url)
