@@ -78,23 +78,27 @@ export default function CollectionItems() {
 									<Link
 										className='rs-col-span-2 rs-px-4 rs-grid rs-h-16 rs-w-full rs-grid-cols-3 rs-gap-4 rs-bg-transparent hover:rs-bg-brand/30'
 										key={item.slug}
-										to={`${location.pathname}/${item.slug}`}
+										to={`${location.pathname}/${item.frontmatter.slug}`}
 									>
 										<div className='rs-col-span-2 rs-flex rs-items-center rs-justify-start'>
 											<h3 className='rs-text-foreground rs-font-medium rs-text-left'>
-												{item.title}
+												{item.frontmatter.title}
 											</h3>
 										</div>
 										<div className='rs-flex rs-items-center rs-justify-start rs-space-x-2'>
 											<span
 												className='rs-text-foreground-subtle rs-text-xs'
 												title={format(
-													new Date(item.createdAt),
+													new Date(
+														item.frontmatter.createdAt
+													),
 													'PPPp'
 												)}
 											>
 												{formatDistance(
-													new Date(item.createdAt),
+													new Date(
+														item.frontmatter.createdAt
+													),
 													new Date(),
 													{
 														addSuffix: true,

@@ -18,6 +18,11 @@ export interface UniqueArg {
 	}
 }
 
+export interface ClientReturn {
+	frontmatter: unknown
+	content: string
+}
+
 export interface CollectionInterface {
 	_format: string
 	_label: string

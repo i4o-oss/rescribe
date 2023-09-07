@@ -14,10 +14,10 @@ export async function readItemsInCollection(collection: Collection) {
 		entries.map(async (entry) => {
 			const file = await fs.readFile(entry, 'utf8')
 			const { content, data } = matter(file)
-			const metadata = YAML.parse(`${JSON.stringify(data)}\n`)
+			const frontmatter = YAML.parse(`${JSON.stringify(data)}\n`)
 
 			return {
-				...metadata,
+				frontmatter,
 				content,
 			}
 		})
@@ -33,10 +33,10 @@ export async function getItemInCollectionFromSlug(
 	const fullPath = getPath(collection, slug)
 	const file = await fs.readFile(fullPath, 'utf8')
 	const { content, data } = matter(file)
-	const metadata = YAML.parse(`${JSON.stringify(data)}\n`)
+	const frontmatter = YAML.parse(`${JSON.stringify(data)}\n`)
 
 	return {
-		...metadata,
+		frontmatter,
 		content,
 	}
 }
