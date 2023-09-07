@@ -32,18 +32,19 @@ export function parseAdminPathname({
 	return null
 }
 
-export function parseOutputPathname({
-	basePath,
-	pathname,
-}: {
-	basePath: string | RegExp
-	pathname: string
-}) {
-	const replaced = pathname.replace(basePath, '')
-	const parts =
-		replaced === '' ? [] : replaced.split('/').map(decodeURIComponent)
+export function parseOutputPathname({ pathname }: { pathname: string }) {
+	const parts = pathname.split('/').map(decodeURIComponent)
 
-	if (parts.length === 0) {
-		return { root: true }
+	if (parts.length === 2) {
+		const collection = parts[1]
+		return { collection, root: true }
 	}
+
+	if (parts.length === 3) {
+		const collection = parts[1]
+		const slug = parts[2]
+		return { collection, slug }
+	}
+
+	return null
 }
