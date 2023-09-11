@@ -1,6 +1,5 @@
 import { json } from '@remix-run/server-runtime'
 
-import { compile } from '@mdx-js/mdx'
 import { parseOutputPathname } from '@rescribe/core'
 import rehypeHighlight from 'rehype-highlight'
 
@@ -25,15 +24,8 @@ export async function handleBlogLoader({
 
 		// @ts-ignore
 		const { frontmatter, content } = item
-		const code = String(
-			await compile(content, {
-				development: false,
-				outputFormat: 'function-body',
-				// @ts-ignore
-				rehypePlugins: [rehypeHighlight],
-			})
-		)
-		return json({ frontmatter, code })
+		// TODO: use mdx-bundler and make it work!
+		return json({ frontmatter, content })
 	}
 
 	return json({})

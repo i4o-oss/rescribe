@@ -1,34 +1,10 @@
 import { Link, useLoaderData } from '@remix-run/react'
 
-import { run } from '@mdx-js/mdx'
-import { MDXProvider } from '@mdx-js/react'
 import { format } from 'date-fns'
-import { Fragment, useEffect, useState } from 'react'
-import * as runtime from 'react/jsx-runtime'
-
-function PostContent() {
-	const data = useLoaderData()
-	const { code } = data
-	const [mdxModule, setMdxModule] = useState()
-	// @ts-ignore
-	const Content = mdxModule ? mdxModule?.default : Fragment
-
-	useEffect(() => {
-		;(async () => {
-			setMdxModule(await run(code, runtime))
-		})()
-	}, [code])
-
-	return (
-		<MDXProvider>
-			<Content />
-		</MDXProvider>
-	)
-}
 
 export default function Post({ collection }: { collection: string }) {
 	const data = useLoaderData()
-	const { frontmatter } = data
+	const { content, frontmatter } = data
 
 	return (
 		<div className='rs-container rs-max-w-4xl rs-p-6 lg:rs-py-10 lg:rs-px-0'>
@@ -62,7 +38,7 @@ export default function Post({ collection }: { collection: string }) {
 				</div>
 			</div>
 			<div className='rs-w-full rs-prose dark:rs-prose-invert rs-prose-lg rs-max-w-none rs-px-6 rs-pb-6'>
-				<PostContent />
+				{content}
 			</div>
 		</div>
 	)
