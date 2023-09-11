@@ -77,7 +77,7 @@ export default function CollectionItems() {
 								{items.map((item: any) => (
 									<Link
 										className='rs-col-span-2 rs-px-4 rs-grid rs-h-16 rs-w-full rs-grid-cols-3 rs-gap-4 rs-bg-transparent hover:rs-bg-brand/30'
-										key={item.slug}
+										key={item.frontmatter.slug}
 										to={`${location.pathname}/${item.frontmatter.slug}`}
 									>
 										<div className='rs-col-span-2 rs-flex rs-items-center rs-justify-start'>
