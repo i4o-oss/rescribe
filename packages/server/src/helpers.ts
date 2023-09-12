@@ -13,12 +13,11 @@ export async function readItemsInCollection(collection: Collection) {
 	const items = await Promise.all(
 		entries.map(async (entry) => {
 			const file = await fs.readFile(entry, 'utf8')
-			const { content, data } = matter(file)
+			const { data } = matter(file)
 			const frontmatter = YAML.parse(`${JSON.stringify(data)}\n`)
 
 			return {
 				frontmatter,
-				content,
 			}
 		})
 	)
@@ -36,8 +35,8 @@ export async function getItemInCollectionFromSlug(
 	const frontmatter = YAML.parse(`${JSON.stringify(data)}\n`)
 
 	return {
-		frontmatter,
 		content,
+		frontmatter,
 	}
 }
 

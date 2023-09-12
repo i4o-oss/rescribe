@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from '@remix-run/react'
 
 import { format } from 'date-fns'
+import Markdown from 'markdown-to-jsx'
 
 export default function Post({ collection }: { collection: string }) {
 	const data = useLoaderData()
@@ -38,7 +39,7 @@ export default function Post({ collection }: { collection: string }) {
 				</div>
 			</div>
 			<div className='rs-w-full rs-prose dark:rs-prose-invert rs-prose-lg rs-max-w-none rs-px-6 rs-pb-6'>
-				{content}
+				<Markdown>{content}</Markdown>
 			</div>
 		</div>
 	)

@@ -19,8 +19,8 @@ export interface UniqueArg {
 }
 
 export interface ClientReturn {
+	content?: string
 	frontmatter: unknown
-	content: string
 }
 
 export interface CollectionInterface {
