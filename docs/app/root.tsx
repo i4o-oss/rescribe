@@ -15,9 +15,9 @@ import {
 	useLoaderData,
 } from '@remix-run/react'
 
-import { RescribeProvider } from '@i4o/rescribe'
-import rescribeOldStylesheet from '@i4o/rescribe/main.css'
 import rescribeStylesheet from '@rescribe/core/rescribe.css'
+import { RescribeProvider } from '@rescribe/docs'
+import rescribeOldStylesheet from '@rescribe/docs/main.css'
 import stylesheet from '~/main.css'
 import { rescribeConfig } from '~/rescribe.config'
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'

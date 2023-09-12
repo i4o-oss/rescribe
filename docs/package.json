@@ -10,12 +10,12 @@
 	},
 	"dependencies": {
 		"@i4o/catalystui": "1.0.0-alpha.16",
-		"@i4o/rescribe": "workspace:*",
 		"@radix-ui/react-icons": "^1.2.0",
 		"@remix-run/node": "1.19.3",
 		"@remix-run/react": "1.19.3",
 		"@remix-run/serve": "1.19.3",
 		"@rescribe/blog": "workspace:*",
+		"@rescribe/docs": "workspace:*",
 		"@rescribe/core": "workspace:*",
 		"@rescribe/server": "workspace:*",
 		"isbot": "^3.6.6",
