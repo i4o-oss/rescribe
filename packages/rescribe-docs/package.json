@@ -41,6 +41,8 @@
 	"peerDependencies": {
 		"@remix-run/node": ">=1.15",
 		"@remix-run/react": ">=1.15",
+		"@rescribe/core": "latest",
+		"@rescribe/server": "latest",
 		"react": ">=17",
 		"react-dom": ">=17"
 	},

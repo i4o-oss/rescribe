@@ -1,8 +1,8 @@
 import { json } from '@remix-run/server-runtime'
 
 import { parseOutputPathname } from '@rescribe/core'
-import rehypeHighlight from 'rehype-highlight'
 
+// import rehypeHighlight from 'rehype-highlight'
 import type { BlogLoaderHandlerArgs } from './types'
 
 // TODO: it would be better if collection interface can be created here instead of asking the user to create it and pass it to the handler

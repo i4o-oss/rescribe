@@ -37,13 +37,13 @@ export function parseOutputPathname({ pathname }: { pathname: string }) {
 
 	if (parts.length === 2) {
 		const collection = parts[1]
-		return { collection, root: true }
+		return { collection, root: true, slug: null }
 	}
 
 	if (parts.length === 3) {
 		const collection = parts[1]
 		const slug = parts[2]
-		return { collection, slug }
+		return { collection, root: false, slug }
 	}
 
 	return null
