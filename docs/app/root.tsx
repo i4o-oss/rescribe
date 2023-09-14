@@ -15,17 +15,13 @@ import {
 	useLoaderData,
 } from '@remix-run/react'
 
-import rescribeStylesheet from '@rescribe/core/rescribe.css'
-import { RescribeProvider } from '@rescribe/docs'
-import rescribeOldStylesheet from '@rescribe/docs/main.css'
+import rescribeDocsStylesheet from '@rescribe/docs/main.css'
 import stylesheet from '~/main.css'
-import { rescribeConfig } from '~/rescribe.config'
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'
 import { getThemeSession } from '~/utils/theme.server'
 
 export const links: LinksFunction = () => [
-	{ rel: 'stylesheet', href: rescribeOldStylesheet },
-	{ rel: 'stylesheet', href: rescribeStylesheet },
+	{ rel: 'stylesheet', href: rescribeDocsStylesheet },
 	{ rel: 'stylesheet', href: stylesheet },
 ]
 
@@ -127,9 +123,7 @@ function App() {
 				<ThemeHead ssrTheme={Boolean(data.theme)} />
 			</head>
 			<body className='h-full w-full bg-white dark:bg-[#090909]'>
-				<RescribeProvider config={rescribeConfig}>
-					<Outlet />
-				</RescribeProvider>
+				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
 				<LiveReload />
