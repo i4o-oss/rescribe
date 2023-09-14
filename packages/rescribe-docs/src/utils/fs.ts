@@ -1,13 +1,13 @@
-import fs from 'fs'
 import matter from 'gray-matter'
-import path from 'path'
+import { promises as fsp } from 'node:fs'
+import path from 'node:path'
 import slash from 'slash'
 
 import { MARKDOWN_EXTENSION_REGEX, REMIX_ROUTES_DIR } from '../constants'
 import type { Folder } from '../types'
 
 async function collectMdx(filePath: string) {
-	const content = await fs.promises.readFile(filePath, 'utf8')
+	const content = await fsp.readFile(filePath, 'utf8')
 	const { data } = matter(content)
 	return {
 		type: 'MdxPage',
@@ -21,7 +21,7 @@ async function readFilesInDir(
 	dir = REMIX_ROUTES_DIR,
 	route = '/'
 ): Promise<Array<Folder>> {
-	const files = await fs.promises.readdir(dir, { withFileTypes: true })
+	const files = await fsp.readdir(dir, { withFileTypes: true })
 
 	if (!v2) {
 		const items = await Promise.all(

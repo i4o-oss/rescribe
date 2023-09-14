@@ -1,4 +1,14 @@
+import type { LoaderArgs } from '@remix-run/node'
+
+import type { Collections, Config } from '@rescribe/core'
+import type { CollectionInterface } from '@rescribe/server'
 import type { Dispatch, ReactElement, ReactNode, SetStateAction } from 'react'
+
+export type DocsLoaderHandlerArgs = LoaderArgs & {
+	docs: CollectionInterface
+	docsConfig: RescribeDocsConfig
+	rescribeConfig: Config<Collections>
+}
 
 interface Socials {
 	ariaLabel?: string
@@ -30,7 +40,7 @@ interface FooterConfig {
 	socials?: Socials[]
 }
 
-export interface RescribeConfig {
+export interface RescribeDocsConfig {
 	footer?: FooterConfig
 	navbar: NavbarConfig
 	sidebar: SidebarConfig
@@ -41,7 +51,7 @@ export interface RescribeConfig {
 
 export interface RescribeProviderProps {
 	children: ReactNode
-	config: RescribeConfig
+	config: RescribeDocsConfig
 }
 
 export interface RescribeDataProviderProps {

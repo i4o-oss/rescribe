@@ -1,6 +1,6 @@
 import { createProcessor } from '@mdx-js/mdx'
 import type { VFile } from '@mdx-js/mdx/lib/compile'
-import fs from 'fs'
+import { promises as fsp } from 'node:fs'
 
 import { readFilesInDir } from './fs'
 import remarkHeadings from './plugins/remark-headings'
@@ -19,7 +19,7 @@ async function readCurrentMdx({
 	const [currentFile] = v2
 		? [matchedRoute]
 		: matchedRoute?.children?.filter((child: unknown | null) => child)
-	const input = await fs.promises.readFile(currentFile.path, 'utf8')
+	const input = await fsp.readFile(currentFile.path, 'utf8')
 	const processor = createProcessor({
 		remarkPlugins: [remarkHeadings],
 	})

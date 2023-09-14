@@ -3,17 +3,45 @@ import { useLocation } from '@remix-run/react'
 import { parseOutputPathname } from '@rescribe/core'
 import { useMemo } from 'react'
 
-export default function DocsOutlet() {
+import RescribeProvider from './core/provider'
+import { Footer, Navbar } from './internal'
+import Container from './internal/container'
+
+type DocsOutletContext = {
+	docsConfig: any
+}
+
+type DocsOutletProps = {
+	context: DocsOutletContext
+}
+
+export default function DocsOutlet({ context }: DocsOutletProps) {
 	const location = useLocation()
 	const params = useMemo(
 		() => parseOutputPathname({ pathname: location.pathname }),
 		[location.pathname]
 	)
 
-	if (params?.collection && params?.root) {
-		return <div>Docs Root</div>
-	} else if (params?.collection && params.slug) {
-		return <div>Docs Page - {params.slug}</div>
+	if (params?.root) {
+		return (
+			<RescribeProvider config={context.docsConfig}>
+				<Navbar />
+				<Container>
+					<div>Docs Root</div>
+				</Container>
+				<Footer />
+			</RescribeProvider>
+		)
+	} else if (params?.slug) {
+		return (
+			<RescribeProvider config={context.docsConfig}>
+				<Navbar />
+				<Container>
+					<div>Docs Page - {params.slug}</div>
+				</Container>
+				<Footer />
+			</RescribeProvider>
+		)
 	}
 
 	return null

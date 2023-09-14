@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 
-import { RescribeContext } from '../constants'
+import { RescribeDocsContext } from '../constants'
 
 function Footer() {
-	const { footer } = useContext(RescribeContext)
+	const { footer } = useContext(RescribeDocsContext)
 
 	return (
 		<div className='sticky top-0 z-50 flex h-20 w-screen flex-wrap items-center justify-center border-t border-gray-200 py-4 dark:border-gray-700'>
@@ -23,7 +23,7 @@ function Footer() {
 					)}
 				</div>
 				<div className='flex items-center justify-end gap-4'>
-					{footer?.socials?.map((social, index) => (
+					{footer?.socials?.map((social: any, index: number) => (
 						<a
 							aria-label={social.ariaLabel}
 							className='text-black dark:text-gray-100'

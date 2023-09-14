@@ -2,11 +2,12 @@ import { Link, useLocation } from '@remix-run/react'
 
 import { useContext } from 'react'
 
-import { RescribeContext } from '../constants'
+import { RescribeDocsContext } from '../constants'
 import type { SidebarLink } from '../types'
+import navbar from './navbar'
 
 function Sidebar() {
-	const { sidebar } = useContext(RescribeContext)
+	const { sidebar } = useContext(RescribeDocsContext)
 	const location = useLocation()
 	const [, root, , _] = location.pathname.split('/')
 	// TODO: Fix this type later
@@ -81,55 +82,64 @@ function Sidebar() {
 					</ul>
 				)}
 				<ul className='flex flex-col gap-8'>
-					{navigationOptions?.map(
-						(option: Record<string, unknown>, index: number) => (
-							<li className='flex flex-col' key={index}>
-								<h5 className='mb-4 text-sm font-semibold text-gray-700 dark:text-gray-200'>
-									{option.group as string}
-								</h5>
-								<ul className='flex flex-col gap-2 border-l border-gray-100 dark:border-gray-800'>
-									{Object.keys(option.pages).map(
-										(page: string, j: number) => {
-											if (
-												page === 'index' ||
-												page === '_index'
-											) {
-												return (
-													<Link
-														to={`/${root}`}
-														className={`-ml-[1px] border-l py-1 pl-4 text-sm transition-colors duration-300 ${
-															location.pathname ===
-															`/${root}`
-																? 'border-brand-500 text-brand-500'
-																: 'hover:border-brand-500 hover:dark:border-brand-500 border-transparent text-gray-700 dark:text-gray-200'
-														}`}
-														key={j}
-													>
-														{option.pages[page]}
-													</Link>
-												)
-											}
+					{navigationOptions.length > 0 &&
+						navigationOptions?.map(
+							(option: Record<string, string>, index: number) => (
+								<li className='flex flex-col' key={index}>
+									{option.group ? (
+										<h5 className='mb-4 text-sm font-semibold text-gray-700 dark:text-gray-200'>
+											{option.group as string}
+										</h5>
+									) : null}
+									{Object.keys(option.pages).length > 0 ? (
+										<ul className='flex flex-col gap-2 border-l border-gray-100 dark:border-gray-800'>
+											{Object.entries(option.pages).map(
+												(
+													entry: string[],
+													j: number
+												) => {
+													const [page, title] = entry
+													if (
+														page === 'index' ||
+														page === '_index'
+													) {
+														return (
+															<Link
+																to={`/${root}`}
+																className={`-ml-[1px] border-l py-1 pl-4 text-sm transition-colors duration-300 ${
+																	location.pathname ===
+																	`/${root}`
+																		? 'border-brand-500 text-brand-500'
+																		: 'hover:border-brand-500 hover:dark:border-brand-500 border-transparent text-gray-700 dark:text-gray-200'
+																}`}
+																key={j}
+															>
+																{title}
+															</Link>
+														)
+													}
 
-											return (
-												<Link
-													to={page}
-													className={`-ml-[1px] border-l py-1 pl-4 text-sm transition-colors duration-300 ${
-														location.pathname ===
-														`/${root}/${page}`
-															? 'border-brand-500 text-brand-500'
-															: 'hover:border-brand-500 hover:dark:border-brand-500 hover:text-brand-500 hover:dark:text-brand-500 border-transparent text-gray-700 dark:text-gray-200'
-													}`}
-													key={j}
-												>
-													{option.pages[page]}
-												</Link>
-											)
-										}
-									)}
-								</ul>
-							</li>
-						)
-					)}
+													return (
+														<Link
+															to={page}
+															className={`-ml-[1px] border-l py-1 pl-4 text-sm transition-colors duration-300 ${
+																location.pathname ===
+																`/${root}/${page}`
+																	? 'border-brand-500 text-brand-500'
+																	: 'hover:border-brand-500 hover:dark:border-brand-500 hover:text-brand-500 hover:dark:text-brand-500 border-transparent text-gray-700 dark:text-gray-200'
+															}`}
+															key={j}
+														>
+															{title}
+														</Link>
+													)
+												}
+											)}
+										</ul>
+									) : null}
+								</li>
+							)
+						)}
 				</ul>
 			</div>
 		</div>

@@ -1,10 +1,10 @@
-import { RescribeContext } from '../constants'
+import { RescribeDocsContext } from '../constants'
 import type { RescribeProviderProps } from '../types'
 
 export default function RescribeProvider(props: RescribeProviderProps) {
 	return (
-		<RescribeContext.Provider value={props.config}>
+		<RescribeDocsContext.Provider value={props.config}>
 			{props.children}
-		</RescribeContext.Provider>
+		</RescribeDocsContext.Provider>
 	)
 }
