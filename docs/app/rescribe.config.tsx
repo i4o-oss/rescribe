@@ -83,7 +83,7 @@ function DarkModeToggle() {
 	)
 }
 
-export const rescribeConfig: RescribeConfig = {
+export const rescribeDocsConfig: RescribeConfig = {
 	footer: {
 		socials: [
 			{
