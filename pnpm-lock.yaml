@@ -292,6 +292,12 @@ importers:
       '@remix-run/react':
         specifier: '>=1.15'
         version: 1.19.3(react-dom@18.2.0)(react@18.2.0)
+      '@rescribe/core':
+        specifier: latest
+        version: link:../rescribe-core
+      '@rescribe/server':
+        specifier: latest
+        version: link:../rescribe-server
       '@tailwindcss/typography':
         specifier: ^0.5.9
         version: 0.5.9(tailwindcss@3.2.7)
