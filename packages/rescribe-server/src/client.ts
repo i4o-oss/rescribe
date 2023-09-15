@@ -1,7 +1,12 @@
 import type { Collection, Collections, Config } from '@rescribe/core'
 
 import { getItemInCollectionFromSlug, readItemsInCollection } from './helpers'
-import type { ClientReturn, CollectionInterface, RescribeClient } from './types'
+import type {
+	AllReturn,
+	CollectionInterface,
+	RescribeClient,
+	UniqueReturn,
+} from './types'
 
 export function createClient(config: Config<Collections>): RescribeClient {
 	let client = {}
@@ -23,11 +28,11 @@ export function createClient(config: Config<Collections>): RescribeClient {
 			_path: collection.path,
 			_schema: collection.schema,
 
-			async all(): Promise<ClientReturn[]> {
+			async all(): Promise<AllReturn[]> {
 				return await readItemsInCollection(collection)
 			},
 
-			async unique({ where }): Promise<ClientReturn> {
+			async unique({ where }): Promise<UniqueReturn> {
 				return await getItemInCollectionFromSlug(collection, where.slug)
 			},
 		}

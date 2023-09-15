@@ -18,8 +18,12 @@ export interface UniqueArg {
 	}
 }
 
-export interface ClientReturn {
-	content?: string
+export interface AllReturn {
+	frontmatter: unknown
+}
+
+export interface UniqueReturn {
+	code: string
 	frontmatter: unknown
 }
 

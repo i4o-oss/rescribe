@@ -13,7 +13,7 @@ const config: Options = {
 	bundle: true,
 	minify: true,
 	name: '@rescribe/server',
-	external: ['@remix-run/node'],
+	external: ['@remix-run/node', 'esbuild'],
 }
 
 export default defineConfig(config)

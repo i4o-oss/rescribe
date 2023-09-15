@@ -3,16 +3,18 @@ import type { Collection, Schema, SchemaKey } from '@rescribe/core'
 import { REMIX_BASE_PATH } from '@rescribe/core'
 import fg from 'fast-glob'
 import matter from 'gray-matter'
-import fs from 'node:fs/promises'
+import { promises as fsp } from 'node:fs'
 import YAML from 'yaml'
 import { z } from 'zod'
+
+import { compileMdx } from './compile'
 
 export async function readItemsInCollection(collection: Collection) {
 	const fullPath = getPath(collection)
 	const entries = await fg(fullPath, { onlyFiles: true })
 	const items = await Promise.all(
 		entries.map(async (entry) => {
-			const file = await fs.readFile(entry, 'utf8')
+			const file = await fsp.readFile(entry, 'utf8')
 			const { data } = matter(file)
 			const frontmatter = YAML.parse(`${JSON.stringify(data)}\n`)
 
@@ -30,12 +32,14 @@ export async function getItemInCollectionFromSlug(
 	slug: string
 ) {
 	const fullPath = getPath(collection, slug)
-	const file = await fs.readFile(fullPath, 'utf8')
-	const { content, data } = matter(file)
-	const frontmatter = YAML.parse(`${JSON.stringify(data)}\n`)
+	const file = await fsp.readFile(fullPath, 'utf8')
+	const { content } = matter(file)
+	const { code, frontmatter } = await compileMdx({
+		source: content,
+	})
 
 	return {
-		content,
+		code,
 		frontmatter,
 	}
 }
