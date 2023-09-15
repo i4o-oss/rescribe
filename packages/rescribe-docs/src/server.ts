@@ -15,6 +15,7 @@ export async function handleDocsLoader({
 		const items = await docs.unique({ where: { slug: '_index' } })
 		return json({ items })
 	} else if (params?.collection && params.slug) {
+		// TODO: return type doesn't carry over. fix this.
 		const item = await docs.unique({
 			where: { slug: params.slug },
 		})
@@ -22,9 +23,9 @@ export async function handleDocsLoader({
 		if (!item) return json({})
 
 		// @ts-ignore
-		const { frontmatter, content } = item
-		// TODO: use mdx-bundler and make it work!
-		return json({ frontmatter, content })
+		const { code, frontmatter } = item
+
+		return json({ code, frontmatter })
 	}
 
 	// TODO: return an appropriate status code along with an error message
