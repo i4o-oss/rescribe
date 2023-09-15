@@ -7,7 +7,7 @@ import { RescribeDataContext } from '../constants'
 
 export default function ToC() {
 	const location = useLocation()
-	// TODO: Fix the types here
+	// TODO: fix the types here
 	// const { headings } = useContext(RescribeDataContext)
 
 	return (

@@ -3,7 +3,8 @@ import { useContext } from 'react'
 import { RescribeDocsContext } from '../constants'
 
 function Footer() {
-	const { footer } = useContext(RescribeDocsContext)
+	const context = useContext(RescribeDocsContext)
+	const footer = context?.footer
 
 	return (
 		<div className='sticky top-0 z-50 flex h-20 w-screen flex-wrap items-center justify-center border-t border-gray-200 py-4 dark:border-gray-700'>

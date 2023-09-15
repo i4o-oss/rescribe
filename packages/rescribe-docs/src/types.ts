@@ -51,7 +51,7 @@ export interface RescribeDocsConfig {
 
 export interface RescribeProviderProps {
 	children: ReactNode
-	config: RescribeDocsConfig
+	config: RescribeDocsConfig | undefined
 }
 
 export interface RescribeDataProviderProps {

@@ -7,10 +7,11 @@ import type { SidebarLink } from '../types'
 import navbar from './navbar'
 
 function Sidebar() {
-	const { sidebar } = useContext(RescribeDocsContext)
+	const context = useContext(RescribeDocsContext)
+	const sidebar = context?.sidebar
 	const location = useLocation()
 	const [, root, , _] = location.pathname.split('/')
-	// TODO: Fix this type later
+	// TODO: fix this type later
 	const navigationOptions = sidebar?.navigation[root] as Array<any>
 
 	return (
