@@ -4,7 +4,7 @@
 	"sideEffects": false,
 	"scripts": {
 		"build": "remix build",
-		"dev": "remix dev",
+		"dev:old": "remix dev",
 		"start": "remix-serve build",
 		"typecheck": "tsc"
 	},
