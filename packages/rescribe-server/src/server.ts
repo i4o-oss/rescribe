@@ -1,4 +1,4 @@
-import type { ActionArgs } from '@remix-run/server-runtime'
+import type { ActionFunctionArgs } from '@remix-run/server-runtime'
 import { redirect } from '@remix-run/server-runtime'
 import { json } from '@remix-run/server-runtime'
 
@@ -53,10 +53,12 @@ export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 		// params.root === true
 		const data = await Promise.all(
 			Object.values(collections).map(async (collection) => {
+				// @ts-ignore
 				const fullPath = getPath(collection)
 				const entries = await fg(fullPath, { onlyFiles: true })
 
 				return {
+					// @ts-ignore
 					...collection,
 					itemsCount: entries.length,
 				}
@@ -67,7 +69,7 @@ export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 	}
 }
 
-type ActionHandlerArgs = ActionArgs & {
+type ActionHandlerArgs = ActionFunctionArgs & {
 	config: Config<Collections>
 }
 
