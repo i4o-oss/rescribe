@@ -3,9 +3,8 @@
 	"version": "0.0.0",
 	"private": true,
 	"workspaces": [
-		"docs",
-		"packages/*",
-		"test"
+		"old",
+		"packages/*"
 	],
 	"scripts": {
 		"build": "turbo run build",

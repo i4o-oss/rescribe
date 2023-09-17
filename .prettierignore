@@ -5,14 +5,14 @@ docs/build
 docs/api
 docs/.cache
 docs/public/build
+old/build
+old/api
+old/.cache
+old/public/build
 packages/rescribe-blog/dist
 packages/rescribe-core/dist
 packages/rescribe-docs/dist
 packages/rescribe-server/dist
-test/build
-test/api
-test/.cache
-test/public/build
 pnpm-lock.yaml
 
 docs/**/*.md
