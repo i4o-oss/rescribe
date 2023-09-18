@@ -30,9 +30,12 @@ importers:
 
   docs:
     dependencies:
-      '@remix-run/css-bundle':
-        specifier: ^2.0.0
-        version: 2.0.0
+      '@i4o/catalystui':
+        specifier: 1.0.0-alpha.16
+        version: 1.0.0-alpha.16(@types/react-dom@18.2.7)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-icons':
+        specifier: ^1.2.0
+        version: 1.3.0(react@18.2.0)
       '@remix-run/express':
         specifier: ^2.0.0
         version: 2.0.0(express@4.18.2)(typescript@5.2.2)
@@ -42,6 +45,18 @@ importers:
       '@remix-run/react':
         specifier: ^2.0.0
         version: 2.0.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
+      '@rescribe/blog':
+        specifier: workspace:*
+        version: link:../packages/rescribe-blog
+      '@rescribe/core':
+        specifier: workspace:*
+        version: link:../packages/rescribe-core
+      '@rescribe/docs':
+        specifier: workspace:*
+        version: link:../packages/rescribe-docs
+      '@rescribe/server':
+        specifier: workspace:*
+        version: link:../packages/rescribe-server
       compression:
         specifier: ^1.7.4
         version: 1.7.4
@@ -91,12 +106,21 @@ importers:
       '@types/source-map-support':
         specifier: ^0.5.6
         version: 0.5.7
+      autoprefixer:
+        specifier: ^10.4.13
+        version: 10.4.13(postcss@8.4.29)
       chokidar:
         specifier: ^3.5.3
         version: 3.5.3
       eslint:
         specifier: ^8.38.0
         version: 8.49.0
+      postcss:
+        specifier: ^8.4.21
+        version: 8.4.29
+      tailwindcss:
+        specifier: ^3.2.7
+        version: 3.3.3
       typescript:
         specifier: ^5.1.6
         version: 5.2.2
@@ -486,9 +510,6 @@ importers:
       zod:
         specifier: ^3.22.2
         version: 3.22.2
-      zodix:
-        specifier: ^0.4.1
-        version: 0.4.1(@remix-run/server-runtime@2.0.0)(zod@3.22.2)
     devDependencies:
       '@rescribe/core':
         specifier: workspace:*
@@ -5862,11 +5883,6 @@ packages:
     resolution: {integrity: sha512-fyrgCaedtvMg9NK3en0pnOYJdtfwxUcNolezkNPUsoX57X8oQk+NkqcvzHXD2uKNij6GXmWU9NDru2IWjrO4BQ==}
     dependencies:
       '@babel/runtime': 7.22.11
-    dev: false
-
-  /@remix-run/css-bundle@2.0.0:
-    resolution: {integrity: sha512-fwCqWUxRD6gJVJXeCF14knJzUjtPUPQi9sdFCF8Wzg3gNba6p1rgA4333oDaJdlRPfaXK3dgGojIpI1hgMMo8w==}
-    engines: {node: '>=18.0.0'}
     dev: false
 
   /@remix-run/dev@1.19.3(@remix-run/serve@1.19.3):
@@ -14557,16 +14573,6 @@ packages:
 
   /zod@3.22.2:
     resolution: {integrity: sha512-wvWkphh5WQsJbVk1tbx1l1Ly4yg+XecD+Mq280uBGt9wa5BKSWf4Mhp6GmrkPixhMxmabYY7RbzlwVP32pbGCg==}
-    dev: false
-
-  /zodix@0.4.1(@remix-run/server-runtime@2.0.0)(zod@3.22.2):
-    resolution: {integrity: sha512-YanL8q3BhejzcGY/2rB3cgR3wRQaoHfDD32A7DQX2GJNBZ3Ca1T2t/hG3V7OHFi+E24J+BiEYzDlE2Htgj6kYQ==}
-    peerDependencies:
-      '@remix-run/server-runtime': 1.x
-      zod: 3.x
-    dependencies:
-      '@remix-run/server-runtime': 2.0.0(typescript@4.9.5)
-      zod: 3.22.2
     dev: false
 
   /zwitch@2.0.4:
