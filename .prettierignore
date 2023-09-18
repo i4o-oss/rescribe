@@ -17,3 +17,5 @@ pnpm-lock.yaml
 
 docs/**/*.md
 docs/**/*.mdx
+old/**/*.md
+old/**/*.mdx
