@@ -1,4 +1,3 @@
-import { cssBundleHref } from '@remix-run/css-bundle'
 import {
 	Links,
 	LiveReload,
@@ -9,9 +8,10 @@ import {
 } from '@remix-run/react'
 
 import type { LinksFunction } from '@vercel/remix'
+import stylesheet from '~/main.css'
 
 export const links: LinksFunction = () => [
-	...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
+	{ rel: 'stylesheet', href: stylesheet },
 ]
 
 export default function App() {

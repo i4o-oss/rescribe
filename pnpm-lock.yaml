@@ -30,9 +30,6 @@ importers:
 
   docs:
     dependencies:
-      '@remix-run/css-bundle':
-        specifier: ^2.0.0
-        version: 2.0.0
       '@remix-run/node':
         specifier: ^2.0.0
         version: 2.0.0(typescript@5.2.2)
@@ -70,6 +67,9 @@ importers:
       eslint:
         specifier: ^8.38.0
         version: 8.49.0
+      tailwindcss:
+        specifier: 3.3.3
+        version: 3.3.3
       typescript:
         specifier: ^5.1.6
         version: 5.2.2
@@ -5832,11 +5832,6 @@ packages:
     resolution: {integrity: sha512-fyrgCaedtvMg9NK3en0pnOYJdtfwxUcNolezkNPUsoX57X8oQk+NkqcvzHXD2uKNij6GXmWU9NDru2IWjrO4BQ==}
     dependencies:
       '@babel/runtime': 7.22.11
-    dev: false
-
-  /@remix-run/css-bundle@2.0.0:
-    resolution: {integrity: sha512-fwCqWUxRD6gJVJXeCF14knJzUjtPUPQi9sdFCF8Wzg3gNba6p1rgA4333oDaJdlRPfaXK3dgGojIpI1hgMMo8w==}
-    engines: {node: '>=18.0.0'}
     dev: false
 
   /@remix-run/dev@1.19.3(@remix-run/serve@1.19.3):
