@@ -30,6 +30,12 @@ importers:
 
   docs:
     dependencies:
+      '@i4o/catalystui':
+        specifier: 1.0.0-alpha.16
+        version: 1.0.0-alpha.16(@types/react-dom@18.2.7)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-icons':
+        specifier: ^1.2.0
+        version: 1.3.0(react@18.2.0)
       '@remix-run/node':
         specifier: ^2.0.0
         version: 2.0.0(typescript@5.2.2)
@@ -39,6 +45,18 @@ importers:
       '@remix-run/serve':
         specifier: ^2.0.0
         version: 2.0.0(typescript@5.2.2)
+      '@rescribe/blog':
+        specifier: workspace:*
+        version: link:../packages/rescribe-blog
+      '@rescribe/core':
+        specifier: workspace:*
+        version: link:../packages/rescribe-core
+      '@rescribe/docs':
+        specifier: workspace:*
+        version: link:../packages/rescribe-docs
+      '@rescribe/server':
+        specifier: workspace:*
+        version: link:../packages/rescribe-server
       '@vercel/remix':
         specifier: ^1.19.3
         version: 1.19.3(react-dom@18.2.0)(react@18.2.0)

@@ -10,9 +10,15 @@
 		"typecheck": "tsc"
 	},
 	"dependencies": {
+		"@i4o/catalystui": "1.0.0-alpha.16",
+		"@radix-ui/react-icons": "^1.2.0",
 		"@remix-run/node": "^2.0.0",
 		"@remix-run/react": "^2.0.0",
 		"@remix-run/serve": "^2.0.0",
+		"@rescribe/blog": "workspace:*",
+		"@rescribe/core": "workspace:*",
+		"@rescribe/docs": "workspace:*",
+		"@rescribe/server": "workspace:*",
 		"@vercel/remix": "^1.19.3",
 		"isbot": "^3.6.8",
 		"react": "^18.2.0",
