@@ -15,7 +15,6 @@
 		"build": "tsup-node --platform=node"
 	},
 	"devDependencies": {
-		"@rescribe/core": "workspace:*",
 		"@rescribe/eslint-config": "workspace:*",
 		"@rescribe/tsconfig": "workspace:*",
 		"@types/node": "^20.5.1",
@@ -29,6 +28,7 @@
 	},
 	"dependencies": {
 		"@conform-to/zod": "^0.8.0",
+		"@rescribe/core": "workspace:*",
 		"esbuild": "^0.19.3",
 		"fast-glob": "^3.3.1",
 		"gray-matter": "^4.0.3",

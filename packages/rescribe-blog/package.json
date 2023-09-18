@@ -40,8 +40,6 @@
 	"peerDependencies": {
 		"@remix-run/react": ">=2",
 		"@remix-run/server-runtime": ">=2",
-		"@rescribe/core": "latest",
-		"@rescribe/server": "latest",
 		"react": ">=17",
 		"react-dom": ">=17"
 	},
@@ -52,6 +50,8 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@rescribe/core": "workspace:*",
+		"@rescribe/server": "workspace:*",
 		"date-fns": "^2.30.0",
 		"markdown-to-jsx": "^7.3.2",
 		"rehype-highlight": "^7.0.0",

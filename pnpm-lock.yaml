@@ -184,10 +184,10 @@ importers:
         specifier: '>=2'
         version: 2.0.0(typescript@4.9.5)
       '@rescribe/core':
-        specifier: latest
+        specifier: workspace:*
         version: link:../rescribe-core
       '@rescribe/server':
-        specifier: latest
+        specifier: workspace:*
         version: link:../rescribe-server
       date-fns:
         specifier: ^2.30.0
@@ -339,10 +339,10 @@ importers:
         specifier: '>=2'
         version: 2.0.0(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@rescribe/core':
-        specifier: latest
+        specifier: workspace:*
         version: link:../rescribe-core
       '@rescribe/server':
-        specifier: latest
+        specifier: workspace:*
         version: link:../rescribe-server
       '@tailwindcss/typography':
         specifier: ^0.5.9
@@ -441,6 +441,9 @@ importers:
       '@remix-run/server-runtime':
         specifier: '>=2'
         version: 2.0.0(typescript@4.9.5)
+      '@rescribe/core':
+        specifier: workspace:*
+        version: link:../rescribe-core
       esbuild:
         specifier: ^0.19.3
         version: 0.19.3
@@ -460,9 +463,6 @@ importers:
         specifier: ^3.22.2
         version: 3.22.2
     devDependencies:
-      '@rescribe/core':
-        specifier: workspace:*
-        version: link:../rescribe-core
       '@rescribe/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config

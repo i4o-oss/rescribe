@@ -41,8 +41,6 @@
 	"peerDependencies": {
 		"@remix-run/node": ">=2",
 		"@remix-run/react": ">=2",
-		"@rescribe/core": "latest",
-		"@rescribe/server": "latest",
 		"react": ">=17",
 		"react-dom": ">=17"
 	},
@@ -53,6 +51,8 @@
 		"@i4o/catalystui": "1.0.0-alpha.14",
 		"@mdx-js/mdx": "^2.3.0",
 		"@radix-ui/react-icons": "^1.2.0",
+		"@rescribe/core": "workspace:*",
+		"@rescribe/server": "workspace:*",
 		"@tailwindcss/typography": "^0.5.9",
 		"clsx": "^1.2.1",
 		"github-slugger": "^2.0.0",
