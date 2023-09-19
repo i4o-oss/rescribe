@@ -1,6 +1,6 @@
 import { refine } from '@conform-to/zod'
-import type { Collection, Schema, SchemaKey } from '@rescribe/core'
-import { REMIX_BASE_PATH } from '@rescribe/core'
+import type { Collection, Schema, SchemaKey } from '@rescribejs/core'
+import { REMIX_BASE_PATH } from '@rescribejs/core'
 import fg from 'fast-glob'
 import matter from 'gray-matter'
 import { promises as fsp } from 'node:fs'

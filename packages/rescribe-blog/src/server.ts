@@ -1,6 +1,6 @@
 import { json } from '@remix-run/server-runtime'
 
-import { parseOutputPathname } from '@rescribe/core'
+import { parseOutputPathname } from '@rescribejs/core'
 
 // import rehypeHighlight from 'rehype-highlight'
 import type { BlogLoaderHandlerArgs } from './types'

@@ -1,5 +1,5 @@
 {
-	"name": "@rescribe/docs",
+	"name": "@rescribejs/docs",
 	"version": "0.1.0",
 	"files": [
 		"dist"
@@ -51,8 +51,8 @@
 		"@i4o/catalystui": "1.0.0-alpha.14",
 		"@mdx-js/mdx": "^2.3.0",
 		"@radix-ui/react-icons": "^1.2.0",
-		"@rescribe/core": "workspace:*",
-		"@rescribe/server": "workspace:*",
+		"@rescribejs/core": "workspace:*",
+		"@rescribejs/server": "workspace:*",
 		"@tailwindcss/typography": "^0.5.9",
 		"clsx": "^1.2.1",
 		"github-slugger": "^2.0.0",

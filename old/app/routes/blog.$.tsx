@@ -1,8 +1,8 @@
 import type { LinksFunction, LoaderArgs } from '@remix-run/node'
 
-import { BlogOutlet } from '@rescribe/blog'
-import rescribeBlogStylesheet from '@rescribe/blog/main.css'
-import { Footer, Navbar } from '@rescribe/docs'
+import { BlogOutlet } from '@rescribejs/blog'
+import rescribeBlogStylesheet from '@rescribejs/blog/main.css'
+import { Footer, Navbar } from '@rescribejs/docs'
 import { configObj as config } from '~/rescribe.config'
 import { handleRescribeBlogLoader } from '~/utils/rescribe.server'
 

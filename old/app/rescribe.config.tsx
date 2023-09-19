@@ -4,8 +4,8 @@ import {
 	GitHubLogoIcon,
 	TwitterLogoIcon,
 } from '@radix-ui/react-icons'
-import { collection, config, fields } from '@rescribe/core'
-import type { RescribeConfig } from '@rescribe/docs'
+import { collection, config, fields } from '@rescribejs/core'
+import type { RescribeConfig } from '@rescribejs/docs'
 import { Theme, useTheme } from '~/utils/theme-provider'
 
 export const configObj = config({

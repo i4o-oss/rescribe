@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig",
-	"display": "@rescribe/core",
+	"display": "@rescribejs/core",
 	"extends": "./base.json",
 	"compilerOptions": {
 		"declaration": true,

@@ -45,16 +45,16 @@ importers:
       '@remix-run/serve':
         specifier: 1.19.0
         version: 1.19.0
-      '@rescribe/blog':
+      '@rescribejs/blog':
         specifier: workspace:*
         version: link:../packages/rescribe-blog
-      '@rescribe/core':
+      '@rescribejs/core':
         specifier: workspace:*
         version: link:../packages/rescribe-core
-      '@rescribe/docs':
+      '@rescribejs/docs':
         specifier: workspace:*
         version: link:../packages/rescribe-docs
-      '@rescribe/server':
+      '@rescribejs/server':
         specifier: workspace:*
         version: link:../packages/rescribe-server
       '@vercel/remix':
@@ -109,16 +109,16 @@ importers:
       '@remix-run/serve':
         specifier: 1.19.3
         version: 1.19.3
-      '@rescribe/blog':
+      '@rescribejs/blog':
         specifier: workspace:*
         version: link:../packages/rescribe-blog
-      '@rescribe/core':
+      '@rescribejs/core':
         specifier: workspace:*
         version: link:../packages/rescribe-core
-      '@rescribe/docs':
+      '@rescribejs/docs':
         specifier: workspace:*
         version: link:../packages/rescribe-docs
-      '@rescribe/server':
+      '@rescribejs/server':
         specifier: workspace:*
         version: link:../packages/rescribe-server
       isbot:
@@ -201,10 +201,10 @@ importers:
       '@remix-run/server-runtime':
         specifier: ^1.19
         version: 1.19.3
-      '@rescribe/core':
+      '@rescribejs/core':
         specifier: workspace:*
         version: link:../rescribe-core
-      '@rescribe/server':
+      '@rescribejs/server':
         specifier: workspace:*
         version: link:../rescribe-server
       date-fns:
@@ -356,10 +356,10 @@ importers:
       '@remix-run/react':
         specifier: ^1.19
         version: 1.19.3(react-dom@18.2.0)(react@18.2.0)
-      '@rescribe/core':
+      '@rescribejs/core':
         specifier: workspace:*
         version: link:../rescribe-core
-      '@rescribe/server':
+      '@rescribejs/server':
         specifier: workspace:*
         version: link:../rescribe-server
       '@tailwindcss/typography':
@@ -459,7 +459,7 @@ importers:
       '@remix-run/server-runtime':
         specifier: ^1.19
         version: 1.19.3
-      '@rescribe/core':
+      '@rescribejs/core':
         specifier: workspace:*
         version: link:../rescribe-core
       fast-glob:

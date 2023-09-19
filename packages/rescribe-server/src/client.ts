@@ -1,4 +1,4 @@
-import type { Collection, Collections, Config } from '@rescribe/core'
+import type { Collection, Collections, Config } from '@rescribejs/core'
 
 import { getItemInCollectionFromSlug, readItemsInCollection } from './helpers'
 import type {

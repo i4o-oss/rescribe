@@ -9,7 +9,7 @@ import {
 	MagnifyingGlassIcon,
 	MixIcon,
 } from '@radix-ui/react-icons'
-import { Footer, Navbar } from '@rescribe/docs'
+import { Footer, Navbar } from '@rescribejs/docs'
 
 const features = [
 	{
@@ -106,9 +106,9 @@ export default function Home() {
 
 										<pre className='flex h-12 w-96 items-center justify-between space-x-2 rounded-lg border border-slate-100 bg-white !pl-4 !pr-2 dark:border-slate-700 dark:bg-[#040303]'>
 											<code className='flex w-full items-center justify-between font-mono text-sm font-semibold text-slate-900 dark:text-slate-50'>
-												pnpm add @rescribe/core
-												@rescribe/server
-												<CopyToClipboard text='pnpm add @rescribe/core @rescribe/server' />
+												pnpm add @rescribejs/core
+												@rescribejs/server
+												<CopyToClipboard text='pnpm add @rescribejs/core @rescribejs/server' />
 											</code>
 										</pre>
 									</div>

@@ -6,7 +6,7 @@ import type {
 	ContentPath,
 	Schema,
 	SchemaKey,
-} from '@rescribe/core'
+} from '@rescribejs/core'
 
 export type LoaderHandlerArgs = LoaderArgs & {
 	config: Config<Collections>

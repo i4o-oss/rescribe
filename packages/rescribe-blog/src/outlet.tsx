@@ -1,6 +1,6 @@
 import { useLocation } from '@remix-run/react'
 
-import { parseOutputPathname } from '@rescribe/core'
+import { parseOutputPathname } from '@rescribejs/core'
 import { useMemo } from 'react'
 
 import Post from './post'

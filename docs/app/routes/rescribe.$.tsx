@@ -1,7 +1,7 @@
 import type { ActionArgs, LinksFunction, LoaderArgs } from '@remix-run/node'
 
-import { Rescribe } from '@rescribe/core'
-import rescribeStylesheet from '@rescribe/core/rescribe.css'
+import { Rescribe } from '@rescribejs/core'
+import rescribeStylesheet from '@rescribejs/core/rescribe.css'
 import { configObj as config } from '~/rescribe.config'
 import {
 	handleActionForRescribe,

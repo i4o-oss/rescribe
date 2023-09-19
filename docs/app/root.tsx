@@ -9,7 +9,7 @@ import {
 	useLoaderData,
 } from '@remix-run/react'
 
-import rescribeDocsStylesheet from '@rescribe/docs/main.css'
+import rescribeDocsStylesheet from '@rescribejs/docs/main.css'
 import type { LinksFunction } from '@vercel/remix'
 import stylesheet from '~/main.css'
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'

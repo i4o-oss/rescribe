@@ -12,7 +12,7 @@ const config: Options = {
 	outDir: 'dist',
 	bundle: true,
 	minify: true,
-	name: '@rescribe/server',
+	name: '@rescribejs/server',
 	external: ['@remix-run/node', 'esbuild'],
 }
 

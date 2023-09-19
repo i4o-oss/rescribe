@@ -1,7 +1,7 @@
-import { handleBlogLoader } from '@rescribe/blog'
-import { handleDocsLoader } from '@rescribe/docs'
-import type { LoaderHandlerArgs } from '@rescribe/server'
-import { createClient, handleAction, handleLoader } from '@rescribe/server'
+import { handleBlogLoader } from '@rescribejs/blog'
+import { handleDocsLoader } from '@rescribejs/docs'
+import type { LoaderHandlerArgs } from '@rescribejs/server'
+import { createClient, handleAction, handleLoader } from '@rescribejs/server'
 import path from 'node:path'
 import {
 	rescribeDocsConfig as docsConfig,

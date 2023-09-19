@@ -1,7 +1,7 @@
 import type { LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
 
-import { DocsOutlet, Footer, Navbar } from '@rescribe/docs'
+import { DocsOutlet, Footer, Navbar } from '@rescribejs/docs'
 import {
 	configObj as config,
 	rescribeDocsConfig as docsConfig,

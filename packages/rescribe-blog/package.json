@@ -1,5 +1,5 @@
 {
-	"name": "@rescribe/blog",
+	"name": "@rescribejs/blog",
 	"version": "0.1.0",
 	"files": [
 		"dist"
@@ -50,8 +50,8 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@rescribe/core": "workspace:*",
-		"@rescribe/server": "workspace:*",
+		"@rescribejs/core": "workspace:*",
+		"@rescribejs/server": "workspace:*",
 		"date-fns": "^2.30.0",
 		"markdown-to-jsx": "^7.3.2",
 		"rehype-highlight": "^7.0.0",

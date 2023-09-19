@@ -1,6 +1,6 @@
 import { json } from '@remix-run/node'
 
-import { parseOutputPathname } from '@rescribe/core'
+import { parseOutputPathname } from '@rescribejs/core'
 
 import { DocsLoaderHandlerArgs } from './types'
 

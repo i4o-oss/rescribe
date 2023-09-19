@@ -1,7 +1,7 @@
 import type { LoaderArgs } from '@remix-run/node'
 
-import type { Collections, Config } from '@rescribe/core'
-import type { CollectionInterface } from '@rescribe/server'
+import type { Collections, Config } from '@rescribejs/core'
+import type { CollectionInterface } from '@rescribejs/server'
 import type { Dispatch, ReactElement, ReactNode, SetStateAction } from 'react'
 
 export type DocsLoaderHandlerArgs = LoaderArgs & {

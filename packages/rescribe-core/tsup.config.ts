@@ -12,7 +12,7 @@ const config: Options = {
 	outDir: 'dist',
 	bundle: true,
 	minify: true,
-	name: '@rescribe/core',
+	name: '@rescribejs/core',
 	external: ['react', 'react-dom', '@remix-run/react'],
 }
 
