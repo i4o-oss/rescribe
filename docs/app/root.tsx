@@ -1,3 +1,4 @@
+import { LoaderArgs, SerializeFrom, json } from '@remix-run/node'
 import {
 	Links,
 	LiveReload,
@@ -5,18 +6,36 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useLoaderData,
 } from '@remix-run/react'
 
 import type { LinksFunction } from '@vercel/remix'
 import stylesheet from '~/main.css'
+import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'
+import { getThemeSession } from '~/utils/theme.server'
 
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: stylesheet },
 ]
 
-export default function App() {
+export type LoaderData = SerializeFrom<typeof loader>
+
+export async function loader({ request }: LoaderArgs) {
+	const themeSession = await getThemeSession(request)
+	return json({
+		theme: themeSession.getTheme(),
+	})
+}
+
+function App() {
+	const data = useLoaderData<LoaderData>()
+	const [theme] = useTheme()
+
 	return (
-		<html lang='en'>
+		<html
+			lang='en'
+			className={`h-screen w-screen ${theme ?? ''} rs-${theme}`}
+		>
 			<head>
 				<meta charSet='utf-8' />
 				<meta
@@ -25,6 +44,7 @@ export default function App() {
 				/>
 				<Meta />
 				<Links />
+				<ThemeHead ssrTheme={Boolean(data.theme)} />
 			</head>
 			<body>
 				<Outlet />
@@ -33,5 +53,14 @@ export default function App() {
 				<LiveReload />
 			</body>
 		</html>
+	)
+}
+
+export default function AppWithProviders() {
+	const data = useLoaderData<LoaderData>()
+	return (
+		<ThemeProvider specifiedTheme={data.theme}>
+			<App />
+		</ThemeProvider>
 	)
 }
