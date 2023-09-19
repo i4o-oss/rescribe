@@ -12,8 +12,14 @@ export async function handleDocsLoader({
 	const params = parseOutputPathname({ pathname: url.pathname })
 
 	if (params?.collection && params.root) {
-		const items = await docs.unique({ where: { slug: '_index' } })
-		return json({ items })
+		const item = await docs.unique({ where: { slug: '_index' } })
+		// TODO: return 404
+		if (!item) return json({})
+
+		// @ts-ignore
+		const { content, frontmatter } = item
+
+		return json({ content, frontmatter })
 	} else if (params?.collection && params.slug) {
 		// TODO: return type doesn't carry over. fix this.
 		const item = await docs.unique({
@@ -23,9 +29,9 @@ export async function handleDocsLoader({
 		if (!item) return json({})
 
 		// @ts-ignore
-		const { code, frontmatter } = item
+		const { content, frontmatter } = item
 
-		return json({ code, frontmatter })
+		return json({ content, frontmatter })
 	}
 
 	// TODO: return an appropriate status code along with an error message
