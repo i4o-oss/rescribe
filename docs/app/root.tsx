@@ -9,12 +9,14 @@ import {
 	useLoaderData,
 } from '@remix-run/react'
 
+import rescribeDocsStylesheet from '@rescribe/docs/main.css'
 import type { LinksFunction } from '@vercel/remix'
 import stylesheet from '~/main.css'
 import { ThemeHead, ThemeProvider, useTheme } from '~/utils/theme-provider'
 import { getThemeSession } from '~/utils/theme.server'
 
 export const links: LinksFunction = () => [
+	{ rel: 'stylesheet', href: rescribeDocsStylesheet },
 	{ rel: 'stylesheet', href: stylesheet },
 ]
 
@@ -46,7 +48,7 @@ function App() {
 				<Links />
 				<ThemeHead ssrTheme={Boolean(data.theme)} />
 			</head>
-			<body>
+			<body className='h-full w-full bg-white dark:bg-[#090909]'>
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />

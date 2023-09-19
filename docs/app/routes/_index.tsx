@@ -10,6 +10,7 @@ import {
 	MixIcon,
 } from '@radix-ui/react-icons'
 import { Footer, Navbar } from '@rescribe/docs'
+import { rescribeDocsConfig } from '~/rescribe.config'
 
 const features = [
 	{
@@ -53,7 +54,10 @@ const features = [
 export default function Home() {
 	return (
 		<>
-			<Navbar />
+			<Navbar
+				navbarConfig={rescribeDocsConfig.navbar}
+				themeConfig={rescribeDocsConfig.theme}
+			/>
 			<div className='flex min-h-[calc(100vh-10rem)] w-full flex-col '>
 				<div className='isolate w-full'>
 					<div className='absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]'>
@@ -188,7 +192,7 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-			<Footer />
+			<Footer footerConfig={rescribeDocsConfig.footer} />
 		</>
 	)
 }
