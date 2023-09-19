@@ -16,7 +16,7 @@ interface Socials {
 	href: string
 }
 
-interface NavbarConfig {
+export interface NavbarConfig {
 	logo: string | ReactNode
 	search?: boolean
 	socials?: Socials[]
@@ -35,7 +35,7 @@ interface SidebarConfig {
 	search?: boolean
 }
 
-interface FooterConfig {
+export interface FooterConfig {
 	text?: string | ReactNode
 	socials?: Socials[]
 }

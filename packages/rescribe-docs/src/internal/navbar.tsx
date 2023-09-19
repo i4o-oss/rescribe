@@ -1,13 +1,22 @@
 import { Link } from '@remix-run/react'
 
-import { useContext } from 'react'
+import { ReactNode, useContext } from 'react'
 
 import { RescribeDocsContext } from '../constants'
+import { NavbarConfig } from '../types'
 
-function Navbar() {
+function Navbar({
+	navbarConfig,
+	themeConfig,
+}: {
+	navbarConfig?: NavbarConfig
+	themeConfig?: {
+		darkModeToggle?: ReactNode
+	}
+}) {
 	const context = useContext(RescribeDocsContext)
-	const navbar = context?.navbar
-	const theme = context?.theme
+	const navbar = context?.navbar ?? navbarConfig
+	const theme = context?.theme ?? themeConfig
 
 	return (
 		<header className='supports-backdrop-blur:bg-white/60 sticky top-0 z-50 flex h-20 w-screen flex-wrap items-center justify-between px-4 py-4 shadow-sm shadow-gray-200 backdrop-blur dark:bg-transparent dark:shadow-gray-700 sm:px-6 lg:px-8'>
