@@ -1,4 +1,4 @@
-import type { ActionFunctionArgs } from '@remix-run/server-runtime'
+import type { ActionArgs } from '@remix-run/server-runtime'
 import { redirect } from '@remix-run/server-runtime'
 import { json } from '@remix-run/server-runtime'
 
@@ -69,7 +69,7 @@ export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 	}
 }
 
-type ActionHandlerArgs = ActionFunctionArgs & {
+type ActionHandlerArgs = ActionArgs & {
 	config: Config<Collections>
 }
 

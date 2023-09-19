@@ -39,8 +39,8 @@
 		"typescript": "^4.9.5"
 	},
 	"peerDependencies": {
-		"@remix-run/node": ">=2",
-		"@remix-run/react": ">=2",
+		"@remix-run/node": "^1.19",
+		"@remix-run/react": "^1.19",
 		"react": ">=17",
 		"react-dom": ">=17"
 	},

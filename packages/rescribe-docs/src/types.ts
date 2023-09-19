@@ -1,10 +1,10 @@
-import type { LoaderFunctionArgs } from '@remix-run/node'
+import type { LoaderArgs } from '@remix-run/node'
 
 import type { Collections, Config } from '@rescribe/core'
 import type { CollectionInterface } from '@rescribe/server'
 import type { Dispatch, ReactElement, ReactNode, SetStateAction } from 'react'
 
-export type DocsLoaderHandlerArgs = LoaderFunctionArgs & {
+export type DocsLoaderHandlerArgs = LoaderArgs & {
 	docs: CollectionInterface
 	docsConfig: RescribeDocsConfig
 	rescribeConfig: Config<Collections>

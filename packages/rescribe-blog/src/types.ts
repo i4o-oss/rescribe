@@ -1,10 +1,10 @@
-import type { LoaderFunctionArgs } from '@remix-run/server-runtime'
+import type { LoaderArgs } from '@remix-run/server-runtime'
 
 import type { Collections, Config, ContentPath } from '@rescribe/core'
 import type { CollectionInterface } from '@rescribe/server'
 import type { ReactNode } from 'react'
 
-export type BlogLoaderHandlerArgs = LoaderFunctionArgs & {
+export type BlogLoaderHandlerArgs = LoaderArgs & {
 	blog: CollectionInterface
 	config: Config<Collections>
 }

@@ -1,4 +1,4 @@
-import type { LoaderFunctionArgs } from '@remix-run/server-runtime'
+import type { LoaderArgs } from '@remix-run/server-runtime'
 
 import type {
 	Collections,
@@ -8,7 +8,7 @@ import type {
 	SchemaKey,
 } from '@rescribe/core'
 
-export type LoaderHandlerArgs = LoaderFunctionArgs & {
+export type LoaderHandlerArgs = LoaderArgs & {
 	config: Config<Collections>
 }
 
