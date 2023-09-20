@@ -1,4 +1,8 @@
-import type { ActionArgs, LinksFunction, LoaderArgs } from '@remix-run/node'
+import type {
+	ActionFunctionArgs,
+	LinksFunction,
+	LoaderFunctionArgs,
+} from '@remix-run/node'
 
 import { Rescribe } from '@rescribejs/core'
 import rescribeStylesheet from '@rescribejs/core/rescribe.css'
@@ -12,11 +16,11 @@ export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: rescribeStylesheet },
 ]
 
-export function loader(args: LoaderArgs) {
+export function loader(args: LoaderFunctionArgs) {
 	return handleLoaderForRescribe({ ...args, config })
 }
 
-export function action(args: ActionArgs) {
+export function action(args: ActionFunctionArgs) {
 	return handleActionForRescribe({ ...args, config })
 }
 

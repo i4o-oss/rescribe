@@ -1,4 +1,4 @@
-import { LoaderArgs, SerializeFrom, json } from '@remix-run/node'
+import { LoaderFunctionArgs, SerializeFrom, json } from '@remix-run/node'
 import {
 	Links,
 	LiveReload,
@@ -22,7 +22,7 @@ export const links: LinksFunction = () => [
 
 export type LoaderData = SerializeFrom<typeof loader>
 
-export async function loader({ request }: LoaderArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
 	const themeSession = await getThemeSession(request)
 	return json({
 		theme: themeSession.getTheme(),

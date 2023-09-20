@@ -1,4 +1,4 @@
-import type { LinksFunction, LoaderArgs } from '@remix-run/node'
+import type { LinksFunction, LoaderFunctionArgs } from '@remix-run/node'
 
 import { BlogOutlet } from '@rescribejs/blog'
 import rescribeBlogStylesheet from '@rescribejs/blog/main.css'
@@ -10,7 +10,7 @@ export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: rescribeBlogStylesheet },
 ]
 
-export async function loader(args: LoaderArgs) {
+export async function loader(args: LoaderFunctionArgs) {
 	return handleRescribeBlogLoader({ ...args, config })
 }
 

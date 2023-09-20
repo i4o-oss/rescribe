@@ -1,4 +1,4 @@
-import type { LoaderArgs } from '@remix-run/node'
+import type { LoaderFunctionArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
 
 import { DocsOutlet, Footer, Navbar } from '@rescribejs/docs'
@@ -8,7 +8,7 @@ import {
 } from '~/rescribe.config'
 import { handleRescribeDocsLoader } from '~/utils/rescribe.server'
 
-export async function loader(args: LoaderArgs) {
+export async function loader(args: LoaderFunctionArgs) {
 	return handleRescribeDocsLoader({ ...args, config })
 }
 
