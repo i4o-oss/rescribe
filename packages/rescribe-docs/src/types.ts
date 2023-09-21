@@ -29,9 +29,14 @@ export interface SidebarLink {
 	label: string | ReactNode
 }
 
+interface NavigationLinkGroup {
+	title: string
+	pages: Record<string, string>
+}
+
 interface SidebarConfig {
 	links?: SidebarLink[]
-	navigation: Record<string, unknown>
+	navigation: Record<string, NavigationLinkGroup[]>
 	search?: boolean
 }
 

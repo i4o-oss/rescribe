@@ -183,7 +183,7 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 		navigation: {
 			docs: [
 				{
-					group: 'Overview',
+					title: 'Overview',
 					pages: {
 						index: 'Introduction',
 						// changelog: 'Changelog',
@@ -191,14 +191,14 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 					},
 				},
 				{
-					group: 'Getting Started',
+					title: 'Getting Started',
 					pages: {
 						installation: 'Installation',
 						development: 'Development',
 					},
 				},
 				{
-					group: 'Configuration',
+					title: 'Configuration',
 					pages: {
 						'rescribe-provider': 'Rescribe Provider',
 						'rescribe-config': 'rescribe.config.tsx',
@@ -211,31 +211,31 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 					},
 				},
 				{
-					group: 'Layouts',
+					title: 'Layouts',
 					pages: {
 						'docs-layout': 'Docs',
 						'blog-layout': 'Blog',
 					},
 				},
 				{
-					group: 'Components',
+					title: 'Components',
 					pages: {
 						accordion: 'Accordion',
 						callout: 'Callout',
 						cards: 'Cards',
-						'card-group': 'Card Group',
+						'card-title': 'Card Group',
 						list: 'List',
 						tabs: 'Tabs',
 					},
 				},
 				{
-					group: 'Utilities',
+					title: 'Utilities',
 					pages: {
 						'get-toc-headings': 'getTocHeadings',
 					},
 				},
 				{
-					group: 'More',
+					title: 'More',
 					pages: {
 						about: 'About',
 					},
