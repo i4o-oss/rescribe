@@ -17,6 +17,8 @@
 	"devDependencies": {
 		"@rescribe/eslint-config": "workspace:*",
 		"@rescribe/tsconfig": "workspace:*",
+		"@types/mdast": "^3.0.10",
+		"@types/mdx": "^2.0.3",
 		"@types/node": "^20.5.1",
 		"@types/turndown": "^5.0.1",
 		"concurrently": "^7.6.0",
@@ -28,9 +30,15 @@
 	},
 	"dependencies": {
 		"@conform-to/zod": "^0.8.0",
+		"@mdx-js/mdx": "^2.3.0",
 		"@rescribejs/core": "workspace:*",
 		"fast-glob": "^3.3.1",
+		"github-slugger": "^2.0.0",
 		"gray-matter": "^4.0.3",
+		"mdast": "^3.0.0",
+		"mdast-util-to-string": "^3.1.1",
+		"unified": "^10.1.2",
+		"unist-util-visit": "^4.1.2",
 		"yaml": "^2.3.1",
 		"zod": "^3.22.2"
 	},
