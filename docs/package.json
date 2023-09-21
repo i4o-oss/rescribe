@@ -4,7 +4,7 @@
 	"sideEffects": false,
 	"scripts": {
 		"build": "remix build",
-		"dev": "remix dev --manual",
+		"dev": "remix dev",
 		"start": "remix-serve ./build/index.js",
 		"typecheck": "tsc"
 	},
@@ -18,7 +18,6 @@
 		"@rescribejs/core": "workspace:*",
 		"@rescribejs/docs": "workspace:*",
 		"@rescribejs/server": "workspace:*",
-		"@vercel/remix": "^1.19.3",
 		"isbot": "^3.6.8",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
