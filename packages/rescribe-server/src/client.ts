@@ -32,8 +32,15 @@ export function createClient(config: Config<Collections>): RescribeClient {
 				return await readItemsInCollection(collection)
 			},
 
-			async unique({ where }): Promise<UniqueReturn> {
-				return await getItemInCollectionFromSlug(collection, where.slug)
+			async unique({
+				where,
+				options = { headings: false },
+			}): Promise<UniqueReturn> {
+				return await getItemInCollectionFromSlug({
+					collection,
+					slug: where.slug,
+					options,
+				})
 			},
 		}
 

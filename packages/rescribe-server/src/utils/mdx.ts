@@ -22,7 +22,7 @@ async function getMdxHeadings(path: string) {
 
 	// TODO: Fix this type later
 	// @ts-ignore
-	const headings = h.filter((heading) => heading.depth > 1)
+	const headings = h.filter((heading) => heading.depth > 1).slice(1)
 
 	return headings
 }

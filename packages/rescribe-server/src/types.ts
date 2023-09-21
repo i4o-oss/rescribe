@@ -16,6 +16,9 @@ export interface UniqueArg {
 	where: {
 		slug: string
 	}
+	options?: {
+		headings: boolean
+	}
 }
 
 export interface AllReturn {
