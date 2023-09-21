@@ -1,6 +1,7 @@
 import type {
 	LinksFunction,
 	LoaderFunctionArgs,
+	MetaFunction,
 	SerializeFrom,
 } from '@remix-run/node'
 import { json } from '@remix-run/node'
@@ -22,6 +23,79 @@ import { getThemeSession } from '~/utils/theme.server'
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: rescribeDocsStylesheet },
 	{ rel: 'stylesheet', href: stylesheet },
+]
+
+export const meta: MetaFunction = () => [
+	{
+		charSet: 'utf-8',
+	},
+	{
+		name: 'msapplication-TileColor',
+		content: '#2cb67d',
+	},
+	{
+		property: 'og:site',
+		content: 'https://rescribe.site',
+	},
+	{
+		property: 'og:url',
+		content: 'https://rescribe.site',
+	},
+	{
+		property: 'og:title',
+		content: 'Rescribe',
+	},
+	{
+		property: 'og:description',
+		content: '',
+	},
+	{
+		property: 'og:image',
+		content: '/images/aurelius_open_graph.png',
+	},
+	{
+		name: 'theme-color',
+		content: '#090909',
+	},
+	{
+		title: 'Rescribe',
+	},
+	{
+		name: 'description',
+		content: '',
+	},
+	{
+		name: 'twitter:card',
+		content: 'summary_large_image',
+	},
+	{
+		name: 'twitter:site',
+		content: '@i4o_dev',
+	},
+	{
+		name: 'twitter:url',
+		content: 'https://rescribe.site/',
+	},
+	{
+		name: 'twitter:creator',
+		content: '@i4o_dev',
+	},
+	{
+		name: 'twitter:title',
+		content: 'Rescribe',
+	},
+	{
+		name: 'twitter:description',
+		content: '',
+	},
+	{
+		name: 'twitter:image',
+		content: 'https://www.aurelius.ink/images/aurelius_open_graph.png',
+	},
+	{
+		name: 'viewport',
+		content: 'width=device-width,initial-scale=1',
+	},
 ]
 
 export type LoaderData = SerializeFrom<typeof loader>
