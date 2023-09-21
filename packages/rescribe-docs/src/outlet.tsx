@@ -37,7 +37,7 @@ export default function DocsOutlet({ context }: DocsOutletProps) {
 					<span className='rs-text-xs rs-font-semibold rs-uppercase rs-text-brand-500'>
 						{groupTitle}
 					</span>
-					<h1 className='rs-text-foreground rs-inline-block rs-text-4xl rs-font-extrabold rs-tracking-tight lg:rs-text-5xl'>
+					<h1 className='rs-text-foreground rs-inline-block rs-text-4xl rs-font-extrabold rs-tracking-tight lg:rs-text-5xl rs-text-slate-900 dark:rs-text-slate-50'>
 						{title}
 					</h1>
 					<div className='rs-prose dark:rs-prose-invert rs-w-[56rem] rs-flex-auto [&_h2]:rs-scroll-mt-36 [&_h3]:rs-scroll-mt-36'>
