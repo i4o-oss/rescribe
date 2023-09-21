@@ -1,7 +1,7 @@
 import { useLoaderData } from '@remix-run/react'
 
 import Markdown from 'markdown-to-jsx'
-import { useContext, useMemo } from 'react'
+import { useContext } from 'react'
 
 import { RescribeDocsContext } from './constants'
 import RescribeProvider from './core/provider'
@@ -23,14 +23,20 @@ export default function DocsOutlet({ context }: DocsOutletProps) {
 	const config = docsConfig ?? context?.docsConfig
 	const data = useLoaderData()
 	const { content, frontmatter } = data
-	// const Content = useMemo(() => getMDXComponent(code), [code])
 
 	return (
 		<RescribeProvider config={config}>
 			{config?.navbar ? <Navbar /> : null}
-			<div className='relative mx-auto flex min-h-[calc(100vh-10rem)] w-full max-w-[88rem] justify-between sm:px-2 lg:px-8 xl:px-12'>
+			<div className='rs-relative rs-mx-auto rs-flex rs-min-h-[calc(100vh-10rem)] rs-w-full rs-max-w-[88rem] rs-justify-between sm:rs-px-2 lg:rs-px-8 xl:rs-px-12'>
 				<Sidebar />
-				<div className='prose dark:prose-invert max-w-4xl flex-auto px-4 py-16 lg:pr-0 lg:pl-0 xl:px-16 [&_h2]:scroll-mt-36 [&_h3]:scroll-mt-36'>
+				<span className='rs-text-xs rs-font-semibold rs-uppercase rs-text-foreground-subtle'>
+					Overview
+				</span>
+				<h1 className='rs-text-foreground rs-inline-block rs-text-4xl rs-font-extrabold rs-tracking-tight lg:rs-text-5xl'>
+					{/* @ts-ignore */}
+					{frontmatter?.title}
+				</h1>
+				<div className='rs-prose dark:rs-prose-invert rs-max-w-4xl rs-flex-auto rs-px-8 rs-pt-8 rs-pb-16 lg:rs-pr-0 lg:rs-pl-0 xl:rs-px-16 [&_h2]:rs-scroll-mt-36 [&_h3]:rs-scroll-mt-36'>
 					<Markdown>{content}</Markdown>
 				</div>
 				<ToC />

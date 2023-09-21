@@ -16,4 +16,5 @@ module.exports = {
 	serverDependenciesToBundle: [/.*/],
 	serverModuleFormat: 'cjs',
 	tailwind: true,
+	watchPaths: ['../packages/'],
 }

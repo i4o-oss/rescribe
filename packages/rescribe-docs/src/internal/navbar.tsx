@@ -19,16 +19,16 @@ function Navbar({
 	const theme = context?.theme ?? themeConfig
 
 	return (
-		<header className='supports-backdrop-blur:bg-white/60 sticky top-0 z-50 flex h-20 w-screen flex-wrap items-center justify-between px-4 py-4 shadow-sm shadow-gray-200 backdrop-blur dark:bg-transparent dark:shadow-gray-700 sm:px-6 lg:px-8'>
-			<div className='relative flex flex-grow basis-0 items-center'>
+		<header className='supports-backdrop-blur:rs-bg-white/60 rs-sticky rs-top-0 rs-z-50 rs-flex rs-h-20 rs-w-screen rs-flex-wrap rs-items-center rs-justify-between rs-px-4 rs-py-4 rs-shadow-sm rs-shadow-gray-200 rs-backdrop-blur dark:rs-bg-transparent dark:rs-shadow-gray-700 sm:rs-px-6 lg:rs-px-8'>
+			<div className='rs-relative rs-flex rs-flex-grow rs-basis-0 rs-items-center'>
 				<Link
-					className='flex items-center text-gray-900 dark:text-gray-50'
+					className='rs-flex rs-items-center rs-text-gray-900 dark:rs-text-gray-50'
 					aria-label='Home page'
 					to='/'
 				>
 					{typeof navbar?.logo === 'string' ? (
 						<img
-							className='flex h-8'
+							className='rs-flex rs-h-8'
 							src={navbar.logo}
 							alt='logo'
 						/>
@@ -37,17 +37,17 @@ function Navbar({
 					)}
 				</Link>
 			</div>
-			<div className='flex flex-grow items-center justify-end gap-4'>
+			<div className='rs-flex rs-flex-grow rs-items-center rs-justify-end rs-gap-4'>
 				{navbar?.search && (
 					<input
-						className='h-10 w-80 rounded-md bg-neutral-100 px-4 py-1 text-sm dark:bg-neutral-900 dark:text-gray-300'
+						className='rs-h-10 rs-w-80 rs-rounded-md rs-bg-neutral-100 rs-px-4 rs-py-1 rs-text-sm dark:rs-bg-neutral-900 dark:rs-text-gray-300'
 						placeholder='Search...'
 					/>
 				)}
 				{navbar?.socials?.map((social: any, index: number) => (
 					<a
 						aria-label={social.ariaLabel}
-						className='text-black dark:text-gray-100'
+						className='rs-text-black dark:rs-text-gray-100'
 						href={social.href}
 						key={`social-${index}`}
 						rel='noreferrer noopener'

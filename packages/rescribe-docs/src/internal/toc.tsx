@@ -11,13 +11,13 @@ export default function ToC() {
 	// const { headings } = useContext(RescribeDataContext)
 
 	return (
-		<div className='relative'>
-			<div className='sticky top-20 h-[calc(100vh-10rem)] min-w-[14rem] xl:flex-none xl:overflow-y-auto xl:py-8'>
-				<nav className='flex flex-col gap-4'>
-					<h2 className='text-sm font-semibold text-slate-900 dark:text-slate-50'>
+		<div className='rs-relative'>
+			<div className='rs-sticky rs-top-20 rs-h-[calc(100vh-10rem)] rs-min-w-[14rem] xl:rs-flex-none xl:rs-overflow-y-auto xl:rs-py-8'>
+				<nav className='rs-flex rs-flex-col rs-gap-4'>
+					<h2 className='rs-text-sm rs-font-semibold rs-text-slate-900 dark:rs-text-slate-50'>
 						On this page
 					</h2>
-					<ul className='flex flex-col gap-3'>
+					<ul className='rs-flex rs-flex-col rs-gap-3'>
 						{/*{headings.map(({ depth, value, properties }) => (*/}
 						{/*	<li*/}
 						{/*		className={cn(*/}

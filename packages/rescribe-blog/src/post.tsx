@@ -31,9 +31,14 @@ export default function Post({ collection }: { collection: string }) {
 				</Link>
 				<div className='rs-flex rs-flex-1 rs-flex-col rs-items-start rs-justify-start rs-space-y-4'>
 					<span className='rs-text-xs rs-font-semibold rs-uppercase rs-text-foreground-subtle'>
-						{format(new Date(frontmatter.publishedAt), 'PPP')}
+						{format(
+							// @ts-ignore
+							new Date(frontmatter.publishedAt),
+							'PPP'
+						)}
 					</span>
 					<h1 className='rs-text-foreground rs-inline-block rs-text-4xl rs-font-extrabold rs-tracking-tight lg:rs-text-5xl'>
+						{/* @ts-ignore */}
 						{frontmatter.title}
 					</h1>
 				</div>

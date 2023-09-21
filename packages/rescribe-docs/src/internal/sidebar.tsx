@@ -15,60 +15,60 @@ function Sidebar() {
 	const navigationOptions = sidebar?.navigation[root] as Array<any>
 
 	return (
-		<div className='relative'>
-			<div className='sticky top-20 flex h-[calc(100vh-10rem)] min-w-[16rem] flex-col gap-8 overflow-y-auto overflow-x-hidden py-8 pr-4 pl-1'>
+		<div className='rs-relative'>
+			<div className='rs-sticky rs-top-20 rs-flex rs-h-[calc(100vh-10rem)] rs-min-w-[16rem] rs-flex-col rs-gap-8 rs-overflow-y-auto rs-overflow-x-hidden rs-py-8 rs-pr-4 rs-pl-1'>
 				{sidebar?.search ? (
 					<input
-						className='h-12 w-full rounded-md bg-neutral-100 px-4 py-1 text-sm text-gray-500 dark:bg-neutral-900 dark:text-gray-300'
+						className='rs-h-12 rs-w-full rs-rounded-md rs-bg-neutral-100 rs-px-4 rs-py-1 rs-text-sm rs-text-gray-500 dark:rs-bg-neutral-900 dark:rs-text-gray-300'
 						placeholder='Search...'
 					/>
 				) : null}
 				{sidebar?.links && (
-					<ul className='flex flex-col gap-4'>
+					<ul className='rs-flex rs-flex-col rs-gap-4'>
 						{sidebar?.links?.map(
 							(link: SidebarLink, index: number) => {
 								return (
 									<li key={index}>
 										{link?.external ? (
 											<a
-												className='group flex items-center gap-4 text-gray-400 dark:text-gray-600'
+												className='rs-group rs-flex rs-items-center rs-gap-4 rs-text-gray-400 dark:rs-text-gray-600'
 												href={link.href}
 												target='_blank'
 												rel='noreferrer noopener'
 											>
-												<div className='group-hover:bg-brand-500 group-hover:dark:bg-brand-500 rounded-md p-1 ring-1 ring-zinc-400/25 transition-all duration-300 group-hover:text-white dark:ring-zinc-700/40 group-hover:dark:text-white '>
+												<div className='group-hover:rs-bg-brand-500 group-hover:dark:rs-bg-brand-500 rs-rounded-md rs-p-1 rs-ring-1 rs-ring-zinc-400/25 rs-transition-all rs-duration-300 group-hover:rs-text-white dark:rs-ring-zinc-700/40 group-hover:dark:rs-text-white '>
 													{link.icon}
 												</div>
-												<span className='text-sm font-semibold'>
+												<span className='rs-text-sm rs-font-semibold'>
 													{link.label}
 												</span>
 											</a>
 										) : (
 											<Link
-												className='group flex items-center gap-4 text-gray-400 transition-all duration-300 dark:text-gray-600'
+												className='rs-group rs-flex rs-items-center rs-gap-4 rs-text-gray-400 rs-transition-all rs-duration-300 dark:rs-text-gray-600'
 												to={link.href}
 											>
 												<div
-													className={`group-hover:bg-brand-500 group-hover:dark:bg-brand-500 rounded-md p-1 ring-1 ring-zinc-400/25 group-hover:text-white dark:ring-zinc-700/40 group-hover:dark:text-white ${
+													className={`group-hover:rs-bg-brand-500 group-hover:dark:rs-bg-brand-500 rs-rounded-md rs-p-1 rs-ring-1 rs-ring-zinc-400/25 group-hover:rs-text-white dark:rs-ring-zinc-700/40 group-hover:rs-dark:text-white ${
 														link.href ===
 															location.pathname ||
 														location.pathname.startsWith(
 															link.href
 														)
-															? 'bg-brand-500 text-white'
+															? 'rs-bg-brand-500 rs-text-white'
 															: ''
-													} transition-all duration-300 `}
+													} rs-transition-all rs-duration-300 `}
 												>
 													{link.icon}
 												</div>
 												<span
-													className={`text-sm font-semibold ${
+													className={`rs-text-sm rs-font-semibold ${
 														link.href ===
 															location.pathname ||
 														location.pathname.startsWith(
 															link.href
 														)
-															? 'text-brand-500'
+															? 'rs-text-brand-500'
 															: ''
 													}`}
 												>
