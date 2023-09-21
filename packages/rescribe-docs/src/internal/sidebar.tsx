@@ -16,7 +16,7 @@ function Sidebar() {
 
 	return (
 		<div className='rs-relative'>
-			<div className='rs-sticky rs-top-20 rs-flex rs-h-[calc(100vh-10rem)] rs-min-w-[16rem] rs-flex-col rs-gap-8 rs-overflow-y-auto rs-overflow-x-hidden rs-py-8 rs-pr-4 rs-pl-1'>
+			<div className='rs-sticky rs-top-20 rs-flex rs-h-[calc(100vh-10rem)] rs-min-w-[16rem] rs-flex-col rs-gap-8 rs-overflow-y-auto rs-overflow-x-hidden rs-py-16 rs-pr-4 rs-pl-1'>
 				{sidebar?.search ? (
 					<input
 						className='rs-h-12 rs-w-full rs-rounded-md rs-bg-neutral-100 rs-px-4 rs-py-1 rs-text-sm rs-text-gray-500 dark:rs-bg-neutral-900 dark:rs-text-gray-300'
@@ -82,18 +82,18 @@ function Sidebar() {
 						)}
 					</ul>
 				)}
-				<ul className='flex flex-col gap-8'>
+				<ul className='rs-flex rs-flex-col rs-gap-8'>
 					{navigationOptions.length > 0 &&
 						navigationOptions?.map(
 							(option: Record<string, string>, index: number) => (
-								<li className='flex flex-col' key={index}>
-									{option.group ? (
-										<h5 className='mb-4 text-sm font-semibold text-gray-700 dark:text-gray-200'>
-											{option.group as string}
+								<li className='rs-flex rs-flex-col' key={index}>
+									{option.title ? (
+										<h5 className='rs-mb-4 rs-text-sm rs-font-semibold rs-text-gray-700 dark:rs-text-gray-200'>
+											{option.title as string}
 										</h5>
 									) : null}
 									{Object.keys(option.pages).length > 0 ? (
-										<ul className='flex flex-col gap-2 border-l border-gray-100 dark:border-gray-800'>
+										<ul className='rs-flex rs-flex-col rs-gap-2 rs-border-l rs-border-gray-100 dark:rs-border-gray-800'>
 											{Object.entries(option.pages).map(
 												(
 													entry: string[],
@@ -107,11 +107,11 @@ function Sidebar() {
 														return (
 															<Link
 																to={`/${root}`}
-																className={`-ml-[1px] border-l py-1 pl-4 text-sm transition-colors duration-300 ${
+																className={`-rs-ml-[1px] rs-border-l rs-py-1 rs-pl-4 rs-text-sm rs-transition-colors rs-duration-300 ${
 																	location.pathname ===
 																	`/${root}`
-																		? 'border-brand-500 text-brand-500'
-																		: 'hover:border-brand-500 hover:dark:border-brand-500 border-transparent text-gray-700 dark:text-gray-200'
+																		? 'rs-border-brand-500 rs-text-brand-500'
+																		: 'hover:rs-border-brand-500 hover:dark:rs-border-brand-500 rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
 																}`}
 																key={j}
 															>
@@ -123,11 +123,11 @@ function Sidebar() {
 													return (
 														<Link
 															to={page}
-															className={`-ml-[1px] border-l py-1 pl-4 text-sm transition-colors duration-300 ${
+															className={`-rs-ml-[1px] rs-border-l rs-py-1 rs-pl-4 rs-text-sm rs-transition-colors rs-duration-300 ${
 																location.pathname ===
 																`/${root}/${page}`
-																	? 'border-brand-500 text-brand-500'
-																	: 'hover:border-brand-500 hover:dark:border-brand-500 hover:text-brand-500 hover:dark:text-brand-500 border-transparent text-gray-700 dark:text-gray-200'
+																	? 'rs-border-brand-500 rs-text-brand-500'
+																	: 'hover:rs-border-brand-500 hover:dark:rs-border-brand-500 hover:rs-text-brand-500 hover:dark:rs-text-brand-500 rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
 															}`}
 															key={j}
 														>

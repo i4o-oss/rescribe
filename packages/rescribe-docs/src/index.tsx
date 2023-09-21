@@ -7,4 +7,3 @@ export type {
 	RescribeDocsConfig,
 	SidebarLink,
 } from './types'
-export * from './utils/mdx'

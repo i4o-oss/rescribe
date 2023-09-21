@@ -57,9 +57,6 @@ importers:
       '@rescribejs/server':
         specifier: workspace:*
         version: link:../packages/rescribe-server
-      '@vercel/remix':
-        specifier: ^1.19.3
-        version: 1.19.3(react-dom@18.2.0)(react@18.2.0)
       isbot:
         specifier: ^3.6.8
         version: 3.6.13
@@ -5263,20 +5260,6 @@ packages:
   /@vanilla-extract/private@1.0.3:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
     dev: true
-
-  /@vercel/remix@1.19.3(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-YLgtsuTkTrmLL1t5QFr2LV0U2nqL7gJmEegTgmACcB32Gnps4bnFjv4EAgt7eUurcEzcaGSfDSONdMiEUjZXTQ==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      react: '*'
-      react-dom: '*'
-    dependencies:
-      '@remix-run/node': 1.19.3
-      '@remix-run/server-runtime': 1.19.3
-      isbot: 3.6.13
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
 
   /@web3-storage/multipart-parser@1.0.0:
     resolution: {integrity: sha512-BEO6al7BYqcnfX15W2cnGR+Q566ACXAT9UQykORCWW80lmkpWsnEob6zJS1ZVBKsSJC8+7vJkHwlp+lXG1UCdw==}

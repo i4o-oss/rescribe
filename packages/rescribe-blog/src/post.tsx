@@ -6,6 +6,8 @@ import Markdown from 'markdown-to-jsx'
 export default function Post({ collection }: { collection: string }) {
 	const data = useLoaderData()
 	const { content, frontmatter } = data
+	// @ts-ignore
+	const title = frontmatter?.title
 
 	return (
 		<div className='rs-container rs-max-w-4xl rs-p-6 lg:rs-py-10 lg:rs-px-0'>
@@ -38,8 +40,7 @@ export default function Post({ collection }: { collection: string }) {
 						)}
 					</span>
 					<h1 className='rs-text-foreground rs-inline-block rs-text-4xl rs-font-extrabold rs-tracking-tight lg:rs-text-5xl'>
-						{/* @ts-ignore */}
-						{frontmatter.title}
+						{title}
 					</h1>
 				</div>
 			</div>
