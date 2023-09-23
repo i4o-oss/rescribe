@@ -35,7 +35,7 @@ const features = [
 	{
 		name: 'Docs & Blog Themes',
 		description:
-			'Rescribe has packages for building documentation and blog sites.',
+			'Rescribe has packages for building documentation and blog sites. More themes coming soon.',
 		icon: DashboardIcon,
 	},
 	{
