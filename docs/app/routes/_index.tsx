@@ -8,47 +8,66 @@ import {
 	HeartFilledIcon,
 	MagnifyingGlassIcon,
 	MixIcon,
+	Pencil1Icon,
 } from '@radix-ui/react-icons'
 import { Footer, Navbar } from '@rescribejs/docs'
 import { rescribeDocsConfig } from '~/rescribe.config'
 
 const features = [
 	{
-		name: 'Easy to use',
+		name: 'Easy Integration',
 		description:
-			'Copy-paste some code, customize it to your liking, and you have a feature-rich documentation site in minutes.',
+			'Copy-paste some code, write a bit of configuration, and you have a CMS in minutes.',
 		icon: CheckCircledIcon,
 	},
 	{
 		name: 'Built for Remix',
 		description:
-			"Leverage the intuitiveness of Remix's file-based routing and built-in MDX support to build fast docs and blog sites.",
+			"Rescribe leverages Remix's amazing features to help you build content experiences fast.",
 		icon: HeartFilledIcon,
 	},
 	{
-		name: 'Out-of-the-box components',
+		name: 'Powered by Markdown/MDX',
+		description:
+			'Effortlessly write your content in markdown or MDX and save them to your local system.',
+		icon: Pencil1Icon,
+	},
+	{
+		name: 'Docs & Blog Themes',
+		description:
+			'Rescribe has packages for building documentation and blog sites.',
+		icon: DashboardIcon,
+	},
+	{
+		name: 'Written in TypeScript',
+		description:
+			'Get autocomplete for your configuration and runtime validation for your content with Zod.',
+		icon: DashboardIcon,
+	},
+	{
+		name: 'Out-of-the-box components (coming soon)',
 		description:
 			'Enhance the UX of your docs site with components like Cards, Callouts, and more.',
 		icon: DashboardIcon,
 	},
-	{
-		name: 'Zero-config full-text search (coming soon)',
-		description:
-			'Give your users blazing fast full-text search without writing any code.',
-		icon: MagnifyingGlassIcon,
-	},
-	{
-		name: 'Simple I18n (coming soon)',
-		description:
-			'Create docs in different languages by naming directories with locales and Rescribe will take care of the rest.',
-		icon: GlobeIcon,
-	},
-	{
-		name: 'Versioning (coming soon)',
-		description:
-			'Maintain different versions of your docs for your apps, APIs, or libraries.',
-		icon: MixIcon,
-	},
+	// {
+	// 	name: 'Zero-config full-text search (coming soon)',
+	// 	description:
+	// 		'Give your users blazing fast full-text search without writing any code.',
+	// 	icon: MagnifyingGlassIcon,
+	// },
+	// {
+	// 	name: 'Simple I18n (coming soon)',
+	// 	description:
+	// 		'Create docs in different languages by naming directories with locales and Rescribe will take care of the rest.',
+	// 	icon: GlobeIcon,
+	// },
+	// {
+	// 	name: 'Versioning (coming soon)',
+	// 	description:
+	// 		'Maintain different versions of your docs for your apps, APIs, or libraries.',
+	// 	icon: MixIcon,
+	// },
 ]
 
 export default function Home() {
@@ -90,12 +109,13 @@ export default function Home() {
 							<div className='w-full max-w-2xl py-20 sm:py-32 lg:py-40'>
 								<div className='text-center'>
 									<h1 className='text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-6xl sm:leading-tight'>
-										Build beautiful docs and blog sites with
-										Remix
+										Content Management for your Remix site
 									</h1>
 									<p className='mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300'>
-										Save tons of time and effort with
-										customizable components and utilites
+										Rescribe embeds a content manager right
+										in your codebase. Write content in an
+										admin UI right in your site and publish
+										them to your users with ease.
 									</p>
 									<div className='mt-10 flex items-center justify-center gap-x-6'>
 										<Link to='/docs'>
@@ -108,8 +128,8 @@ export default function Home() {
 											</PrimaryButton>
 										</Link>
 
-										<pre className='flex h-12 w-96 items-center justify-between space-x-2 rounded-lg border border-slate-100 bg-white !pl-4 !pr-2 dark:border-slate-700 dark:bg-[#040303]'>
-											<code className='flex w-full items-center justify-between font-mono text-sm font-semibold text-slate-900 dark:text-slate-50'>
+										<pre className='flex h-12 items-center justify-between space-x-2 rounded-lg border border-slate-100 bg-white !pl-4 !pr-2 dark:border-slate-700 dark:bg-[#040303]'>
+											<code className='flex w-full items-center justify-between font-mono text-sm font-semibold text-slate-900 dark:text-slate-50 gap-x-3'>
 												pnpm add @rescribejs/core
 												@rescribejs/server
 												<CopyToClipboard text='pnpm add @rescribejs/core @rescribejs/server' />
@@ -156,8 +176,8 @@ export default function Home() {
 								Build sites faster
 							</h2>
 							<p className='mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-tight'>
-								Everything you need to build excellent
-								documentations
+								Everything you need to build excellent content
+								sites
 							</p>
 							{/* <p className='mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300'> */}
 							{/* 	Quis tellus eget adipiscing convallis sit sit */}
