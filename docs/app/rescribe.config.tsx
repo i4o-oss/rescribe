@@ -192,9 +192,9 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 					},
 				},
 				{
-					title: 'Configuration',
+					title: 'Core Concepts',
 					pages: {
-						config: 'rescribe.config.tsx',
+						config: 'Configuration',
 						collections: 'Collections',
 						admin: 'Admin UI',
 						client: 'Client API',
@@ -230,7 +230,7 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 					pages: {
 						'docs-template/configuration': 'Configuration',
 						'docs-template/outlet': 'Outlet',
-						// 'docs-template/navbar': 'Navbar',
+						'docs-template/components': 'Components',
 						// 'docs-template/footer': 'Footer',
 						// 'docs-template/sidebar': 'Sidebar',
 						// 'docs-template/theme': 'Theme',
