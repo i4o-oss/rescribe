@@ -1,0 +1,62 @@
+---
+createdAt: 2023-09-25T12:35:48.649Z
+title: Admin UI
+slug: admin
+---
+
+Rescribe uses Remix’s splat routes to render an admin UI in your site. To setup the content manager, create a `rescribe.$.tsx` in `app/routes`. Rescribe will then take over the rendering of this route and all child routes.
+
+```typescript
+// rescribe.$.tsx
+import type {
+	ActionFunctionArgs,
+	LinksFunction,
+	LoaderFunctionArgs,
+} from '@remix-run/node'
+
+import { Rescribe } from '@rescribejs/core'
+import rescribeStylesheet from '@rescribejs/core/rescribe.css'
+import { configObj as config } from '~/rescribe.config'
+import {
+	handleActionForRescribe,
+	handleLoaderForRescribe,
+} from '~/utils/rescribe.server'
+
+export const links: LinksFunction = () => [
+	{ rel: 'stylesheet', href: rescribeStylesheet },
+]
+
+export function loader(args: LoaderFunctionArgs) {
+	return handleLoaderForRescribe({ ...args, config })
+}
+
+export function action(args: ActionFunctionArgs) {
+	return handleActionForRescribe({ ...args, config })
+}
+
+export default function RescribeRoot() {
+	return <Rescribe config={config} />
+}
+```
+
+## Handling loaders and actions
+
+`@rescribejs/server` package exports two functions — `handleLoader()` and `handleAction()`. These functions will take over the loaders and actions in the admin UI and should only be run on the server. To ensure this, create a `rescribe.server.ts` file. 
+
+```typescript
+// rescribe.server.ts
+import type { ActionHandlerArgs, LoaderHandlerArgs } from '@rescribejs/server'
+import { createClient, handleAction, handleLoader } from '@rescribejs/server'
+import { rescribeConfig } from '~/rescribe.config'
+
+export async function handleLoaderForRescribe(args: LoaderHandlerArgs) {
+	return await handleLoader(args)
+}
+
+export async function handleActionForRescribe(args: ActionHandlerArgs) {
+	return await handleAction(args)
+}
+```
+
+\
+
