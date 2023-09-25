@@ -186,54 +186,66 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 					title: 'Overview',
 					pages: {
 						index: 'Introduction',
-						// changelog: 'Changelog',
-						roadmap: 'Roadmap',
-					},
-				},
-				{
-					title: 'Getting Started',
-					pages: {
 						installation: 'Installation',
-						development: 'Development',
+						// development: 'Development',
+						roadmap: 'Roadmap',
 					},
 				},
 				{
 					title: 'Configuration',
 					pages: {
-						'rescribe-provider': 'Rescribe Provider',
 						'rescribe-config': 'rescribe.config.tsx',
-						navbar: 'Navbar',
-						sidebar: 'Sidebar',
-						search: 'Search',
-						theme: 'Theme',
-						footer: 'Footer',
+						collections: 'Collections',
+						client: 'Client API',
 						'example-config': 'Example Configuration',
+					},
+				},
+				{
+					title: 'Fields API',
+					pages: {
+						'fields/boolean': 'Boolean Field',
+						'fields/date': 'Date Field',
+						'fields/document': 'Document Field',
+						'fields/slug': 'Slug Field',
+						'fields/text': 'Text Field',
+						'fields/url': 'URL Field',
 					},
 				},
 				{
 					title: 'Layouts',
 					pages: {
-						'docs-layout': 'Docs',
-						'blog-layout': 'Blog',
+						docs: 'Docs',
+						blog: 'Blog',
 					},
 				},
 				{
-					title: 'Components',
+					title: 'Blog Layout',
 					pages: {
-						accordion: 'Accordion',
-						callout: 'Callout',
-						cards: 'Cards',
-						'card-title': 'Card Group',
-						list: 'List',
-						tabs: 'Tabs',
+						'blog/outlet': 'Outlet',
 					},
 				},
 				{
-					title: 'Utilities',
+					title: 'Docs Layout',
 					pages: {
-						'get-toc-headings': 'getTocHeadings',
+						'docs/configuration': 'Configuration',
+						'docs/outlet': 'Outlet',
+						'docs/navbar': 'Navbar',
+						'docs/footer': 'Footer',
+						'docs/sidebar': 'Sidebar',
+						'docs/theme': 'Theme',
 					},
 				},
+				// {
+				// 	title: 'Components',
+				// 	pages: {
+				// 		accordion: 'Accordion',
+				// 		callout: 'Callout',
+				// 		cards: 'Cards',
+				// 		'card-title': 'Card Group',
+				// 		list: 'List',
+				// 		tabs: 'Tabs',
+				// 	},
+				// },
 				{
 					title: 'More',
 					pages: {
