@@ -197,7 +197,7 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 						config: 'rescribe.config.tsx',
 						collections: 'Collections',
 						client: 'Client API',
-						example: 'Example Configuration',
+						'example-config': 'Example Configuration',
 					},
 				},
 				{
@@ -212,27 +212,27 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 					},
 				},
 				{
-					title: 'Layouts',
+					title: 'Templates',
 					pages: {
-						docs: 'Docs',
-						blog: 'Blog',
+						'docs-template': 'Docs',
+						'blog-template': 'Blog',
 					},
 				},
 				{
-					title: 'Blog Layout',
+					title: 'Blog Template',
 					pages: {
-						'blog/outlet': 'Outlet',
+						'blog-template/outlet': 'Outlet',
 					},
 				},
 				{
-					title: 'Docs Layout',
+					title: 'Docs Template',
 					pages: {
-						'docs/configuration': 'Configuration',
-						'docs/outlet': 'Outlet',
-						'docs/navbar': 'Navbar',
-						'docs/footer': 'Footer',
-						'docs/sidebar': 'Sidebar',
-						'docs/theme': 'Theme',
+						'docs-template/configuration': 'Configuration',
+						'docs-template/outlet': 'Outlet',
+						// 'docs-template/navbar': 'Navbar',
+						// 'docs-template/footer': 'Footer',
+						// 'docs-template/sidebar': 'Sidebar',
+						// 'docs-template/theme': 'Theme',
 					},
 				},
 				// {
