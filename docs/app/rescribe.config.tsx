@@ -196,6 +196,7 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 					pages: {
 						config: 'rescribe.config.tsx',
 						collections: 'Collections',
+						admin: 'Admin UI',
 						client: 'Client API',
 						'example-config': 'Example Configuration',
 					},
