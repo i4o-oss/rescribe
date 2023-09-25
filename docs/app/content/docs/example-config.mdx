@@ -1,0 +1,69 @@
+---
+createdAt: 2023-09-25T10:54:35.317Z
+title: Example Configuration
+slug: example-config
+---
+
+Here’s the configuration that this site uses for its docs and blog.
+
+```typescript
+export const configObj = config({
+	collections: {
+		docs: collection({
+			format: 'mdx',
+			label: 'Docs',
+			slug: 'docs',
+			path: 'content/docs/*',
+			schema: {
+				title: fields.text({
+					label: 'Title',
+					description: 'Page Title',
+				}),
+				content: fields.document({
+					label: 'Content',
+				}),
+				slug: fields.slug({
+					label: 'Page URL',
+					description: 'URL of the page',
+				}),
+			},
+		}),
+		blog: collection({
+			format: 'mdx',
+			label: 'Blog',
+			slug: 'blog',
+			path: 'content/blog/*',
+			schema: {
+				title: fields.text({
+					label: 'Title',
+					description: 'Title',
+				}),
+				content: fields.document({
+					label: 'Content',
+				}),
+				slug: fields.slug({
+					label: 'Post URL',
+					description: 'URL of the post',
+				}),
+				excerpt: fields.text({
+					label: 'Excerpt',
+					description: 'A short description of the post',
+					multiline: true,
+				}),
+				published: fields.boolean({
+					label: 'Publish Post',
+					description:
+						'If the post should be published. Post will be saved as a draft by default.',
+				}),
+				publishedAt: fields.date({
+					label: 'Publish Date',
+					description: 'Set the publish date of the post',
+				}),
+			},
+		}),
+	},
+})
+```
+
+\
+
