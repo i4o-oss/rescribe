@@ -251,6 +251,11 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 					title: 'More',
 					pages: {
 						about: 'About',
+						remix: {
+							external: true,
+							title: 'Remix Docs',
+							url: 'https://remix.run/docs/en/main',
+						},
 					},
 				},
 			],

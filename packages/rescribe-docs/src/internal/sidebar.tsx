@@ -3,7 +3,7 @@ import { Link, useLocation } from '@remix-run/react'
 import { useContext } from 'react'
 
 import { RescribeDocsContext } from '../constants'
-import type { SidebarLink } from '../types'
+import type { NavigationLinkGroup, SidebarLink } from '../types'
 import navbar from './navbar'
 
 function Sidebar() {
@@ -12,7 +12,9 @@ function Sidebar() {
 	const location = useLocation()
 	const [, root, , _] = location.pathname.split('/')
 	// TODO: fix this type later
-	const navigationOptions = sidebar?.navigation[root] as Array<any>
+	const navigationOptions = sidebar?.navigation[
+		root
+	] as Array<NavigationLinkGroup>
 
 	return (
 		<div className='rs-relative'>
@@ -84,22 +86,19 @@ function Sidebar() {
 				)}
 				<ul className='rs-flex rs-flex-col rs-gap-8'>
 					{navigationOptions.length > 0 &&
-						navigationOptions?.map(
-							(option: Record<string, string>, index: number) => (
-								<li className='rs-flex rs-flex-col' key={index}>
-									{option.title ? (
-										<h5 className='rs-mb-4 rs-text-sm rs-font-semibold rs-text-gray-700 dark:rs-text-gray-200'>
-											{option.title as string}
-										</h5>
-									) : null}
-									{Object.keys(option.pages).length > 0 ? (
-										<ul className='rs-flex rs-flex-col rs-gap-2 rs-border-l rs-border-gray-100 dark:rs-border-gray-800'>
-											{Object.entries(option.pages).map(
-												(
-													entry: string[],
-													j: number
-												) => {
-													const [page, title] = entry
+						navigationOptions?.map((option, index: number) => (
+							<li className='rs-flex rs-flex-col' key={index}>
+								{option.title ? (
+									<h5 className='rs-mb-4 rs-text-sm rs-font-semibold rs-text-gray-700 dark:rs-text-gray-200'>
+										{option.title as string}
+									</h5>
+								) : null}
+								{Object.keys(option.pages).length > 0 ? (
+									<ul className='rs-flex rs-flex-col rs-gap-2 rs-border-l rs-border-gray-100 dark:rs-border-gray-800'>
+										{Object.entries(option.pages).map(
+											(entry, j: number) => {
+												const [page, link] = entry
+												if (typeof link === 'string') {
 													if (
 														page === 'index' ||
 														page === '_index'
@@ -111,11 +110,11 @@ function Sidebar() {
 																	location.pathname ===
 																	`/${root}`
 																		? 'rs-border-brand-500 rs-text-brand-500'
-																		: 'hover:rs-border-brand-500 hover:dark:rs-border-brand-500 rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
+																		: 'hover:rs-border-brand-500 hover:dark:rs-border-brand-500 hover:rs-text-brand-500 hover:dark:rs-text-brand-500 rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
 																}`}
 																key={j}
 															>
-																{title}
+																{link}
 															</Link>
 														)
 													}
@@ -131,16 +130,84 @@ function Sidebar() {
 															}`}
 															key={j}
 														>
-															{title}
+															{link}
 														</Link>
 													)
 												}
-											)}
-										</ul>
-									) : null}
-								</li>
-							)
-						)}
+
+												if (link?.external) {
+													return (
+														<a
+															href={link.url}
+															className='rs-flex rs-items-center rs-gap-2 -rs-ml-[1px] rs-border-l rs-py-1 rs-pl-4 rs-text-sm rs-transition-colors rs-duration-300 hover:rs-border-brand-500 hover:dark:rs-border-brand-500 hover:rs-text-brand-500 hover:dark:rs-text-brand-500 rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
+															key={j}
+															target='_blank'
+															rel='noreferrer'
+														>
+															{link.title}
+															<svg
+																xmlns='http://www.w3.org/2000/svg'
+																viewBox='0 0 24 24'
+																fill='none'
+																stroke='currentColor'
+																strokeWidth='2'
+																strokeLinecap='round'
+																strokeLinejoin='round'
+																className='rs-w-4 rs-h-4'
+															>
+																<path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6' />
+																<polyline points='15 3 21 3 21 9' />
+																<line
+																	x1='10'
+																	x2='21'
+																	y1='14'
+																	y2='3'
+																/>
+															</svg>
+														</a>
+													)
+												}
+
+												if (
+													page === 'index' ||
+													page === '_index'
+												) {
+													return (
+														<Link
+															to={`/${root}`}
+															className={`-rs-ml-[1px] rs-border-l rs-py-1 rs-pl-4 rs-text-sm rs-transition-colors rs-duration-300 ${
+																location.pathname ===
+																`/${root}`
+																	? 'rs-border-brand-500 rs-text-brand-500'
+																	: 'hover:rs-border-brand-500 hover:dark:rs-border-brand-500 hover:rs-text-brand-500 hover:dark:rs-text-brand-500 rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
+															}`}
+															key={j}
+														>
+															{link.title}
+														</Link>
+													)
+												}
+
+												return (
+													<Link
+														to={link.url}
+														className={`-rs-ml-[1px] rs-border-l rs-py-1 rs-pl-4 rs-text-sm rs-transition-colors rs-duration-300 ${
+															location.pathname ===
+															`/${root}/${link.url}`
+																? 'rs-border-brand-500 rs-text-brand-500'
+																: 'hover:rs-border-brand-500 hover:dark:rs-border-brand-500 hover:rs-text-brand-500 hover:dark:rs-text-brand-500 rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
+														}`}
+														key={j}
+													>
+														{link.title}
+													</Link>
+												)
+											}
+										)}
+									</ul>
+								) : null}
+							</li>
+						))}
 				</ul>
 			</div>
 		</div>

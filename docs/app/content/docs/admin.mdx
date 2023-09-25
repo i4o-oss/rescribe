@@ -60,14 +60,13 @@ export async function handleActionForRescribe(args: ActionHandlerArgs) {
 
 ## Disabling the admin UI in production
 
-You probably don’t want your users to visit and get access to the admin UI. To do this, you can use the `redirect` function from Remix when `NODE_ENV === ‘production’`. Update the loader function in `rescribe.$.tsx`: 
+You probably don’t want your users to visit and get access to the admin UI in production. To do this, you can use the `redirect` function from Remix to send your users to another page in production. Update the loader function in `rescribe.$.tsx`:
 
-```javascript
+```typescript
 export function loader(args: LoaderFunctionArgs) {
     if (process.env.NODE_ENV === 'production') return redirect('/')
 	return handleLoaderForRescribe({ ...args, config })
 }
 ```
 
-\
-
+*Note: This assumes you’re using Node. Use the appropriate environment variable for other runtimes.*
