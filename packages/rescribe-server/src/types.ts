@@ -26,7 +26,7 @@ export interface AllReturn {
 }
 
 export interface UniqueReturn {
-	content: string
+	code: string
 	frontmatter: unknown
 }
 

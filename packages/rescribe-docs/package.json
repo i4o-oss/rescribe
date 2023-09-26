@@ -46,12 +46,13 @@
 	},
 	"dependencies": {
 		"@i4o/catalystui": "1.0.0-alpha.14",
+		"@mdx-js/mdx": "^2.3.0",
+		"@mdx-js/react": "^2.3.0",
 		"@radix-ui/react-icons": "^1.2.0",
 		"@rescribejs/core": "workspace:*",
 		"@rescribejs/server": "workspace:*",
 		"@tailwindcss/typography": "^0.5.9",
-		"clsx": "^1.2.1",
-		"markdown-to-jsx": "^7.3.2"
+		"clsx": "^1.2.1"
 	},
 	"license": "MIT",
 	"homepage": "https://rescribe.site",

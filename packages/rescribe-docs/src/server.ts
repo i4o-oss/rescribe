@@ -26,9 +26,9 @@ export async function handleDocsLoader({
 			if (!item) return json({})
 
 			// @ts-ignore
-			const { content, frontmatter, headings } = item
+			const { code, frontmatter, headings } = item
 
-			return json({ content, frontmatter, headings, group })
+			return json({ code, frontmatter, headings, group })
 		} else if (params.slug) {
 			const [group] = links.filter((group) =>
 				group.pages.hasOwnProperty(params.slug)
@@ -42,9 +42,9 @@ export async function handleDocsLoader({
 			if (!item) return json({})
 
 			// @ts-ignore
-			const { content, frontmatter, headings } = item
+			const { code, frontmatter, headings } = item
 
-			return json({ content, frontmatter, headings, group })
+			return json({ code, frontmatter, headings, group })
 		}
 	}
 

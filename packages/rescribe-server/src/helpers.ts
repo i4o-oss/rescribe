@@ -7,6 +7,7 @@ import { promises as fsp } from 'node:fs'
 import YAML from 'yaml'
 import { z } from 'zod'
 
+import { compileMdx } from './compile'
 import { getMdxHeadings } from './utils/mdx'
 
 export async function readItemsInCollection(collection: Collection) {
@@ -39,20 +40,20 @@ export async function getItemInCollectionFromSlug({
 	const fullPath = getPath(collection, slug)
 	const file = await fsp.readFile(fullPath, 'utf8')
 	const { content, data: frontmatter } = matter(file)
-	// const { code, frontmatter } = await compileMdx({
-	// 	source: content,
-	// })
+	const { code } = await compileMdx({
+		source: content,
+	})
 	if (options?.headings) {
 		const headings = await getMdxHeadings(fullPath)
 		return {
-			content,
+			code,
 			headings,
 			frontmatter,
 		}
 	}
 
 	return {
-		content,
+		code,
 		frontmatter,
 	}
 }

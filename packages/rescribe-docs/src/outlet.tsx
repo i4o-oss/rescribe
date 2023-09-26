@@ -1,8 +1,12 @@
+import { LinksFunction } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 
-import Markdown from 'markdown-to-jsx'
-import { useContext } from 'react'
+import { run } from '@mdx-js/mdx'
+import { MDXProvider } from '@mdx-js/react'
+import { Fragment, useContext, useEffect, useState } from 'react'
+import * as runtime from 'react/jsx-runtime'
 
+import { Card, List } from './components'
 import { RescribeDocsContext } from './constants'
 import RescribeProvider from './core/provider'
 import { Footer, Navbar } from './internal'
@@ -18,15 +22,43 @@ type DocsOutletProps = {
 	context?: DocsOutletContext
 }
 
+export const links: LinksFunction = () => {
+	return [
+		{
+			rel: 'stylesheet',
+			href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-light.min.css',
+		},
+		{
+			rel: 'stylesheet',
+			href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-dark.min.css',
+			media: '(prefers-color-scheme: dark)',
+		},
+	]
+}
+
 export default function DocsOutlet({ context }: DocsOutletProps) {
 	const docsConfig = useContext(RescribeDocsContext)
 	const config = docsConfig ?? context?.docsConfig
 	const data = useLoaderData()
-	const { content, frontmatter, headings, group } = data
+	const [mdxModule, setMdxModule] = useState()
+	const { code, frontmatter, headings, group } = data
 	// @ts-ignore
 	const title = frontmatter?.title
 	// @ts-ignore
 	const groupTitle = group?.title
+	// @ts-ignore
+	const Content = mdxModule ? mdxModule.default : Fragment
+
+	const components = {
+		Card: Card,
+	}
+
+	useEffect(() => {
+		;(async () => {
+			const res = await run(code, runtime)
+			setMdxModule(res)
+		})()
+	}, [code])
 
 	return (
 		<RescribeProvider config={config}>
@@ -41,7 +73,9 @@ export default function DocsOutlet({ context }: DocsOutletProps) {
 						{title}
 					</h1>
 					<div className='rs-prose dark:rs-prose-invert rs-w-[56rem] rs-flex-auto [&_h2]:rs-scroll-mt-36 [&_h3]:rs-scroll-mt-36'>
-						<Markdown>{content}</Markdown>
+						<MDXProvider components={components}>
+							<Content />
+						</MDXProvider>
 					</div>
 				</article>
 				<ToC headings={headings} />
