@@ -47,6 +47,7 @@ export async function getItemInCollectionFromSlug({
 		const headings = await getMdxHeadings(fullPath)
 		return {
 			code,
+			content,
 			headings,
 			frontmatter,
 		}
@@ -54,6 +55,7 @@ export async function getItemInCollectionFromSlug({
 
 	return {
 		code,
+		content,
 		frontmatter,
 	}
 }

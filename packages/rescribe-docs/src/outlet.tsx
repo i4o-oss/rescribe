@@ -1,12 +1,21 @@
 import { LinksFunction } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
+import { Link, useLoaderData } from '@remix-run/react'
 
 import { run } from '@mdx-js/mdx'
 import { MDXProvider } from '@mdx-js/react'
-import { Fragment, useContext, useEffect, useState } from 'react'
+import { Fragment, HTMLProps, useContext, useEffect, useState } from 'react'
 import * as runtime from 'react/jsx-runtime'
 
-import { Card, List } from './components'
+import {
+	Accordion,
+	AccordionGroup,
+	Callout,
+	Card,
+	CardGroup,
+	List,
+	Tab,
+	TabGroup,
+} from './components'
 import { RescribeDocsContext } from './constants'
 import RescribeProvider from './core/provider'
 import { Footer, Navbar } from './internal'
@@ -50,7 +59,17 @@ export default function DocsOutlet({ context }: DocsOutletProps) {
 	const Content = mdxModule ? mdxModule.default : Fragment
 
 	const components = {
+		a: (props: HTMLProps<HTMLAnchorElement>) => (
+			<Link to={props?.href || '#'}>{props.children}</Link>
+		),
+		Accordion: Accordion,
+		AccordionGroup: AccordionGroup,
+		Callout: Callout,
 		Card: Card,
+		CardGroup: CardGroup,
+		List: List,
+		Tab: Tab,
+		TabGroup: TabGroup,
 	}
 
 	useEffect(() => {
