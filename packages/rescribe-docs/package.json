@@ -54,11 +54,26 @@
 		"@tailwindcss/typography": "^0.5.9",
 		"clsx": "^1.2.1"
 	},
+	"keywords": [
+		"remix",
+		"cms",
+		"blog",
+		"docs"
+	],
+	"author": {
+		"name": "Ilango Rajagopal",
+		"email": "hey@i4o.dev",
+		"url": "https://i4o.dev"
+	},
 	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
 	"homepage": "https://rescribe.site",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/i4o-oss/rescribe.git"
+		"url": "git+https://github.com/i4o-oss/rescribe.git",
+		"directory": "packages/rescribe-docs"
 	},
 	"bugs": {
 		"url": "https://github.com/i4o-oss/rescribe/issues"

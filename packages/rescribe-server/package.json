@@ -45,7 +45,28 @@
 		"yaml": "^2.3.1",
 		"zod": "^3.22.2"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC"
+	"keywords": [
+		"remix",
+		"cms",
+		"blog",
+		"docs"
+	],
+	"author": {
+		"name": "Ilango Rajagopal",
+		"email": "hey@i4o.dev",
+		"url": "https://i4o.dev"
+	},
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
+	"homepage": "https://rescribe.site",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/i4o-oss/rescribe.git",
+		"directory": "packages/rescribe-server"
+	},
+	"bugs": {
+		"url": "https://github.com/i4o-oss/rescribe/issues"
+	}
 }

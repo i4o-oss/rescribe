@@ -43,12 +43,30 @@
 		"react": ">=17",
 		"react-dom": ">=17"
 	},
+	"keywords": [
+		"remix",
+		"cms",
+		"blog",
+		"docs"
+	],
+	"author": {
+		"name": "Ilango Rajagopal",
+		"email": "hey@i4o.dev",
+		"url": "https://i4o.dev"
+	},
+	"license": "MIT",
 	"publishConfig": {
 		"access": "public"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
+	"homepage": "https://rescribe.site",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/i4o-oss/rescribe.git",
+		"directory": "packages/rescribe-blog"
+	},
+	"bugs": {
+		"url": "https://github.com/i4o-oss/rescribe/issues"
+	},
 	"dependencies": {
 		"@rescribejs/core": "workspace:*",
 		"@rescribejs/server": "workspace:*",
