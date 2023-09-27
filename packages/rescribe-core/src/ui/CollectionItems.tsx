@@ -10,7 +10,7 @@ import type { Collection } from '../types'
 export default function CollectionItems() {
 	const location = useLocation()
 	const collection = useContext<Collection | null>(CollectionContext)
-	const { items } = useLoaderData()
+	const { items } = useLoaderData<{ items: { frontmatter: any }[] }>()
 
 	return (
 		<main className='rs-relative rs-flex rs-content-start rs-items-stretch rs-justify-center rs-w-full rs-flex-grow rs-py-16'>

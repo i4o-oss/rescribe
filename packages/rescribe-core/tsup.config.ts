@@ -8,7 +8,7 @@ const config: Options = {
 	format: ['cjs', 'esm'],
 	skipNodeModulesBundle: true,
 	dts: true,
-	entry: ['src/index.tsx', 'styles/main.css'],
+	entry: ['src/index.tsx'],
 	outDir: 'dist',
 	bundle: true,
 	minify: true,
