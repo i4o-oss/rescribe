@@ -21,8 +21,8 @@
 		"build:lib": "tsup"
 	},
 	"devDependencies": {
-		"@rescribe/eslint-config": "workspace:*",
-		"@rescribe/tsconfig": "workspace:*",
+		"@rescribejs/eslint-config": "workspace:*",
+		"@rescribejs/tsconfig": "workspace:*",
 		"@types/node": "^20.5.1",
 		"@types/react": "^18.0.28",
 		"@types/react-dom": "^18.0.11",

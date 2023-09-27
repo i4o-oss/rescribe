@@ -15,8 +15,8 @@
 		"build": "tsup-node --platform=node"
 	},
 	"devDependencies": {
-		"@rescribe/eslint-config": "workspace:*",
-		"@rescribe/tsconfig": "workspace:*",
+		"@rescribejs/eslint-config": "workspace:*",
+		"@rescribejs/tsconfig": "workspace:*",
 		"@types/mdast": "^3.0.10",
 		"@types/mdx": "^2.0.3",
 		"@types/node": "^20.5.1",

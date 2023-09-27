@@ -1,6 +1,6 @@
 {
 	"display": "@rescribe/old",
-	"extends": "@rescribe/tsconfig/core.json",
+	"extends": "@rescribejs/tsconfig/core.json",
 	"include": ["."],
 	"exclude": ["dist", "build", "node_modules"]
 }
