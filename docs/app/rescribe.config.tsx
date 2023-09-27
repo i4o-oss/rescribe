@@ -183,7 +183,7 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 		navigation: {
 			docs: [
 				{
-					title: 'Overview',
+					title: 'Getting Started',
 					pages: {
 						index: 'Introduction',
 						installation: 'Installation',
