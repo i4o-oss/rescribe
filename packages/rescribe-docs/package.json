@@ -1,6 +1,6 @@
 {
 	"name": "@rescribejs/docs",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"files": [
 		"dist"
 	],
@@ -66,9 +66,6 @@
 		"url": "https://i4o.dev"
 	},
 	"license": "MIT",
-	"publishConfig": {
-		"access": "public"
-	},
 	"homepage": "https://rescribe.site",
 	"repository": {
 		"type": "git",
