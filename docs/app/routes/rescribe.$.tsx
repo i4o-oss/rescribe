@@ -3,6 +3,7 @@ import type {
 	LinksFunction,
 	LoaderFunctionArgs,
 } from '@remix-run/node'
+import { redirect } from '@remix-run/node'
 
 import { Rescribe } from '@rescribejs/core'
 import rescribeStylesheet from '@rescribejs/core/rescribe.css'
@@ -17,6 +18,7 @@ export const links: LinksFunction = () => [
 ]
 
 export function loader(args: LoaderFunctionArgs) {
+	if (process.env.NODE_ENV === 'production') return redirect('/')
 	return handleLoaderForRescribe({ ...args, config })
 }
 
