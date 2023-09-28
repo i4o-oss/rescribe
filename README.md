@@ -1,8 +1,6 @@
 # Rescribe
 
-Update: I'm working on a huge update that will make Rescribe not just a docs and blog generator, but a CMS right in your Remix codebase. While I make the changes, the website will be down. Install and use the old package at your own risk as things are constantly changing.
-
-~~Components and utilities for building documentation and blog sites with Remix.~~
+Content manager for your Remix codebase
 
 ## Documentation
 
