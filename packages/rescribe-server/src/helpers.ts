@@ -12,7 +12,7 @@ import { getMdxHeadings } from './utils/mdx'
 
 export async function readItemsInCollection(collection: Collection) {
 	const fullPath = getPath(collection)
-	const entries = await fg(fullPath, { onlyFiles: true })
+	const entries = await fg(fullPath, { onlyFiles: false })
 	const items = await Promise.all(
 		entries.map(async (entry) => {
 			const file = await fsp.readFile(entry, 'utf8')
@@ -63,10 +63,10 @@ export async function getItemInCollectionFromSlug({
 export function getPath(collection: Collection, slug = '') {
 	const { format = 'md' } = collection
 	if (slug) {
-		return `${process.cwd()}${REMIX_BASE_PATH}/${collection.path.replace(
-			'*',
-			''
-		)}${slug}.${format}`
+		return `${process.cwd()}${REMIX_BASE_PATH}/${collection.path
+			// TODO: replace should check for glob pattern from config
+			.replace('**/*', '')
+			.replace('*', '')}${slug}.${format}`
 	} else {
 		return `${process.cwd()}${REMIX_BASE_PATH}/${collection.path}.${format}`
 	}
