@@ -28,6 +28,10 @@ export function parseAdminPathname({
 		const slug = parts[2]
 		return { collection, action: 'edit' as const, slug }
 	}
+	if (parts.length > 3 && parts[2] !== 'new') {
+		const slug = parts.slice(2).join('/')
+		return { collection, action: 'edit' as const, slug }
+	}
 
 	return null
 }
@@ -43,6 +47,12 @@ export function parseOutputPathname({ pathname }: { pathname: string }) {
 	if (parts.length === 3) {
 		const collection = parts[1]
 		const slug = parts[2]
+		return { collection, root: false, slug }
+	}
+
+	if (parts.length > 3) {
+		const collection = parts[1]
+		const slug = parts.slice(2).join('/')
 		return { collection, root: false, slug }
 	}
 

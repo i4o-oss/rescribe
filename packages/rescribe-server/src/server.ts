@@ -86,6 +86,7 @@ export async function handleAction({ config, request }: ActionHandlerArgs) {
 				collectionSchema: collection.schema,
 				options: {
 					async isSlugUnique(slug) {
+						// TODO: check if slug is unique
 						console.log(slug)
 						return true
 					},
