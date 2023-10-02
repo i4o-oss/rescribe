@@ -14,7 +14,7 @@ export const configObj = config({
 			format: 'mdx',
 			label: 'Docs',
 			slug: 'docs',
-			path: 'content/docs/*',
+			path: 'content/docs/**/*',
 			schema: {
 				title: fields.text({
 					label: 'Title',
