@@ -117,18 +117,13 @@ export async function handleAction({ config, request }: ActionHandlerArgs) {
 			fs.access(dirPath)
 				.then(async () => {
 					await fs.writeFile(fullPath, markdownFileContent)
-					return redirect(
-						`/rescribe/collections/${params.collection}/${submission?.value?.slug}`
-					)
 				})
 				.catch(async () => {
-					// TODO: this creates the directory recursively but the redirect doesn't work because the slug is nested
 					await fs.mkdir(dirPath, { recursive: true })
 					await fs.writeFile(fullPath, markdownFileContent)
-					return redirect(
-						`/rescribe/collections/${params.collection}/${submission?.value?.slug}`
-					)
 				})
+			const redirectUrl = `/rescribe/collections/${params.collection}/${submission?.value?.slug}`
+			return redirect(redirectUrl)
 		} else if (params.action === 'edit') {
 			// read frontmatter from existing file and merge it with submission
 			// so any extra fields in the frontmatter like `createdAt` is not lost while overwriting the field
@@ -149,7 +144,6 @@ export async function handleAction({ config, request }: ActionHandlerArgs) {
 			// form markdown file string and write it to file
 			const markdownFileContent = `---\n${frontmatter}\n---\n\n${markdown}\n`
 			// TODO: if slug changes this will create a new file. keep track of old file name and rename or delete + recreate it.
-			// TODO: this only works for files with depth = 1 but glob allows nested directories. figure out how to get a working path regardless of how files are organized.
 			const fullPath = getPath(collection, submission?.value?.slug)
 			await fs.writeFile(fullPath, markdownFileContent)
 
