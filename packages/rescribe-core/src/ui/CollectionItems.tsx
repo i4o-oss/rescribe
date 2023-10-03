@@ -10,7 +10,9 @@ import type { Collection } from '../types'
 export default function CollectionItems() {
 	const location = useLocation()
 	const collection = useContext<Collection | null>(CollectionContext)
-	const { items } = useLoaderData<{ items: { frontmatter: any }[] }>()
+	const { items } = useLoaderData<{
+		items: { filePath: string; frontmatter: any }[]
+	}>()
 
 	return (
 		<main className='rs-relative rs-flex rs-content-start rs-items-stretch rs-justify-center rs-w-full rs-flex-grow rs-py-16'>
@@ -65,49 +67,62 @@ export default function CollectionItems() {
 						</div>
 					) : (
 						<>
-							<div className='rs-col-span-2 rs-px-4 rs-grid rs-h-16 rs-w-full rs-grid-cols-3 rs-gap-4 rs-bg-transparent rs-border-b rs-border-subtle'>
+							<div className='rs-col-span-2 rs-px-4 rs-grid rs-h-16 rs-w-full rs-grid-cols-4 rs-gap-4 rs-bg-transparent rs-border-b rs-border-subtle'>
 								<span className='rs-col-span-2 rs-text-lg rs-flex rs-items-center rs-justify-start rs-text-foreground-subtle rs-font-medium'>
 									Title
+								</span>
+								<span className='rs-col-span-1 rs-text-lg rs-flex rs-items-center rs-justify-start rs-text-foreground-subtle rs-font-medium'>
+									Directory
 								</span>
 								<span className='rs-flex rs-text-lg rs-items-center rs-justify-start rs-text-foreground-subtle rs-font-medium'>
 									Created
 								</span>
 							</div>
 							<div className='rs-w-full rs-flex rs-flex-col rs-items-start rs-justify-center rs-divide-y rs-divide-gray-200 dark:rs-divide-gray-700'>
-								{items.map((item: any) => (
-									<Link
-										className='rs-col-span-2 rs-px-4 rs-grid rs-h-16 rs-w-full rs-grid-cols-3 rs-gap-4 rs-bg-transparent hover:rs-bg-brand/30'
-										key={item.frontmatter.slug}
-										to={`${location.pathname}/${item.frontmatter.slug}`}
-									>
-										<div className='rs-col-span-2 rs-flex rs-items-center rs-justify-start'>
-											<h3 className='rs-text-foreground rs-font-medium rs-text-left'>
-												{item.frontmatter.title}
-											</h3>
-										</div>
-										<div className='rs-flex rs-items-center rs-justify-start rs-space-x-2'>
-											<span
-												className='rs-text-foreground-subtle rs-text-xs'
-												title={format(
-													new Date(
-														item.frontmatter.createdAt
-													),
-													'PPPp'
-												)}
-											>
-												{formatDistance(
-													new Date(
-														item.frontmatter.createdAt
-													),
-													new Date(),
-													{
-														addSuffix: true,
-													}
-												)}
-											</span>
-										</div>
-									</Link>
-								))}
+								{items.map(
+									(item: {
+										filePath: string
+										frontmatter: any
+									}) => (
+										<Link
+											className='rs-col-span-2 rs-px-4 rs-grid rs-h-16 rs-w-full rs-grid-cols-4 rs-gap-4 rs-bg-transparent hover:rs-bg-brand/30'
+											key={item.frontmatter.slug}
+											to={`${location.pathname}/${item.frontmatter.slug}`}
+										>
+											<div className='rs-col-span-2 rs-flex rs-items-center rs-justify-start'>
+												<h3 className='rs-text-foreground rs-font-medium rs-text-left'>
+													{item.frontmatter.title}
+												</h3>
+											</div>
+											<div className='rs-flex rs-items-center rs-justify-start rs-space-x-2'>
+												<span className='rs-text-foreground-subtle rs-text-xs'>
+													{item.filePath}
+												</span>
+											</div>
+											<div className='rs-flex rs-items-center rs-justify-start rs-space-x-2'>
+												<span
+													className='rs-text-foreground-subtle rs-text-xs'
+													title={format(
+														new Date(
+															item.frontmatter.createdAt
+														),
+														'PPPp'
+													)}
+												>
+													{formatDistance(
+														new Date(
+															item.frontmatter.createdAt
+														),
+														new Date(),
+														{
+															addSuffix: true,
+														}
+													)}
+												</span>
+											</div>
+										</Link>
+									)
+								)}
 							</div>
 						</>
 					)}
