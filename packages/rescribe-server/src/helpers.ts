@@ -18,14 +18,30 @@ export async function readItemsInCollection(collection: Collection) {
 			const file = await fsp.readFile(entry, 'utf8')
 			const { data } = matter(file)
 			const frontmatter = YAML.parse(`${JSON.stringify(data)}\n`)
+			const entryParts = entry
+				.replace(process.cwd(), '')
+				.replace(REMIX_BASE_PATH, '')
+				.replace(
+					collection.path.replace('**/*', '').replace('*', ''),
+					''
+				)
+				.split('/')
+			const _ = entryParts.pop()
+			const filePath = entryParts.join('/') ? entryParts.join('/') : '/'
 
 			return {
+				filePath,
 				frontmatter,
 			}
 		})
 	)
+	const sortedItems = items.sort(
+		(a: any, b: any) =>
+			new Date(b.frontmatter.createdAt).valueOf() -
+			new Date(a.frontmatter.createdAt).valueOf()
+	)
 
-	return items
+	return sortedItems
 }
 
 export async function getItemInCollectionFromSlug({
