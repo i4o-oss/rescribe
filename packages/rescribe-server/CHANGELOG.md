@@ -1,5 +1,13 @@
 # @rescribejs/server
 
+## 0.1.1
+
+### Patch Changes
+
+-   4507bc7: Add/Update readme and link to documentation
+-   Updated dependencies [4507bc7]
+    -   @rescribejs/core@0.1.1
+
 ## 0.1.0
 
 ### Minor Changes
