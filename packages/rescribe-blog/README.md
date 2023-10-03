@@ -1,6 +1,6 @@
-# Rescribe Docs
+# Rescribe Blog
 
-Documentation template for Remix sites for use with Rescribe or independently.
+Blog template for Remix sites for use with Rescribe or independently.
 
 ## Documentation
 
