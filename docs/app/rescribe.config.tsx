@@ -230,7 +230,7 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 					pages: {
 						'docs-template/configuration': 'Configuration',
 						'docs-template/outlet': 'Outlet',
-						'docs-template/components': 'Components',
+						// 'docs-template/components': 'Components',
 						// 'docs-template/footer': 'Footer',
 						// 'docs-template/sidebar': 'Sidebar',
 						// 'docs-template/theme': 'Theme',
