@@ -4,6 +4,16 @@
 
 ### Patch Changes
 
+-   Updated dependencies [2ce1c6b]
+    -   @rescribejs/blog@0.1.4
+    -   @rescribejs/core@0.1.4
+    -   @rescribejs/docs@0.1.4
+    -   @rescribejs/server@0.1.4
+
+## null
+
+### Patch Changes
+
 -   Updated dependencies [1d3a6f2]
     -   @rescribejs/blog@0.1.3
     -   @rescribejs/core@0.1.3
