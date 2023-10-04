@@ -12,7 +12,7 @@
 		"start": "turbo run start --scope=rescribe-docs",
 		"lint": "turbo run lint",
 		"format": "prettier --write \"**/*.{ts,tsx,md,mdx}\"",
-		"release": "turbo run build --filter=@rescribejs/rescribe-* && changeset publish"
+		"release": "turbo run build --filter=@rescribejs/* && changeset publish"
 	},
 	"devDependencies": {
 		"@rescribejs/eslint-config": "workspace:*",
