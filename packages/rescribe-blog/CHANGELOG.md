@@ -1,5 +1,14 @@
 # @rescribejs/blog
 
+## 0.1.4
+
+### Patch Changes
+
+-   2ce1c6b: Fix build script
+-   Updated dependencies [2ce1c6b]
+    -   @rescribejs/core@0.1.4
+    -   @rescribejs/server@0.1.4
+
 ## 0.1.3
 
 ### Patch Changes

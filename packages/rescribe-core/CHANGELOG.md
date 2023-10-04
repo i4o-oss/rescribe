@@ -1,5 +1,11 @@
 # @rescribejs/core
 
+## 0.1.4
+
+### Patch Changes
+
+-   2ce1c6b: Fix build script
+
 ## 0.1.3
 
 ### Patch Changes
