@@ -1,5 +1,11 @@
 # @rescribejs/core
 
+## 0.1.3
+
+### Patch Changes
+
+-   1d3a6f2: Fix access config
+
 ## 0.1.2
 
 ### Patch Changes
