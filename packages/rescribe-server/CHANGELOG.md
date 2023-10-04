@@ -1,5 +1,13 @@
 # @rescribejs/server
 
+## 0.1.2
+
+### Patch Changes
+
+-   d275b6a: Fix redirect in new collection item page in admin UI
+-   Updated dependencies [d275b6a]
+    -   @rescribejs/core@0.1.2
+
 ## 0.1.1
 
 ### Patch Changes
