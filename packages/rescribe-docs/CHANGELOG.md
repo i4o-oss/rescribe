@@ -1,5 +1,14 @@
 # @rescribejs/docs
 
+## 0.1.3
+
+### Patch Changes
+
+-   1d3a6f2: Fix access config
+-   Updated dependencies [1d3a6f2]
+    -   @rescribejs/core@0.1.3
+    -   @rescribejs/server@0.1.3
+
 ## 0.1.2
 
 ### Patch Changes
