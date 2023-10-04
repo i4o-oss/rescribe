@@ -63,6 +63,9 @@
 		"url": "https://i4o.dev"
 	},
 	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
 	"homepage": "https://rescribe.site",
 	"repository": {
 		"type": "git",
