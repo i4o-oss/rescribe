@@ -195,7 +195,6 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 					title: 'Core Concepts',
 					pages: {
 						config: 'Configuration',
-						collections: 'Collections',
 						admin: 'Admin UI',
 						client: 'Client API',
 						'example-config': 'Example Configuration',
