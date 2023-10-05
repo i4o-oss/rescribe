@@ -4,4 +4,22 @@ title: Document Field
 slug: fields/document
 ---
 
+This field is used to store markdown content. When used in a collection schema, Rescribe will render a markdown editor. The editor supports markdown shortcuts and some rich-text shortcuts.
 
+You can create a document field in your collection schema using the `document()` method in the Field API.
+
+```javascript
+blog: collection({
+    // other options  
+	schema: {
+        // other fields
+        content: fields.document(),
+	},
+}),
+```
+
+## Editor
+
+The `document()` field will render a markdown editor. The editor is powered by `@i4o/oh-hi-markdown` which is a fork of another (now archived) markdown editor called [rich-markdown-editor](https://github.com/outline/rich-markdown-editor). For the time being, I’ve disabled many of the features that come out of the box in the editor. The editor will be refactored to better suit the Rescribe project. I also have plans to integrate the editor into the Rescribe project but this may not happen. If you want to report issues or request features for the editor, please submit an issue on the [editor’s issues page](https://github.com/i4o-oss/oh-hi-markdown/issues).
+
+Rescribe will render the `content` field — which is required in the schema — front and center along with the `title` field (also required). This is so you have a minimal writing environment without all the other fields cluttering up the UI. All other fields apart from `title` and `content` can be accessed via the right panel button on the top right of the editor page.

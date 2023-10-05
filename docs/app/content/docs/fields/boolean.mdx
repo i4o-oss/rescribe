@@ -5,3 +5,33 @@ slug: fields/boolean
 ---
 
 This field is used to store truthy values: `true` or `false`. When used in a collection schema, Rescribe will render a switch component.
+
+You can create a boolean field in your collection schema using the `boolean()` method in the Field API. The key used in the schema will be the key used to store the value in the frontmatter of the markdown file.
+
+```javascript
+blog: collection({
+    // other options  
+	schema: {
+        // other fields
+		published: fields.boolean({
+			label: 'Publish Post',
+			description: 'If the post should be published. Post will be saved as a draft by default.',
+            defaultChecked: false
+		}),
+	},
+}),
+```
+
+## Options
+
+### `label`
+
+Label for the boolean field so you can identify this field in the editor.
+
+### `description`
+
+Optional: Description for the boolean field. This will also be rendered in the editor if available.
+
+### `defaultChecked`
+
+If the switch should be on by default.

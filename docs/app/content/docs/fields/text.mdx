@@ -4,4 +4,40 @@ title: Text Field
 slug: fields/text
 ---
 
+This field is used to store short text. When used in a collection schema, Rescribe will render a text field. 
 
+You can create a text field in your collection schema using the `text()` method in the Field API. You can create as many text fields as you want but `title` has to be one of them.
+
+```javascript
+blog: collection({
+    // other options  
+	schema: {
+        // other fields
+        title: fields.text({
+			label: 'Title',
+			description: 'Title of the post',
+    	}),
+        title: fields.text({
+			label: 'Excerpt',
+			description: 'Description of the post for SEO purposes',
+            multiline: true
+    	}),
+	},
+}),
+```
+
+## Options
+
+### `label`
+
+Label for the slug field so you can identify this field in the editor.
+
+### `description`
+
+Optional: Description for the slug field. This will also be rendered in the editor if available.
+
+### `multiline`
+
+Optional: Set to `true` if you want a textarea instead of an input field. 
+
+*Note:* `title` *field will always be a textarea and will be styled differently from other text fields. It will also be front and center along with the* `content` *field. All other text fields can be accessed from the side panel.*

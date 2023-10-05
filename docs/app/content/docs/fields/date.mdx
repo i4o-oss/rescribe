@@ -4,4 +4,29 @@ title: Date Field
 slug: fields/date
 ---
 
+This field is used to store dates. When used in a collection schema, Rescribe will render a date selector component.
 
+You can create a date field in your collection schema using the `date()` method in the Field API. The key used in the schema will be the key used to store the value in the frontmatter of the markdown file.
+
+```javascript
+blog: collection({
+    // other options  
+	schema: {
+        // other fields
+        publishedAt: fields.date({
+			label: 'Publish Date',
+			description: 'Set the publish date of the post',
+    	}),
+	},
+}),
+```
+
+## Options
+
+### `label`
+
+Label for the date field so you can identify this field in the editor.
+
+### `description`
+
+Optional: Description for the date field. This will also be rendered in the editor if available.

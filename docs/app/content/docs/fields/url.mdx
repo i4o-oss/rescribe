@@ -4,4 +4,29 @@ title: URL Field
 slug: fields/url
 ---
 
+This field is used to store URLs. When used in a collection schema, Rescribe will render a text field. This field will be validated on save to make sure the value is a valid URL.
 
+You can create a URL field in your collection schema using the `url()` method in the Field API. 
+
+```javascript
+blog: collection({
+    // other options  
+	schema: {
+        // other fields
+        image: fields.url({
+			label: 'Image URL',
+			description: 'URL of the image uploaded to Cloudinary',
+    	}),
+	},
+}),
+```
+
+## Options
+
+### `label`
+
+Label for the URL field so you can identify this field in the editor.
+
+### `description`
+
+Optional: Description for the URL field. This will also be rendered in the editor if available.
