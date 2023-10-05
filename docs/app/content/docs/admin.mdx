@@ -58,7 +58,13 @@ export async function handleActionForRescribe(args: ActionHandlerArgs) {
 }
 ```
 
-## Disabling the admin UI in production
+Now you can use return these functions from your loader and action in the admin route.
+
+## Using the Admin UI
+
+Rescribe can now render the admin UI at `http://localhost:3000/rescribe`. Here you can view the collections you defined in the configuration and add, edit and view content in each of your collections. Rescribe doesn’t ship with its own light/dark mode and just uses whatever theme the rest of your site uses.
+
+## Disabling the Admin UI in production
 
 You probably don’t want your users to visit and get access to the admin UI in production. To do this, you can use the `redirect` function from Remix to send your users to another page in production. Update the loader function in `rescribe.$.tsx`:
 

@@ -4,4 +4,45 @@ title: Client API
 slug: client
 ---
 
-Rescribe clients are used to read the data you’ve authored using the CMS.
+Rescribe clients are used to read the data you’ve authored using the admin UI. `@rescribejs/server` exposes a `createClient()` function that you can use in your loaders.
+
+```javascript
+import { createClient } from '@rescribejs/server'
+import { config } from '~/rescribe.config'
+
+export const loader = async () => {
+  const client = createClient(config)
+}
+```
+
+`createClient()` returns an object that has interfaces to each of your collection. You can access the interface for a collection by accessing the same collection key you used in your configuration:
+
+```javascript
+const docs = client['docs']
+```
+
+## Interface Properties and Methods
+
+### `all()`
+
+Returns a list of items in the collection.
+
+### `unique(where: { slug: string }, options: { headings: boolean })`
+
+`unique()` takes a `where` object with a `slug` key. It returns the an object with the following properties: `code`, `content`, and `frontmatter`. `code` is the compiled version of the markdown content, `content` is the plain markdown content, and `frontmatter` contains the frontmatter stored in the markdown file.
+
+### `_format`
+
+Returns the markdown file format your content is stored in.
+
+### `_label` 
+
+Returns the label used to represent the collection
+
+### `_path` 
+
+Returns the path of the directory where the content in this collection is stored.
+
+### `_slug`
+
+Returns the slug under which the collection can be accessed.
