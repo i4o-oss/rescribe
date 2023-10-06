@@ -1,7 +1,227 @@
 ---
 createdAt: 2023-10-03T06:41:32.123Z
-title: Docs Configuration
+title: Configuration
 slug: docs-template/configuration
 ---
 
+Just like the blog template, the docs template lets you add documentation to your Remix site. Similar to `rescribe.$.tsx` splat route for the admin UI, the docs template uses a `docs.$.tsx` splat route to render a docs site. Unlike the blog template, setting up the docs template requires a little more effort since there’s quite a bit happening behind the scenes. To get started, install the docs template.
 
+## Installation
+
+```bash
+pnpm add @rescribejs/docs
+```
+
+## Setup
+
+The docs template requires its own configuration object. So let’s add that to `rescribe.config.tsx`:
+
+```typescript
+// rescribe.config.tsx
+import type { RescribeDocsConfig } from '@rescribejs/docs'
+
+export const docsConfig: RescribeDocsConfig = {
+    // docs options
+}
+```
+
+Here are the available options for docs:
+
+### `navbar`
+
+Lets you configure the navbar in your docs site.
+
+#### `logo`
+
+*Type:* `string | ReactNode`
+
+You can pass an image URL or React component
+
+```javascript
+export const docsConfig = {
+    navbar: {
+        logo: (
+            <span className='inline-flex items-center gap-2'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-align-vertical-justify-end"><rect width="14" height="6" x="5" y="12" rx="2"/><rect width="10" height="6" x="7" y="2" rx="2"/><path d="M2 22h20"/></svg>
+				<span className='text-base font-semibold'>Cairn</span>
+			</span>
+        )
+    }
+}
+```
+
+#### `socials`
+
+*Type:* `Array<{ ariaLabel?: string, icon: ReactNode, href: string }>`
+
+A list of your social media or similar links (Github, Discord, etc)
+
+```javascript
+export const docsConfig = {
+    navbar: {
+        socials: [
+             {
+                  icon: <GitHubLogoIcon className='h-6 w-6' />,
+                  href: 'https://github.com/i4o-oss/rescribe',
+             }
+        ]
+    }
+}
+```
+
+### `footer`
+
+#### `socials`
+
+*Type:* `Array<{ ariaLabel?: string, icon: ReactNode, href: string }>`
+
+Same as the `socials` option for `navbar`.
+
+#### `text`
+
+*Type:* `string | ReactNode`
+
+Text you want to display in the footer (lie copyright stuff, etc)
+
+### `sidebar`
+
+#### `links`
+
+*Type:* `Array<{ external?: boolean, href: string, icon?: ReactNode, label: string | ReactNode }>`
+
+Renders a list of links at the top of the sidebar. Set `external` to `true` for external links. This will open the link in a new tab.
+
+```javascript
+export const docsConfig = {
+    sidebar: {
+        links: [
+			{
+				href: '/docs',
+				icon: <FileTextIcon className='h-4 w-4' />,
+				label: 'Documentation',
+			},
+			{
+				external: true,
+				href: 'https://github.com/i4o-oss/rescribe',
+				icon: <GitHubLogoIcon className='h-4 w-4' />,
+				label: 'Github',
+			},
+		],
+    }
+}
+```
+
+#### `navigation`
+
+*Type:* `Record<string, NavigationLinkGroup[]>`
+
+```typescript
+interface NavigationLinkObject {
+	external?: boolean
+	title: string
+	url: string
+}
+
+type NavigationLink = string | NavigationLinkObject
+
+interface NavigationLinkGroup {
+	title: string
+	pages: Record<string, NavigationLink>
+}
+```
+
+This option lets you define the links you want in the sidebar and how to group them. The key for each `NavigationLinkGroup[]` should be the collection slug that you’ve defined in your configuration. `navigation` is defined this way to let you create as many docs sites as you want in your Remix site. For example, you might want to create different docs for your APIs, SDKs, guides etc.
+
+Here’s part of the links setup that this documentation uses:
+
+```javascript
+export const docsConfig = {
+    sidebar: {
+        navigation: {
+			docs: [
+				{
+					title: 'Getting Started',
+					pages: {
+						index: 'Introduction',
+						installation: 'Installation',
+						roadmap: 'Roadmap',
+					},
+				},
+                // ...more links
+				{
+					title: 'More',
+					pages: {
+						about: 'About',
+						remix: {
+							external: true,
+							title: 'Remix Docs',
+							url: 'https://remix.run/docs/en/main',
+						},
+					},
+				},
+			],
+		},
+    }
+}
+```
+
+### `theme`
+
+#### `darkModeToggle`
+
+*Type:* `ReactNode`
+
+The docs template doesn’t come with its own dark mode toggle. Instead it relies on the theme toggle that you use elsewhere in your site. The text in the docs template will adapt to your theme. It uses Tailwind CSS internally so make sure there is a `light` or `dark` class in a parent element.
+
+
+---
+
+That’s it for the options available for the docs template. I know that was a lot but they give you a lot of control over the experience of your docs site. Now there’s just a little bit left in the setup. Let’s go back to the `rescribe.server.ts` file and add a function to handle the loader for our docs.
+
+```javascript
+// rescribe.server.ts
+import { handleDocsLoader } from '@rescribejs/docs'
+import type { LoaderHandlerArgs } from '@rescribejs/server'
+import { config, docsConfig } from '~/rescribe.config.tsx'
+
+export async function handleRescribeDocsLoader(args: LoaderHandlerArgs) {
+	const client = createClient(args.config)
+	const docs = client['docs']
+	return await handleDocsLoader({ ...args, docs, docsConfig, rescribeConfig })
+}
+```
+
+This function just creates a new client for our docs and calls the `handleDocsLoader()` from the blog template package.
+
+Now we can move on to our docs route, `docs.$.tsx`:
+
+```javascript
+// docs.$.tsx
+import type { LinksFunction, LoaderFunctionArgs } from '@remix-run/node'
+
+import { DocsOutlet } from '@rescribejs/docs'
+import docsStylesheet from '@rescribejs/docs/main.css'
+import {
+	configObj as config,
+	rescribeDocsConfig as docsConfig,
+} from '~/rescribe.config'
+import { handleRescribeDocsLoader } from '~/utils/rescribe.server'
+
+export const links: LinksFunction = () => [
+	{ rel: 'stylesheet', href: docsStylesheet },
+]
+
+export async function loader(args: LoaderFunctionArgs) {
+	return handleRescribeDocsLoader({ ...args, config })
+}
+
+export default function DocsRoot() {
+	return <DocsOutlet context={{ docsConfig }} />
+}
+```
+
+`@rescribejs/docs` exports a `DocsOutlet` component which is used to render all the pages in your docs site.
+
+*Note: As you can see, you also have to import a stylesheet exported by the package. It includes all the layout and typography styles required by the docs site.*
+
+And that’s it! You can now visit [localhost:3000/docs](http://localhost:3000/docs) and check out your docs site!

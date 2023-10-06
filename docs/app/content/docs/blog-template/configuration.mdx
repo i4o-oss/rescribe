@@ -1,0 +1,66 @@
+---
+createdAt: 2023-09-26T13:03:21.123Z
+title: Configuration
+slug: blog-template/configuration
+---
+
+The blog template lets you add a blog to your Remix site with very little effort. Similar to `rescribe.$.tsx` splat route for the admin UI, the blog template uses a `blog.$.tsx` splat route to render a blog. To get started, install the blog template.
+
+## Installation
+
+```bash
+pnpm add @rescribejs/blog
+```
+
+## Setup
+
+Let’s go back to the `rescribe.server.ts` file and add a function to handle the loader for your blog.
+
+```javascript
+// rescribe.server.ts
+import { handleBlogLoader } from '@rescribejs/blog'
+import type { LoaderHandlerArgs } from '@rescribejs/server'
+import { config } from '~/rescribe.config.tsx'
+
+export async function handleRescribeBlogLoader(args: LoaderHandlerArgs) {
+	const client = createClient(args.config)
+	const blog = client['blog']
+	return await handleBlogLoader({ ...args, blog })
+}
+```
+
+This function just creates a new client for your blog and calls the `handleBlogLoader()` from the blog template package.
+
+Now you can move on to your blog route, `blog.$.tsx`:
+
+```javascript
+// blog.$.tsx
+import type { LinksFunction, LoaderFunctionArgs } from '@remix-run/node'
+
+import { BlogOutlet } from '@rescribejs/blog'
+import rescribeBlogStylesheet from '@rescribejs/blog/main.css'
+import { config } from '~/rescribe.config'
+import { handleRescribeBlogLoader } from '~/utils/rescribe.server'
+
+export const links: LinksFunction = () => [
+	{ rel: 'stylesheet', href: rescribeBlogStylesheet },
+]
+
+export async function loader(args: LoaderFunctionArgs) {
+	return handleRescribeBlogLoader({ ...args, config })
+}
+
+export default function BlogRoot() {
+	return (
+		<div className='flex min-h-[calc(100vh-10rem)] w-full flex-col mx-auto max-w-4xl justify-start items-center'>
+			<BlogOutlet />
+		</div>
+	)
+}
+```
+
+`@rescribejs/blog` exports a `BlogOutlet` component which will be used to render a posts list and post content.
+
+*Note: As you can see, you have to import a stylesheet exported by the package. It includes some basic styling for the posts list and post content components but doesn’t have any layout-related components or styles. You have to bring your own navbar, footer, layout and any other components you’d like on the blog page (like a subscription form).*
+
+And with that you have a blog! Check it out at [localhost:3000/blog](http://localhost:3000/blog)!
