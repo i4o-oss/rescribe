@@ -1,7 +1,6 @@
 import type { LoaderFunctionArgs } from '@remix-run/node'
-import { json } from '@remix-run/node'
 
-import { DocsOutlet, Footer, Navbar } from '@rescribejs/docs'
+import { DocsOutlet } from '@rescribejs/docs'
 import {
 	configObj as config,
 	rescribeDocsConfig as docsConfig,
@@ -11,12 +10,6 @@ import { handleRescribeDocsLoader } from '~/utils/rescribe.server'
 export async function loader(args: LoaderFunctionArgs) {
 	return handleRescribeDocsLoader({ ...args, config })
 }
-
-// temp fix for https://github.com/i4o-oss/rescribe/issues/1
-// this is needed to force revalidation on client-side navigation
-// export function shouldRevalidate() {
-//     return true
-// }
 
 export default function DocsRoot() {
 	return <DocsOutlet context={{ docsConfig }} />

@@ -187,7 +187,6 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 					pages: {
 						index: 'Introduction',
 						installation: 'Installation',
-						// development: 'Development',
 						roadmap: 'Roadmap',
 					},
 				},
@@ -212,40 +211,17 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 					},
 				},
 				{
-					title: 'Templates',
-					pages: {
-						'docs-template': 'Docs',
-						'blog-template': 'Blog',
-					},
-				},
-				{
 					title: 'Blog Template',
 					pages: {
-						'blog-template/outlet': 'Outlet',
+						'blog-template/configuration': 'Configuration',
 					},
 				},
 				{
 					title: 'Docs Template',
 					pages: {
 						'docs-template/configuration': 'Configuration',
-						'docs-template/outlet': 'Outlet',
-						// 'docs-template/components': 'Components',
-						// 'docs-template/footer': 'Footer',
-						// 'docs-template/sidebar': 'Sidebar',
-						// 'docs-template/theme': 'Theme',
 					},
 				},
-				// {
-				// 	title: 'Components',
-				// 	pages: {
-				// 		accordion: 'Accordion',
-				// 		callout: 'Callout',
-				// 		cards: 'Cards',
-				// 		'card-title': 'Card Group',
-				// 		list: 'List',
-				// 		tabs: 'Tabs',
-				// 	},
-				// },
 				{
 					title: 'More',
 					pages: {
