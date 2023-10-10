@@ -1,0 +1,75 @@
+---
+createdAt: 2023-10-10T12:25:27.974Z
+title: Introducing Rescribe
+slug: introducing-rescribe
+excerpt: ""
+published: false
+publishedAt: 2023-10-10T12:02:11.961Z
+---
+
+My original plan for Rescribe was to ship a blog and docs generator for Remix sites. I’d used Nextra for one of my projects and I loved it. But I wanted something similar for Remix and as far as I could tell, none existed. So I set out to build it.
+
+After I built an early prototype that I was quite happy with, I pushed it to npm and started using it for a couple of my other projects. But the process of writing content in my IDE wasn’t great. Sure, I get syntax highlighting and autocomplete but that’s at the expense of a good writing and content publishing experience.
+
+I’d already built a writing app for personal use at this point and I loved writing in it. I wanted something similar for writing blog posts and docs and whatever other content for my projects. That’s when I decided to pivot a little and build an embeddable CMS for Remix codebases. I’m currently writing this post in the Rescribe CMS and it feels awesome. Not in the way that it works great or is full of features. In fact, it’s bare bones, doesn’t have a lot of the features I want in a CMS. I mean awesome in the way that I built something from nothing and I’m excited for people to try it out. So here goes!
+
+## Meet Rescribe
+
+Rescribe is a CMS that you can embed in your Remix app or site codebase. It aims to provide a great writing and content authoring experience that you get from headless CMS solutions but with 100% control over your content and data. Plus, it comes with templates for a blog and documentation site out of the box.
+
+Integrating Rescribe can be done in a few minutes. All you have to do is write some configuration, copy-paste some code, and assign it a route. It’s that easy.
+
+Rescribe is open-source software and is licensed under the MIT license.
+
+Current version is `v0.1.4`. I’m constantly pushing bug fixes and features to it. In its current state, Rescribe has the following features:
+
+* Organize content in collections
+* Customizable fields for each collection
+* Dedicated route for admin panel and CMS
+* 6 types of form fields
+* Markdown editor
+* Draft/Publish workflow
+* Saves to local filesystem
+* Blog and Docs template
+
+Although the present state might not be for production uses, it’s a good start. Even in its current state, I use Rescribe for Rescribe’s blog and docs. The Rescribe website itself serves as a great testbench.
+
+## Roadmap
+
+Here are some of the things I’m working on and plan to work on:
+
+* Pagination for blog and docs templates
+* Customizable colors in blog, docs and admin panel
+* Github integration
+* Image and multiselect fields
+* Better editing experience
+  * Image support
+* Previewing content before publishing
+* Better guides for a draft → preview → publish workflow
+
+## Credits
+
+No software is truly built from scratch. We’re all building on top of the work of others and Rescribe is no different. Here’s a list of software projects that Rescribe uses or has inspired ideas:
+
+* [Remix](https://remix.run/)
+* [Nextra](https://nextra.site/) and [Next.js](https://nextjs.org/)
+* [Astro](https://astro.build/)
+* [React](https://react.dev/)
+* [Conform](https://conform.guide/)
+* [Zod](https://zod.dev/)
+* [Radix UI](https://www.radix-ui.com/)
+* [TailwindCSS](https://tailwindcss.com/)
+* [MDXjs](https://mdxjs.com/)
+* [Turbo Repo](https://turbo.build/repo)
+* [Tsup](https://tsup.egoist.dev/)
+* [Pnpm](https://pnpm.io/)
+
+
+---
+
+One of my main goals with Rescribe is to build something that would help others build and launch faster. If I can save time and effort by taking a few things off your plate, I’d consider that a win. 
+
+I’m excited for people to try Rescribe in their sites. If you do try it, let me know on [Twitter](https://twitter.com/0xi4o). If you have suggestions, bug reports, or feature requests, post them on [Github issues](https://github.com/i4o-oss/rescribe/issues).
+
+\
+
