@@ -17,6 +17,9 @@ module.exports = {
 					subtle: 'hsl(var(--foreground-subtle) / <alpha-value>)',
 				},
 			},
+			boxShadow: {
+				glow: '0 0 1rem -0.35rem var(--brand)',
+			},
 		},
 	},
 }

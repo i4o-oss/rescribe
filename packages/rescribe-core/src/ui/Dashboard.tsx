@@ -22,7 +22,7 @@ export function Dashboard() {
 							{collections.map((collection) => {
 								return (
 									<Link
-										className='rs-group rs-relative rs-h-48 rs-border-subtle hover:rs-border-brand hover:rs-shadow-[0_0_1rem_-0.35rem_#2cb67d] rs-col-span-1 rs-overflow-hidden rs-rounded-lg rs-border rs-transition-all rs-duration-200 rs-flex rs-flex-col rs-items-start rs-justify-between rs-gap-4 rs-p-6'
+										className='rs-group rs-relative rs-h-48 rs-border-subtle hover:rs-border-brand hover:rs-shadow-glow rs-col-span-1 rs-overflow-hidden rs-rounded-lg rs-border rs-transition-all rs-duration-200 rs-flex rs-flex-col rs-items-start rs-justify-between rs-gap-4 rs-p-6'
 										key={collection.slug}
 										to={`${BASE_PATH}/collections/${collection.slug}`}
 									>

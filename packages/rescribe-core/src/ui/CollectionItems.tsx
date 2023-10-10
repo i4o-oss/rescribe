@@ -23,7 +23,9 @@ export default function CollectionItems() {
 					</h2>
 					{items.length > 0 ? (
 						<Link to={`${location.pathname}/new`}>
-							<PrimaryButton>Add item</PrimaryButton>
+							<PrimaryButton className='rs-text-brand-foreground'>
+								Add item
+							</PrimaryButton>
 						</Link>
 					) : null}
 				</div>
