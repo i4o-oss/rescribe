@@ -10,16 +10,19 @@ export type DocsLoaderHandlerArgs = LoaderFunctionArgs & {
 	rescribeConfig: Config<Collections>
 }
 
-interface Socials {
+interface SocialLink {
 	ariaLabel?: string
 	icon: ReactNode
 	href: string
 }
 
+export interface NavLink extends SidebarLink {}
+
 export interface NavbarConfig {
 	logo: string | ReactNode
+	links?: NavLink[]
 	search?: boolean
-	socials?: Socials[]
+	socials?: SocialLink[]
 }
 
 export interface SidebarLink {
@@ -50,7 +53,7 @@ interface SidebarConfig {
 
 export interface FooterConfig {
 	text?: string | ReactNode
-	socials?: Socials[]
+	socials?: SocialLink[]
 }
 
 export interface RescribeDocsConfig {

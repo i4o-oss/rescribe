@@ -157,6 +157,16 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 				<span className='text-base font-semibold'>rescribe</span>
 			</span>
 		),
+		links: [
+			{
+				label: 'Documentation',
+				href: '/docs',
+			},
+			{
+				label: 'Blog',
+				href: '/blog',
+			},
+		],
 		search: false,
 		socials: [
 			{

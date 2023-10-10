@@ -1,9 +1,9 @@
-import { Link } from '@remix-run/react'
+import { Link, useLocation } from '@remix-run/react'
 
 import { ReactNode, useContext } from 'react'
 
 import { RescribeDocsContext } from '../constants'
-import { NavbarConfig } from '../types'
+import { NavLink, NavbarConfig } from '../types'
 
 function Navbar({
 	navbarConfig,
@@ -15,6 +15,7 @@ function Navbar({
 	}
 }) {
 	const context = useContext(RescribeDocsContext)
+	const location = useLocation()
 	const navbar = context?.navbar ?? navbarConfig
 	const theme = context?.theme ?? themeConfig
 
@@ -38,6 +39,64 @@ function Navbar({
 				</Link>
 			</div>
 			<div className='rs-flex rs-flex-grow rs-items-center rs-justify-end rs-gap-4'>
+				{navbar?.links && (
+					<ul className='rs-flex rs-items-center rs-gap-4 rs-px-8'>
+						{navbar?.links?.map((link: NavLink, index: number) => {
+							return (
+								<li className='rs-font-semibold' key={index}>
+									{link?.external ? (
+										<a
+											className='rs-group rs-flex rs-items-center rs-gap-4 rs-text-gray-400 dark:rs-text-gray-600'
+											href={link.href}
+											target='_blank'
+											rel='noreferrer noopener'
+										>
+											{link.icon ? (
+												<div className='group-hover:rs-bg-brand-500 group-hover:dark:rs-bg-brand-500 rs-rounded-md rs-p-1 rs-ring-1 rs-ring-zinc-400/25 rs-transition-all rs-duration-300 group-hover:rs-text-white dark:rs-ring-zinc-700/40 group-hover:dark:rs-text-white '>
+													{link.icon}
+												</div>
+											) : null}
+											<span className='rs-text-sm group-hover:rs-text-brand'>
+												{link.label}
+											</span>
+										</a>
+									) : (
+										<Link
+											className='rs-group rs-flex rs-items-center rs-gap-4 rs-text-gray-400 rs-transition-all rs-duration-300 dark:rs-text-gray-600'
+											to={link.href}
+										>
+											{link.icon ? (
+												<div
+													className={`group-hover:rs-bg-brand-500 group-hover:dark:rs-bg-brand-500 rs-rounded-md rs-p-1 rs-ring-1 rs-ring-zinc-400/25 group-hover:rs-text-white dark:rs-ring-zinc-700/40 group-hover:rs-dark:text-white ${
+														link.href ===
+														location.pathname
+															? 'rs-bg-brand-500 rs-text-white'
+															: ''
+													} rs-transition-all rs-duration-300 `}
+												>
+													{link.icon}
+												</div>
+											) : null}
+											<span
+												className={`rs-text-sm ${
+													link.href ===
+														location.pathname ||
+													location.pathname.startsWith(
+														link.href
+													)
+														? 'rs-text-brand'
+														: 'group-hover:rs-text-brand'
+												}`}
+											>
+												{link.label}
+											</span>
+										</Link>
+									)}
+								</li>
+							)
+						})}
+					</ul>
+				)}
 				{navbar?.search && (
 					<input
 						className='rs-h-10 rs-w-80 rs-rounded-md rs-bg-neutral-100 rs-px-4 rs-py-1 rs-text-sm dark:rs-bg-neutral-900 dark:rs-text-gray-300'

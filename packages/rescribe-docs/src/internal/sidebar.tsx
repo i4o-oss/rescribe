@@ -4,13 +4,13 @@ import { useContext } from 'react'
 
 import { RescribeDocsContext } from '../constants'
 import type { NavigationLinkGroup, SidebarLink } from '../types'
-import navbar from './navbar'
 
 function Sidebar() {
 	const context = useContext(RescribeDocsContext)
 	const sidebar = context?.sidebar
 	const location = useLocation()
-	const [, root, , _] = location.pathname.split('/')
+	const params = location.pathname.split('/')
+	const root = params[1]
 	// TODO: fix this type later
 	const navigationOptions = sidebar?.navigation[
 		root
