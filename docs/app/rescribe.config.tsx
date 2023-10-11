@@ -223,13 +223,13 @@ export const rescribeDocsConfig: RescribeDocsConfig = {
 				{
 					title: 'Blog Template',
 					pages: {
-						'blog-template/configuration': 'Configuration',
+						'blog-template/configuration': 'Blog Configuration',
 					},
 				},
 				{
 					title: 'Docs Template',
 					pages: {
-						'docs-template/configuration': 'Configuration',
+						'docs-template/configuration': 'Docs Configuration',
 					},
 				},
 				{
