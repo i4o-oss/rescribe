@@ -25,6 +25,11 @@ export interface NavbarConfig {
 	socials?: SocialLink[]
 }
 
+export interface PaginationLink {
+	link: string
+	title: string
+}
+
 export interface SidebarLink {
 	external?: true
 	href: string
@@ -38,7 +43,7 @@ interface NavigationLinkObject {
 	url: string
 }
 
-type NavigationLink = string | NavigationLinkObject
+export type NavigationLink = string | NavigationLinkObject
 
 export interface NavigationLinkGroup {
 	title: string
