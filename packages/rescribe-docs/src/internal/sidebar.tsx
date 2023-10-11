@@ -12,9 +12,7 @@ function Sidebar() {
 	const params = location.pathname.split('/')
 	const root = params[1]
 	// TODO: fix this type later
-	const navigationOptions = sidebar?.navigation[
-		root
-	] as Array<NavigationLinkGroup>
+	const navigationOptions = sidebar?.navigation[root] as NavigationLinkGroup[]
 
 	return (
 		<div className='rs-relative'>
@@ -38,7 +36,7 @@ function Sidebar() {
 												target='_blank'
 												rel='noreferrer noopener'
 											>
-												<div className='group-hover:rs-bg-brand-500 group-hover:dark:rs-bg-brand-500 rs-rounded-md rs-p-1 rs-ring-1 rs-ring-zinc-400/25 rs-transition-all rs-duration-300 group-hover:rs-text-white dark:rs-ring-zinc-700/40 group-hover:dark:rs-text-white '>
+												<div className='group-hover:rs-bg-brand group-hover:dark:rs-bg-brand rs-rounded-md rs-p-1 rs-ring-1 rs-ring-zinc-400/25 rs-transition-all rs-duration-300 group-hover:rs-text-white dark:rs-ring-zinc-700/40 group-hover:dark:rs-text-white '>
 													{link.icon}
 												</div>
 												<span className='rs-text-sm rs-font-semibold'>
@@ -51,13 +49,13 @@ function Sidebar() {
 												to={link.href}
 											>
 												<div
-													className={`group-hover:rs-bg-brand-500 group-hover:dark:rs-bg-brand-500 rs-rounded-md rs-p-1 rs-ring-1 rs-ring-zinc-400/25 group-hover:rs-text-white dark:rs-ring-zinc-700/40 group-hover:rs-dark:text-white ${
+													className={`group-hover:rs-bg-brand group-hover:dark:rs-bg-brand rs-rounded-md rs-p-1 rs-ring-1 rs-ring-zinc-400/25 group-hover:rs-text-white dark:rs-ring-zinc-700/40 group-hover:rs-dark:text-white ${
 														link.href ===
 															location.pathname ||
 														location.pathname.startsWith(
 															link.href
 														)
-															? 'rs-bg-brand-500 rs-text-white'
+															? 'rs-bg-brand rs-text-white'
 															: ''
 													} rs-transition-all rs-duration-300 `}
 												>
@@ -70,7 +68,7 @@ function Sidebar() {
 														location.pathname.startsWith(
 															link.href
 														)
-															? 'rs-text-brand-500'
+															? 'rs-text-brand'
 															: ''
 													}`}
 												>
@@ -109,8 +107,8 @@ function Sidebar() {
 																className={`-rs-ml-[1px] rs-border-l rs-py-1 rs-pl-4 rs-text-sm rs-transition-colors rs-duration-300 ${
 																	location.pathname ===
 																	`/${root}`
-																		? 'rs-border-brand-500 rs-text-brand-500'
-																		: 'hover:rs-border-brand-500 hover:dark:rs-border-brand-500 hover:rs-text-brand-500 hover:dark:rs-text-brand-500 rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
+																		? 'rs-border-brand rs-text-brand'
+																		: 'hover:rs-border-brand hover:dark:rs-border-brand hover:rs-text-brand hover:dark:rs-text-brand rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
 																}`}
 																key={j}
 															>
@@ -125,8 +123,8 @@ function Sidebar() {
 															className={`-rs-ml-[1px] rs-border-l rs-py-1 rs-pl-4 rs-text-sm rs-transition-colors rs-duration-300 ${
 																location.pathname ===
 																`/${root}/${page}`
-																	? 'rs-border-brand-500 rs-text-brand-500'
-																	: 'hover:rs-border-brand-500 hover:dark:rs-border-brand-500 hover:rs-text-brand-500 hover:dark:rs-text-brand-500 rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
+																	? 'rs-border-brand rs-text-brand'
+																	: 'hover:rs-border-brand hover:dark:rs-border-brand hover:rs-text-brand hover:dark:rs-text-brand rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
 															}`}
 															key={j}
 														>
@@ -139,7 +137,7 @@ function Sidebar() {
 													return (
 														<a
 															href={link.url}
-															className='rs-flex rs-items-center rs-gap-2 -rs-ml-[1px] rs-border-l rs-py-1 rs-pl-4 rs-text-sm rs-transition-colors rs-duration-300 hover:rs-border-brand-500 hover:dark:rs-border-brand-500 hover:rs-text-brand-500 hover:dark:rs-text-brand-500 rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
+															className='rs-flex rs-items-center rs-gap-2 -rs-ml-[1px] rs-border-l rs-py-1 rs-pl-4 rs-text-sm rs-transition-colors rs-duration-300 hover:rs-border-brand hover:dark:rs-border-brand hover:rs-text-brand hover:dark:rs-text-brand rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
 															key={j}
 															target='_blank'
 															rel='noreferrer'
@@ -178,8 +176,8 @@ function Sidebar() {
 															className={`-rs-ml-[1px] rs-border-l rs-py-1 rs-pl-4 rs-text-sm rs-transition-colors rs-duration-300 ${
 																location.pathname ===
 																`/${root}`
-																	? 'rs-border-brand-500 rs-text-brand-500'
-																	: 'hover:rs-border-brand-500 hover:dark:rs-border-brand-500 hover:rs-text-brand-500 hover:dark:rs-text-brand-500 rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
+																	? 'rs-border-brand rs-text-brand'
+																	: 'hover:rs-border-brand hover:dark:rs-border-brand hover:rs-text-brand hover:dark:rs-text-brand rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
 															}`}
 															key={j}
 														>
@@ -194,8 +192,8 @@ function Sidebar() {
 														className={`-rs-ml-[1px] rs-border-l rs-py-1 rs-pl-4 rs-text-sm rs-transition-colors rs-duration-300 ${
 															location.pathname ===
 															`/${root}/${link.url}`
-																? 'rs-border-brand-500 rs-text-brand-500'
-																: 'hover:rs-border-brand-500 hover:dark:rs-border-brand-500 hover:rs-text-brand-500 hover:dark:rs-text-brand-500 rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
+																? 'rs-border-brand rs-text-brand'
+																: 'hover:rs-border-brand hover:dark:rs-border-brand hover:rs-text-brand hover:dark:rs-text-brand rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
 														}`}
 														key={j}
 													>
