@@ -1,5 +1,17 @@
 # @rescribejs/blog
 
+## 0.2.0
+
+### Minor Changes
+
+-   6d7b860: Updates - customizable colors, pagination for docs, prefetch for links, and updated docs
+
+### Patch Changes
+
+-   Updated dependencies [6d7b860]
+    -   @rescribejs/core@0.2.0
+    -   @rescribejs/server@0.2.0
+
 ## 0.1.4
 
 ### Patch Changes

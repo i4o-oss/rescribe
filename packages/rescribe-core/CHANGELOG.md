@@ -1,5 +1,11 @@
 # @rescribejs/core
 
+## 0.2.0
+
+### Minor Changes
+
+-   6d7b860: Updates - customizable colors, pagination for docs, prefetch for links, and updated docs
+
 ## 0.1.4
 
 ### Patch Changes
