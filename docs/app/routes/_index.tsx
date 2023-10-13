@@ -118,7 +118,7 @@ export default function Home() {
 										them to your users with ease.
 									</p>
 									<div className='mt-10 flex items-center justify-center gap-x-6'>
-										<Link to='/docs'>
+										<Link prefetch='viewport' to='/docs'>
 											<PrimaryButton
 												className='h-12'
 												padding='px-8'

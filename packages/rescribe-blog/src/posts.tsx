@@ -40,6 +40,7 @@ export default function Posts({ collection }: { collection: string }) {
 											{/* 	/> */}
 											{/* )} */}
 											<Link
+												prefetch='viewport'
 												to={`/${collection}/${post.frontmatter.slug}`}
 											>
 												<h2 className='rs-text-foreground rs-text-2xl rs-font-bold'>

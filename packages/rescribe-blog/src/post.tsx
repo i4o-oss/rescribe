@@ -13,9 +13,10 @@ export default function Post({ collection }: { collection: string }) {
 		<div className='rs-container rs-max-w-4xl rs-p-6 lg:rs-py-10 lg:rs-px-0'>
 			<div className='rs-flex rs-flex-col rs-items-start rs-gap-y-8 rs-px-6'>
 				<Link
-					to={`/${collection}`}
 					className='rs-inline-flex rs-items-center rs-justify-start rs-text-sm rs-gap-2 rs-font-medium rs-no-underline'
+					prefetch='viewport'
 					target='_self'
+					to={`/${collection}`}
 				>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'

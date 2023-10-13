@@ -35,6 +35,7 @@ export default function Pagination() {
 				{prevPage ? (
 					<Link
 						className='rs-w-full rs-h-full rs-p-4 rs-flex rs-items-center rs-justify-start rs-border rs-border-foreground-subtle/30 rs-rounded-lg rs-gap-2 rs-text-foreground-subtle rs-transition-colors rs-duration-200 hover:rs-text-brand'
+						prefetch='viewport'
 						to={
 							prevPage.link === 'index' ||
 							prevPage.link === '_index'
@@ -62,6 +63,7 @@ export default function Pagination() {
 				{nextPage ? (
 					<Link
 						className='rs-w-full rs-h-full rs-p-4 rs-flex rs-items-center rs-justify-end rs-border rs-border-foreground-subtle/30 rs-rounded-lg rs-gap-2 rs-text-foreground-subtle rs-transition-colors rs-duration-200 hover:rs-text-brand'
+						prefetch='viewport'
 						to={`/${root}/${nextPage?.link}`}
 					>
 						{nextPage?.title}

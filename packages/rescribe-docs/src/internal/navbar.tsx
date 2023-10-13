@@ -23,8 +23,9 @@ function Navbar({
 		<header className='supports-backdrop-blur:rs-bg-white/60 rs-sticky rs-top-0 rs-z-50 rs-flex rs-h-20 rs-w-screen rs-flex-wrap rs-items-center rs-justify-between rs-px-4 rs-py-4 rs-shadow-sm rs-shadow-gray-200 rs-backdrop-blur dark:rs-bg-transparent dark:rs-shadow-gray-700 sm:rs-px-6 lg:rs-px-8'>
 			<div className='rs-relative rs-flex rs-flex-grow rs-basis-0 rs-items-center'>
 				<Link
-					className='rs-flex rs-items-center rs-text-gray-900 dark:rs-text-gray-50'
 					aria-label='Home page'
+					className='rs-flex rs-items-center rs-text-gray-900 dark:rs-text-gray-50'
+					prefetch='viewport'
 					to='/'
 				>
 					{typeof navbar?.logo === 'string' ? (
@@ -63,6 +64,7 @@ function Navbar({
 									) : (
 										<Link
 											className='rs-group rs-flex rs-items-center rs-gap-4 rs-text-gray-400 rs-transition-all rs-duration-300 dark:rs-text-gray-600'
+											prefetch='viewport'
 											to={link.href}
 										>
 											{link.icon ? (
