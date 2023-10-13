@@ -30,11 +30,11 @@ export default function Pagination() {
 
 	return (
 		<>
-			<hr className='rs-w-full rs-my-2 rs-bg-foreground-subtle rs-opacity-30' />
+			<hr className='rs-w-full rs-mt-4 rs-mb-2 rs-bg-foreground-subtle rs-opacity-30' />
 			<div className='rs-w-full rs-h-16 rs-flex rs-items-center rs-justify-start rs-gap-4'>
 				{prevPage ? (
 					<Link
-						className='rs-w-full rs-h-full rs-p-4 rs-flex rs-items-center rs-justify-start rs-border rs-border-foreground-subtle/30 rs-rounded-lg rs-gap-2 rs-text-foreground-subtle'
+						className='rs-w-full rs-h-full rs-p-4 rs-flex rs-items-center rs-justify-start rs-border rs-border-foreground-subtle/30 rs-rounded-lg rs-gap-2 rs-text-foreground-subtle rs-transition-colors rs-duration-200 hover:rs-text-brand'
 						to={
 							prevPage.link === 'index' ||
 							prevPage.link === '_index'
@@ -61,7 +61,7 @@ export default function Pagination() {
 				) : null}
 				{nextPage ? (
 					<Link
-						className='rs-w-full rs-h-full rs-p-4 rs-flex rs-items-center rs-justify-end rs-border rs-border-foreground-subtle/30 rs-rounded-lg rs-gap-2 rs-text-foreground-subtle'
+						className='rs-w-full rs-h-full rs-p-4 rs-flex rs-items-center rs-justify-end rs-border rs-border-foreground-subtle/30 rs-rounded-lg rs-gap-2 rs-text-foreground-subtle rs-transition-colors rs-duration-200 hover:rs-text-brand'
 						to={`/${root}/${nextPage?.link}`}
 					>
 						{nextPage?.title}
