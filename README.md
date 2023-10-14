@@ -18,7 +18,7 @@ pnpm add @rescribejs/core @rescribejs/server
 -   CMS in your codebase
 -   Add blog and docs templates
 -   Bring your own light/dark theme toggle
--   Customizable colors (WIP)
+-   Customizable colors
 -   Out-of-the-box components like accordions, callouts, cards and card groups, lists, and tabs (WIP)
 -   Mobile Responsiveness (WIP)
 -   i18n (coming soon)
