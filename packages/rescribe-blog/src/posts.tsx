@@ -1,8 +1,12 @@
 import { Link, useLoaderData } from '@remix-run/react'
 
 import { format } from 'date-fns'
+import { useContext } from 'react'
+
+import { RescribeBlogContext } from './constants'
 
 export default function Posts({ collection }: { collection: string }) {
+	const config = useContext(RescribeBlogContext)
 	const data = useLoaderData()
 	const { items: posts } = data
 
@@ -11,11 +15,13 @@ export default function Posts({ collection }: { collection: string }) {
 			<div className='rs-flex rs-h-48 rs-flex-col rs-items-start rs-gap-4 md:rs-flex-row md:rs-items-center md:rs-justify-between md:rs-gap-8 rs-px-6'>
 				<div className='rs-flex rs-flex-1 rs-flex-col rs-items-start rs-justify-start rs-space-y-4'>
 					<h1 className='rs-text-foreground rs-inline-block rs-text-4xl rs-font-extrabold rs-tracking-tight lg:rs-text-5xl'>
-						Blog
+						{config?.title}
 					</h1>
-					<p className='rs-text-foreground-subtle rs-text-xl'>
-						Crafts, product updates, and technical details
-					</p>
+					{config?.description ? (
+						<p className='rs-text-foreground-subtle rs-text-xl'>
+							{config?.description}
+						</p>
+					) : null}
 				</div>
 			</div>
 			<div className='rs-flex rs-flex-col rs-items-start rs-justify-start rs-px-6'>
