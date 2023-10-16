@@ -1,5 +1,11 @@
 # @rescribejs/core
 
+## 0.3.0
+
+### Minor Changes
+
+-   d5288bd: Add configuration option for blog and other small changs
+
 ## 0.2.1
 
 ### Patch Changes
