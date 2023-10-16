@@ -1,5 +1,14 @@
 # @rescribejs/docs
 
+## 0.2.1
+
+### Patch Changes
+
+-   d944423: Revert prefetch setting since it's causing issues
+-   Updated dependencies [d944423]
+    -   @rescribejs/core@0.2.1
+    -   @rescribejs/server@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes
