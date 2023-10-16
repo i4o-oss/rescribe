@@ -24,7 +24,6 @@ export function Dashboard() {
 									<Link
 										className='rs-group rs-relative rs-h-48 rs-border-subtle hover:rs-border-brand hover:rs-shadow-glow rs-col-span-1 rs-overflow-hidden rs-rounded-lg rs-border rs-transition-all rs-duration-200 rs-flex rs-flex-col rs-items-start rs-justify-between rs-gap-4 rs-p-6'
 										key={collection.slug}
-										prefetch='viewport'
 										to={`${BASE_PATH}/collections/${collection.slug}`}
 									>
 										<span className='rs-absolute rs-top-4 rs-right-4'>

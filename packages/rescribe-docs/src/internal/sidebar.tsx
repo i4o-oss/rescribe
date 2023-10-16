@@ -46,7 +46,6 @@ function Sidebar() {
 										) : (
 											<Link
 												className='rs-group rs-flex rs-items-center rs-gap-4 rs-text-gray-400 rs-transition-all rs-duration-300 dark:rs-text-gray-600'
-												prefetch='viewport'
 												to={link.href}
 											>
 												<div
@@ -111,7 +110,6 @@ function Sidebar() {
 																		: 'hover:rs-border-brand hover:dark:rs-border-brand hover:rs-text-brand hover:dark:rs-text-brand rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
 																}`}
 																key={j}
-																prefetch='viewport'
 																to={`/${root}`}
 															>
 																{link}
@@ -128,7 +126,6 @@ function Sidebar() {
 																	: 'hover:rs-border-brand hover:dark:rs-border-brand hover:rs-text-brand hover:dark:rs-text-brand rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
 															}`}
 															key={j}
-															prefetch='viewport'
 															to={page}
 														>
 															{link}
@@ -182,7 +179,6 @@ function Sidebar() {
 																	: 'hover:rs-border-brand hover:dark:rs-border-brand hover:rs-text-brand hover:dark:rs-text-brand rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
 															}`}
 															key={j}
-															prefetch='viewport'
 															to={`/${root}`}
 														>
 															{link.title}
@@ -198,7 +194,6 @@ function Sidebar() {
 																? 'rs-border-brand rs-text-brand'
 																: 'hover:rs-border-brand hover:dark:rs-border-brand hover:rs-text-brand hover:dark:rs-text-brand rs-border-transparent rs-text-gray-700 dark:rs-text-gray-200'
 														}`}
-														prefetch='viewport'
 														key={j}
 														to={link.url}
 													>

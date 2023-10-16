@@ -25,7 +25,6 @@ function Navbar({
 				<Link
 					aria-label='Home page'
 					className='rs-flex rs-items-center rs-text-gray-900 dark:rs-text-gray-50'
-					prefetch='viewport'
 					to='/'
 				>
 					{typeof navbar?.logo === 'string' ? (
@@ -64,7 +63,6 @@ function Navbar({
 									) : (
 										<Link
 											className='rs-group rs-flex rs-items-center rs-gap-4 rs-text-gray-400 rs-transition-all rs-duration-300 dark:rs-text-gray-600'
-											prefetch='viewport'
 											to={link.href}
 										>
 											{link.icon ? (

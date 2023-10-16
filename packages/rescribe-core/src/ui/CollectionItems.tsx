@@ -22,10 +22,7 @@ export default function CollectionItems() {
 						{collection?.label || 'Collection'}
 					</h2>
 					{items.length > 0 ? (
-						<Link
-							prefetch='viewport'
-							to={`${location.pathname}/new`}
-						>
+						<Link to={`${location.pathname}/new`}>
 							<PrimaryButton className='rs-text-brand-foreground'>
 								Add item
 							</PrimaryButton>
@@ -64,7 +61,6 @@ export default function CollectionItems() {
 								</p>
 								<Link
 									className='rs-mt-8'
-									prefetch='viewport'
 									to={`${location.pathname}/new`}
 								>
 									<PrimaryButton>Add item</PrimaryButton>
@@ -93,7 +89,6 @@ export default function CollectionItems() {
 										<Link
 											className='rs-col-span-2 rs-px-4 rs-grid rs-h-16 rs-w-full rs-grid-cols-4 rs-gap-4 rs-bg-transparent hover:rs-bg-brand/30'
 											key={item.frontmatter.slug}
-											prefetch='viewport'
 											to={`${location.pathname}/${item.frontmatter.slug}`}
 										>
 											<div className='rs-col-span-2 rs-flex rs-items-center rs-justify-start'>

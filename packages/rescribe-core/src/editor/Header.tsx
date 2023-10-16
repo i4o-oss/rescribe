@@ -33,10 +33,7 @@ export default function Header({
 				} rs-h-24 rs-grid rs-grid-cols-2 rs-gap-8 rs-z-auto`}
 			>
 				<div className='rs-flex rs-items-center rs-justify-start rs-px-8 rs-gap-4'>
-					<Link
-						prefetch='viewport'
-						to={`${BASE_PATH}/collections/${collection?.slug}`}
-					>
+					<Link to={`${BASE_PATH}/collections/${collection?.slug}`}>
 						<Button
 							className='rs-h-8 rs-pl-2 !rs-bg-transparent'
 							leftIcon={

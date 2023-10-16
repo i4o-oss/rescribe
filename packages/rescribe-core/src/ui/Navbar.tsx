@@ -75,7 +75,6 @@ export default function Navbar() {
 				<div className='rs-flex rs-flex-grow rs-items-center rs-justify-start rs-gap-4 rs-text-sm rs-text-foreground'>
 					<Link
 						className='rs-inline-flex rs-items-center rs-gap-2'
-						prefetch='viewport'
 						to={BASE_PATH}
 					>
 						<svg

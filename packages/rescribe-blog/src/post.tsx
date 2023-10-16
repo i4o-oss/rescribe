@@ -14,7 +14,6 @@ export default function Post({ collection }: { collection: string }) {
 			<div className='rs-flex rs-flex-col rs-items-start rs-gap-y-8 rs-px-6'>
 				<Link
 					className='rs-inline-flex rs-items-center rs-justify-start rs-text-sm rs-gap-2 rs-font-medium rs-no-underline'
-					prefetch='viewport'
 					target='_self'
 					to={`/${collection}`}
 				>
