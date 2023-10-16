@@ -75,11 +75,6 @@ export interface RescribeProviderProps {
 	config: RescribeDocsConfig | undefined
 }
 
-export interface RescribeDataProviderProps {
-	children: ReactNode
-	data: any
-}
-
 export interface MdxFile {
 	base: string
 	data?: unknown

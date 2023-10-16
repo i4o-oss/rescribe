@@ -1,5 +1,5 @@
-import { RescribeDocsContext } from '../constants'
-import type { RescribeProviderProps } from '../types'
+import { RescribeDocsContext } from './constants'
+import type { RescribeProviderProps } from './types'
 
 export default function RescribeProvider(props: RescribeProviderProps) {
 	return (

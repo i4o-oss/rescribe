@@ -9,5 +9,3 @@ export const MARKDOWN_EXTENSION_REGEX = /\.mdx?$/
 export const RescribeDocsContext = createContext<
 	RescribeDocsConfig | undefined
 >(undefined)
-
-export const RescribeDataContext = createContext({})

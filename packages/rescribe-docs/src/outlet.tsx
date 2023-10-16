@@ -17,11 +17,11 @@ import {
 	TabGroup,
 } from './components'
 import { RescribeDocsContext } from './constants'
-import RescribeProvider from './core/provider'
 import { Footer, Navbar } from './internal'
 import Pagination from './internal/Pagination'
 import Sidebar from './internal/sidebar'
 import ToC from './internal/toc'
+import RescribeProvider from './provider'
 import { RescribeDocsConfig } from './types'
 
 type DocsOutletContext = {
@@ -48,7 +48,7 @@ export const links: LinksFunction = () => {
 
 export default function DocsOutlet({ context }: DocsOutletProps) {
 	const docsConfig = useContext(RescribeDocsContext)
-	const config = docsConfig ?? context?.docsConfig
+	const config = context?.docsConfig ?? docsConfig
 	const data = useLoaderData()
 	const [mdxModule, setMdxModule] = useState()
 	const { code, frontmatter, headings, group } = data
