@@ -1,5 +1,17 @@
 # @rescribejs/blog
 
+## 0.3.0
+
+### Minor Changes
+
+-   d5288bd: Add configuration option for blog and other small changs
+
+### Patch Changes
+
+-   Updated dependencies [d5288bd]
+    -   @rescribejs/core@0.3.0
+    -   @rescribejs/server@0.3.0
+
 ## 0.2.1
 
 ### Patch Changes
