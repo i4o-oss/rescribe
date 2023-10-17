@@ -16,11 +16,14 @@ pnpm add @rescribejs/core @rescribejs/server
 
 -   Made for Remix
 -   CMS in your codebase
--   Add blog and docs templates
+-   Organize content in collections
+-   Customizable editor fields for each collection
+-   Blog and docs templates
 -   Bring your own light/dark theme toggle
 -   Customizable colors
--   Out-of-the-box components like accordions, callouts, cards and card groups, lists, and tabs (WIP)
 -   Mobile Responsiveness (WIP)
+-   Full MDX support
+-   Out-of-the-box components like accordions, callouts, cards and card groups, lists, and tabs (Coming Soon)
 -   i18n (coming soon)
 
 ## Roadmap
