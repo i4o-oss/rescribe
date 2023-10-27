@@ -1,7 +1,63 @@
 ---
-createdAt: 2023-09-25T10:51:11.923Z
+createdAt: 2023-10-27T08:41:20.713Z
 title: Collections
 slug: collections
 ---
 
-Your content is organized via collections. A collection is a top-level entity for related content — documentation, blog posts, changelogs, etc. You can create a collection in your Rescribe configuration using the `collection()` function.
+A collection is how you can organize your content. Each key-value in the `collections` object represents a content collection. We can create a collection using `collection()`. You can create as many collections as you want. Each collection can be configured independently.
+
+## Collection Options
+
+Here are the options available for each collection:
+
+### `format`
+
+All content is saved as markdown in your codebase in the local filesystem. The `format` option allows you to either save them as `md` or `mdx` files.
+
+Acceptable values are `‘md’ | ‘mdx'`
+
+### `label`
+
+The label with which you want to identify this collection in the admin UI.
+
+### `slug`
+
+This will be the slug under which you can access the collection in the admin UI.
+
+### `path`
+
+The path where you want to store your content. `path` values could have glob patterns in them.  Rescribe will create any directory or directories — based on the `slug` of a collection item — inside your `app` directory.
+
+Example: `’content/docs/**/*’` or `’content/blog/*’` or \`’content/changelog/\*\*/\*/
+
+### `schema`
+
+This is where you define what fields you want in the editor for each collection, what those fields represent, etc. To learn more about what fields are supported, check [Fields API](/docs/fields/boolean).
+
+For example, this is the schema that the docs in this site uses.
+
+```javascript
+schema: {
+	title: fields.text({
+		label: 'Title',
+		description: 'Page Title',
+	}),
+	content: fields.document({
+		label: 'Content',
+	}),
+	slug: fields.slug({
+		label: 'Page URL',
+		description: 'URL of the page',
+	}),
+}
+```
+
+Some fields are required by default:
+
+* title - `text` field
+* content - `document` field
+* slug - `slug` field
+
+All fields except `document` field will be stored in the markdown file’s frontmatter. Content entered in the `document` field will be the content of the markdown file.
+
+*Note: Rescribe automatically creates and updates* `createdAt` *and* `updatedAt` *fields in your frontmatter behind the scenes, so you don’t have to add them.*
