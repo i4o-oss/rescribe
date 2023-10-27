@@ -86,7 +86,7 @@ export default function DocsOutlet({ context }: DocsOutletProps) {
 			<div className='rs-relative rs-mx-auto rs-flex rs-w-full rs-max-w-[88rem] rs-justify-between sm:rs-px-2 lg:rs-px-8 xl:rs-px-12'>
 				<Sidebar />
 				<article className='rs-flex rs-flex-col rs-items-start rs-justify-start rs-px-8 rs-py-16 lg:rs-pr-0 lg:rs-pl-0 xl:rs-px-16 rs-gap-y-4'>
-					<span className='rs-text-xs rs-font-semibold rs-uppercase rs-text-brand-500'>
+					<span className='rs-text-xs rs-font-semibold rs-uppercase rs-text-brand'>
 						{groupTitle}
 					</span>
 					<h1 className='rs-text-foreground rs-inline-block rs-text-4xl rs-font-extrabold rs-tracking-tight lg:rs-text-5xl rs-text-slate-900 dark:rs-text-slate-50'>
