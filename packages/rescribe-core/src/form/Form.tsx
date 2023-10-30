@@ -1,11 +1,12 @@
 import { useActionData, useFetcher, useLocation } from '@remix-run/react'
 
 import { useForm } from '@conform-to/react'
-import { IconButton, ScrollArea } from '@i4o/catalystui'
+import { ScrollArea } from '@i4o/catalystui'
 import type { Dispatch, SetStateAction } from 'react'
 import { useContext } from 'react'
 import invariant from 'tiny-invariant'
 
+import { Button } from '../components/Button'
 import Header from '../editor/Header'
 import InputRenderer from '../editor/InputRenderer'
 import { CollectionContext, EditorProvider } from '../providers'
@@ -111,32 +112,32 @@ const Form = ({
 						<span className='rs-text-lg rs-font-semibold'>
 							Settings
 						</span>
-						<IconButton
+						<Button
 							className='rs-w-8 rs-h-8 rs-p-1 !rs-bg-transparent'
-							icon={
-								<svg
-									xmlns='http://www.w3.org/2000/svg'
-									viewBox='0 0 24 24'
-									fill='none'
-									stroke='currentColor'
-									strokeWidth='2'
-									strokeLinecap='round'
-									strokeLinejoin='round'
-									className='rs-w-4 rs-h-4'
-								>
-									<rect
-										width='18'
-										height='18'
-										x='3'
-										y='3'
-										rx='2'
-										ry='2'
-									/>
-									<line x1='15' x2='15' y1='3' y2='21' />
-								</svg>
-							}
 							onClick={() => setSheetOpen(false)}
-						/>
+							size='icon'
+						>
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								viewBox='0 0 24 24'
+								fill='none'
+								stroke='currentColor'
+								strokeWidth='2'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+								className='rs-w-4 rs-h-4'
+							>
+								<rect
+									width='18'
+									height='18'
+									x='3'
+									y='3'
+									rx='2'
+									ry='2'
+								/>
+								<line x1='15' x2='15' y1='3' y2='21' />
+							</svg>
+						</Button>
 					</div>
 					<div className='rs-w-full rs-flex rs-flex-col rs-gap-8'>
 						{otherInputs}

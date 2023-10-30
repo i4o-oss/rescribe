@@ -1,3 +1,6 @@
+import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
 import { BASE_PATH_REGEX } from './constants'
 
 export function parseAdminPathname({
@@ -57,4 +60,8 @@ export function parseOutputPathname({ pathname }: { pathname: string }) {
 	}
 
 	return null
+}
+
+export function cn(...inputs: ClassValue[]) {
+	return twMerge(clsx(inputs))
 }

@@ -1,11 +1,16 @@
 import type { Location } from '@remix-run/react'
-import { useNavigate } from '@remix-run/react'
-import { Link, useLocation } from '@remix-run/react'
+import { Link, useLocation, useNavigate } from '@remix-run/react'
 
-import { Select } from '@i4o/catalystui'
 import { useContext, useEffect, useMemo, useState } from 'react'
 import invariant from 'tiny-invariant'
 
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '../components/Select'
 import { BASE_PATH } from '../constants'
 import { parseAdminPathname } from '../helpers'
 import { RescribeContext } from '../providers'
@@ -50,11 +55,21 @@ function CollectionSelector({
 
 	return (
 		<Select
-			items={COLLECTION_SELECT_ITEMS}
 			name='collectionSelector'
 			onValueChange={collectionChangeHandler}
 			value={selectedCollection}
-		/>
+		>
+			<SelectTrigger className='!rs-w-[180px]'>
+				<SelectValue placeholder='Collection' />
+			</SelectTrigger>
+			<SelectContent>
+				{COLLECTION_SELECT_ITEMS.map((item) => (
+					<SelectItem key={item.value} value={item.value}>
+						{item.label}
+					</SelectItem>
+				))}
+			</SelectContent>
+		</Select>
 	)
 }
 

@@ -1,9 +1,9 @@
 import { Link, useLoaderData, useLocation } from '@remix-run/react'
 
-import { PrimaryButton } from '@i4o/catalystui'
 import { format, formatDistance } from 'date-fns'
 import { useContext } from 'react'
 
+import { Button } from '../components/Button'
 import { CollectionContext } from '../providers'
 import type { Collection } from '../types'
 
@@ -23,9 +23,9 @@ export default function CollectionItems() {
 					</h2>
 					{items.length > 0 ? (
 						<Link to={`${location.pathname}/new`}>
-							<PrimaryButton className='rs-text-brand-foreground'>
+							<Button className='rs-text-brand-foreground'>
 								Add item
-							</PrimaryButton>
+							</Button>
 						</Link>
 					) : null}
 				</div>
@@ -63,7 +63,7 @@ export default function CollectionItems() {
 									className='rs-mt-8'
 									to={`${location.pathname}/new`}
 								>
-									<PrimaryButton>Add item</PrimaryButton>
+									<Button>Add item</Button>
 								</Link>
 							</div>
 						</div>
