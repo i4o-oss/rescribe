@@ -14,7 +14,7 @@ export async function handleBlogLoader({
 	const params = parseOutputPathname({ pathname: url.pathname })
 
 	if (params?.collection && params.root) {
-		const items = await blog.all()
+		const items = await blog.all({ filter: { published: true } })
 		return json({ items })
 	} else if (params?.collection && params.slug) {
 		const item = await blog.unique({
