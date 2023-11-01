@@ -8,9 +8,16 @@ import YAML from 'yaml'
 import { z } from 'zod'
 
 import { compileMdx } from './compile'
+import { AllParams } from './types'
 import { getMdxHeadings } from './utils/mdx'
 
-export async function readItemsInCollection(collection: Collection) {
+export async function readItemsInCollection({
+	collection,
+	options,
+}: {
+	collection: Collection
+	options?: AllParams
+}) {
 	const fullPath = getPath(collection)
 	const entries = await fg(fullPath, { onlyFiles: false })
 	const items = await Promise.all(
@@ -40,6 +47,21 @@ export async function readItemsInCollection(collection: Collection) {
 			new Date(b.frontmatter.createdAt).valueOf() -
 			new Date(a.frontmatter.createdAt).valueOf()
 	)
+
+	if (options?.filter) {
+		let filteredItems: { filePath: string; frontmatter: any }[] = []
+		for (const key in options.filter) {
+			const value = options.filter[key]
+
+			filteredItems = sortedItems.filter(
+				(item) =>
+					item.frontmatter.hasOwnProperty(key) &&
+					item.frontmatter[key] === value
+			)
+		}
+
+		return filteredItems
+	}
 
 	return sortedItems
 }

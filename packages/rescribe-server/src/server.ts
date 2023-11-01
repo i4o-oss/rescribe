@@ -27,7 +27,7 @@ export async function handleLoader({ config, request }: LoaderHandlerArgs) {
 		return json({})
 	} else if (params.collection && !params.action) {
 		const collection = collections[params.collection]
-		const items = await readItemsInCollection(collection)
+		const items = await readItemsInCollection({ collection })
 		return json({ items })
 	} else if (params.collection && params.action === 'create') {
 		const collection = collections[params.collection]
