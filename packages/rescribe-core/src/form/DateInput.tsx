@@ -11,7 +11,7 @@ type Props = DateField & {
 
 export default function DateInput({ fieldConfig, ...fieldData }: Props) {
 	const [date, setDate] = useState<Date | undefined>(
-		new Date(fieldConfig.defaultValue) || new Date()
+		fieldConfig.defaultValue || new Date()
 	)
 
 	return (
