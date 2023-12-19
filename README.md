@@ -4,7 +4,7 @@ Content manager for your Remix codebase
 
 ## Documentation
 
-Coming Soon
+For the full documentation, visit [rescribe.site](https://rescribe.site/)
 
 ## Installation
 
