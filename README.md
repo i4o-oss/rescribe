@@ -1,3 +1,6 @@
+> [!NOTE]  
+> This project will be archived soon and will no longer receive updates. While I would have loved to work on this and add the features I wanted to see in an embeddable CMS, my day job and another side project takes priority. I no longer have the time or energy to keep this project going. If you're using Remix and want a CMS, check out [Keystatic](https://keystatic.com/) or [Payload](https://payloadcms.com/). They both have great people behind it and are far ahead of what I can build on my own.
+
 # Rescribe
 
 Content manager for your Remix codebase
